@@ -24,7 +24,7 @@ Inhaltsverzeichnis
 2.2.3 Fazit: 
 2.2.4 Teststellung
 2.3 Python-Server & Protokoll
-2.3.1 Protkoll
+2.3.1 Protokoll
 2.3.2 Framework
 2.3.3 Testcode
 2.3.4 Implementierung
@@ -51,7 +51,52 @@ Inhaltsverzeichnis
 
 5. Fazit
 
+\chapter{Einleitung}
+\section{Projektbeschreibung}
+\section{Teilprojekte}
 
+\chapter{Hauptteil}
+\section{LED-Pixel}
+\subsection{Bewertungskriterien}
+\subsection{Evaluierung}
+\subsection{Teststellung}
+
+\section{Bewegungssensor}
+\subsection{Bewertungskriterien}
+\subsection{Evaluierung}
+\subsection{Fazit}
+\subsection{Teststellung}
+
+\section{Python-Server & Protokoll}
+\subsection{Protokoll}
+\subsection{Framework}
+\subsection{Testcode}
+\subsection{Implementierung}
+\subsection{Klassen und ihre Funktionen}
+\subsection{Hashfunktion}
+
+\section{Verschlüsselung}
+\subsection{SSL vs. TLS}
+\subsection{Vor- und Nachteile TLS}
+\subsection{TLS Handshake}
+\subsection{Zertifikat und Key}
+\subsection{Beispielcode Server}
+\subsection{Wireshark Trace}
+
+\section{Kamera}
+\subsection{PI-Kamera vs. Netzwerkkamera}
+\subsection{Ansteuerung}
+
+\section{iOS App}
+\subsection{Konzept}
+\subsection{...}
+\subsection{...}
+
+\chapter{Praktische Umsetzung}
+
+\chapter{Kostenaufstellung}
+
+\chapter{Fazit}
 
 Schriftliche Ausarbeitung
 

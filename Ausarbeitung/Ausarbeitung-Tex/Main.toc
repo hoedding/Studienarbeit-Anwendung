@@ -1,0 +1,37 @@
+\contentsline {chapter}{\numberline {1}Einleitung}{4}
+\contentsline {section}{\numberline {1.1}Projektbeschreibung}{4}
+\contentsline {section}{\numberline {1.2}Teilprojekte}{4}
+\contentsline {chapter}{\numberline {2}Hauptteil}{5}
+\contentsline {section}{\numberline {2.1}LED-Pixel}{6}
+\contentsline {subsection}{\numberline {2.1.1}Bewertungskriterien}{6}
+\contentsline {subsection}{\numberline {2.1.2}Evaluierung}{6}
+\contentsline {subsection}{\numberline {2.1.3}Teststellung}{6}
+\contentsline {section}{\numberline {2.2}Bewegungssensor}{6}
+\contentsline {subsection}{\numberline {2.2.1}Bewertungskriterien}{6}
+\contentsline {subsection}{\numberline {2.2.2}Evaluierung}{6}
+\contentsline {subsection}{\numberline {2.2.3}Fazit}{6}
+\contentsline {subsection}{\numberline {2.2.4}Teststellung}{6}
+\contentsline {section}{\numberline {2.3}Python-Server und Protokoll}{6}
+\contentsline {subsection}{\numberline {2.3.1}Protokoll}{6}
+\contentsline {subsection}{\numberline {2.3.2}Framework}{6}
+\contentsline {subsection}{\numberline {2.3.3}Testcode}{6}
+\contentsline {subsection}{\numberline {2.3.4}Implementierung}{6}
+\contentsline {subsection}{\numberline {2.3.5}Klassen und ihre Funktionen}{6}
+\contentsline {subsection}{\numberline {2.3.6}Hashfunktion}{6}
+\contentsline {section}{\numberline {2.4}Verschl\IeC {\"u}sselung}{6}
+\contentsline {subsection}{\numberline {2.4.1}SSL vs. TLS}{6}
+\contentsline {subsection}{\numberline {2.4.2}Vor- und Nachteile TLS}{6}
+\contentsline {subsection}{\numberline {2.4.3}TLS Handshake}{6}
+\contentsline {subsection}{\numberline {2.4.4}Zertifikat und Key}{6}
+\contentsline {subsection}{\numberline {2.4.5}Beispielcode Server}{6}
+\contentsline {subsection}{\numberline {2.4.6}Wireshark Trace}{6}
+\contentsline {section}{\numberline {2.5}Kamera}{6}
+\contentsline {subsection}{\numberline {2.5.1}PI-Kamera vs. Netzwerkkamera}{6}
+\contentsline {subsection}{\numberline {2.5.2}Ansteuerung}{6}
+\contentsline {section}{\numberline {2.6}iOS App}{6}
+\contentsline {subsection}{\numberline {2.6.1}Konzept}{6}
+\contentsline {subsection}{\numberline {2.6.2}...}{6}
+\contentsline {subsection}{\numberline {2.6.3}...}{6}
+\contentsline {chapter}{\numberline {3}Praktische Umsetzung}{7}
+\contentsline {chapter}{\numberline {4}Kostenaufstellung}{8}
+\contentsline {chapter}{\numberline {5}Fazit}{9}
