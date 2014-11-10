@@ -29,3 +29,4 @@ DerivedData
 *.key
 *.crt
 *.csr
+*.log

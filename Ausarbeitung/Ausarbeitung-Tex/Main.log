@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.4-1.40.13 (TeX Live 2012) (format=pdflatex 2012.6.30)  10 NOV 2014 17:30
+This is pdfTeX, Version 3.1415926-2.4-1.40.13 (TeX Live 2012) (format=pdflatex 2012.6.30)  10 NOV 2014 22:52
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -16,6 +16,7 @@ kurmanji, latin, latvian, lithuanian, mongolian, mongolianlmc, bokmal, nynorsk,
  polish, portuguese, romanian, romansh, russian, sanskrit, serbian, serbianc, s
 lovak, slovenian, spanish, swedish, turkish, turkmen, ukrainian, uppersorbian, 
 welsh, loaded.
+(./content/definitions.tex
 (/usr/local/texlive/2012/texmf-dist/tex/latex/koma-script/scrreprt.cls
 Document Class: scrreprt 2012/05/15 v3.11 KOMA-Script document class (report)
 (/usr/local/texlive/2012/texmf-dist/tex/latex/koma-script/scrkbase.sty
@@ -646,28 +647,28 @@ Package textcomp Info: Setting ptmj sub-encoding to TS1/4 on input line 340.
 \f@ncyO@erf=\skip56
 \f@ncyO@olf=\skip57
 \f@ncyO@orf=\skip58
-)
+))
 (./Main.aux)
 \openout1 = `Main.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 34.
-LaTeX Font Info:    ... okay on input line 34.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 34.
-LaTeX Font Info:    ... okay on input line 34.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 34.
-LaTeX Font Info:    ... okay on input line 34.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 34.
-LaTeX Font Info:    ... okay on input line 34.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 34.
-LaTeX Font Info:    ... okay on input line 34.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 34.
-LaTeX Font Info:    ... okay on input line 34.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 34.
-LaTeX Font Info:    Try loading font information for TS1+cmr on input line 34.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 3.
+LaTeX Font Info:    ... okay on input line 3.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 3.
+LaTeX Font Info:    ... okay on input line 3.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 3.
+LaTeX Font Info:    ... okay on input line 3.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 3.
+LaTeX Font Info:    ... okay on input line 3.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 3.
+LaTeX Font Info:    ... okay on input line 3.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 3.
+LaTeX Font Info:    ... okay on input line 3.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 3.
+LaTeX Font Info:    Try loading font information for TS1+cmr on input line 3.
  (/usr/local/texlive/2012/texmf-dist/tex/latex/base/ts1cmr.fd
 File: ts1cmr.fd 1999/05/25 v2.5h Standard LaTeX font definitions
 )
-LaTeX Font Info:    ... okay on input line 34.
+LaTeX Font Info:    ... okay on input line 3.
 \c@lstlisting=\count106
 \AtBeginShipoutBox=\box32
 
@@ -766,33 +767,33 @@ e
 File: ./data/deckblatt.pdf Graphic file (type pdf)
 
 <use ./data/deckblatt.pdf, page 1>
-Package pdftex.def Info: ./data/deckblatt.pdf, page1 used on input line 37.
+Package pdftex.def Info: ./data/deckblatt.pdf, page1 used on input line 6.
 (pdftex.def)             Requested size: 597.50787pt x 845.38922pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 37--38
+Underfull \hbox (badness 10000) in paragraph at lines 6--7
 
  []
 
 
-LaTeX Warning: Float too large for page by 157.10614pt on input line 38.
+LaTeX Warning: Float too large for page by 157.10614pt on input line 7.
 
 [1 <./data/deckblatt.pdf>]
 <./data/deckblatt.pdf, id=37, page=2, 597.6729pt x 845.55902pt>
 File: ./data/deckblatt.pdf Graphic file (type pdf)
 
 <use ./data/deckblatt.pdf, page 2>
-Package pdftex.def Info: ./data/deckblatt.pdf, page2 used on input line 42.
+Package pdftex.def Info: ./data/deckblatt.pdf, page2 used on input line 11.
 (pdftex.def)             Requested size: 597.50787pt x 845.38922pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 42--43
+Underfull \hbox (badness 10000) in paragraph at lines 11--12
 
  []
 
 
-LaTeX Warning: Float too large for page by 157.10614pt on input line 43.
+LaTeX Warning: Float too large for page by 157.10614pt on input line 12.
 
 [2 <./data/deckblatt.pdf>]
-LaTeX Font Info:    Try loading font information for T1+cmss on input line 45.
+LaTeX Font Info:    Try loading font information for T1+cmss on input line 14.
 
 (/usr/local/texlive/2012/texmf-dist/tex/latex/base/t1cmss.fd
 File: t1cmss.fd 1999/05/25 v2.5h Standard LaTeX font definitions
@@ -803,22 +804,11 @@ LaTeX Font Info:    External font `cmex10' loaded for size
 (Font)              <8> on input line 2.
 LaTeX Font Info:    External font `cmex10' loaded for size
 (Font)              <6> on input line 2.
-)
-\tf@toc=\write3
-\openout3 = `Main.toc'.
 
-
-[3
-
-
-
-
-
-{/usr/local/texlive/2012/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
-<./data/dhbwlogo.jpg, id=76, 138.9993pt x 66.9702pt>
+<./data/dhbwlogo.jpg, id=70, 138.9993pt x 66.9702pt>
 File: ./data/dhbwlogo.jpg Graphic file (type jpg)
  <use ./data/dhbwlogo.jpg>
-Package pdftex.def Info: ./data/dhbwlogo.jpg used on input line 47.
+Package pdftex.def Info: ./data/dhbwlogo.jpg used on input line 48.
 (pdftex.def)             Requested size: 41.7001pt x 20.0912pt.
 
 
@@ -827,7 +817,17 @@ Package Fancyhdr Warning: \headheight is too small (18.125pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[4 <./data/dhbwlogo.jpg>]
+[3{/usr/local/texlive/2012/texmf-var/fonts/map/pdftex/updmap/pdftex.map}
+
+
+
+
+
+ <./data/dhbwlogo.jpg>])
+\tf@toc=\write3
+\openout3 = `Main.toc'.
+
+ [4]
 Kapitel 1.
 
 Class scrreprt Warning: \float@addtolists detected!
@@ -836,9 +836,10 @@ Class scrreprt Warning: \float@addtolists detected!
 (scrreprt)              Support for \float@addtolists may be removed from
 (scrreprt)              `scrreprt' soon .
 
+(./content/einleitung.tex)
 File: ./data/dhbwlogo.jpg Graphic file (type jpg)
-<use ./data/dhbwlogo.jpg>
-Package pdftex.def Info: ./data/dhbwlogo.jpg used on input line 70.
+ <use ./data/dhbwlogo.jpg>
+Package pdftex.def Info: ./data/dhbwlogo.jpg used on input line 17.
 (pdftex.def)             Requested size: 41.7001pt x 20.0912pt.
 
 
@@ -851,14 +852,14 @@ Package Fancyhdr Warning: \headheight is too small (18.125pt):
 
 ]
 Kapitel 2.
-
-Underfull \hbox (badness 10000) in paragraph at lines 94--103
+(./content/ledpixel.tex
+Underfull \hbox (badness 10000) in paragraph at lines 24--33
 
  []
 
 File: ./data/dhbwlogo.jpg Graphic file (type jpg)
 <use ./data/dhbwlogo.jpg>
-Package pdftex.def Info: ./data/dhbwlogo.jpg used on input line 103.
+Package pdftex.def Info: ./data/dhbwlogo.jpg used on input line 33.
 (pdftex.def)             Requested size: 41.7001pt x 20.0912pt.
 
 
@@ -872,7 +873,7 @@ Package Fancyhdr Warning: \headheight is too small (18.125pt):
 ]
 File: ./data/dhbwlogo.jpg Graphic file (type jpg)
  <use ./data/dhbwlogo.jpg>
-Package pdftex.def Info: ./data/dhbwlogo.jpg used on input line 136.
+Package pdftex.def Info: ./data/dhbwlogo.jpg used on input line 66.
 (pdftex.def)             Requested size: 41.7001pt x 20.0912pt.
 
 
@@ -887,7 +888,7 @@ File: lstlang1.sty 2004/09/05 1.3 listings language file
 File: ./data/dhbwlogo.jpg Graphic file (type jpg)
 
 <use ./data/dhbwlogo.jpg>
-Package pdftex.def Info: ./data/dhbwlogo.jpg used on input line 175.
+Package pdftex.def Info: ./data/dhbwlogo.jpg used on input line 105.
 (pdftex.def)             Requested size: 41.7001pt x 20.0912pt.
 
 
@@ -896,19 +897,19 @@ Package Fancyhdr Warning: \headheight is too small (18.125pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[8]
-Underfull \hbox (badness 10000) in paragraph at lines 201--207
+[8]) (./content/bewegungssensor.tex
+Underfull \hbox (badness 10000) in paragraph at lines 20--26
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 207--213
+Underfull \hbox (badness 10000) in paragraph at lines 26--32
 
  []
 
 File: ./data/dhbwlogo.jpg Graphic file (type jpg)
 <use ./data/dhbwlogo.jpg>
-Package pdftex.def Info: ./data/dhbwlogo.jpg used on input line 213.
+Package pdftex.def Info: ./data/dhbwlogo.jpg used on input line 32.
 (pdftex.def)             Requested size: 41.7001pt x 20.0912pt.
 
 
@@ -918,19 +919,19 @@ Package Fancyhdr Warning: \headheight is too small (18.125pt):
  This may cause the page layout to be inconsistent, however.
 
 [9]
-Overfull \hbox (187.8583pt too wide) in paragraph at lines 213--219
+Overfull \hbox (187.8583pt too wide) in paragraph at lines 32--38
 \T1/cmr/m/n/12 Link: http://www.amazon.de/Pyroelectrische-Infrarot-Bewegung-Sen
 sor-Detektor/dp/B008AESDSY/ref=pd_cp_ce_0 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 213--219
+Underfull \hbox (badness 10000) in paragraph at lines 32--38
 
  []
 
 File: ./data/dhbwlogo.jpg Graphic file (type jpg)
 <use ./data/dhbwlogo.jpg>
-Package pdftex.def Info: ./data/dhbwlogo.jpg used on input line 250.
+Package pdftex.def Info: ./data/dhbwlogo.jpg used on input line 64.
 (pdftex.def)             Requested size: 41.7001pt x 20.0912pt.
 
 
@@ -940,9 +941,25 @@ Package Fancyhdr Warning: \headheight is too small (18.125pt):
  This may cause the page layout to be inconsistent, however.
 
 [10]
+
+! Package inputenc Error: Unicode char \u8:√\lst@ECÑ not set up for use with La
+TeX.
+
+See the inputenc package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.74 ...us definieren um verschiedene √Ñnderungen 
+                                                  zu erkennen
+? 
+) (./content/serverprotokoll.tex
+Underfull \hbox (badness 10000) in paragraph at lines 3--4
+
+ []
+
 File: ./data/dhbwlogo.jpg Graphic file (type jpg)
- <use ./data/dhbwlogo.jpg>
-Package pdftex.def Info: ./data/dhbwlogo.jpg used on input line 250.
+<use ./data/dhbwlogo.jpg>
+Package pdftex.def Info: ./data/dhbwlogo.jpg used on input line 4.
 (pdftex.def)             Requested size: 41.7001pt x 20.0912pt.
 
 
@@ -952,10 +969,13 @@ Package Fancyhdr Warning: \headheight is too small (18.125pt):
  This may cause the page layout to be inconsistent, however.
 
 [11]
-Kapitel 3.
+Underfull \hbox (badness 10000) in paragraph at lines 7--16
+
+ []
+
 File: ./data/dhbwlogo.jpg Graphic file (type jpg)
 <use ./data/dhbwlogo.jpg>
-Package pdftex.def Info: ./data/dhbwlogo.jpg used on input line 252.
+Package pdftex.def Info: ./data/dhbwlogo.jpg used on input line 34.
 (pdftex.def)             Requested size: 41.7001pt x 20.0912pt.
 
 
@@ -964,13 +984,144 @@ Package Fancyhdr Warning: \headheight is too small (18.125pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[12
+[12]
+
+! Package inputenc Error: Unicode char \u8:√\lst@ECº not set up for use with La
+TeX.
+
+See the inputenc package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.40 Dies w√ºrde 
+                 die LEDs 0 bis 49 einschalten (Farbe weis 255,255,255)
+? 
+
+Underfull \hbox (badness 10000) in paragraph at lines 43--46
+
+ []
+
+File: ./data/dhbwlogo.jpg Graphic file (type jpg)
+<use ./data/dhbwlogo.jpg>
+Package pdftex.def Info: ./data/dhbwlogo.jpg used on input line 72.
+(pdftex.def)             Requested size: 41.7001pt x 20.0912pt.
+
+
+Package Fancyhdr Warning: \headheight is too small (18.125pt): 
+ Make it at least 27.11469pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[13]
+Underfull \hbox (badness 10000) in paragraph at lines 77--78
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 77--78
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 88--92
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 94--96
+
+ []
+
+File: ./data/dhbwlogo.jpg Graphic file (type jpg)
+<use ./data/dhbwlogo.jpg>
+Package pdftex.def Info: ./data/dhbwlogo.jpg used on input line 96.
+(pdftex.def)             Requested size: 41.7001pt x 20.0912pt.
+
+
+Package Fancyhdr Warning: \headheight is too small (18.125pt): 
+ Make it at least 27.11469pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[14]
+Underfull \hbox (badness 10000) in paragraph at lines 98--110
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 122--124
+
+ []
+
+File: ./data/dhbwlogo.jpg Graphic file (type jpg)
+<use ./data/dhbwlogo.jpg>
+Package pdftex.def Info: ./data/dhbwlogo.jpg used on input line 130.
+(pdftex.def)             Requested size: 41.7001pt x 20.0912pt.
+
+
+Package Fancyhdr Warning: \headheight is too small (18.125pt): 
+ Make it at least 27.11469pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[15]
+ngerman: "RR is now obsolete, please use RRR instead on input line 155.
+! ngerman: The command "g is undefined.
+\grmn@dq@error ...and \dq \string #1 is undefined}
+                                                  
+l.155 ...thalten ist. Daraufhin wird mit "READY" g
+                                                  eantwortet um dem Client z...
+
+? 
+
+Underfull \hbox (badness 10000) in paragraph at lines 155--157
+
+ []
+
+)
+File: ./data/dhbwlogo.jpg Graphic file (type jpg)
+ <use ./data/dhbwlogo.jpg>
+Package pdftex.def Info: ./data/dhbwlogo.jpg used on input line 35.
+(pdftex.def)             Requested size: 41.7001pt x 20.0912pt.
+
+
+Package Fancyhdr Warning: \headheight is too small (18.125pt): 
+ Make it at least 27.11469pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[16]
+File: ./data/dhbwlogo.jpg Graphic file (type jpg)
+ <use ./data/dhbwlogo.jpg>
+Package pdftex.def Info: ./data/dhbwlogo.jpg used on input line 35.
+(pdftex.def)             Requested size: 41.7001pt x 20.0912pt.
+
+
+Package Fancyhdr Warning: \headheight is too small (18.125pt): 
+ Make it at least 27.11469pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[17]
+Kapitel 3.
+File: ./data/dhbwlogo.jpg Graphic file (type jpg)
+<use ./data/dhbwlogo.jpg>
+Package pdftex.def Info: ./data/dhbwlogo.jpg used on input line 37.
+(pdftex.def)             Requested size: 41.7001pt x 20.0912pt.
+
+
+Package Fancyhdr Warning: \headheight is too small (18.125pt): 
+ Make it at least 27.11469pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[18
 
 ]
 Kapitel 4.
 File: ./data/dhbwlogo.jpg Graphic file (type jpg)
 <use ./data/dhbwlogo.jpg>
-Package pdftex.def Info: ./data/dhbwlogo.jpg used on input line 254.
+Package pdftex.def Info: ./data/dhbwlogo.jpg used on input line 39.
 (pdftex.def)             Requested size: 41.7001pt x 20.0912pt.
 
 
@@ -979,13 +1130,13 @@ Package Fancyhdr Warning: \headheight is too small (18.125pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[13
+[19
 
 ]
 Kapitel 5.
 File: ./data/dhbwlogo.jpg Graphic file (type jpg)
 <use ./data/dhbwlogo.jpg>
-Package pdftex.def Info: ./data/dhbwlogo.jpg used on input line 257.
+Package pdftex.def Info: ./data/dhbwlogo.jpg used on input line 42.
 (pdftex.def)             Requested size: 41.7001pt x 20.0912pt.
 
 
@@ -994,17 +1145,17 @@ Package Fancyhdr Warning: \headheight is too small (18.125pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[14
+[20
 
 ] (./Main.aux) ) 
 Here is how much of TeX's memory you used:
- 7585 strings out of 493488
- 107394 string characters out of 3141326
- 299073 words of memory out of 3000000
- 10772 multiletter control sequences out of 15000+200000
+ 7692 strings out of 493488
+ 109070 string characters out of 3141326
+ 299171 words of memory out of 3000000
+ 10863 multiletter control sequences out of 15000+200000
  12100 words of font info for 31 fonts, out of 3000000 for 9000
  957 hyphenation exceptions out of 8191
- 47i,16n,51p,437b,1212s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 47i,17n,51p,501b,1936s stack positions out of 5000i,500n,10000p,200000b,50000s
 {/usr/local/texlive/2012/texmf-dist/fonts/enc/dvips/cm-super/cm
 -super-t1.enc}{/usr/local/texlive/2012/texmf-dist/fonts/enc/dvips/cm-super/cm-s
 uper-ts1.enc}</usr/local/texlive/2012/texmf-dist/fonts/type1/public/amsfonts/cm
@@ -1015,10 +1166,10 @@ x1200.pfb></usr/local/texlive/2012/texmf-dist/fonts/type1/public/cm-super/sfrm1
 pfb></usr/local/texlive/2012/texmf-dist/fonts/type1/public/cm-super/sfsx1728.pf
 b></usr/local/texlive/2012/texmf-dist/fonts/type1/public/cm-super/sfsx2488.pfb>
 
-Output written on Main.pdf (14 pages, 329080 bytes).
+Output written on Main.pdf (20 pages, 347674 bytes).
 PDF statistics:
- 145 PDF objects out of 1000 (max. 8388607)
- 102 compressed objects within 2 object streams
+ 164 PDF objects out of 1000 (max. 8388607)
+ 115 compressed objects within 2 object streams
  0 named destinations out of 1000 (max. 500000)
  16 words of extra memory for PDF output out of 10000 (max. 10000000)
 

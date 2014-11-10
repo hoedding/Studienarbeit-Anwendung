@@ -11,33 +11,38 @@
 \contentsline {paragraph}{Technische Daten Neopixel:}{8}
 \contentsline {paragraph}{Framework:}{8}
 \contentsline {paragraph}{Ablauf des Tests:}{8}
-\contentsline {subsection}{\numberline {2.1.4}Fazit}{9}
+\contentsline {paragraph}{Fazit}{9}
 \contentsline {section}{\numberline {2.2}Bewegungssensor}{9}
 \contentsline {subsection}{\numberline {2.2.1}Bewertungskriterien}{9}
 \contentsline {subsection}{\numberline {2.2.2}Evaluierung}{9}
 \contentsline {subsection}{\numberline {2.2.3}Fazit}{10}
-\contentsline {subsection}{\numberline {2.2.4}Teststellung}{11}
-\contentsline {section}{\numberline {2.3}Python-Server und Protokoll}{11}
-\contentsline {subsection}{\numberline {2.3.1}Protokoll}{11}
-\contentsline {subsection}{\numberline {2.3.2}Framework}{11}
-\contentsline {subsection}{\numberline {2.3.3}Testcode}{11}
-\contentsline {subsection}{\numberline {2.3.4}Implementierung}{11}
-\contentsline {subsection}{\numberline {2.3.5}Klassen und ihre Funktionen}{11}
-\contentsline {subsection}{\numberline {2.3.6}Hashfunktion}{11}
-\contentsline {section}{\numberline {2.4}Verschl\IeC {\"u}sselung}{11}
-\contentsline {subsection}{\numberline {2.4.1}SSL vs. TLS}{11}
-\contentsline {subsection}{\numberline {2.4.2}Vor- und Nachteile TLS}{11}
-\contentsline {subsection}{\numberline {2.4.3}TLS Handshake}{11}
-\contentsline {subsection}{\numberline {2.4.4}Zertifikat und Key}{11}
-\contentsline {subsection}{\numberline {2.4.5}Beispielcode Server}{11}
-\contentsline {subsection}{\numberline {2.4.6}Wireshark Trace}{11}
-\contentsline {section}{\numberline {2.5}Kamera}{11}
-\contentsline {subsection}{\numberline {2.5.1}PI-Kamera vs. Netzwerkkamera}{11}
-\contentsline {subsection}{\numberline {2.5.2}Ansteuerung}{11}
-\contentsline {section}{\numberline {2.6}iOS App}{11}
-\contentsline {subsection}{\numberline {2.6.1}Konzept}{11}
-\contentsline {subsection}{\numberline {2.6.2}...}{11}
-\contentsline {subsection}{\numberline {2.6.3}...}{11}
-\contentsline {chapter}{\numberline {3}Praktische Umsetzung}{12}
-\contentsline {chapter}{\numberline {4}Kostenaufstellung}{13}
-\contentsline {chapter}{\numberline {5}Fazit}{14}
+\contentsline {subsection}{\numberline {2.2.4}Teststellung}{10}
+\contentsline {paragraph}{Technische Daten Sensor:}{10}
+\contentsline {paragraph}{Ablauf des Tests:}{10}
+\contentsline {section}{\numberline {2.3}Python-Server und Protokoll}{12}
+\contentsline {subsection}{\numberline {2.3.1}Protokoll}{12}
+\contentsline {subsection}{\numberline {2.3.2}Framework}{13}
+\contentsline {subsection}{\numberline {2.3.3}Testcode}{13}
+\contentsline {subsection}{\numberline {2.3.4}Implementierung}{14}
+\contentsline {subsection}{\numberline {2.3.5}Klassen und ihre Funktionen}{14}
+\contentsline {subsection}{\numberline {2.3.6}Hashfunktion}{14}
+\contentsline {section}{\numberline {2.4}Verschl\IeC {\"u}sselung}{14}
+\contentsline {subsection}{\numberline {2.4.1}SSL vs. TLS}{14}
+\contentsline {subsection}{\numberline {2.4.2}Vor- und Nachteile TLS}{15}
+\contentsline {subsection}{\numberline {2.4.3}TLS Handshake}{15}
+\contentsline {subsection}{\numberline {2.4.4}Zertifikat und Key}{15}
+\contentsline {subsection}{\numberline {2.4.5}Beispielcode STARTTLS Server}{15}
+\contentsline {subsection}{\numberline {2.4.6}Wireshark Trace}{17}
+\contentsline {section}{\numberline {2.5}Kamera}{17}
+\contentsline {subsection}{\numberline {2.5.1}PI-Kamera vs. Netzwerkkamera}{17}
+\contentsline {subsection}{\numberline {2.5.2}Ansteuerung}{17}
+\contentsline {section}{\numberline {2.6}Konfiguration und Installation}{17}
+\contentsline {subsection}{\numberline {2.6.1}Konfiguration}{17}
+\contentsline {subsection}{\numberline {2.6.2}Installation}{17}
+\contentsline {section}{\numberline {2.7}iOS App}{17}
+\contentsline {subsection}{\numberline {2.7.1}Konzept}{17}
+\contentsline {subsection}{\numberline {2.7.2}...}{17}
+\contentsline {subsection}{\numberline {2.7.3}...}{17}
+\contentsline {chapter}{\numberline {3}Praktische Umsetzung}{18}
+\contentsline {chapter}{\numberline {4}Kostenaufstellung}{19}
+\contentsline {chapter}{\numberline {5}Fazit}{20}

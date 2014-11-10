@@ -430,7 +430,7 @@ Wenn ein Server implementiert wird, so muss er alle Techniken unterstützen, bei
 		Bei einem öffentlichen Server sollte das Zertifikat bei einer CA (Certificate Authority) signiert werden. 
 		openssl x509 -req -days 1865 -in server.csr -signkey server.key -out server.crt
 
-2.4.5 Beispielcode Server
+		2.4.5 Beispielcode STARTTLS Server
 	An dieser Stelle ist der Beispielcode von Twisted am besten verständlich
 	(Quelle: https://twistedmatrix.com/documents/12.3.0/core/howto/ssl.html)
 	

@@ -1,0 +1,32 @@
+\documentclass[12pt,a4paper]{scrreprt}
+ \usepackage{ngerman}
+ \usepackage[utf8]{inputenc}
+
+\usepackage{listings}
+
+
+ \usepackage[T1]{fontenc}
+\usepackage{pdfpages}
+\usepackage{url}
+\graphicspath{{/Users/Timo/Documents/DHBW/Semester4/Projektarbeit/}}
+\usepackage{graphicx}
+\usepackage{wrapfig}
+\usepackage{geometry} 
+\geometry{a4paper, top=25mm, left=25mm, right=25mm, bottom=25mm, headsep=15mm, 
+  footskip=12mm}
+\usepackage{textcomp}
+% Header
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+% Header für Seiten ohne Chapter
+\fancyhf{}
+\fancyhead[L]{Studienarbeit Timo Höting \\ DHBW Karlsruhe}
+   \fancyhead[R]{\includegraphics[scale=0.3]{./data/dhbwlogo.jpg} } 
+\fancyfoot[C]{\thepage}
+\fancypagestyle{plain}{
+% Header für Seiten mit Chapter
+\fancyhf{}
+   \fancyhead[L]{Studienarbeit Timo Höting \\ DHBW Karlsruhe}
+   \fancyhead[R]{\includegraphics[scale=0.3]{./data/dhbwlogo.jpg} } 
+\fancyfoot[C]{\thepage}
+}

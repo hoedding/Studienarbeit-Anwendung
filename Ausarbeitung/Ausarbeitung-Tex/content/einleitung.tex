@@ -1,0 +1,22 @@
+
+Es soll ein Komplettsystem entwickelt werden, dass sowohl die Überwachung als auch die Steuerung der Beleuchtung von Innen- und Außenbereichen ermöglicht. Das System soll nach Entwicklung universell einsetzbar und leicht konfigurierbar sein. 
+\section{Vorwort}
+\section{Projektbeschreibung}
+Für die Beleuchtung sollen adressierbare LED-Pixel eingesetzt werden, welche möglichst leicht in ihrer Anzahl variiert werden können. Es müssen passende Bauteile und Produkte evaluiert und getestet werden. Diese müssen vom Raspberry Pi ansteuerbar sein.
+Die Überwachung findet über eine Kamera statt. Ob diese direkt am Raspberry Pi angeschlossen wird oder sich nur im selben Netzwerk befindet wird im Laufe dieses Projekts erarbeitet. Für die Erkennung von Aktivitäten werden Bewegungsmelder eingesetzt. 
+Gesteuert wird das System über einen Raspberry Pi. Von diesem aus werden die LEDs angesteuert, die Sensorsignale ausgewertet und die Befehle der App empfangen.
+Um dem User eine einfach Ansteuerung zu ermöglichen wird eine iOS App implementiert. Die hierfür genutzten Sprachen sind Swift und Objective-C. Die Serverfunktionalitäten werden in Python implementiert.
+Es gibt drei verschiedene Modi in denen sich das System befinden kann:
+\begin{itemize}
+\item Beleuchtung wird durch Bewegungsmelder ausgelöst (Reaktion darauf kann vom User definiert werden)
+\item Beleuchtung wird manuell vom Benutzer über App gesteuert (Color Chooser, Bereichsauswahl, Leuchteffekte)
+\item Bewegungsmelder als Alarmanlage, beim Auslösen wird der Benutzer benachrichtigt und Bild der Kamera als Notifcation auf dem Smartphone angezeigt
+\end{itemize}
+
+\section{Teilprojekte}
+\begin{itemize}
+\item LED-Pixel evaluieren / ansteuern
+\item Implementierung der Ansteuerung / des Protokolls (mit den drei verschiedenen Modi)
+\item Implementierung der iOS App
+\item Vollständige praktische Umsetzung an einem Beispielobjekt
+\end{itemize}
