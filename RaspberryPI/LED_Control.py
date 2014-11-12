@@ -10,6 +10,7 @@ import time
 
 from neopixel import *
 from ConfigReader import *
+from Effects import *
 
 #LED_COUNT   = 2      # Number of LED pixels. Get it from elsewhere, idiot.
 LED_PIN     = 18      # GPIO pin connected to the pixels (must support PWM!).
@@ -74,7 +75,6 @@ class NeoPixels():
 			time.sleep( 0.5 )
 		print 'fadeAllIn'
 
-
 	def fadeAllOut(Self):
 		# Eine LED nach der anderen Ausschalten (Farbe: Weis)
 		# TODO: Richtung festlegen
@@ -83,3 +83,8 @@ class NeoPixels():
 			strip.show()
 			time.sleep( 0.5 )
 		print 'fadeALlOut'
+
+	def runEffects(self, code):
+		# Einprogrammierte Effekte starten
+		eff = effects()
+		eff.runEffect(code, pixel)

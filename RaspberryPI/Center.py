@@ -24,11 +24,11 @@ class Core():
     server = StartLightServer()
     global sensor
     sensor = MotionDetection()
-    self.start()
     global led
     led = NeoPixels()
     global modus
     modus = 0
+    self.start()
 
   def start(self):
     try:
@@ -63,10 +63,36 @@ class Core():
     print 'led status'
 
   def writeLog(content):
+    # LMessage ins Logfile schreiben
     time = time.time()
     formattedTime = datetime.datetime.fromtimestamp(time).strftime('%Y-%m-%d %H:%M:%S')
     logging.basicConfig(filename='./log/all.log',level=logging.DEBUG)
     logging.warning(formattedTime + '| ' + content)
+
+  def lightUpOneLED(self, ledNo, red, green, blue):
+    # Eine einzelne LED mit den o.g. RGB-Werten dauerhaft anschalten
+    led.onePixel(ledNo, red, green, blue)
+
+  def lightUpLEDRange(self, rangeStart, rangeEnd, red, green, blue):
+    # Einen Bereich von LEDs mit den o.g. RGB-Werten
+    # dauerhaft einschalten
+    led.rangePixel(rangeStart, rangeEnd, red, green, blue)
+
+  def effectOneLED(self):
+    # Effekte auf einer LED aktivieren
+    print 'Effekt eine LED'
+
+  def effectLEDRange(self):
+    # Effekte auf einem LED-Bereich aktivieren
+    print 'Effekte LED-Bereich'
+
+  def runEffects(self, code):
+    # Einprogrammierte Effekte starten
+    led.runEffects(code)
+
+  def getStatus(self):
+    # Status
+    colours = led.getAllColours()
 
 if __name__ == "__main__":
     core = Core()

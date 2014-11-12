@@ -9,9 +9,6 @@ from twisted.internet.protocol import Factory, Protocol
 from twisted.internet import reactor
 import hashlib
 from ConfigReader import *
-from LED_Control import *
-from Effects import *
-
 
 class LightServer(Protocol):
 	def connectionMade(self):
@@ -48,8 +45,7 @@ class LightServer(Protocol):
 			if (self.checkAuthentification(auth) & self.checkTransmissionData(data, hashv)):
 				if control == 'X00':
 					## Alle LEDs ausschalten
-					pixel.clear()
-					print ''
+					central.clearPixel()
 				elif control == 'X01':
 					## Eine LED anschalten
 					self.lightUpOneLED(int(ledNo), int(red), int(green), int(blue))
@@ -65,9 +61,9 @@ class LightServer(Protocol):
 				elif control == 'X05':
 					## Fest programmierte Effekte
 					## z.B.: alle LEDs an
-					self.runEffects(effectcode)
+					central.runEffects(effectcode)
 			else:
-				print 'Fehlgeschlagen!'
+				print central.writeLog('Übertragung fehlerhaft')
 
 	def lightUpOneLED(self, ledNo, red, green, blue):
 		# Eine einzelne LED mit den o.g. RGB-Werten dauerhaft anschalten
@@ -76,7 +72,7 @@ class LightServer(Protocol):
 		c = self.checkColorRange(blue)
 		d = self.checkRange(ledNo)
 		if ( a & b & c & d):
-			pixel.lightUpOneLED(ledNo, red, green, blue)
+			central.lightUpOneLED(ledNo, red, green, blue)
 
 	def lightUpLEDRange(self, rangeStart, rangeEnd, red, green, blue):
 		# Einen Bereich von LEDs mit den o.g. RGB-Werten
@@ -88,20 +84,15 @@ class LightServer(Protocol):
 		d = self.checkRange(rangeStart)
 		e = self.checkRange(rangeEnd)
 		if ( a & b & c & d & e):
-			pixel.rangePixel(rangeStart, rangeEnd, red, green, blue)
+			central.rangePixel(rangeStart, rangeEnd, red, green, blue)
 
 	def effectOneLED(self):
-		# Effekte auf einer LED aktivieren
-		print 'Effekt eine LED'
+    # Effekte auf einer LED aktivieren
+		central.effectOneLED()
 
 	def effectLEDRange(self):
 		# Effekte auf einem LED-Bereich aktivieren
-		print 'Effekte LED-Bereich'
-
-	def runEffects(self, code):
-		# Einprogrammierte Effekte starten
-		eff = effects()
-		eff.runEffect(code, pixel)
+		central.effectLEDRange()
 
 	def checkRange(self, ledNo):
 		# Ueberprueft ob die uebergeben LED-Nummer ueberhaupt im
@@ -148,6 +139,4 @@ class StartLightServer():
     factory.clients = []
     factory.protocol = LightServer
     reactor.listenTCP(7002, factory)
-    pixel = NeoPixels()
-    pixel.initStripe()
     reactor.run()

@@ -33,7 +33,7 @@ class ConfigReader():
 		config.read("./config.ini")
 		return config.get("cam", "avaible")
 
-  #def camAdress(self):
-  #  config = ConfigParser.ConfigParser()
-  #  config.read("./config.ini")
-  #  return config.get("cam","adress")
+  	def camAdress(self):
+		config = ConfigParser.ConfigParser()
+		config.read("./config.ini")
+		return config.get("cam","adress")

@@ -39,6 +39,7 @@ class MotionDetection():
 			# Loop zur Erkennung einer Bewegung
 			# Sensort erkennt Beweung -> Signal = High
 			# Wartet 3 Sekunden und setzt Signal = Low
+			# TODO weitere Sensoren implementieren
 			while True :
 				Current_State = GPIO.input(MOTION_PIN1)
 				if Current_State == 1 and Previous_State == 0:
