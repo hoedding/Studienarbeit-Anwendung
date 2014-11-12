@@ -76,7 +76,7 @@ class LightServer(Protocol):
 		c = self.checkColorRange(blue)
 		d = self.checkRange(ledNo)
 		if ( a & b & c & d):
-			pixel.onePixel(ledNo, red, green, blue)
+			pixel.lightUpOneLED(ledNo, red, green, blue)
 
 	def lightUpLEDRange(self, rangeStart, rangeEnd, red, green, blue):
 		# Einen Bereich von LEDs mit den o.g. RGB-Werten
