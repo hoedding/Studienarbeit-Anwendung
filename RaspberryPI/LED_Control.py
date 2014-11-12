@@ -52,6 +52,13 @@ class NeoPixels():
 		value = strip.getPixelColor(number)
 		return value
 
+  def getAllColours(self):
+    number = strip.numPixels()
+    colours[]
+    for i in range(strip.numPixels()):
+      colours.append(strip.getPixelColor(i))
+    return colours
+
 	def doBlinder(self):
 		# Alle LEDs auf höchter Helligkeit anschalten (Farbe: Weis)
 		for i in range(strip.numPixels()):

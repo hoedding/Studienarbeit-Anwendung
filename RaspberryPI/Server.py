@@ -142,12 +142,12 @@ class LightServer(Protocol):
 			return True
 		return True
 
-factory = Factory()
-factory.clients = []
-factory.protocol = LightServer
-reactor.listenTCP(7002, factory)
-print 'Server gestartet'
-pixel = NeoPixels()
-pixel.initStripe()
-print 'NeoPixel gestartet'
-reactor.run()
+class StartLightServer():
+  def start(central):
+    factory = Factory()
+    factory.clients = []
+    factory.protocol = LightServer
+    reactor.listenTCP(7002, factory)
+    pixel = NeoPixels()
+    pixel.initStripe()
+    reactor.run()

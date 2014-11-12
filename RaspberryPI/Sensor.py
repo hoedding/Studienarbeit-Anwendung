@@ -13,7 +13,7 @@ from runPixels import *
 from readConfig import *
 
 class MotionDetection():
-	def run(self):
+	def run(self, center):
 		# Use BCM GPIO references
 		# instead of physical pin numbers
 		GPIO.setmode(GPIO.BCM)
@@ -43,13 +43,12 @@ class MotionDetection():
 				Current_State = GPIO.input(MOTION_PIN1)
 				if Current_State == 1 and Previous_State == 0:
 					print "Motion detected!"
-					# Zum Test eine LED anschalten
-					pixel.rangePixel(0, 2, 255, 255, 255)
+          center.motionDetected()
 					Previous_State=1
-	    		elif Current_State == 0 and Previous_State == 1:
+	    	elif Current_State == 0 and Previous_State == 1:
 					print "Ready"
 					# Und zum Test wieder ausschalten
-					pixel.clear()
+					center.clearPixel()
 					Previous_State=0
 				time.sleep(0.01)
 		except KeyboardInterrupt:
