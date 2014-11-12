@@ -1,8 +1,8 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
 ################################################
-# Author: Timo Höting       				           #
-# Mail: mail[at]timohoeting.de  				       #
+# Author: Timo Höting       				   #
+# Mail: mail[at]timohoeting.de  			   #
 ################################################
 
 import RPi.GPIO as GPIO
@@ -44,14 +44,14 @@ class MotionDetection():
 				Current_State = GPIO.input(MOTION_PIN1)
 				if Current_State == 1 and Previous_State == 0:
 					print "Motion detected!"
-          center.motionDetected()
-					Previous_State=1
-	    	elif Current_State == 0 and Previous_State == 1:
+					center.motionDetected()
+					Previous_State = 1
+				elif Current_State == 0 and Previous_State == 1:
 					print "Ready"
 					# Und zum Test wieder ausschalten
 					center.clearPixel()
 					Previous_State=0
 				time.sleep(0.01)
 		except KeyboardInterrupt:
-		print "Quit"
-		GPIO.cleanup()
+			print "Quit"
+			#GPIO.cleanup()

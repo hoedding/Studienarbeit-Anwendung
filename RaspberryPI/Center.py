@@ -1,8 +1,8 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
 ################################################
-# Author: Timo Höting       				           #
-# Mail: mail[at]timohoeting.de  				       #
+# Author: Timo Höting                          #
+# Mail: mail[at]timohoeting.de                 #
 ################################################
 # Center of Application
 
@@ -90,9 +90,10 @@ class Core():
     # Einprogrammierte Effekte starten
     led.runEffects(code)
 
-  def getStatus(self):
-    # Status
+  def printStatus(self):
+    # Status ausgeben
     colours = led.getAllColours()
+
 
 if __name__ == "__main__":
     core = Core()

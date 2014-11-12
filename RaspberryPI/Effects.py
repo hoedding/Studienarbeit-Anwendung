@@ -5,28 +5,25 @@
 # Mail: mail[at]timohoeting.de  				       #
 ################################################
 
-from runPixels import *
-from neopixel import *
-
 class effects():
-	def runEffect(self, code, pixel):
+	def runEffect(self, code, led):
 		if code == '1':
-			self.allon(pixel)
+			self.allon(led)
 		elif code == '2':
-			self.fadeallin(pixel)
+			self.fadeallin(led)
 		elif code == '3':
-			self.fadeallout(pixel)
+			self.fadeallout(led)
 		elif code == '4':
-			self.blinder(pixel)
+			self.blinder(led)
 
-	def allon(pixel):
+	def allon(self, led):
 		pixel.doBlinder()
 
-	def fadeallin(self, pixel):
+	def fadeallin(self, led):
 		pixel.fadeAllIn()
 
-	def fadeallout(self, pixel):
+	def fadeallout(self, led):
 		pixel.fadeAllOut()
 
-	def blinder(self, pixel):
+	def blinder(self, led):
 		pixel.doBlinder()
