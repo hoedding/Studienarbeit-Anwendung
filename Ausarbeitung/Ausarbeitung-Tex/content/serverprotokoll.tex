@@ -6,12 +6,12 @@ Um die LEDs später von einer App aus ansprechen zu können, soll ein auf String
 Übertragung eines Passworts. Dieses ist als Hashwert im System gespeichert und kann so überprüft werden. Es wird der SHA-224-Algorithmus eingesetzt.
 \item Control\\
 Unterscheidung zwischen:\\
-	X00: Alle LEDs ausschalten\\
-	X01: Eine LED anschalten\\
-	X02: LED-Bereich anschalten\\
-	X03: Effekt für eine LED\\
-	X04: Effekt für LED-Bereich\\
-	X05: Effektcode \\\\
+	- X00: Alle LEDs ausschalten\\
+	- X01: Eine LED anschalten\\
+	- X02: LED-Bereich anschalten\\
+	- X03: Effekt für eine LED\\
+	- X04: Effekt für LED-Bereich\\
+	- X05: Effektcode \\\\
 Abhängig von diesem Feld werden die nachfolgenden Werte behandelt. 
 \item LED-Nummer\\
 Falls nur eine LED angesprochen werden soll (Control = X00), so wird hier die Nummer angegeben. Ob sie im gültigen Range liegt wird intern überprüft.
@@ -37,12 +37,12 @@ Hinterlegte, fest programmierte Effekte, zum Beispiel alle LEDs anschalten in we
 \begin{lstlisting}[caption = Beispielübertragung des Protokolls, language=python, frame=single, breaklines=true,columns=fullflexible, commentstyle=\color{gray}\upshape, captionpos=b]
 auth:control:ledNo:rangeStart:rangeEnd:red:green:blue:effect:effectcode:hash
 pass:X01:0:0:49:255:255:255:0:0:xx
-Dies würde die LEDs 0 bis 49 einschalten (Farbe weis 255,255,255)
 \end{lstlisting}
+Dies w\ürde die LEDs 0 bis 49 einschalten (Farbe weis 255,255,255). Anstelle der XX würde der Hashwert der gesamten Übertragung gesendet. 
 \subsection{Framework}
 Twisted: https://twistedmatrix.com \\
 Es wird das Twisted Matrix Framework eingesetzt. Twisted ist eine in Python geschriebene  event-getriebene Netzwerkengine. Die meisten gängigen Protokolle wie TCP, IMAP, SSHv3 und viele mehr werden unterstützt. Somit bietet Twisted die ideale Möglichkeit einen eigenen simplen Server zu implementieren. \\\\
-\textbf{Event-Getrieben (event-based):} Die Serveranwendung befindet sich in einer Schleife und wartet auf ein Event. Dieses Event ist in diesem Fall der Connect eines Clients zum Server. Für jeden Connect wird eine neue Instanz angelegt, in welcher empfangene Daten bearbeitet werden können. 
+\textbf{Event-Getrieben (event-based):} Die Serveranwendung befindet sich in einer Schleife und wartet auf ein Event. Dieses Event ist in diesem Fall der Connect eines Clients zum Server. Für jeden Connect wird eine neue Instanz angelegt, in welcher empfangene Daten bearbeitet werden können. Die Daten werden als String ausgewertet, somit wird ein string-basiertes Protokoll implementiert. \cite{eventbased}
 
 \subsection{Testcode}
 \begin{lstlisting}[caption =Testcode Echoserver mit Twisted Framework, language=python, frame=single, breaklines=true,columns=fullflexible, commentstyle=\color{gray}\upshape, captionpos=b, numbers = left]
@@ -86,12 +86,12 @@ Es wird zu zweierlei Zwecken eine Hashfunktion eingesetzt. Zum einen um die Korr
 \section{Verschlüsselung}
 \subsection{SSL vs. TLS}
 SSL (Secure Sockets Layer) und TLS (Transport Layer Security) sind Protokolle, die Verschlüsselung und Authentifizierung zwischen zwei Kommunikationspartnern bieten. Die beiden Begriffe SSL und TLS werden umgangssprachlich oft als zwei verschiedene Techniken dargestellt, obwohl TLS nur eine Weiterentwicklung von SSL ist. SSL v3 ist die Basis von TLS 1.0. \\
-Aufgrund des Alters und einiger Sicherheitslücken wird SSL als unsicher angesehen und soll nicht mehr verwendet werden. Die aktuellste gefundene Lücke ist POODLE, welche das Auslesen von Informationen aus einer verschlüsselten Übertragung erlaubt. Die Weiterentwicklungen TLS 1.1 und 1.2 sind deutlich sicherer und beheben einige sicherheitslücken. \\
+Aufgrund des Alters und einiger Sicherheitslücken wird SSL als unsicher angesehen und soll nicht mehr verwendet werden. Die aktuellste gefundene Lücke ist POODLE, welche das Auslesen von Informationen aus einer verschlüsselten Übertragung erlaubt. Die Weiterentwicklungen TLS 1.1 und 1.2 sind deutlich sicherer und beheben einige Sicherheitslücken. So schützt die richtige Implementierung von TLS 1.2 auch vor den BEAST Angriffsmethoden.\\
 Eine Variante von TLS ist das sogenannte STARTTLS, bei dem zuerst ein unsicheres 'hello' an den Server gesendet wird. Falls im Anschluss eine Verbindung erfolgreich Zustande kommt, wird zur sicheren Übertragung gewechselt. \\
-Wenn ein Server implementiert wird, so muss er alle Techniken unterstützen, beim Client kann der Entwickler selbst entscheiden. Ein Entwickler sollte immer die höchsten Verschlüsselungstechniken einsetzen. \\
+Wenn ein Server implementiert wird, so muss er alle Techniken unterstützen, beim Client kann der Entwickler selbst entscheiden. Ein Entwickler sollte immer die höchst mögliche Verschlüsselungstechnik einsetzen. \\
 
 \subsection{Vor- und Nachteile TLS}
-Jedes höhrer Protokoll kann über TLS übertragen werden, somit ist die Verschlüsselung unabhängig von der genutzten Anwendung. \\
+Da TLS auf der Transportschicht aufsetzt kann jedes höhere Protokoll darüber übertragen werden, somit ist die Verschlüsselung unabhängig von der genutzten Anwendung. \\
 	Der größte Nachteil besteht darin, dass der Verbindungsaufbau serverseitig sehr rechenintensiv ist. Die Verschlüsselung selbst nimmt, abhängig vom Algorithmus, nur noch wenige Rechenleistung in Anspruch. \\
 
 \subsection{TLS Handshake}
@@ -156,3 +156,4 @@ Es ist gut zu erkennen, dass die Übertragung nur ausgewertet wird, wenn das Sti
 In der Initmethode der Klasse ServerTLSContext können die Verschlüsselungsdetails festgelegt werden. Im obigen Beispiel wird hier zum Beospiel die TLS Version definiert.  \\
 
 \subsection{Wireshark Trace}
+Im folgenden ist ein Trace eines TLS Handshakes zwischen einem Client und dem implementierten Server auf dem Raspberry Pi zu sehen. // TODO beschreibung

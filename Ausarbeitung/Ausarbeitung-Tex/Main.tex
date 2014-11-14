@@ -21,7 +21,17 @@
 \section{Python-Server und Protokoll} \input{./content/serverprotokoll.tex}
 \section{Kamera}
 \subsection{PI-Kamera vs. Netzwerkkamera}
+Bei Auslösen des System im Überwachungsmodus soll ein aktuelles Bild der Überwachungskamera an das jeweilige Sartphone gepusht werden. Es gibt zwei mögliche Kameratechniken, entweder eine direkt an den Raspberry Pi Angeschlossene oder eine, die im Netzwerk erreichbar ist. 
+\paragraph{Raspberry Pi Cam} \\
+Die Kameras für den Raspberry Pi können direkt an das Gerät angeschlossen werden. Meistens werden sie direkt über die GPIO Pins verbunden. Der Vorteil dieser Kameras ist, dass sie keine externe Stromversorgung benötigen und durch viele verschiedene Frameworks leicht anpassbar und verwaltbar sind. Der große Nachteil ist allerdings, dass die Kamera an dem Raspberry Pi angeschlossen werden muss, auf welchem auch der Server läuft. Da dieser aber möglich wettergeschützt (im Außenbereich) oder unauffällig (im Innenbereich) angebracht ist, lässt sich von diesen Positionen kaum eine effektive Überwachung realisieren. \\
+Als Beispiel wäre ein von der Raspberry Pi Foundation empfohlene Kamera zu nennen: //TODO Beispielkamera
+\paragraph{Netzwerkkamera} \\
+Eine Netzwerkkamera oder auch IP-Kamera genannt befindet sich im Netzwerk und kann über eine Website oder App eingesehen und gesteuert werden. Der Vorteil ist, dass sie sich irgendwo befinden kann, solange sie im selben Netzwerk ist. Somit kann zum Beispiel eine wetterfeste Kamera im Außenbereich angebracht werden und der Server kann sich im geschützten Innenbereich befinden. \\
+Der Nachteil besteht bei IP-Kameras darin, dass es keine einheitliche API zum Abgreifen des Videomaterials gibt. Eine mögliche Lösung wäre das Laden der HTML Seite über einen HTTP-Request und darauffolgend das Ausfiltern des Bildmaterials. Über diese Variante kann aber kein Video sondern nur temporäre Bilder geladen werden. Dies würde aber für eine Notification auf dem Smartphone ausreichen. \\\\
+Für dieses Projekt wird eine IP-Kamera aufgrund von oben genannten Vorteilen verwendet.
 \subsection{Ansteuerung}
+\paragraph{Testcode HTTP-Request}
+\paragraph{Implementierung}
 
 \section{Konfiguration und Installation}
 \subsection{Konfiguration}
@@ -38,6 +48,13 @@
 
 \chapter{Fazit}
 
+\addcontentsline{toc}{chapter}{Abbildungsverzeichnis}
+\listoffigures
+
+\begin{thebibliography}{xxxxxxxxxxxxxxxxxxx}
+ \bibitem[I.]{eventbased}"'SWR Info - Zahlen, Daten, Fakten über den SWR"', \url{http://www.swr.de/unternehmen/unternehmen/kennzahlen/kennzahlen-organisation/-/id=12213420/did=12302978/nid=12213420/eqq46v/index.html}, 13.12.2013
+%\bibitem[Thema]{Bezeichner}"'Überschrift"', \url{LINK}, Datum
+\end{thebibliography}
 
  \end{document}
 
