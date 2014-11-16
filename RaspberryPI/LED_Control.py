@@ -1,8 +1,8 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
 ################################################
-# Author: Timo Höting       				           #
-# Mail: mail[at]timohoeting.de  				       #
+# Author: Timo Höting                          #
+# Mail: mail[at]timohoeting.de  			   #
 ################################################
 
 import sys
@@ -11,6 +11,7 @@ import time
 from neopixel import *
 from ConfigReader import *
 from Effects import *
+import threading
 
 #LED_COUNT   = 2      # Number of LED pixels. Get it from elsewhere, idiot.
 LED_PIN     = 18      # GPIO pin connected to the pixels (must support PWM!).
@@ -19,7 +20,13 @@ LED_DMA     = 5       # DMA channel to use for generating signal (try 5)
 LED_INVERT  = False   # True to invert the signal (when using NPN)
 
 
-class NeoPixels():
+class NeoPixels(threading.Thread):
+	def __init__(self):
+		threading.Thread.__init__(self)
+
+	def run(self):
+		self.initStripe()
+
 	def clear(self):
 		for i in range(strip.numPixels()):
 			strip.setPixelColor(i, Color(0,0,0))

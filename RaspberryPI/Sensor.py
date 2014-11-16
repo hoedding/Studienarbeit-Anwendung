@@ -7,13 +7,17 @@
 
 import RPi.GPIO as GPIO
 import time
-# import der Pixelsteuerung
-from runPixels import *
 # import des ConfigReaders
-from readConfig import *
+from ConfigReader import *
+import threading
 
-class MotionDetection():
-	def run(self, center):
+class MotionDetection(threading.Thread):
+	def __init__(self, c):
+		threading.Thread.__init__(self)
+		global center
+		center = c
+
+	def run(self):
 		# Use BCM GPIO references
 		# instead of physical pin numbers
 		GPIO.setmode(GPIO.BCM)
@@ -32,8 +36,9 @@ class MotionDetection():
 		Previous_State = 0
 
 		# Klasse zur Ansteuerung der LEDs initialisieren
-		pixel = NeoPixels()
-		pixel.initStripe()
+		# Nicht mehr benötigt, weil Steuerung der LED über Center erledigt wird
+		# pixel = NeoPixels()
+		# pixel.initStripe()
 
 		try:
 			# Loop zur Erkennung einer Bewegung
@@ -54,4 +59,4 @@ class MotionDetection():
 				time.sleep(0.01)
 		except KeyboardInterrupt:
 			print "Quit"
-			#GPIO.cleanup()
+			GPIO.cleanup()

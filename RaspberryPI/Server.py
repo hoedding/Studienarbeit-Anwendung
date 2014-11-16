@@ -9,6 +9,7 @@ from twisted.internet.protocol import Factory, Protocol
 from twisted.internet import reactor
 import hashlib
 from ConfigReader import *
+import threading
 
 class LightServer(Protocol):
 	def connectionMade(self):
@@ -18,6 +19,7 @@ class LightServer(Protocol):
 		self.factory.clients.remove(self)
 
 	def dataReceived(self, data):
+		print 'test2'
 		# Protokoll: auth:control:ledNo:rangeStart:rangeEnd:red:green:blue:effect:effectcode:hashv
 		# Beispiel: admin:X00:1:0:0:10:10:10:0:0:58acb7acccce58ffa8b953b12b5a7702bd42dae441c1ad85057fa70b
 		# Ermoeglicht Zuweisung von Farben und Effekte
@@ -45,7 +47,7 @@ class LightServer(Protocol):
 			if (self.checkAuthentification(auth) & self.checkTransmissionData(data, hashv)):
 				if control == 'X00':
 					## Alle LEDs ausschalten
-					central.clearPixel()
+					center.clearPixel()
 				elif control == 'X01':
 					## Eine LED anschalten
 					self.lightUpOneLED(int(ledNo), int(red), int(green), int(blue))
@@ -61,9 +63,9 @@ class LightServer(Protocol):
 				elif control == 'X05':
 					## Fest programmierte Effekte
 					## z.B.: alle LEDs an
-					central.runEffects(effectcode)
+					center.runEffects(effectcode)
 			else:
-				print central.writeLog('Übertragung fehlerhaft')
+				print center.writeLog('Übertragung fehlerhaft')
 
 	def lightUpOneLED(self, ledNo, red, green, blue):
 		# Eine einzelne LED mit den o.g. RGB-Werten dauerhaft anschalten
@@ -72,7 +74,7 @@ class LightServer(Protocol):
 		c = self.checkColorRange(blue)
 		d = self.checkRange(ledNo)
 		if ( a & b & c & d):
-			central.lightUpOneLED(ledNo, red, green, blue)
+			center.lightUpOneLED(ledNo, red, green, blue)
 
 	def lightUpLEDRange(self, rangeStart, rangeEnd, red, green, blue):
 		# Einen Bereich von LEDs mit den o.g. RGB-Werten
@@ -84,15 +86,15 @@ class LightServer(Protocol):
 		d = self.checkRange(rangeStart)
 		e = self.checkRange(rangeEnd)
 		if ( a & b & c & d & e):
-			central.rangePixel(rangeStart, rangeEnd, red, green, blue)
+			center.rangePixel(rangeStart, rangeEnd, red, green, blue)
 
 	def effectOneLED(self):
     # Effekte auf einer LED aktivieren
-		central.effectOneLED()
+		center.effectOneLED()
 
 	def effectLEDRange(self):
 		# Effekte auf einem LED-Bereich aktivieren
-		central.effectLEDRange()
+		center.effectLEDRange()
 
 	def checkRange(self, ledNo):
 		# Ueberprueft ob die uebergeben LED-Nummer ueberhaupt im
@@ -131,12 +133,18 @@ class LightServer(Protocol):
 		check = check.rstrip('\r')
 		if ( hashdata == check ):
 			return True
+		# Für Testübertragung return immer True
 		return True
 
-class StartLightServer():
-  def start(central):
-    factory = Factory()
-    factory.clients = []
-    factory.protocol = LightServer
-    reactor.listenTCP(7002, factory)
-    reactor.run()
+class StartLightServer(threading.Thread):
+	def __init__(self, c):
+		threading.Thread.__init__(self)
+		global center
+		center = c
+
+ 	def run(self):
+		factory = Factory()
+		factory.clients = []
+		factory.protocol = LightServer
+		reactor.listenTCP(7002, factory)
+		reactor.run(installSignalHandlers=False)

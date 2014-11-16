@@ -12,6 +12,7 @@ from LED_Control import *
 import logging
 import time
 import datetime
+import threading
 
 class Core():
   def init(self):
@@ -21,34 +22,38 @@ class Core():
     # LED = Klasse zur LED Steuerung
     # Modus = Aktueller Modus in dem sich das System befindet
     global server
-    server = StartLightServer()
+    server = StartLightServer(self)
+    threads.append(server)
     global sensor
-    sensor = MotionDetection()
+    sensor = MotionDetection(self)
+    threads.append(sensor)
     global led
     led = NeoPixels()
+    threads.append(led)
     global modus
     modus = 0
-    self.start()
+    self.startAll()
 
-  def start(self):
+  def startAll(self):
     try:
-      server.start(self)
+        server.start()
     except IOError:
-      print 'Error:', arg
+        print 'Error:', arg
     else:
-      print 'Server gestartet'
+        print 'Server gestartet'
     try:
-      sensor.run(self)
+        sensor.start()
     except IOError:
-      print 'Error:', arg
+        print 'Error:', arg
     else:
-      print 'Motion Detection gestartet'
+        print 'Motion Detection gestartet'
     try:
-      led.initStripe()
+        led.start()
+        print 'LEDs initialisiert'
     except IOError:
-      print 'Error:', arg
+        print 'Error:', arg
     else:
-      print 'LEDs initialisiert'
+        print 'LEDs initialisiert'
 
   def motionDetected(self):
     # Zum Test eine LED anschalten
@@ -63,7 +68,7 @@ class Core():
     print 'led status'
 
   def writeLog(content):
-    # LMessage ins Logfile schreiben
+    # Message ins Logfile schreiben
     time = time.time()
     formattedTime = datetime.datetime.fromtimestamp(time).strftime('%Y-%m-%d %H:%M:%S')
     logging.basicConfig(filename='./log/all.log',level=logging.DEBUG)
@@ -96,6 +101,6 @@ class Core():
 
 
 if __name__ == "__main__":
+    threads = []
     core = Core()
     core.init()
-    core.start()
