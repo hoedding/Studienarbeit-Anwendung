@@ -68,6 +68,76 @@ AssertionError: '192.168.2.205' != '123'
 --------------------------------------------
 Ran 11 tests in 1.873s
 \end{lstlisting}
+\subsection{Threads}
+\paragraph{Problem:} \\ Die Server-Klasse und Sensor-Klasse befinden sich in einer Endlosschleife, da sie dauerhaft auf eine Eingabe warten. Beim Server sind dies Empfangene Daten und beim Sensor Bewegungssignale. Würden alle Klassen in einem Thread ablaufen, so würde nur eine Klasse gestartet werden und der Anwendungsablauf in dieser bleiben. 
+\paragraph{Lösung:} \\ Die beiden oben genannten Klassen, sowie weitere Klassen wie die LED-Steuerung, werden in eigene Threads ausgelagert. Threads sind Unterprozesse im Hauptprozess, die es ermöglichen mehrere Aufgaben in einem Programm gleichzeitig abzuarbeiten. Zwischen den einzelnen Threads kann Datenaustausch statt finden und es ist möglich übergreifende Funktionen aufzurufen. \\
+Zur Implementierung wird das Modul 'threading' genutzt. Eine Klasse, die in einem Thread gestartet werden soll, benötigt eine init- und eine run-Methode.
+\paragraph{Beispielcode:}\\
+Für eine FUnktionsdarstellung der Threads mit Python werden drei Klassen angelegt, eine zur Steuerung und zwei, die in einem Thread laufen sollen. \\
+Die Klasse 'Testcenter' initialisiert die Klassen als Threads und startet diese.
+\begin{lstlisting}[caption=Klasse Testcenter, language=python, frame=single, breaklines=true,columns=fullflexible, commentstyle=\color{gray}\upshape, captionpos=b, numbers = left]
+#!/usr/bin/python
+# -*- coding: utf-8 -*-
+##############################
+# Author: Timo Höting                        #
+# Mail: mail[at]timohoeting.de            #
+##############################
+import threading
+from TestThread import *
+from TestThread1 import *
+
+class TestCenter():
+    def newThread(self):
+        global testthread
+        global testthread1
+        testthread = TestThread('thread0', self)
+        testthread1 = TestThread1('thread1', self)
+        testthread.start()
+        testthread1.start()
+
+    def dosth(self):
+        print 'dosth'
+
+    def dosth2(self):
+        print 'dosth2'
+
+    def dosth3(self):
+        testthread1.calledFromMain('-dosth3')
+
+if __name__ == "__main__":
+    newThread = TestCenter()
+    newThread.newThread()
+\end{lstlisting}
+Die beiden TestThread-Klassen enthalten beide eine init- und eine run-Methode. Die Klasse Thread1 enthält zusätzlich noch eine Methode die von anderen Klassen ausführbar ist. 
+\begin{lstlisting}[caption=Klasse TestThread1, language=python, frame=single, breaklines=true,columns=fullflexible, commentstyle=\color{gray}\upshape, captionpos=b, numbers = left]
+#!/usr/bin/python
+# -*- coding: utf-8 -*-
+##############################
+# Author: Timo Höting                        #
+# Mail: mail[at]timohoeting.de            #
+##############################
+
+import threading
+import time
+import datetime
+
+class TestThread1(threading.Thread):
+    def __init__(self,ms,c):
+        threading.Thread.__init__(self)
+        global center
+        center = c
+        global message
+        message = ms
+
+    def run(self):
+        print message
+        center.dosth2()
+
+    def calledFromMain(self, message):
+        print  'calledFromMain' + message
+\end{lstlisting}
+Die init-Methoden werden bei der Erzeugung des Threads aufgerufen und die run-Methode wenn er gestartet wird. Danach können die Methoden wie bei normalen Methodenaufrufen benutzt werden. 
+// TODO Grafik über Zusammenspiel
 \section{Konfiguration und Installation}
 \subsection{Konfiguration}
 \subsection{Installation}
@@ -83,13 +153,7 @@ Ran 11 tests in 1.873s
 
 \chapter{Fazit}
 
-\addcontentsline{toc}{chapter}{Abbildungsverzeichnis}
-\listoffigures
-
-\begin{thebibliography}{xxxxxxxxxxxxxxxxxxx}
- \bibitem[I.]{eventbased}"'SWR Info - Zahlen, Daten, Fakten über den SWR"', \url{http://www.swr.de/unternehmen/unternehmen/kennzahlen/kennzahlen-organisation/-/id=12213420/did=12302978/nid=12213420/eqq46v/index.html}, 13.12.2013
-%\bibitem[Thema]{Bezeichner}"'Überschrift"', \url{LINK}, Datum
-\end{thebibliography}
+\input{./content/verzeichnis.tex}
 
  \end{document}
 

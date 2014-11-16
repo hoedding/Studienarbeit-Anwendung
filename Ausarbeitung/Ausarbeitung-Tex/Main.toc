@@ -41,14 +41,18 @@
 \contentsline {paragraph}{Implementierung}{17}
 \contentsline {section}{\numberline {2.6}Anwendungsstruktur}{17}
 \contentsline {subsection}{\numberline {2.6.1}Klassen und ihre Funktionen}{17}
-\contentsline {section}{\numberline {2.7}Konfiguration und Installation}{19}
-\contentsline {subsection}{\numberline {2.7.1}Konfiguration}{19}
-\contentsline {subsection}{\numberline {2.7.2}Installation}{19}
-\contentsline {section}{\numberline {2.8}iOS App}{19}
-\contentsline {subsection}{\numberline {2.8.1}Konzept}{19}
-\contentsline {subsection}{\numberline {2.8.2}...}{19}
-\contentsline {subsection}{\numberline {2.8.3}...}{19}
-\contentsline {chapter}{\numberline {3}Praktische Umsetzung}{20}
-\contentsline {chapter}{\numberline {4}Kostenaufstellung}{21}
-\contentsline {chapter}{\numberline {5}Fazit}{22}
-\contentsline {chapter}{Abbildungsverzeichnis}{22}
+\contentsline {subsection}{\numberline {2.6.2}Threads}{19}
+\contentsline {paragraph}{Problem:}{19}
+\contentsline {paragraph}{L\IeC {\"o}sung:}{19}
+\contentsline {paragraph}{Beispielcode:}{19}
+\contentsline {section}{\numberline {2.7}Konfiguration und Installation}{21}
+\contentsline {subsection}{\numberline {2.7.1}Konfiguration}{21}
+\contentsline {subsection}{\numberline {2.7.2}Installation}{21}
+\contentsline {section}{\numberline {2.8}iOS App}{21}
+\contentsline {subsection}{\numberline {2.8.1}Konzept}{21}
+\contentsline {subsection}{\numberline {2.8.2}...}{21}
+\contentsline {subsection}{\numberline {2.8.3}...}{21}
+\contentsline {chapter}{\numberline {3}Praktische Umsetzung}{22}
+\contentsline {chapter}{\numberline {4}Kostenaufstellung}{23}
+\contentsline {chapter}{\numberline {5}Fazit}{24}
+\contentsline {chapter}{Abbildungsverzeichnis}{24}
