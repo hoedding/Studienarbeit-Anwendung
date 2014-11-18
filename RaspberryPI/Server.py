@@ -148,6 +148,11 @@ class LightServer(Protocol):
 		# Für Testübertragung return immer True
 		return True
 
+	def sendMessage(self, message):
+		# Funktioniert noch nicht 100%ig
+		for c in self.factory.clients:
+			c.transport.write('test' + '\n')
+
 class StartLightServer(threading.Thread):
 	def __init__(self, c):
 		threading.Thread.__init__(self)
@@ -155,12 +160,14 @@ class StartLightServer(threading.Thread):
 		center = c
 
  	def run(self):
+		global factory
 		factory = Factory()
 		factory.clients = []
 		factory.protocol = LightServer
 		reactor.listenTCP(7002, factory)
+		global connections
 		connections = []
 		reactor.run(installSignalHandlers=False)
 
-	def pushNotification(self, pic, message):
-		self.factory.clients[1].transport.write(pic + message)
+	def pushNotification(self, message):
+		factory.clients[0].sendMessage(message + '\n\r')

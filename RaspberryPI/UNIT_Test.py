@@ -41,9 +41,9 @@ class TestSequenceFunctions(unittest.TestCase):
         resultCorrect = config.get("common", "motion1")
         self.assertEqual(resultTest, resultCorrect)
 
-    def test_getMotionPin1(self):
+    def test_getMotionPin2(self):
         reader = ConfigReader()
-        resultTest = reader.getMotionPin1()
+        resultTest = reader.getMotionPin2()
         config = ConfigParser.ConfigParser()
         config.read("./config.ini")
         resultCorrect = config.get("common", "motion2")
@@ -57,9 +57,9 @@ class TestSequenceFunctions(unittest.TestCase):
         resultCorrect = config.get("cam", "avaible")
         self.assertEqual(resultTest, resultCorrect)
 
-    def test_camAdress_MUST_FAIL(self):
+    def test_camURL_MUST_FAIL(self):
         reader = ConfigReader()
-        resultTest = reader.camAdress()
+        resultTest = reader.camURL()
         config = ConfigParser.ConfigParser()
         config.read("./config.ini")
         # Muss fehlschlagen!!!

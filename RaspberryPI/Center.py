@@ -67,6 +67,7 @@ class Core():
       # 2: Bewegungsmelder als Alarmanlage, beim Auslösen wird der
       #    Benutzer benachrichtigt und Bild der Kamera als Notification
       #    auf dem Smartphone angezeigt
+      global modus
       modus = mod
 
   def motionDetected(self):
@@ -80,9 +81,9 @@ class Core():
       # Wird ausgelöst, wenn System im Modus 'Alarmanlage' ist
       # Meldung an Smartphone
       self.writeLog('Bewegung ausgelöst!')
-      cam = Cam()
-      pic = cam.getPicture()
-      server.pushNotification(pic, 'push')
+      #cam = Cam()
+      #pic = cam.getPicture()
+      server.pushNotification('push')
 
   def clearPixel(self):
     # Alle Pixel ausschalten
@@ -92,10 +93,10 @@ class Core():
     # Ausgabe des Status
     print 'led status'
 
-  def writeLog(content):
+  def writeLog(self, content):
     # Message ins Logfile schreiben
-    time = time.time()
-    formattedTime = datetime.datetime.fromtimestamp(time).strftime('%Y-%m-%d %H:%M:%S')
+    Ttime = time.time()
+    formattedTime = datetime.datetime.fromtimestamp(Ttime).strftime('%Y-%m-%d %H:%M:%S')
     logging.basicConfig(filename='./log/all.log',level=logging.DEBUG)
     logging.warning(formattedTime + '| ' + content)
 
