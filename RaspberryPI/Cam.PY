@@ -7,4 +7,4 @@
 
 class Cam():
     def getPicture(self):
-        print 'getPicture'
+        return 'getPicture'

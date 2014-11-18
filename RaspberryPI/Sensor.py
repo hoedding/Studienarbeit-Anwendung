@@ -48,7 +48,7 @@ class MotionDetection(threading.Thread):
 					Previous_State = 1
 				elif Current_State == 0 and Previous_State == 1:
 					# Die LEDs werden nach bestimmter Zeit wieder
-					# ausgeschaltet. Dies passiert in der Center-Klasse
+					# ausgeschaltet. Dies passiert in der Led-Klasse
 					Previous_State=0
 				time.sleep(0.01)
 		except KeyboardInterrupt:
