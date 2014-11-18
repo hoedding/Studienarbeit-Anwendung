@@ -14,6 +14,7 @@ import time
 import datetime
 import threading
 
+
 class Core():
   def init(self):
     # Alle Initialisierungen vornehmen
@@ -49,22 +50,21 @@ class Core():
         print 'Motion Detection gestartet'
     try:
         led.start()
-        print 'LEDs initialisiert'
     except IOError:
         print 'Error:', arg
     else:
         print 'LEDs initialisiert'
 
   def motionDetected(self):
-    # Zum Test eine LED anschalten
-    pixel.rangePixel(0, 2, 255, 255, 255)
-    print 'motion'
+    # Wird bei Auslösen des Bewegungssensors aufgerufen
+    led.motionLight()
 
   def clearPixel(self):
     # Alle Pixel ausschalten
     led.clear()
 
   def getLedStatus(self):
+    # Ausgabe des Status
     print 'led status'
 
   def writeLog(content):

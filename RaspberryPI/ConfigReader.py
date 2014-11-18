@@ -23,7 +23,7 @@ class ConfigReader():
 		config.read("./config.ini")
 		return config.get("common", "motion1")
 
-	def getMotionPin1(self):
+	def getMotionPin2(self):
 		config = ConfigParser.ConfigParser()
 		config.read("./config.ini")
 		return config.get("common", "motion2")
@@ -37,3 +37,8 @@ class ConfigReader():
 		config = ConfigParser.ConfigParser()
 		config.read("./config.ini")
 		return config.get("cam","adress")
+
+	def getTimePeriod(self):
+		config = ConfigParser.ConfigParser()
+		config.read("./config.ini")
+		return int(config.get("led","motionOn"))

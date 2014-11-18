@@ -95,3 +95,12 @@ class NeoPixels(threading.Thread):
 		# Einprogrammierte Effekte starten
 		eff = effects()
 		eff.runEffect(code, pixel)
+
+	def motionLight(self):
+		# Alle LEDs werden eingeschaltet und nach
+		# bestimmten Zeitraum 'period' wieder ausgeschaltet
+		reader = ConfigReader()
+		period = reader.getTimePeriod()
+		self.fadeAllIn()
+		time.sleep(period)
+		self.fadeAllOut()
