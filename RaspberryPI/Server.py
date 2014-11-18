@@ -13,14 +13,23 @@ import threading
 
 class LightServer(Protocol):
 	def connectionMade(self):
-		self.factory.clients.append(self)
+		# Es darf nur eine Netzwerkverbindung zum System bestehen
+		# Falls eine weitere aufgebaut wird, so wird sie direkt wieder
+		# gecancelt
+		if (len(connections) >= 1):
+			self.transport.loseConnection()
+		else:
+			connections.append(self)
+			self.factory.clients.append(self)
 
 	def connectionLost(self, reason):
+		# Wenn die Verbindung getrennt wird, wird die Liste geleert
+		# und die Verbindung im System beendet
+		connections = []
 		self.factory.clients.remove(self)
 
 	def dataReceived(self, data):
-		print 'test2'
-		# Protokoll: auth:control:ledNo:rangeStart:rangeEnd:red:green:blue:effect:effectcode:hashv
+		# Protokoll: auth:control:ledNo:rangeStart:rangeEnd:red:green:blue:modus:effectcode:hashv
 		# Beispiel: admin:X00:1:0:0:10:10:10:0:0:58acb7acccce58ffa8b953b12b5a7702bd42dae441c1ad85057fa70b
 		# Ermoeglicht Zuweisung von Farben und Effekte
 		# Abruf des aktuellen Status sollte ebenfalls moeglich sein
@@ -38,10 +47,10 @@ class LightServer(Protocol):
 			red = 		a[5]
 			green = 	a[6]
 			blue = 		a[7]
-			effect = 	a[8]
+			modus = 	a[8]
 			effectcode = a[9]
 			hashv = a[10]
-			data = auth + control + ledNo + rangeStart + rangeEnd + red + green + blue + effect + effectcode
+			data = auth + control + ledNo + rangeStart + rangeEnd + red + green + blue + modus + effectcode
 			data = data.rstrip('\n')
 			data = data.rstrip('\r')
 			if (self.checkAuthentification(auth) & self.checkTransmissionData(data, hashv)):
@@ -61,11 +70,14 @@ class LightServer(Protocol):
 					## Effekte LED Bereich
 					print 'effekt X04'
 				elif control == 'X05':
-					## Fest programmierte Effekte
-					## z.B.: alle LEDs an
-					center.runEffects(effectcode)
+					## Modus des Systems
+					self.changeModus(int(modus))
 			else:
 				print center.writeLog('Übertragung fehlerhaft')
+
+	def changeModus(self, modus):
+		center.setModus(modus)
+
 
 	def lightUpOneLED(self, ledNo, red, green, blue):
 		# Eine einzelne LED mit den o.g. RGB-Werten dauerhaft anschalten
@@ -89,7 +101,7 @@ class LightServer(Protocol):
 			center.rangePixel(rangeStart, rangeEnd, red, green, blue)
 
 	def effectOneLED(self):
-    # Effekte auf einer LED aktivieren
+    	# Effekte auf einer LED aktivieren
 		center.effectOneLED()
 
 	def effectLEDRange(self):
@@ -147,4 +159,8 @@ class StartLightServer(threading.Thread):
 		factory.clients = []
 		factory.protocol = LightServer
 		reactor.listenTCP(7002, factory)
+		connections = []
 		reactor.run(installSignalHandlers=False)
+
+	def pushNotification(self, pic, message):
+		self.factory.clients[1].transport.write(pic + message)
