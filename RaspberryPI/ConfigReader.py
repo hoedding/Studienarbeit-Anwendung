@@ -33,10 +33,15 @@ class ConfigReader():
 		config.read("./config.ini")
 		return config.get("cam", "avaible")
 
-  	def camAdress(self):
+  	def camURL(self):
 		config = ConfigParser.ConfigParser()
 		config.read("./config.ini")
-		return config.get("cam","adress")
+		return config.get("cam","url")
+
+	def camShortURL(self):
+		config = ConfigParser.ConfigParser()
+		config.read("./config.ini")
+		return config.get("cam","shorturl")
 
 	def getTimePeriod(self):
 		config = ConfigParser.ConfigParser()
