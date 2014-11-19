@@ -55,12 +55,9 @@ class TLSServer(LineReceiver):
                         ## LED Bereich anschalten
                         self.lightUpLEDRange(int(rangeStart), int(rangeEnd), int(red), int(green), int(blue))
                     elif control == 'X03':
-                        ## Effekte eine LED
-                        print 'effekt X03'
+                        ## Effekt alle LEDs
+                        self.effectLED(effectcode)
                     elif control == 'X04':
-                        ## Effekte LED Bereich
-                        print 'effekt X04'
-                    elif control == 'X05':
                         ## Modus des Systems
                         self.changeModus(int(modus))
                 else:
@@ -91,13 +88,9 @@ class TLSServer(LineReceiver):
         if ( a & b & c & d & e):
             center.rangePixel(rangeStart, rangeEnd, red, green, blue)
 
-    def effectOneLED(self):
-        # Effekte auf einer LED aktivieren
-        center.effectOneLED()
-
-    def effectLEDRange(self):
-        # Effekte auf einem LED-Bereich aktivieren
-        center.effectLEDRange()
+    def effectLED(self, code):
+            # Effekte auf einer LED aktivieren
+            center.effectLED(code)
 
     def checkRange(self, ledNo):
         # Ueberprueft ob die uebergeben LED-Nummer ueberhaupt im
