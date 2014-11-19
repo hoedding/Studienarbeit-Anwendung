@@ -91,11 +91,6 @@ class NeoPixels(threading.Thread):
 			time.sleep( 0.5 )
 		print 'fadeALlOut'
 
-	def runEffects(self, code):
-		# Einprogrammierte Effekte starten
-		eff = effects()
-		eff.runEffect(code, pixel)
-
 	def motionLight(self):
 		# Alle LEDs werden eingeschaltet und nach
 		# bestimmten Zeitraum 'period' wieder ausgeschaltet
@@ -104,3 +99,58 @@ class NeoPixels(threading.Thread):
 		self.fadeAllIn()
 		time.sleep(period)
 		self.fadeAllOut()
+
+	def colourRed(self):
+		for i in range(strip.numPixels()):
+			strip.setPixelColor(i, Color(255,0,0))
+			strip.show()
+
+	def colourGreen(self):
+		for i in range(strip.numPixels()):
+			strip.setPixelColor(i, Color(0,255,0))
+			strip.show()
+
+	def colourBlue(self):
+		for i in range(strip.numPixels()):
+			strip.setPixelColor(i, Color(0,0,255))
+			strip.show()
+
+	def dimmedWhite(self):
+		for i in range(strip.numPixels()):
+			strip.setPixelColor(i, Color(150,150,150))
+			strip.show()
+
+	def strobe(self):
+		# TODO
+		print 'strobe'
+
+	def colourFader(self):
+		# TODO
+		print 'colourfader'
+
+	def effectLED(self, code):
+		# Einprogrammierte Effekte starten
+		# 1 Alle an
+		# 2 Alle aus
+		# 3 Alle rot
+		# 4 Alle grün
+		# 5 Alle blau
+		# 6 Alle gedimmt weis
+		# 7 Strobo
+		# 8 Bunte Übergänge
+		if code == '1':
+			self.fadeAllIn()
+		elif code == '2':
+			self.fadeAllOut()
+		elif code == '3':
+			self.colourRed()
+		elif code == '4':
+			self.colourGreen()
+		elif code == '5':
+			self.colourBlue()
+		elif code == '6':
+			self.dimmedWhite()
+		elif code == '7':
+			self.strobe()
+		elif code == '8':
+			self.colourFader()

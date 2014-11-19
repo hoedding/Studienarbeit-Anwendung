@@ -22,6 +22,7 @@ class Core():
     # Server = Webserver, der die Eingaben der App empfängt
     # Sensor = Klasse, welche die Bewegungssensoren auswertet
     # LED = Klasse zur LED Steuerung
+    # Server, Sensor, LED werden in eigenen Threads initialisiert
     # Modus = Aktueller Modus in dem sich das System befindet
     # System wird in Modus 0 initialisiert (Bewegungsmelder an)
     global server
@@ -111,18 +112,9 @@ class Core():
     if(modus == 1):
         led.rangePixel(rangeStart, rangeEnd, red, green, blue)
 
-  def effectOneLED(self):
+  def effectLED(self, code):
     # Effekte auf einer LED aktivieren
-    print 'Effekt eine LED'
-
-  def effectLEDRange(self):
-    # Effekte auf einem LED-Bereich aktivieren
-    if(modus == 1):
-        print 'Effekte LED-Bereich'
-
-  def runEffects(self, code):
-    # Einprogrammierte Effekte starten
-    led.runEffects(code)
+    led.effectLED(code)
 
   def printStatus(self):
     # Status ausgeben
