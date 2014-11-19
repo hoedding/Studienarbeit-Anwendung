@@ -14,45 +14,46 @@
 \contentsline {paragraph}{Fazit}{9}
 \contentsline {section}{\numberline {2.2}Bewegungssensor}{9}
 \contentsline {subsection}{\numberline {2.2.1}Bewertungskriterien}{9}
-\contentsline {subsection}{\numberline {2.2.2}Evaluierung}{9}
-\contentsline {subsection}{\numberline {2.2.3}Fazit}{10}
-\contentsline {subsection}{\numberline {2.2.4}Teststellung}{10}
-\contentsline {paragraph}{Technische Daten Sensor:}{10}
-\contentsline {paragraph}{Ablauf des Tests:}{10}
-\contentsline {section}{\numberline {2.3}Python-Server und Protokoll}{12}
-\contentsline {subsection}{\numberline {2.3.1}Protokoll}{12}
-\contentsline {subsection}{\numberline {2.3.2}Framework}{13}
-\contentsline {subsection}{\numberline {2.3.3}Testcode}{13}
-\contentsline {subsection}{\numberline {2.3.4}Implementierung}{14}
-\contentsline {subsection}{\numberline {2.3.5}Hashfunktion}{14}
-\contentsline {section}{\numberline {2.4}Verschl\IeC {\"u}sselung}{14}
-\contentsline {subsection}{\numberline {2.4.1}SSL vs. TLS}{14}
-\contentsline {subsection}{\numberline {2.4.2}Vor- und Nachteile TLS}{15}
-\contentsline {subsection}{\numberline {2.4.3}TLS Handshake}{15}
-\contentsline {subsection}{\numberline {2.4.4}Zertifikat und Key}{15}
-\contentsline {subsection}{\numberline {2.4.5}Beispielcode STARTTLS Server}{15}
-\contentsline {subsection}{\numberline {2.4.6}Wireshark Trace}{16}
-\contentsline {section}{\numberline {2.5}Kamera}{16}
-\contentsline {subsection}{\numberline {2.5.1}PI-Kamera vs. Netzwerkkamera}{16}
-\contentsline {paragraph}{Raspberry Pi Cam}{17}
-\contentsline {paragraph}{Netzwerkkamera}{17}
-\contentsline {subsection}{\numberline {2.5.2}Ansteuerung}{17}
-\contentsline {paragraph}{Testcode HTTP-Request}{17}
-\contentsline {paragraph}{Implementierung}{17}
-\contentsline {section}{\numberline {2.6}Anwendungsstruktur}{17}
-\contentsline {subsection}{\numberline {2.6.1}Klassen und ihre Funktionen}{17}
-\contentsline {subsection}{\numberline {2.6.2}Threads}{19}
-\contentsline {paragraph}{Problem:}{19}
-\contentsline {paragraph}{L\IeC {\"o}sung:}{19}
-\contentsline {paragraph}{Beispielcode:}{19}
-\contentsline {section}{\numberline {2.7}Konfiguration und Installation}{21}
-\contentsline {subsection}{\numberline {2.7.1}Konfiguration}{21}
-\contentsline {subsection}{\numberline {2.7.2}Installation}{21}
-\contentsline {section}{\numberline {2.8}iOS App}{21}
-\contentsline {subsection}{\numberline {2.8.1}Konzept}{21}
-\contentsline {subsection}{\numberline {2.8.2}...}{21}
-\contentsline {subsection}{\numberline {2.8.3}...}{21}
-\contentsline {chapter}{\numberline {3}Praktische Umsetzung}{22}
-\contentsline {chapter}{\numberline {4}Kostenaufstellung}{23}
-\contentsline {chapter}{\numberline {5}Fazit}{24}
-\contentsline {chapter}{Abbildungsverzeichnis}{24}
+\contentsline {subsection}{\numberline {2.2.2}Evaluierung}{10}
+\contentsline {paragraph}{Fazit}{10}
+\contentsline {subsection}{\numberline {2.2.3}Teststellung}{11}
+\contentsline {paragraph}{Technische Daten Sensor:}{11}
+\contentsline {paragraph}{Ablauf des Tests:}{11}
+\contentsline {paragraph}{Auswertung}{12}
+\contentsline {section}{\numberline {2.3}Verschl\IeC {\"u}sselung}{12}
+\contentsline {subsection}{\numberline {2.3.1}SSL vs. TLS}{12}
+\contentsline {subsection}{\numberline {2.3.2}Vor- und Nachteile TLS}{13}
+\contentsline {subsection}{\numberline {2.3.3}TLS Handshake}{13}
+\contentsline {subsection}{\numberline {2.3.4}Zertifikat und Key}{13}
+\contentsline {subsection}{\numberline {2.3.5}Beispielcode STARTTLS Server}{14}
+\contentsline {subsection}{\numberline {2.3.6}Wireshark Trace}{15}
+\contentsline {section}{\numberline {2.4}Python-Server und Protokoll}{15}
+\contentsline {subsection}{\numberline {2.4.1}Protokoll}{15}
+\contentsline {subsection}{\numberline {2.4.2}Framework}{16}
+\contentsline {subsection}{\numberline {2.4.3}Testcode}{16}
+\contentsline {subsection}{\numberline {2.4.4}Implementierung}{17}
+\contentsline {subsection}{\numberline {2.4.5}Hashfunktion}{21}
+\contentsline {section}{\numberline {2.5}Kamera}{21}
+\contentsline {subsection}{\numberline {2.5.1}PI-Kamera vs. Netzwerkkamera}{21}
+\contentsline {paragraph}{Raspberry Pi Cam}{21}
+\contentsline {paragraph}{Netzwerkkamera}{22}
+\contentsline {subsection}{\numberline {2.5.2}Ansteuerung}{22}
+\contentsline {paragraph}{Testcode HTTP-Request}{22}
+\contentsline {paragraph}{Implementierung}{22}
+\contentsline {section}{\numberline {2.6}Anwendungsstruktur}{22}
+\contentsline {subsection}{\numberline {2.6.1}Klassen und ihre Funktionen}{22}
+\contentsline {subsection}{\numberline {2.6.2}Threads}{24}
+\contentsline {paragraph}{Problem:}{24}
+\contentsline {paragraph}{L\IeC {\"o}sung:}{24}
+\contentsline {paragraph}{Beispielcode:}{24}
+\contentsline {section}{\numberline {2.7}Konfiguration und Installation}{26}
+\contentsline {subsection}{\numberline {2.7.1}Konfiguration}{26}
+\contentsline {subsection}{\numberline {2.7.2}Installation}{26}
+\contentsline {section}{\numberline {2.8}iOS App}{26}
+\contentsline {subsection}{\numberline {2.8.1}Konzept}{26}
+\contentsline {subsection}{\numberline {2.8.2}...}{26}
+\contentsline {subsection}{\numberline {2.8.3}...}{26}
+\contentsline {chapter}{\numberline {3}Praktische Umsetzung}{27}
+\contentsline {chapter}{\numberline {4}Kostenaufstellung}{28}
+\contentsline {chapter}{\numberline {5}Fazit}{29}
+\contentsline {chapter}{Abbildungsverzeichnis}{29}

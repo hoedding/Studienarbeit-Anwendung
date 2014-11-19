@@ -1,4 +1,4 @@
-In einem der Modi soll die Beleuchtung durch den Bewegunsmelder ausgelöst werden. Hierfür sind zuverlässige und weitreichende Beweungssensoren notwendig.
+In einem der Modi soll die Beleuchtung durch den Bewegunsmelder ausgelöst werden. Hierfür sind zuverlässige und weitreichende Bewegungssensoren notwendig.
 \subsection{Bewertungskriterien}
 \begin{itemize}
 \item \textbf{Ansteuerung}\\
@@ -36,8 +36,12 @@ Reichweite: 7m, 100 Grad\\
 Kosten: 5 Stück = 7,66€\\
 Extras: keine\\
 \end{itemize}
-
-\subsection{Fazit}
+\begin{minipage}{\linewidth}
+            \centering
+            \includegraphics[width=\textwidth]{./data/evaluierung-ms.png}
+            \captionof{figure}{Ergebnisse der Motion-Sensor-Evaluierung}
+        \end{minipage}
+\paragraph{Fazit}
 Die meisten Infarot-Bewegungssensoren sind von der Bauweise nahezu identisch. Die Unterschiede liegen meist nur in der Empfindlichkeit. Da die Reichweite in diesem Fall nicht von großer Bedeutsamkeit ist, kann eigentlich jedes der Produkte bestellt werden. Auf Ebay und Amazon ist die Anzahl angebotener Sensoren nahezu unbegrenzt, es wurde für die Teststellung also die oben evaluierte Variante von Amazon bestellt. 
 \subsection{Teststellung}
 Der in Punkt X.X.X gewählte Bewegungssensor wurde beim Hersteller bestellt. In der Teststellung reicht die Stromversorgung des Raspberry Pi. 
@@ -94,6 +98,6 @@ except KeyboardInterrupt:
 	GPIO.cleanup()
 \end{lstlisting}
 Bei der Endversion des Systems sollen mehrere Beweungssensoren integriert werden. Bei Auslösen des ersten Sensors sollen die LEDs angeschaltet werden und nach auslösen eines weiteren Sensors wieder ausgeschaltet werden. 
-\item \textbf{Auswertung}\\
+\paragraph{Auswertung}\\
 Das High-Signal des Sensors lässt sich mit dem Raspberry Pi sehr leicht auswerten. Auch die Auswertung von mehreren Sensoren stellt kein Problem da. Das Ergebnis der Evaluierung konnte in dieser Tststellung bestätigt werden. 
 \end{itemize}

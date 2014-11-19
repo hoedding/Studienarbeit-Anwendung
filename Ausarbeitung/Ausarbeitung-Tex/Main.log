@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.4-1.40.13 (TeX Live 2012) (format=pdflatex 2012.6.30)  16 NOV 2014 21:05
+This is pdfTeX, Version 3.1415926-2.4-1.40.13 (TeX Live 2012) (format=pdflatex 2012.6.30)  19 NOV 2014 22:48
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -870,10 +870,15 @@ Package Fancyhdr Warning: \headheight is too small (18.125pt):
 
 [6
 
-]
+] <./data/evaluierung-led.png, id=89, 945.5325pt x 143.53625pt>
+File: ./data/evaluierung-led.png Graphic file (type png)
+
+<use ./data/evaluierung-led.png>
+Package pdftex.def Info: ./data/evaluierung-led.png used on input line 60.
+(pdftex.def)             Requested size: 455.24411pt x 69.10905pt.
 File: ./data/dhbwlogo.jpg Graphic file (type jpg)
  <use ./data/dhbwlogo.jpg>
-Package pdftex.def Info: ./data/dhbwlogo.jpg used on input line 66.
+Package pdftex.def Info: ./data/dhbwlogo.jpg used on input line 68.
 (pdftex.def)             Requested size: 41.7001pt x 20.0912pt.
 
 
@@ -882,13 +887,26 @@ Package Fancyhdr Warning: \headheight is too small (18.125pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[7] (/usr/local/texlive/2012/texmf-dist/tex/latex/listings/lstlang1.sty
+[7 <./data/evaluierung-led.png>]
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <7> on input line 86.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <5> on input line 86.
+
+<./data/TestSchaltungLED.png, id=96, 396.48125pt x 397.485pt>
+File: ./data/TestSchaltungLED.png Graphic file (type png)
+
+<use ./data/TestSchaltungLED.png>
+Package pdftex.def Info: ./data/TestSchaltungLED.png used on input line 89.
+(pdftex.def)             Requested size: 227.62204pt x 228.20032pt.
+
+(/usr/local/texlive/2012/texmf-dist/tex/latex/listings/lstlang1.sty
 File: lstlang1.sty 2004/09/05 1.3 listings language file
 )
 File: ./data/dhbwlogo.jpg Graphic file (type jpg)
 
 <use ./data/dhbwlogo.jpg>
-Package pdftex.def Info: ./data/dhbwlogo.jpg used on input line 105.
+Package pdftex.def Info: ./data/dhbwlogo.jpg used on input line 95.
 (pdftex.def)             Requested size: 41.7001pt x 20.0912pt.
 
 
@@ -897,19 +915,11 @@ Package Fancyhdr Warning: \headheight is too small (18.125pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[8]) (./content/bewegungssensor.tex
-Underfull \hbox (badness 10000) in paragraph at lines 20--26
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 26--32
-
- []
-
+[8 <./data/TestSchaltungLED.png>]) (./content/bewegungssensor.tex
 File: ./data/dhbwlogo.jpg Graphic file (type jpg)
+
 <use ./data/dhbwlogo.jpg>
-Package pdftex.def Info: ./data/dhbwlogo.jpg used on input line 32.
+Package pdftex.def Info: ./data/dhbwlogo.jpg used on input line 10.
 (pdftex.def)             Requested size: 41.7001pt x 20.0912pt.
 
 
@@ -919,6 +929,16 @@ Package Fancyhdr Warning: \headheight is too small (18.125pt):
  This may cause the page layout to be inconsistent, however.
 
 [9]
+Underfull \hbox (badness 10000) in paragraph at lines 20--26
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 26--32
+
+ []
+
+
 Overfull \hbox (187.8583pt too wide) in paragraph at lines 32--38
 \T1/cmr/m/n/12 Link: http://www.amazon.de/Pyroelectrische-Infrarot-Bewegung-Sen
 sor-Detektor/dp/B008AESDSY/ref=pd_cp_ce_0 
@@ -929,9 +949,15 @@ Underfull \hbox (badness 10000) in paragraph at lines 32--38
 
  []
 
+<./data/evaluierung-ms.png, id=109, 914.41624pt x 124.465pt>
+File: ./data/evaluierung-ms.png Graphic file (type png)
+
+<use ./data/evaluierung-ms.png>
+Package pdftex.def Info: ./data/evaluierung-ms.png used on input line 41.
+(pdftex.def)             Requested size: 455.24411pt x 61.96455pt.
 File: ./data/dhbwlogo.jpg Graphic file (type jpg)
-<use ./data/dhbwlogo.jpg>
-Package pdftex.def Info: ./data/dhbwlogo.jpg used on input line 64.
+ <use ./data/dhbwlogo.jpg>
+Package pdftex.def Info: ./data/dhbwlogo.jpg used on input line 48.
 (pdftex.def)             Requested size: 41.7001pt x 20.0912pt.
 
 
@@ -940,7 +966,7 @@ Package Fancyhdr Warning: \headheight is too small (18.125pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[10]
+[10 <./data/evaluierung-ms.png>]
 
 ! Package inputenc Error: Unicode char \u8:√\lst@ECÑ not set up for use with La
 TeX.
@@ -949,17 +975,12 @@ See the inputenc package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.74 ...us definieren um verschiedene √Ñnderungen 
+l.78 ...us definieren um verschiedene √Ñnderungen 
                                                   zu erkennen
 ? 
-) (./content/serverprotokoll.tex
-Underfull \hbox (badness 10000) in paragraph at lines 3--4
-
- []
-
 File: ./data/dhbwlogo.jpg Graphic file (type jpg)
 <use ./data/dhbwlogo.jpg>
-Package pdftex.def Info: ./data/dhbwlogo.jpg used on input line 4.
+Package pdftex.def Info: ./data/dhbwlogo.jpg used on input line 88.
 (pdftex.def)             Requested size: 41.7001pt x 20.0912pt.
 
 
@@ -969,13 +990,25 @@ Package Fancyhdr Warning: \headheight is too small (18.125pt):
  This may cause the page layout to be inconsistent, however.
 
 [11]
-Underfull \hbox (badness 10000) in paragraph at lines 7--16
+
+! LaTeX Error: There's no line here to end.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.102 D
+       as High-Signal des Sensors l√§sst sich mit dem Raspberry Pi sehr leic...
+
+? 
+) (./content/secure.tex
+Underfull \hbox (badness 10000) in paragraph at lines 4--8
 
  []
 
 File: ./data/dhbwlogo.jpg Graphic file (type jpg)
 <use ./data/dhbwlogo.jpg>
-Package pdftex.def Info: ./data/dhbwlogo.jpg used on input line 34.
+Package pdftex.def Info: ./data/dhbwlogo.jpg used on input line 9.
 (pdftex.def)             Requested size: 41.7001pt x 20.0912pt.
 
 
@@ -985,8 +1018,87 @@ Package Fancyhdr Warning: \headheight is too small (18.125pt):
  This may cause the page layout to be inconsistent, however.
 
 [12]
+Underfull \hbox (badness 10000) in paragraph at lines 10--12
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 14--27
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 39--41
+
+ []
+
+File: ./data/dhbwlogo.jpg Graphic file (type jpg)
+<use ./data/dhbwlogo.jpg>
+Package pdftex.def Info: ./data/dhbwlogo.jpg used on input line 43.
+(pdftex.def)             Requested size: 41.7001pt x 20.0912pt.
+
+
+Package Fancyhdr Warning: \headheight is too small (18.125pt): 
+ Make it at least 27.11469pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[13]
+Underfull \hbox (badness 10000) in paragraph at lines 46--48
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 79--81
+
+ []
+
+<./data/wireshark.png, id=124, 1093.08376pt x 123.46124pt>
+File: ./data/wireshark.png Graphic file (type png)
+
+<use ./data/wireshark.png>
+Package pdftex.def Info: ./data/wireshark.png used on input line 87.
+(pdftex.def)             Requested size: 455.24411pt x 51.41818pt.
+)
+Underfull \hbox (badness 10000) in paragraph at lines 83--21
+
+ []
+
+File: ./data/dhbwlogo.jpg Graphic file (type jpg)
+<use ./data/dhbwlogo.jpg>
+Package pdftex.def Info: ./data/dhbwlogo.jpg used on input line 21.
+(pdftex.def)             Requested size: 41.7001pt x 20.0912pt.
+
+
+Package Fancyhdr Warning: \headheight is too small (18.125pt): 
+ Make it at least 27.11469pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[14] (./content/serverprotokoll.tex
+Underfull \hbox (badness 10000) in paragraph at lines 3--4
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 7--15
+
+ []
+
+File: ./data/dhbwlogo.jpg Graphic file (type jpg)
+<use ./data/dhbwlogo.jpg>
+Package pdftex.def Info: ./data/dhbwlogo.jpg used on input line 27.
+(pdftex.def)             Requested size: 41.7001pt x 20.0912pt.
+
+
+Package Fancyhdr Warning: \headheight is too small (18.125pt): 
+ Make it at least 27.11469pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[15 <./data/wireshark.png>]
 ! Undefined control sequence.
-l.41 Dies w\√
+l.40 Dies w\√
              ºrde die LEDs 0 bis 49 einschalten (Farbe weis 255,255,255). An...
 
 ? 
@@ -998,96 +1110,18 @@ See the inputenc package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.41 Dies w\√º
+l.40 Dies w\√º
               rde die LEDs 0 bis 49 einschalten (Farbe weis 255,255,255). An...
 
 ? 
 
-Underfull \hbox (badness 10000) in paragraph at lines 43--46
+Underfull \hbox (badness 10000) in paragraph at lines 42--45
 
  []
 
 File: ./data/dhbwlogo.jpg Graphic file (type jpg)
 <use ./data/dhbwlogo.jpg>
-Package pdftex.def Info: ./data/dhbwlogo.jpg used on input line 70.
-(pdftex.def)             Requested size: 41.7001pt x 20.0912pt.
-
-
-Package Fancyhdr Warning: \headheight is too small (18.125pt): 
- Make it at least 27.11469pt.
- We now make it that large for the rest of the document.
- This may cause the page layout to be inconsistent, however.
-
-[13]
-Underfull \hbox (badness 10000) in paragraph at lines 77--78
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 77--78
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 87--91
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 93--95
-
- []
-
-File: ./data/dhbwlogo.jpg Graphic file (type jpg)
-<use ./data/dhbwlogo.jpg>
-Package pdftex.def Info: ./data/dhbwlogo.jpg used on input line 95.
-(pdftex.def)             Requested size: 41.7001pt x 20.0912pt.
-
-
-Package Fancyhdr Warning: \headheight is too small (18.125pt): 
- Make it at least 27.11469pt.
- We now make it that large for the rest of the document.
- This may cause the page layout to be inconsistent, however.
-
-[14]
-Underfull \hbox (badness 10000) in paragraph at lines 97--109
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 121--123
-
- []
-
-File: ./data/dhbwlogo.jpg Graphic file (type jpg)
-<use ./data/dhbwlogo.jpg>
-Package pdftex.def Info: ./data/dhbwlogo.jpg used on input line 129.
-(pdftex.def)             Requested size: 41.7001pt x 20.0912pt.
-
-
-Package Fancyhdr Warning: \headheight is too small (18.125pt): 
- Make it at least 27.11469pt.
- We now make it that large for the rest of the document.
- This may cause the page layout to be inconsistent, however.
-
-[15]
-ngerman: "RR is now obsolete, please use RRR instead on input line 154.
-! ngerman: The command "g is undefined.
-\grmn@dq@error ...and \dq \string #1 is undefined}
-                                                  
-l.154 ...thalten ist. Daraufhin wird mit "READY" g
-                                                  eantwortet um dem Client z...
-
-? 
-
-Underfull \hbox (badness 10000) in paragraph at lines 154--156
-
- []
-
-)
-File: ./data/dhbwlogo.jpg Graphic file (type jpg)
- <use ./data/dhbwlogo.jpg>
-Package pdftex.def Info: ./data/dhbwlogo.jpg used on input line 25.
+Package pdftex.def Info: ./data/dhbwlogo.jpg used on input line 58.
 (pdftex.def)             Requested size: 41.7001pt x 20.0912pt.
 
 
@@ -1097,71 +1131,43 @@ Package Fancyhdr Warning: \headheight is too small (18.125pt):
  This may cause the page layout to be inconsistent, however.
 
 [16]
-
-! LaTeX Error: There's no line here to end.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
+! ngerman: The command ", is undefined.
+\grmn@dq@error ...and \dq \string #1 is undefined}
                                                   
-l.26 D
-      ie Kameras f√ºr den Raspberry Pi k√∂nnen direkt an das Ger√§t angeschl...
+l.84 ...ste √úbertragung das Stichwort "STARTTLS",
+                                                   dieses quitiert er mit "R...
+
+? 
+ngerman: "RR is now obsolete, please use RRR instead on input line 84.
+! ngerman: The command ". is undefined.
+\grmn@dq@error ...and \dq \string #1 is undefined}
+                                                  
+l.84 ...STARTTLS", dieses quitiert er mit "READY".
+                                                   Daraufhin initialisiert e...
+
+? 
+! ngerman: The command ": is undefined.
+\grmn@dq@error ...and \dq \string #1 is undefined}
+                                                  
+l.85 ...terten Protokolls enthalten. Anhand der ":
+                                                  " werden die empfangenen D...
+
+? 
+! ngerman: The command "w is undefined.
+\grmn@dq@error ...and \dq \string #1 is undefined}
+                                                  
+l.85 ...ten Protokolls enthalten. Anhand der ":" w
+                                                  erden die empfangenen Date...
 
 ? 
 
-! LaTeX Error: There's no line here to end.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.29 E
-      ine Netzwerkkamera oder auch IP-Kamera genannt befindet sich im Netzwe...
-
-? 
-
-Underfull \hbox (badness 10000) in paragraph at lines 29--32
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 38--45
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 38--45
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 38--45
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 38--45
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 38--45
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 38--45
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 38--45
+Underfull \hbox (badness 10000) in paragraph at lines 83--88
 
  []
 
 File: ./data/dhbwlogo.jpg Graphic file (type jpg)
 <use ./data/dhbwlogo.jpg>
-Package pdftex.def Info: ./data/dhbwlogo.jpg used on input line 45.
+Package pdftex.def Info: ./data/dhbwlogo.jpg used on input line 92.
 (pdftex.def)             Requested size: 41.7001pt x 20.0912pt.
 
 
@@ -1172,19 +1178,19 @@ Package Fancyhdr Warning: \headheight is too small (18.125pt):
 
 [17]
 
-! LaTeX Error: There's no line here to end.
+! Package inputenc Error: Unicode char \u8:√\lst@EC∂ not set up for use with La
+TeX.
 
-See the LaTeX manual or LaTeX Companion for explanation.
+See the inputenc package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.72 \paragraph{Problem:} \\ D
-                              ie Server-Klasse und Sensor-Klasse befinden si...
-
+l.93 # Author: Timo H√∂ting 
+                                  		           #
 ? 
 File: ./data/dhbwlogo.jpg Graphic file (type jpg)
 <use ./data/dhbwlogo.jpg>
-Package pdftex.def Info: ./data/dhbwlogo.jpg used on input line 73.
+Package pdftex.def Info: ./data/dhbwlogo.jpg used on input line 138.
 (pdftex.def)             Requested size: 41.7001pt x 20.0912pt.
 
 
@@ -1195,20 +1201,297 @@ Package Fancyhdr Warning: \headheight is too small (18.125pt):
 
 [18]
 
+! Package inputenc Error: Unicode char \u8:√\lst@ECú not set up for use with La
+TeX.
+
+See the inputenc package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.153 ...     print center.writeLog('√úbertragung 
+                                                  fehlerhaft')
+? 
+File: ./data/dhbwlogo.jpg Graphic file (type jpg)
+<use ./data/dhbwlogo.jpg>
+Package pdftex.def Info: ./data/dhbwlogo.jpg used on input line 185.
+(pdftex.def)             Requested size: 41.7001pt x 20.0912pt.
+
+
+Package Fancyhdr Warning: \headheight is too small (18.125pt): 
+ Make it at least 27.11469pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[19]
+
+! Package inputenc Error: Unicode char \u8:√\lst@ECú not set up for use with La
+TeX.
+
+See the inputenc package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.196         # √úberpr√ºfung 
+                              ob Farbwert im g√ºltigen Bereich liegt
+? 
+
+! Package inputenc Error: Unicode char \u8:√\lst@ECº not set up for use with La
+TeX.
+
+See the inputenc package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.196         # √úberpr√ºfung 
+                              ob Farbwert im g√ºltigen Bereich liegt
+? 
+
+! Package inputenc Error: Unicode char \u8:√\lst@ECº not set up for use with La
+TeX.
+
+See the inputenc package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.196 ...# √úberpr√ºfung ob Farbwert im g√ºltigen 
+                                                  Bereich liegt
+? 
+
+! Package inputenc Error: Unicode char \u8:√\lst@ECº not set up for use with La
+TeX.
+
+See the inputenc package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.202         # Authentifizierung √ºberpr√ºfen
+                                              
+? 
+
+! Package inputenc Error: Unicode char \u8:√\lst@ECº not set up for use with La
+TeX.
+
+See the inputenc package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.202         # Authentifizierung √ºberpr√ºfen
+                                              
+? 
+
+! Package inputenc Error: Unicode char \u8:√\lst@ECú not set up for use with La
+TeX.
+
+See the inputenc package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.203 ...ert ist das Passwort aus der √úbertragung
+                                                  
+? 
+
+! Package inputenc Error: Unicode char \u8:√\lst@ECú not set up for use with La
+TeX.
+
+See the inputenc package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.214         # Korrektheit der √úbertragung 
+                                             mittels Hashvergleich feststellen
+? 
+
+! Package inputenc Error: Unicode char \u8:√\lst@ECú not set up for use with La
+TeX.
+
+See the inputenc package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.215 ... sind die gesamten Daten der √úbertragung
+                                                  
+? 
+
+! Package inputenc Error: Unicode char \u8:√\lst@ECº not set up for use with La
+TeX.
+
+See the inputenc package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.221         # F√ºr 
+                     Test√ºbertragung return immer True
+? 
+
+! Package inputenc Error: Unicode char \u8:√\lst@ECº not set up for use with La
+TeX.
+
+See the inputenc package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.221         # F√ºr Test√ºbertragung 
+                                      return immer True
+? 
+File: ./data/dhbwlogo.jpg Graphic file (type jpg)
+<use ./data/dhbwlogo.jpg>
+Package pdftex.def Info: ./data/dhbwlogo.jpg used on input line 233.
+(pdftex.def)             Requested size: 41.7001pt x 20.0912pt.
+
+
+Package Fancyhdr Warning: \headheight is too small (18.125pt): 
+ Make it at least 27.11469pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[20]) (./content/kamera.tex
+
 ! LaTeX Error: There's no line here to end.
 
 See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.73 \paragraph{L√∂sung:} \\ D
-                              ie beiden oben genannten Klassen, sowie weiter...
+l.4 D
+     ie Kameras f√ºr den Raspberry Pi k√∂nnen direkt an das Ger√§t angeschlo...
+
+? 
+File: ./data/dhbwlogo.jpg Graphic file (type jpg)
+<use ./data/dhbwlogo.jpg>
+Package pdftex.def Info: ./data/dhbwlogo.jpg used on input line 6.
+(pdftex.def)             Requested size: 41.7001pt x 20.0912pt.
+
+
+Package Fancyhdr Warning: \headheight is too small (18.125pt): 
+ Make it at least 27.11469pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[21]
+
+! LaTeX Error: There's no line here to end.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.7 E
+     ine Netzwerkkamera oder auch IP-Kamera genannt befindet sich im Netzwer...
 
 ? 
 
-Overfull \hbox (14.50793pt too wide) in paragraph at lines 73--75
-[] \T1/cmss/bx/n/12 Lˆ-sung:[][] \T1/cmr/m/n/12 Die bei-den oben ge-nann-ten Kl
-as-sen, so-wie wei-te-re Klas-sen wie die LED-Steuerung,
+Underfull \hbox (badness 10000) in paragraph at lines 7--10
+
+ []
+
+) (./content/anwendungskonzept.tex
+<./data/ApplicationConcept.png, id=151, 720.6925pt x 407.5225pt>
+File: ./data/ApplicationConcept.png Graphic file (type png)
+
+<use ./data/ApplicationConcept.png>
+Package pdftex.def Info: ./data/ApplicationConcept.png used on input line 6.
+(pdftex.def)             Requested size: 318.66948pt x 180.19345pt.
+
+Underfull \hbox (badness 3668) in paragraph at lines 12--19
+\T1/cmr/m/n/12 al-le In-for-ma-tio-nen zu-
+ []
+
+
+Underfull \hbox (badness 2261) in paragraph at lines 12--19
+\T1/cmr/m/n/12 wal-tet wer-den. In der
+ []
+
+
+Underfull \hbox (badness 1609) in paragraph at lines 12--19
+\T1/cmr/m/n/12 Klas-se 'Sen-sor' wer-den
+ []
+
+
+Overfull \hbox (0.91234pt too wide) in paragraph at lines 12--19
+\T1/cmr/m/n/12 die ein-zel-nen Be-we-gungs-
+ []
+
+
+Overfull \hbox (1.69537pt too wide) in paragraph at lines 12--19
+\T1/cmr/m/n/12 sen-so-ren ¸ber-wacht. Falls
+ []
+
+
+Underfull \hbox (badness 5771) in paragraph at lines 12--19
+\T1/cmr/m/n/12 ei-ne Be-we-gung de-tek-
+ []
+
+
+Underfull \hbox (badness 3396) in paragraph at lines 12--19
+\T1/cmr/m/n/12 'Cen-ter' die not-wen-di-
+ []
+
+
+Underfull \hbox (badness 1424) in paragraph at lines 12--19
+\T1/cmr/m/n/12 fen um die LEDs an-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 12--19
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 12--19
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 12--19
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 12--19
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 12--19
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 12--19
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 12--19
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 12--19
+
+ []
+
+File: ./data/dhbwlogo.jpg Graphic file (type jpg)
+<use ./data/dhbwlogo.jpg>
+Package pdftex.def Info: ./data/dhbwlogo.jpg used on input line 19.
+(pdftex.def)             Requested size: 41.7001pt x 20.0912pt.
+
+
+Package Fancyhdr Warning: \headheight is too small (18.125pt): 
+ Make it at least 27.11469pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[22 <./data/ApplicationConcept.png>]
+<./data/Threads.png, id=156, 284.06125pt x 190.7125pt>
+File: ./data/Threads.png Graphic file (type png)
+
+<use ./data/Threads.png>
+Package pdftex.def Info: ./data/Threads.png used on input line 50.
+(pdftex.def)             Requested size: 136.57462pt x 91.69518pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 53--53
+[]\T1/cmr/m/n/12 Prozess und
  []
 
 
@@ -1218,7 +1501,46 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.76 F
+l.57 \paragraph{Problem:} \\ D
+                              ie Server-Klasse und Sensor-Klasse befinden si...
+
+? 
+File: ./data/dhbwlogo.jpg Graphic file (type jpg)
+<use ./data/dhbwlogo.jpg>
+Package pdftex.def Info: ./data/dhbwlogo.jpg used on input line 57.
+(pdftex.def)             Requested size: 41.7001pt x 20.0912pt.
+
+
+Package Fancyhdr Warning: \headheight is too small (18.125pt): 
+ Make it at least 27.11469pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[23]
+Underfull \hbox (badness 1163) in paragraph at lines 57--58
+[][] \T1/cmss/bx/n/12 Pro-blem:[][] \T1/cmr/m/n/12 Die Server-Klasse und Sensor
+-Klasse
+ []
+
+
+! LaTeX Error: There's no line here to end.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.58 \paragraph{L√∂sung:} \\ D
+                              ie beiden oben genannten Klassen, sowie weiter...
+
+? 
+
+! LaTeX Error: There's no line here to end.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.61 F
       √ºr eine FUnktionsdarstellung der Threads mit Python werden drei Klass...
 
 ? 
@@ -1230,12 +1552,12 @@ See the inputenc package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.82 # Author: Timo H√∂ting 
+l.67 # Author: Timo H√∂ting 
                                                    #
 ? 
 File: ./data/dhbwlogo.jpg Graphic file (type jpg)
 <use ./data/dhbwlogo.jpg>
-Package pdftex.def Info: ./data/dhbwlogo.jpg used on input line 110.
+Package pdftex.def Info: ./data/dhbwlogo.jpg used on input line 92.
 (pdftex.def)             Requested size: 41.7001pt x 20.0912pt.
 
 
@@ -1244,7 +1566,7 @@ Package Fancyhdr Warning: \headheight is too small (18.125pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[19]
+[24 <./data/Threads.png>]
 
 ! Package inputenc Error: Unicode char \u8:√\lst@EC∂ not set up for use with La
 TeX.
@@ -1253,24 +1575,13 @@ See the inputenc package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.116 # Author: Timo H√∂ting 
+l.101 # Author: Timo H√∂ting 
                                                     #
 ? 
-File: ./data/dhbwlogo.jpg Graphic file (type jpg)
-<use ./data/dhbwlogo.jpg>
-Package pdftex.def Info: ./data/dhbwlogo.jpg used on input line 149.
-(pdftex.def)             Requested size: 41.7001pt x 20.0912pt.
-
-
-Package Fancyhdr Warning: \headheight is too small (18.125pt): 
- Make it at least 27.11469pt.
- We now make it that large for the rest of the document.
- This may cause the page layout to be inconsistent, however.
-
-[20]
+)
 File: ./data/dhbwlogo.jpg Graphic file (type jpg)
  <use ./data/dhbwlogo.jpg>
-Package pdftex.def Info: ./data/dhbwlogo.jpg used on input line 149.
+Package pdftex.def Info: ./data/dhbwlogo.jpg used on input line 35.
 (pdftex.def)             Requested size: 41.7001pt x 20.0912pt.
 
 
@@ -1279,11 +1590,23 @@ Package Fancyhdr Warning: \headheight is too small (18.125pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[21]
+[25]
+File: ./data/dhbwlogo.jpg Graphic file (type jpg)
+ <use ./data/dhbwlogo.jpg>
+Package pdftex.def Info: ./data/dhbwlogo.jpg used on input line 35.
+(pdftex.def)             Requested size: 41.7001pt x 20.0912pt.
+
+
+Package Fancyhdr Warning: \headheight is too small (18.125pt): 
+ Make it at least 27.11469pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[26]
 Kapitel 3.
 File: ./data/dhbwlogo.jpg Graphic file (type jpg)
 <use ./data/dhbwlogo.jpg>
-Package pdftex.def Info: ./data/dhbwlogo.jpg used on input line 151.
+Package pdftex.def Info: ./data/dhbwlogo.jpg used on input line 37.
 (pdftex.def)             Requested size: 41.7001pt x 20.0912pt.
 
 
@@ -1292,13 +1615,13 @@ Package Fancyhdr Warning: \headheight is too small (18.125pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[22
+[27
 
 ]
 Kapitel 4.
 File: ./data/dhbwlogo.jpg Graphic file (type jpg)
 <use ./data/dhbwlogo.jpg>
-Package pdftex.def Info: ./data/dhbwlogo.jpg used on input line 153.
+Package pdftex.def Info: ./data/dhbwlogo.jpg used on input line 39.
 (pdftex.def)             Requested size: 41.7001pt x 20.0912pt.
 
 
@@ -1307,7 +1630,7 @@ Package Fancyhdr Warning: \headheight is too small (18.125pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[23
+[28
 
 ]
 Kapitel 5.
@@ -1323,7 +1646,7 @@ Package Fancyhdr Warning: \headheight is too small (18.125pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[24
+[29
 
 ] (./Main.lof)
 \tf@lof=\write4
@@ -1340,7 +1663,7 @@ Package Fancyhdr Warning: \headheight is too small (18.125pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[25
+[30
 
 ]
 LaTeX Font Info:    Try loading font information for T1+cmtt on input line 6.
@@ -1360,7 +1683,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 6--8
 )
 File: ./data/dhbwlogo.jpg Graphic file (type jpg)
  <use ./data/dhbwlogo.jpg>
-Package pdftex.def Info: ./data/dhbwlogo.jpg used on input line 157.
+Package pdftex.def Info: ./data/dhbwlogo.jpg used on input line 43.
 (pdftex.def)             Requested size: 41.7001pt x 20.0912pt.
 
 
@@ -1369,31 +1692,34 @@ Package Fancyhdr Warning: \headheight is too small (18.125pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[26
+[31
 
 ] (./Main.aux) ) 
 Here is how much of TeX's memory you used:
- 7774 strings out of 493488
- 110735 string characters out of 3141326
- 299175 words of memory out of 3000000
- 10935 multiletter control sequences out of 15000+200000
- 12413 words of font info for 32 fonts, out of 3000000 for 9000
+ 7890 strings out of 493488
+ 112813 string characters out of 3141326
+ 380705 words of memory out of 3000000
+ 11033 multiletter control sequences out of 15000+200000
+ 14708 words of font info for 35 fonts, out of 3000000 for 9000
  957 hyphenation exceptions out of 8191
- 47i,17n,51p,664b,1936s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 47i,17n,51p,709b,1977s stack positions out of 5000i,500n,10000p,200000b,50000s
 {/usr/local/texlive/2012/texmf-dist/fonts/enc/dvips/cm-super/cm
 -super-t1.enc}{/usr/local/texlive/2012/texmf-dist/fonts/enc/dvips/cm-super/cm-s
 uper-ts1.enc}</usr/local/texlive/2012/texmf-dist/fonts/type1/public/amsfonts/cm
 /cmsy10.pfb></usr/local/texlive/2012/texmf-dist/fonts/type1/public/cm-super/sfb
-x1200.pfb></usr/local/texlive/2012/texmf-dist/fonts/type1/public/cm-super/sfrm1
-200.pfb></usr/local/texlive/2012/texmf-dist/fonts/type1/public/cm-super/sfsx120
-0.pfb></usr/local/texlive/2012/texmf-dist/fonts/type1/public/cm-super/sfsx1440.
-pfb></usr/local/texlive/2012/texmf-dist/fonts/type1/public/cm-super/sfsx1728.pf
-b></usr/local/texlive/2012/texmf-dist/fonts/type1/public/cm-super/sfsx2488.pfb>
-</usr/local/texlive/2012/texmf-dist/fonts/type1/public/cm-super/sftt1200.pfb>
-Output written on Main.pdf (26 pages, 391853 bytes).
+x1200.pfb></usr/local/texlive/2012/texmf-dist/fonts/type1/public/cm-super/sfrm0
+700.pfb></usr/local/texlive/2012/texmf-dist/fonts/type1/public/cm-super/sfrm080
+0.pfb></usr/local/texlive/2012/texmf-dist/fonts/type1/public/cm-super/sfrm1000.
+pfb></usr/local/texlive/2012/texmf-dist/fonts/type1/public/cm-super/sfrm1200.pf
+b></usr/local/texlive/2012/texmf-dist/fonts/type1/public/cm-super/sfsx1200.pfb>
+</usr/local/texlive/2012/texmf-dist/fonts/type1/public/cm-super/sfsx1440.pfb></
+usr/local/texlive/2012/texmf-dist/fonts/type1/public/cm-super/sfsx1728.pfb></us
+r/local/texlive/2012/texmf-dist/fonts/type1/public/cm-super/sfsx2488.pfb></usr/
+local/texlive/2012/texmf-dist/fonts/type1/public/cm-super/sftt1200.pfb>
+Output written on Main.pdf (31 pages, 547302 bytes).
 PDF statistics:
- 187 PDF objects out of 1000 (max. 8388607)
- 131 compressed objects within 2 object streams
+ 228 PDF objects out of 1000 (max. 8388607)
+ 152 compressed objects within 2 object streams
  0 named destinations out of 1000 (max. 500000)
- 16 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 46 words of extra memory for PDF output out of 10000 (max. 10000000)
 

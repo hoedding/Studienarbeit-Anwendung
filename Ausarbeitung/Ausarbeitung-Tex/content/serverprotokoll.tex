@@ -9,9 +9,8 @@ Unterscheidung zwischen:\\
 	- X00: Alle LEDs ausschalten\\
 	- X01: Eine LED anschalten\\
 	- X02: LED-Bereich anschalten\\
-	- X03: Effekt für eine LED\\
-	- X04: Effekt für LED-Bereich\\
-	- X05: Effektcode \\\\
+	- X03: Effekte\\
+	- X04: Modus des Systems verändern\\\\
 Abhängig von diesem Feld werden die nachfolgenden Werte behandelt. 
 \item LED-Nummer\\
 Falls nur eine LED angesprochen werden soll (Control = X00), so wird hier die Nummer angegeben. Ob sie im gültigen Range liegt wird intern überprüft.
@@ -25,8 +24,8 @@ Farbwert Rot 0-255
 Farbwert Grün 0-255
 \item Blau\\
 Farbwert Blau 0-255
-\item Effekt\\
-Es können verschiedene LEDs mit Effekten belegt werden, wie zum Beispiel Aufblitzen oder zeitgesteuertes Ausschalten.
+\item Modus\\
+An dieser Stelle werden die verschiedenen Modi des Systems dargestellt.
 \item Effektcode\\
 Hinterlegte, fest programmierte Effekte, zum Beispiel alle LEDs anschalten in weis mit höchster Leuchstärke.
 \item Hash\\
@@ -35,7 +34,7 @@ Hinterlegte, fest programmierte Effekte, zum Beispiel alle LEDs anschalten in we
 \textbf{Übertragungsbeispiel:}\\
 		Protokoll: 	
 \begin{lstlisting}[caption = Beispielübertragung des Protokolls, language=python, frame=single, breaklines=true,columns=fullflexible, commentstyle=\color{gray}\upshape, captionpos=b]
-auth:control:ledNo:rangeStart:rangeEnd:red:green:blue:effect:effectcode:hash
+auth:control:ledNo:rangeStart:rangeEnd:red:green:blue:modus:effectcode:hash
 pass:X01:0:0:49:255:255:255:0:0:xx
 \end{lstlisting}
 Dies w\ürde die LEDs 0 bis 49 einschalten (Farbe weis 255,255,255). Anstelle der XX würde der Hashwert der gesamten Übertragung gesendet. 
@@ -45,6 +44,12 @@ Es wird das Twisted Matrix Framework eingesetzt. Twisted ist eine in Python gesc
 \textbf{Event-Getrieben (event-based):} Die Serveranwendung befindet sich in einer Schleife und wartet auf ein Event. Dieses Event ist in diesem Fall der Connect eines Clients zum Server. Für jeden Connect wird eine neue Instanz angelegt, in welcher empfangene Daten bearbeitet werden können. Die Daten werden als String ausgewertet, somit wird ein string-basiertes Protokoll implementiert. \cite{eventbased}
 
 \subsection{Testcode}
+Im folgenden Beispiel wird ein Beispiel von Twisted Matrix gezeigt. Es implementiert ein sehr einfaches Protokoll, welches alle empfangenen Daten wieder zurück sendet. Das Protokoll reagiert auf Events und bearbeitet sie, sobald sie empfangen wurden. 
+\begin{itemize}
+\item connectionMade(self): Erstkontakt, wenn Verbindung hergestellt
+\item dataReceived(self, data): Daten wurden empfangen
+\item connectionLost(self, reason): Verbindung wurde unterbrochen
+\end{itemize}
 \begin{lstlisting}[caption =Testcode Echoserver mit Twisted Framework, language=python, frame=single, breaklines=true,columns=fullflexible, commentstyle=\color{gray}\upshape, captionpos=b, numbers = left]
 #!/usr/bin/env python
 # Copyright (c) Twisted Matrix Laboratories.
@@ -71,56 +76,27 @@ if __name__ == '__main__':
 main()
 \end{lstlisting}
 
-//TODO ERKLÄRUNG
+
+
 
 \subsection{Implementierung}
-Im Folgenden wird die Implementierung des Servers näher erläutert. \\\\
+Der Server wird in einem neuen Thread gestartet, damit er unabhängig von allem anderen arbeiten kann. Zusätzich wird ihm eine Referenz auf die Center-Klasse übergeben. Somit kann er direkt auf die empfangenen Daten reagieren. Es wird nur eine Verbindung zum Server erlaubt. Falls sich ein weiterer Client verbinden will, wird die Verbindung direkt beendet.\\
+Aufgrund der Implementierung von STARTTLS erwartet der Server als erste Übertragung das Stichwort "STARTTLS", dieses quitiert er mit "READY". Daraufhin initialisiert er die TLS-Verbindung. Details zur Übertragung mit TLS finden sie unter dem Punkt X.X Verschlüsselung. \\
+Die nächste Übertragung kann Daten zur Steuerung, in Form des in X.X erläuterten Protokolls enthalten. Anhand der ":" werden die empfangenen Daten gesplittet und in ein Array abgelegt. Zur besseren Verständlichkeit werden die Werte in einzelne Variablen gespeichert. \\
+Im Anschluss wird das Übertragene Passwort und die Korrektheit der Daten überprüft. Falls beides Korrekt ist, so werden die Daten anhand ihres Control-Feldes ausgewertet. \\
+Bevor tatsächlich LEDs angesteuert werden, wird überprüft ob die Farbwert im gültigen Bereich (0-255) liegen und ob die Angabe der LED-Nummer korrekt ist.\\
 	
-	// TODO CODE des Servers
-
-
-\subsection{Hashfunktion}
-Es wird zu zweierlei Zwecken eine Hashfunktion eingesetzt. Zum einen um die Korrektheit der Übertragung zu überprüfen und zum Anderen um ein Passwort zur Authentifizierung verwenden zu können. Dieses wird als Wort übertragen, auf dem Server aber nur als Hash-Wert abgespeichert. Falls es also jemand schafft die Konfirgurationsdatei abzugreifen, so ist der Passworthash nichts wert. 
-
-\section{Verschlüsselung}
-\subsection{SSL vs. TLS}
-SSL (Secure Sockets Layer) und TLS (Transport Layer Security) sind Protokolle, die Verschlüsselung und Authentifizierung zwischen zwei Kommunikationspartnern bieten. Die beiden Begriffe SSL und TLS werden umgangssprachlich oft als zwei verschiedene Techniken dargestellt, obwohl TLS nur eine Weiterentwicklung von SSL ist. SSL v3 ist die Basis von TLS 1.0. \\
-Aufgrund des Alters und einiger Sicherheitslücken wird SSL als unsicher angesehen und soll nicht mehr verwendet werden. Die aktuellste gefundene Lücke ist POODLE, welche das Auslesen von Informationen aus einer verschlüsselten Übertragung erlaubt. Die Weiterentwicklungen TLS 1.1 und 1.2 sind deutlich sicherer und beheben einige Sicherheitslücken. So schützt die richtige Implementierung von TLS 1.2 auch vor den BEAST Angriffsmethoden.\\
-Eine Variante von TLS ist das sogenannte STARTTLS, bei dem zuerst ein unsicheres 'hello' an den Server gesendet wird. Falls im Anschluss eine Verbindung erfolgreich Zustande kommt, wird zur sicheren Übertragung gewechselt. \\
-Wenn ein Server implementiert wird, so muss er alle Techniken unterstützen, beim Client kann der Entwickler selbst entscheiden. Ein Entwickler sollte immer die höchst mögliche Verschlüsselungstechnik einsetzen. \\
-
-\subsection{Vor- und Nachteile TLS}
-Da TLS auf der Transportschicht aufsetzt kann jedes höhere Protokoll darüber übertragen werden, somit ist die Verschlüsselung unabhängig von der genutzten Anwendung. \\
-	Der größte Nachteil besteht darin, dass der Verbindungsaufbau serverseitig sehr rechenintensiv ist. Die Verschlüsselung selbst nimmt, abhängig vom Algorithmus, nur noch wenige Rechenleistung in Anspruch. \\
-
-\subsection{TLS Handshake}
-1. Client Hello\\
-Übertragung von Verschlüsselungsinformationen vom Client an den Server, wie TLS Version oder Verschlüsselungsmöglichkeiten\\
-2. Server Hello \\
-Server sendet seine Informationen und legt Verschlüsselung fest. \\
-3. Server Key Exchange\\
-Server sendet seine Identität in Form seines Zertifikats. \\
-4. Client Key Exchange\\
-Client legt seinen Pre-Shared-Key fest und überträgt ihn verschlüsselt mit dem public Key des Servers.\\
-5. Change Cipher Spec\\
-Aus dem PSK wird ein Master-Secret generiert, mit welchem die folgenden Übertragung abgesichert wird. \\
-6. Application Data\\
-Übertragung der Daten. \\
-
-\subsection{Zertifikat und Key}
-Auf dem Raspberry Pi ist OpenSSL in der neuesten Version installiert. Es wird ein selbst-signiertes Zertifikat im 2048 Bit Key erzeugt.\\
-1. Private Key erzeugen\\
-openssl genrsa -des3 -out server.key 2048\\
-2. Certificate Signing Request\\
-openssl req -new -key server.key -out server.csr\\
-3. Self Signed Certificate\\
-Bei einem öffentlichen Server sollte das Zertifikat bei einer CA (Certificate Authority) signiert werden. \\
-openssl x509 -req -days 1865 -in server.csr -signkey server.key -out server.crt
-
-\subsection{Beispielcode STARTTLS Server}
-An dieser Stelle ist der Beispielcode von Twisted am besten verständlich\\
-(Quelle: https://twistedmatrix.com/documents/12.3.0/core/howto/ssl.html)\\
-\begin{lstlisting}[caption =Testcode Echoserver mit Twisted Framework, language=python, frame=single, breaklines=true,columns=fullflexible, commentstyle=\color{gray}\upshape, captionpos=b, numbers = left]
+\begin{lstlisting}[caption =Implementierung des SSL Servers, language=python, frame=single, breaklines=true,columns=fullflexible, commentstyle=\color{gray}\upshape, captionpos=b, numbers = left]
+#!/usr/bin/python
+# -*- coding: utf-8 -*-
+############################
+# Author: Timo Höting       		           #
+# Mail: mail[at]timohoeting.de  		       #
+############################
+import sys
+import threading
+import hashlib
+from ConfigReader import *
 from OpenSSL import SSL
 from twisted.internet import reactor, ssl
 from twisted.internet.protocol import ServerFactory
@@ -134,25 +110,148 @@ class TLSServer(LineReceiver):
             print "-- Switching to TLS"
             self.sendLine('READY')
             ctx = ServerTLSContext(
-                privateKeyFileName='keys/server.key',
-                certificateFileName='keys/server.crt',
+                privateKeyFileName='./certs/server.key',
+                certificateFileName='./certs/server.crt',
                 )
             self.transport.startTLS(ctx, self.factory)
+            connections.append(self)
+        else:
+            a = line.split(':')
+            print a
+            if len(a) > 1:
+                auth = 		a[0]
+                control = 	a[1]
+                ledNo = 	a[2]
+                rangeStart = a[3]
+                rangeEnd = 	a[4]
+                red = 		a[5]
+                green = 	a[6]
+                blue = 		a[7]
+                modus = 	a[8]
+                effectcode = a[9]
+                hashv = a[10]
+                data = auth + control + ledNo + rangeStart + rangeEnd + red + green + blue + modus + effectcode
+                data = data.rstrip('\n')
+                data = data.rstrip('\r')
+                if (self.checkAuthentification(auth) & self.checkTransmissionData(data, hashv)):
+                    if control == 'X00':
+                        ## Alle LEDs ausschalten
+                        center.clearPixel()
+                    elif control == 'X01':
+                        ## Eine LED anschalten
+                        self.lightUpOneLED(int(ledNo), int(red), int(green), int(blue))
+                    elif control == 'X02':
+                        ## LED Bereich anschalten
+                        self.lightUpLEDRange(int(rangeStart), int(rangeEnd), int(red), int(green), int(blue))
+                    elif control == 'X03':
+                        ## Effekt alle LEDs
+                        self.effectLED(effectcode)
+                    elif control == 'X04':
+                        ## Modus des Systems
+                        self.changeModus(int(modus))
+                else:
+                    print center.writeLog('Übertragung fehlerhaft')
 
+    def changeModus(self, modus):
+        center.setModus(modus)
+
+
+    def lightUpOneLED(self, ledNo, red, green, blue):
+        # Eine einzelne LED mit den o.g. RGB-Werten dauerhaft anschalten
+        a = self.checkColorRange(red)
+        b = self.checkColorRange(green)
+        c = self.checkColorRange(blue)
+        d = self.checkRange(ledNo)
+        if ( a & b & c & d):
+            center.lightUpOneLED(ledNo, red, green, blue)
+
+    def lightUpLEDRange(self, rangeStart, rangeEnd, red, green, blue):
+        # Einen Bereich von LEDs mit den o.g. RGB-Werten
+        # dauerhaft einschalten
+        # Bereich muss ueberprueft werden mit checkRange()
+        a = self.checkColorRange(red)
+        b = self.checkColorRange(green)
+        c = self.checkColorRange(blue)
+        d = self.checkRange(rangeStart)
+        e = self.checkRange(rangeEnd)
+        if ( a & b & c & d & e):
+            center.rangePixel(rangeStart, rangeEnd, red, green, blue)
+
+    def effectLED(self, code):
+            # Effekte auf einer LED aktivieren
+            center.effectLED(code)
+
+    def checkRange(self, ledNo):
+        # Ueberprueft ob die uebergeben LED-Nummer ueberhaupt im
+        # gueltigen Bereich liegt
+        # Es wird der Eintrag 'number' aus dem Config-File geladen
+        reader = ConfigReader()
+        number = int(reader.getNumberOfLED())
+        if ( ledNo >= 0 & ledNo < number):
+            return True
+        else:
+            return False
+
+    def checkColorRange(self, color):
+        # Überprüfung ob Farbwert im gültigen Bereich liegt
+        if (color >= 0 & color <= 255):
+            return True
+        return False
+
+    def checkAuthentification(self, auth):
+        # Authentifizierung überprüfen
+        # Eingabewert ist das Passwort aus der Übertragung
+        # Dieses wird gehasht und mit dem in der Konfiguration gespeicherten
+        # Hashwert verglichen
+        reader = ConfigReader()
+        hashv = reader.getHashPass()
+        pw = hashlib.sha224(auth).hexdigest()
+        if ( pw == hashv ):
+            return True
+        return False
+
+    def checkTransmissionData(self, data, check):
+        # Korrektheit der Übertragung mittels Hashvergleich feststellen
+        # Eingabewert sind die gesamten Daten der Übertragung
+        hashdata = hashlib.sha224(data).hexdigest()
+        check = check.rstrip('\n')
+        check = check.rstrip('\r')
+        if ( hashdata == check ):
+            return True
+        # Für Testübertragung return immer True
+        return True
+
+    def sendMessage(self, message):
+        self.sendLine(message)
 
 class ServerTLSContext(ssl.DefaultOpenSSLContextFactory):
     def __init__(self, *args, **kw):
         kw['sslmethod'] = SSL.TLSv1_METHOD
         ssl.DefaultOpenSSLContextFactory.__init__(self, *args, **kw)
 
-if __name__ == '__main__':
-    factory = ServerFactory()
-    factory.protocol = TLSServer
-    reactor.listenTCP(8000, factory)
-    reactor.run()
-\end{lstlisting}
-Es ist gut zu erkennen, dass die Übertragung nur ausgewertet wird, wenn das Stichwort "STARTTLS" am Anfang der Übertragung enthalten ist. Daraufhin wird mit "READY" geantwortet um dem Client zu signalisieren, dass jetzt der TLS Handshake begonnen werden kann. Im nächsten Schritt läd der Server sein Zertifikat und seinen Key. \\
-In der Initmethode der Klasse ServerTLSContext können die Verschlüsselungsdetails festgelegt werden. Im obigen Beispiel wird hier zum Beospiel die TLS Version definiert.  \\
+class StartLightServer(threading.Thread):
+    def __init__(self, c):
+        threading.Thread.__init__(self)
+        global center
+        center = c
 
-\subsection{Wireshark Trace}
-Im folgenden ist ein Trace eines TLS Handshakes zwischen einem Client und dem implementierten Server auf dem Raspberry Pi zu sehen. // TODO beschreibung
+    def run(self):
+        global factory
+        factory = ServerFactory()
+        factory.protocol = TLSServer
+        reactor.listenTCP(7005, factory)
+        global connections
+        connections = []
+        reactor.run(installSignalHandlers=False)
+
+    def pushNotification(self, message):
+        # Funktioniert nicht
+        for c in connections:
+            c.sendLine('con con con')
+
+\end{lstlisting}
+
+
+\subsection{Hashfunktion}
+Es wird zu zweierlei Zwecken eine Hashfunktion eingesetzt. Zum einen um die Korrektheit der Übertragung zu überprüfen und zum Anderen um ein Passwort zur Authentifizierung verwenden zu können. Dieses wird als Wort übertragen, auf dem Server aber nur als Hash-Wert abgespeichert. Falls es also jemand schafft die Konfirgurationsdatei abzugreifen, so ist der Passworthash nichts wert. 
+
