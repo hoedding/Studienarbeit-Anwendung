@@ -6,44 +6,50 @@
 ################################################
 
 import ConfigParser
+import json
 
 class ConfigReader():
 	def getNumberOfLED(self):
-		config = ConfigParser.ConfigParser()
-		config.read("./config.ini")
-		return config.get("common", "number")
+		data = open('config.json')
+		jdata = json.load(data)
+		return jdata["number"]
 
 	def getHashPass(self):
-		config = ConfigParser.ConfigParser()
-		config.read("./config.ini")
-		return config.get("common", "passhash")
+		data = open('config.json')
+		jdata = json.load(data)
+		return jdata["passhash"]
 
 	def getMotionPin1(self):
-		config = ConfigParser.ConfigParser()
-		config.read("./config.ini")
-		return config.get("common", "motion1")
+		data = open('config.json')
+		jdata = json.load(data)
+		return jdata["motion1"]
 
 	def getMotionPin2(self):
-		config = ConfigParser.ConfigParser()
-		config.read("./config.ini")
-		return config.get("common", "motion2")
+		data = open('config.json')
+		jdata = json.load(data)
+		return jdata["motion2"]
 
 	def camAvaible(self):
-		config = ConfigParser.ConfigParser()
-		config.read("./config.ini")
-		return config.get("cam", "avaible")
+		data = open('config.json')
+		jdata = json.load(data)
+		return jdata["avaible"]
 
   	def camURL(self):
-		config = ConfigParser.ConfigParser()
-		config.read("./config.ini")
-		return config.get("cam","url")
+		data = open('config.json')
+		jdata = json.load(data)
+		return jdata["url"]
 
 	def camShortURL(self):
-		config = ConfigParser.ConfigParser()
-		config.read("./config.ini")
-		return config.get("cam","shorturl")
+		data = open('config.json')
+		jdata = json.load(data)
+		return jdata["shorturl"]
+
+	def getFTP(self):
+		data = open('config.json')
+		jdata = json.load(data)
+		return jdata["ftp"]
 
 	def getTimePeriod(self):
-		config = ConfigParser.ConfigParser()
-		config.read("./config.ini")
-		return int(config.get("led","motionOn"))
+		data = open('config.json')
+		jdata = json.load(data)
+		return jdata["motionTime"]

@@ -11,7 +11,7 @@ import unittest
 #from LED_Control import *
 #from Center import *
 from ConfigReader import *
-import ConfigParser
+import json
 
 class TestSequenceFunctions(unittest.TestCase):
 
@@ -20,50 +20,56 @@ class TestSequenceFunctions(unittest.TestCase):
     def test_getNumberOfLED(self):
         reader = ConfigReader()
         resultTest = reader.getNumberOfLED()
-        config = ConfigParser.ConfigParser()
-        config.read("./config.ini")
-        resultCorrect = config.get("common", "number")
+        data = open('config.json')
+        jdata = json.load(data)
+        resultCorrect = jdata["number"]
         self.assertEqual(resultTest, resultCorrect)
 
     def test_getHashPass(self):
         reader = ConfigReader()
         resultTest = reader.getHashPass()
-        config = ConfigParser.ConfigParser()
-        config.read("./config.ini")
-        resultCorrect = config.get("common", "passhash")
+        data = open('config.json')
+        jdata = json.load(data)
+        resultCorrect = jdata["passhash"]
         self.assertEqual(resultTest, resultCorrect)
 
     def test_getMotionPin1(self):
         reader = ConfigReader()
         resultTest = reader.getMotionPin1()
-        config = ConfigParser.ConfigParser()
-        config.read("./config.ini")
-        resultCorrect = config.get("common", "motion1")
+        data = open('config.json')
+        jdata = json.load(data)
+        resultCorrect = jdata["motion1"]
         self.assertEqual(resultTest, resultCorrect)
 
     def test_getMotionPin2(self):
         reader = ConfigReader()
         resultTest = reader.getMotionPin2()
-        config = ConfigParser.ConfigParser()
-        config.read("./config.ini")
-        resultCorrect = config.get("common", "motion2")
+        data = open('config.json')
+        jdata = json.load(data)
+        resultCorrect = jdata["motion2"]
         self.assertEqual(resultTest, resultCorrect)
 
     def test_camAvaible(self):
         reader = ConfigReader()
         resultTest = reader.camAvaible()
-        config = ConfigParser.ConfigParser()
-        config.read("./config.ini")
-        resultCorrect = config.get("cam", "avaible")
+        data = open('config.json')
+        jdata = json.load(data)
+        resultCorrect = jdata["avaible"]
         self.assertEqual(resultTest, resultCorrect)
 
     def test_camURL_MUST_FAIL(self):
         reader = ConfigReader()
         resultTest = reader.camURL()
-        config = ConfigParser.ConfigParser()
-        config.read("./config.ini")
         # Muss fehlschlagen!!!
         resultCorrect = '123' #config.get("cam","adress")
+        self.assertEqual(resultTest, resultCorrect)
+
+    def getFTP(self):
+        reader = ConfigReader()
+        resultTest = reader.getFTP()
+        data = open('config.json')
+        jdata = json.load(data)
+        resultCorrect = jdata["ftp"]
         self.assertEqual(resultTest, resultCorrect)
 
     # Überprüfung ob alle Klassen ohne Fehler initialisiert
