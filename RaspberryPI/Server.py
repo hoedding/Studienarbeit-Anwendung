@@ -1,8 +1,8 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
 ################################################
-# Author: Timo Höting       				           #
-# Mail: mail[at]timohoeting.de  				       #
+# Author: Timo Höting       				   #
+# Mail: mail[at]timohoeting.de  			   #
 ################################################
 
 from twisted.internet.protocol import Factory, Protocol

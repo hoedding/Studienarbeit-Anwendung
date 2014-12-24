@@ -10,6 +10,7 @@ from Server import *
 from Sensor import *
 from LED_Control import *
 from Cam import *
+from ApplePush import *
 import logging
 import time
 import datetime
@@ -81,10 +82,10 @@ class Core():
   def alarm(self):
       # Wird ausgelöst, wenn System im Modus 'Alarmanlage' ist
       # Meldung an Smartphone
+      # TODO Bild der Kamera holen und auf FTP-Server zwischenspeichern
       self.writeLog('Bewegung ausgelöst!')
-      #cam = Cam()
-      #pic = cam.getPicture()
-      server.pushNotification('push')
+      ap = ApplePush()
+      ap.push("notification")
 
   def clearPixel(self):
     # Alle Pixel ausschalten

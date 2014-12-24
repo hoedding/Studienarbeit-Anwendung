@@ -6,10 +6,6 @@
 ################################################
 
 import unittest
-from Server import *
-from Sensor import *
-from LED_Control import *
-from Center import *
 from ConfigReader import *
 import json
 
@@ -64,12 +60,20 @@ class TestSequenceFunctions(unittest.TestCase):
         resultCorrect = '123' #config.get("cam","adress")
         self.assertEqual(resultTest, resultCorrect)
 
-    def getFTP(self):
+    def test_getFTP(self):
         reader = ConfigReader()
         resultTest = reader.getFTP()
         data = open('config.json')
         jdata = json.load(data)
         resultCorrect = jdata["ftp"]
+        self.assertEqual(resultTest, resultCorrect)
+
+    def test_getToken(self):
+        reader = ConfigReader()
+        resultTest = reader.getToken()
+        data = open('config.json')
+        jdata = json.load(data)
+        resultCorrect = jdata["token"]
         self.assertEqual(resultTest, resultCorrect)
 
     # Überprüfung ob alle Klassen ohne Fehler initialisiert
@@ -88,6 +92,18 @@ class TestSequenceFunctions(unittest.TestCase):
 
     def test_LEDControl(self):
         import LED_Control
+
+    def test_ApplePush(self):
+        import ApplePush
+
+    # JSON Files auf korrekte Grammatik prüfen
+    def test_Config(self):
+        data = open('config.json')
+        jdata = json.load(data)
+
+    def test_Status(self):
+        data = open('status.json')
+        jdata = json.load(data)
 
 if __name__ == '__main__':
     suite = unittest.TestLoader().loadTestsFromTestCase(TestSequenceFunctions)

@@ -53,3 +53,8 @@ class ConfigReader():
 		data = open('config.json')
 		jdata = json.load(data)
 		return jdata["motionTime"]
+
+	def getToken(self):
+		data = open('config.json')
+		jdata = json.load(data)
+		return jdata["token"]
