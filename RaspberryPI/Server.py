@@ -69,6 +69,9 @@ class LightServer(Protocol):
 				elif control == 'X04':
 					## Modus des Systems
 					self.changeModus(int(modus))
+				elif control == 'X05':
+					## Systemstatus als JSON an den Client
+					self.sendStatus()
 			else:
 				print center.writeLog('Übertragung fehlerhaft')
 
@@ -141,10 +144,9 @@ class LightServer(Protocol):
 		# Für Testübertragung return immer True
 		return True
 
-	def sendMessage(self, message):
-		# Funktioniert noch nicht 100%ig
-		for c in self.factory.clients:
-			c.transport.write('test' + '\n')
+	def sendStatus(self):
+		status = center.getStatus()
+		self.transport.write(status.read())
 
 class StartLightServer(threading.Thread):
 	def __init__(self, c):
@@ -161,6 +163,3 @@ class StartLightServer(threading.Thread):
 		global connections
 		connections = []
 		reactor.run(installSignalHandlers=False)
-
-	def pushNotification(self, message):
-		factory.clients[0].sendMessage(message + '\n\r')

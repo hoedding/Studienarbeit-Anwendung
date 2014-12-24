@@ -10,7 +10,6 @@ import time
 
 from neopixel import *
 from ConfigReader import *
-from Effects import *
 import threading
 
 #LED_COUNT   = 2      # Number of LED pixels. Get it from elsewhere, idiot.

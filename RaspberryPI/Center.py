@@ -90,9 +90,15 @@ class Core():
     # Alle Pixel ausschalten
     led.clear()
 
-  def getLedStatus(self):
-    # Ausgabe des Status
-    print 'led status'
+  def getStatus(self):
+    # status.json einlesen und zurück geben
+    # Wird von Server aus aufgerufen um Status an
+    # Client zu senden
+    try:
+        file = open("status.json","r")
+        return file
+    except:
+        self.writeLog("Status File -status.json- nicht gefunden")
 
   def writeLog(self, content):
     # Message ins Logfile schreiben
@@ -115,12 +121,6 @@ class Core():
   def effectLED(self, code):
     # Effekte auf einer LED aktivieren
     led.effectLED(code)
-
-  def printStatus(self):
-    # Status ausgeben
-    if(modus == 1):
-        colours = led.getAllColours()
-
 
 if __name__ == "__main__":
     threads = []

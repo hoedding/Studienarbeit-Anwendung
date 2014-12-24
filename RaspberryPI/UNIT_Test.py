@@ -6,10 +6,10 @@
 ################################################
 
 import unittest
-#from Server import *
-#from Sensor import *
-#from LED_Control import *
-#from Center import *
+from Server import *
+from Sensor import *
+from LED_Control import *
+from Center import *
 from ConfigReader import *
 import json
 
@@ -86,14 +86,8 @@ class TestSequenceFunctions(unittest.TestCase):
     def test_Server(self):
         import Server
 
-    def test_Status(self):
-        import Status
-
     def test_LEDControl(self):
         import LED_Control
-
-    def test_Effects(self):
-        import Effects
 
 if __name__ == '__main__':
     suite = unittest.TestLoader().loadTestsFromTestCase(TestSequenceFunctions)
