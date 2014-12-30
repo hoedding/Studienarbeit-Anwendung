@@ -91,7 +91,7 @@ class Core():
     # Alle Pixel ausschalten
     led.clear()
 
-  def getStatus(self):
+  def getSystemStatus(self):
     # status.json einlesen und zurück geben
     # Wird von Server aus aufgerufen um Status an
     # Client zu senden
@@ -100,6 +100,16 @@ class Core():
         return file
     except:
         self.writeLog("Status File -status.json- nicht gefunden")
+
+  def getLEDStatus(self):
+    leds = []
+    leds = led.getLedAsArray()
+    if len(leds) > 0:
+        data = {}
+        for i in range(len(leds)):
+            data[str(i)] = str(leds[i])
+        jsondata = json.dumps(data)
+        return jsondata
 
   def writeLog(self, content):
     # Message ins Logfile schreiben

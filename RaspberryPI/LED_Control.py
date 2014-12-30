@@ -58,11 +58,9 @@ class NeoPixels(threading.Thread):
 		value = strip.getPixelColor(number)
 		return value
 
-	def getAllColours(self):
-		number = strip.numPixels()
+	def getLedAsArray(self):
 		colours = []
-		for i in range(strip.numPixels()):
-			colours.append(strip.getPixelColor(i))
+		colours = strip.getPixels()
 		return colours
 
 	def doBlinder(self):

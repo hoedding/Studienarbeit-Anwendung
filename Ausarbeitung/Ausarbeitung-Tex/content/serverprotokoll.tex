@@ -11,13 +11,15 @@ Unterscheidung zwischen:\\
 	- X02: LED-Bereich anschalten\\
 	- X03: Effekte\\
 	- X04: Modus des Systems verändern\\\\
-Abhängig von diesem Feld werden die nachfolgenden Werte behandelt. 
+	- X05: Anforderung des Systemstatus
+	- X06: Anforderung des LED-Status
+Abhängig von diesem Feld werden die nachfolgenden Werte behandelt.
 \item LED-Nummer\\
 Falls nur eine LED angesprochen werden soll (Control = X00), so wird hier die Nummer angegeben. Ob sie im gültigen Range liegt wird intern überprüft.
 \item Bereich Start\\
 Wenn mehrere LEDs gesteuert werden sollen (Control = X01), so wird hier der Beginn des Bereichs angegeben.
 \item Bereich Ende\\
-Und hier das Ende des Bereichs. 
+Und hier das Ende des Bereichs.
 \item Rot\\
 Farbwert Rot 0-255
 \item Grün\\
@@ -32,19 +34,19 @@ Hinterlegte, fest programmierte Effekte, zum Beispiel alle LEDs anschalten in we
 Überprüfung ob die Übertragung erfolgreich war, mittels eines Hashwertes. Es wird der SHA-224-Algorithmus eingesetzt.
 \end{itemize}
 \textbf{Übertragungsbeispiel:}\\
-		Protokoll: 	
+		Protokoll:
 \begin{lstlisting}[caption = Beispielübertragung des Protokolls, language=python, frame=single, breaklines=true,columns=fullflexible, commentstyle=\color{gray}\upshape, captionpos=b]
 auth:control:ledNo:rangeStart:rangeEnd:red:green:blue:modus:effectcode:hash
 pass:X01:0:0:49:255:255:255:0:0:xx
 \end{lstlisting}
-Dies w\ürde die LEDs 0 bis 49 einschalten (Farbe weis 255,255,255). Anstelle der XX würde der Hashwert der gesamten Übertragung gesendet. 
+Dies w\ürde die LEDs 0 bis 49 einschalten (Farbe weis 255,255,255). Anstelle der XX würde der Hashwert der gesamten Übertragung gesendet.
 \subsection{Framework}
 Twisted: https://twistedmatrix.com \\
 Es wird das Twisted Matrix Framework eingesetzt. Twisted ist eine in Python geschriebene  event-getriebene Netzwerkengine. Die meisten gängigen Protokolle wie TCP, IMAP, SSHv3 und viele mehr werden unterstützt. Somit bietet Twisted die ideale Möglichkeit einen eigenen simplen Server zu implementieren. \\\\
 \textbf{Event-Getrieben (event-based):} Die Serveranwendung befindet sich in einer Schleife und wartet auf ein Event. Dieses Event ist in diesem Fall der Connect eines Clients zum Server. Für jeden Connect wird eine neue Instanz angelegt, in welcher empfangene Daten bearbeitet werden können. Die Daten werden als String ausgewertet, somit wird ein string-basiertes Protokoll implementiert. \cite{eventbased}
 
 \subsection{Testcode}
-Im folgenden Beispiel wird ein Beispiel von Twisted Matrix gezeigt. Es implementiert ein sehr einfaches Protokoll, welches alle empfangenen Daten wieder zurück sendet. Das Protokoll reagiert auf Events und bearbeitet sie, sobald sie empfangen wurden. 
+Im folgenden Beispiel wird ein Beispiel von Twisted Matrix gezeigt. Es implementiert ein sehr einfaches Protokoll, welches alle empfangenen Daten wieder zurück sendet. Das Protokoll reagiert auf Events und bearbeitet sie, sobald sie empfangen wurden.
 \begin{itemize}
 \item connectionMade(self): Erstkontakt, wenn Verbindung hergestellt
 \item dataReceived(self, data): Daten wurden empfangen
@@ -85,7 +87,7 @@ Aufgrund der Implementierung von STARTTLS erwartet der Server als erste Übertra
 Die nächste Übertragung kann Daten zur Steuerung, in Form des in X.X erläuterten Protokolls enthalten. Anhand der ":" werden die empfangenen Daten gesplittet und in ein Array abgelegt. Zur besseren Verständlichkeit werden die Werte in einzelne Variablen gespeichert. \\
 Im Anschluss wird das Übertragene Passwort und die Korrektheit der Daten überprüft. Falls beides Korrekt ist, so werden die Daten anhand ihres Control-Feldes ausgewertet. \\
 Bevor tatsächlich LEDs angesteuert werden, wird überprüft ob die Farbwert im gültigen Bereich (0-255) liegen und ob die Angabe der LED-Nummer korrekt ist.\\
-	
+
 \begin{lstlisting}[caption =Implementierung des SSL Servers, language=python, frame=single, breaklines=true,columns=fullflexible, commentstyle=\color{gray}\upshape, captionpos=b, numbers = left]
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
@@ -253,5 +255,4 @@ class StartLightServer(threading.Thread):
 
 
 \subsection{Hashfunktion}
-Es wird zu zweierlei Zwecken eine Hashfunktion eingesetzt. Zum einen um die Korrektheit der Übertragung zu überprüfen und zum Anderen um ein Passwort zur Authentifizierung verwenden zu können. Dieses wird als Wort übertragen, auf dem Server aber nur als Hash-Wert abgespeichert. Falls es also jemand schafft die Konfirgurationsdatei abzugreifen, so ist der Passworthash nichts wert. 
-
+Es wird zu zweierlei Zwecken eine Hashfunktion eingesetzt. Zum einen um die Korrektheit der Übertragung zu überprüfen und zum Anderen um ein Passwort zur Authentifizierung verwenden zu können. Dieses wird als Wort übertragen, auf dem Server aber nur als Hash-Wert abgespeichert. Falls es also jemand schafft die Konfirgurationsdatei abzugreifen, so ist der Passworthash nichts wert.

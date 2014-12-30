@@ -71,7 +71,10 @@ class LightServer(Protocol):
 					self.changeModus(int(modus))
 				elif control == 'X05':
 					## Systemstatus als JSON an den Client
-					self.sendStatus()
+					self.sendSystemStatus()
+				elif control == 'X06'
+					## Status der einzelnen LEDs senden
+					self.sendLEDStatus()
 			else:
 				print center.writeLog('Übertragung fehlerhaft')
 
@@ -145,8 +148,14 @@ class LightServer(Protocol):
 		return True
 
 	def sendStatus(self):
-		status = center.getStatus()
+		# Status des Systems senden
+		systemstatus = center.getSystemStatus()
 		self.transport.write(status.read())
+
+	def sendLEDStatus(self):
+		# Farbwerte aller einzelnen LEDs senden
+		ledstatus = center.getLEDStatus()
+		self.transport.write(ledstatus.read())
 
 class StartLightServer(threading.Thread):
 	def __init__(self, c):
