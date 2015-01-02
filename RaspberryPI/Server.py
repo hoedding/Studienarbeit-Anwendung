@@ -26,8 +26,10 @@ class LightServer(Protocol):
 		# Wenn die Verbindung getrennt wird, wird die Liste geleert
 		# und die Verbindung im System beendet
 		# TODO Bei connection remove verwenden ?
-		connections.remove(self)
-		self.factory.clients.remove(self)
+		center.writeLog(reason)
+		if self in connections:
+			connections.remove(self)
+			self.factory.clients.remove(self)
 
 	def dataReceived(self, data):
 		# Protokoll: auth:control:ledNo:rangeStart:rangeEnd:red:green:blue:modus:effectcode:config:hashv
