@@ -1,4 +1,2 @@
-{
-	"status": 1,
-	"led_count": 10
-}
+{"status": 1, "ftp": "", "short": "", "url": "",
+  "motionTime": 10, "motion1": 7, "avaible": 1, "led_count": 3, "motion2": 8}

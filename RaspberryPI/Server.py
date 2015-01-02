@@ -25,15 +25,15 @@ class LightServer(Protocol):
 	def connectionLost(self, reason):
 		# Wenn die Verbindung getrennt wird, wird die Liste geleert
 		# und die Verbindung im System beendet
-		connections = []
+		# TODO Bei connection remove verwenden ?
+		connections.remove(self)
 		self.factory.clients.remove(self)
 
 	def dataReceived(self, data):
-		# Protokoll: auth:control:ledNo:rangeStart:rangeEnd:red:green:blue:modus:effectcode:hashv
-		# Beispiel: admin:X00:1:0:0:10:10:10:0:0:58acb7acccce58ffa8b953b12b5a7702bd42dae441c1ad85057fa70b
-		# Ermoeglicht Zuweisung von Farben und Effekte
-		# Abruf des aktuellen Status sollte ebenfalls moeglich sein
-		# zum Beispiel nach Neustart der App
+		# Protokoll: auth:control:ledNo:rangeStart:rangeEnd:red:green:blue:modus:effectcode:config:hashv
+		# Beispiel: admin:X00:1:0:0:10:10:10:0:0::58acb7acccce58ffa8b953b12b5a7702bd42dae441c1ad85057fa70b
+		# Ermoeglicht Zuweisung von Farben und Effekten
+		# Ermöglicht Abruf von aktuellem Status des Systems und der LEDs
 		#
 		# Ankommende String bei ":" aufsplitten und in Array a[] Speichern:
 		a = data.split(':')
@@ -49,8 +49,9 @@ class LightServer(Protocol):
 			blue = 		a[7]
 			modus = 	a[8]
 			effectcode = a[9]
-			hashv = a[10]
-			data = auth + control + ledNo + rangeStart + rangeEnd + red + green + blue + modus + effectcode
+			config = a[10]
+			hashv = a[11]
+			data = auth + control + ledNo + rangeStart + rangeEnd + red + green + blue + modus + effectcode + config
 			data = data.rstrip('\n')
 			data = data.rstrip('\r')
 			if (self.checkAuthentification(auth) & self.checkTransmissionData(data, hashv)):
@@ -72,15 +73,18 @@ class LightServer(Protocol):
 				elif control == 'X05':
 					## Systemstatus als JSON an den Client
 					self.sendSystemStatus()
-				elif control == 'X06'
+				elif control == 'X06':
 					## Status der einzelnen LEDs senden
 					self.sendLEDStatus()
+				elif control == 'X07':
+					## Konfiguration ändern
+					self.changeConfiguration(config)
 			else:
 				print center.writeLog('Übertragung fehlerhaft')
 
 	def changeModus(self, modus):
-		center.setModus(modus)
-
+		if modus > 1 & modus < 4:
+			center.setModus(modus)
 
 	def lightUpOneLED(self, ledNo, red, green, blue):
 		# Eine einzelne LED mit den o.g. RGB-Werten dauerhaft anschalten
@@ -144,7 +148,7 @@ class LightServer(Protocol):
 		check = check.rstrip('\r')
 		if ( hashdata == check ):
 			return True
-		# Für Testübertragung return immer True
+		# TODO Für Testübertragung return immer True
 		return True
 
 	def sendStatus(self):
@@ -156,6 +160,12 @@ class LightServer(Protocol):
 		# Farbwerte aller einzelnen LEDs senden
 		ledstatus = center.getLEDStatus()
 		self.transport.write(ledstatus.read())
+
+	def changeConfiguration(self, config):
+		b = config.split('--')
+		key = b[0]
+		value = b[1]
+		center.changeConfiguration(key, value)
 
 class StartLightServer(threading.Thread):
 	def __init__(self, c):

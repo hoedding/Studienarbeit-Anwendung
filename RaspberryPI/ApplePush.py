@@ -10,6 +10,8 @@ import binascii
 from ConfigReader import *
 
 class ApplePush():
+    # Das Apple-Device bekommt eine Message und den Namen
+    # des neu aufgenommen Fotos gepusht
     def push(self, message):
         reader = ConfigReader()
         deviceToken = reader.getToken()

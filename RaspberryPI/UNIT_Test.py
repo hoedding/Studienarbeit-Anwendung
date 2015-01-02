@@ -98,12 +98,12 @@ class TestSequenceFunctions(unittest.TestCase):
 
     # JSON Files auf korrekte Grammatik prüfen
     def test_Config(self):
-        data = open('config.json')
-        jdata = json.load(data)
+            data = open('config.json')
+            jdata = json.load(data)
 
     def test_Status(self):
-        data = open('status.json')
-        jdata = json.load(data)
+            data = open('status.json')
+            jdata = json.load(data)
 
 if __name__ == '__main__':
     suite = unittest.TestLoader().loadTestsFromTestCase(TestSequenceFunctions)

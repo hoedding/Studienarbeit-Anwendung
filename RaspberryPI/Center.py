@@ -11,6 +11,7 @@ from Sensor import *
 from LED_Control import *
 from Cam import *
 from ApplePush import *
+from ConfigWriter import *
 import logging
 import time
 import datetime
@@ -132,6 +133,10 @@ class Core():
   def effectLED(self, code):
     # Effekte auf einer LED aktivieren
     led.effectLED(code)
+
+  def changeConfiguration(self, key, value):
+      writer = ConfigWriter()
+      writer.change(key, value)
 
 if __name__ == "__main__":
     threads = []
