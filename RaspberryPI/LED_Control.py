@@ -53,6 +53,11 @@ class NeoPixels(threading.Thread):
 			strip.setPixelColor(i, Color(red, green, blue))
 			strip.show()
 
+	def allPixel(self, red, green, blue):
+		for i in range(strip.numPixels()):
+			strip.setPixelColor(i, Color(red, green, blue))
+			strip.show()
+
 	def getCurrentColor(self, number):
 		# Gibt den 24 Bit Farbwert zurück
 		value = strip.getPixelColor(number)

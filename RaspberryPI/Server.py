@@ -32,8 +32,8 @@ class LightServer(Protocol):
 			self.factory.clients.remove(self)
 
 	def dataReceived(self, data):
-		# Protokoll: auth:control:ledNo:rangeStart:rangeEnd:red:green:blue:modus:effectcode:config:hashv
-		# Beispiel: admin:X00:1:0:0:10:10:10:0:0::58acb7acccce58ffa8b953b12b5a7702bd42dae441c1ad85057fa70b
+		# Protokoll: auth:pw:control:ledNo:rangeStart:rangeEnd:red:green:blue:modus:effectcode:config:hashv
+		# Beispiel: admin:w:X00:1:0:0:10:10:10:0:0:w-w:58acb7acccce58ffa8b953b12b5a7702bd42dae441c1ad85057fa70b
 		# Ermoeglicht Zuweisung von Farben und Effekten
 		# Ermöglicht Abruf von aktuellem Status des Systems und der LEDs
 		#
@@ -42,21 +42,22 @@ class LightServer(Protocol):
 		print a
 		if len(a) > 1:
 			auth = 		a[0]
-			control = 	a[1]
-			ledNo = 	a[2]
-			rangeStart = a[3]
-			rangeEnd = 	a[4]
-			red = 		a[5]
-			green = 	a[6]
-			blue = 		a[7]
-			modus = 	a[8]
-			effectcode = a[9]
-			config = a[10]
-			hashv = a[11]
-			data = auth + control + ledNo + rangeStart + rangeEnd + red + green + blue + modus + effectcode + config
+			pw = 		a[1]
+			control = 	a[2]
+			ledNo = 	a[3]
+			rangeStart = a[4]
+			rangeEnd = 	a[5]
+			red = 		a[6]
+			green = 	a[7]
+			blue = 		a[8]
+			modus = 	a[9]
+			effectcode = a[10]
+			config = a[11]
+			hashv = a[12]
+			data = auth + pw + control + ledNo + rangeStart + rangeEnd + red + green + blue + modus + effectcode + config
 			data = data.rstrip('\n')
 			data = data.rstrip('\r')
-			if (self.checkAuthentification(auth) & self.checkTransmissionData(data, hashv)):
+			if (self.checkAuthentification(auth, pw) & self.checkTransmissionData(data, hashv)):
 				if control == 'X00':
 					## Alle LEDs ausschalten
 					center.clearPixel()
@@ -67,18 +68,21 @@ class LightServer(Protocol):
 					## LED Bereich anschalten
 					self.lightUpLEDRange(int(rangeStart), int(rangeEnd), int(red), int(green), int(blue))
 				elif control == 'X03':
+					## Eine Farbe für alle LED
+					self.lightUpAllLED(int(red), int(green), int(blue))
+				elif control == 'X04':
 					## Effekt alle LEDs
 					self.effectLED(effectcode)
-				elif control == 'X04':
+				elif control == 'X05':
 					## Modus des Systems
 					self.changeModus(int(modus))
-				elif control == 'X05':
+				elif control == 'X06':
 					## Systemstatus als JSON an den Client
 					self.sendSystemStatus()
-				elif control == 'X06':
+				elif control == 'X07':
 					## Status der einzelnen LEDs senden
 					self.sendLEDStatus()
-				elif control == 'X07':
+				elif control == 'X08':
 					## Konfiguration ändern
 					self.changeConfiguration(config)
 			else:
@@ -109,6 +113,16 @@ class LightServer(Protocol):
 		if ( a & b & c & d & e):
 			center.rangePixel(rangeStart, rangeEnd, red, green, blue)
 
+	def lightUpAllLED(self, red, green, blue):
+		# Alle LEDs mit den o.g. RGB-Werten
+		# dauerhaft einschalten
+		# Bereich muss ueberprueft werden mit checkRange()
+		a = self.checkColorRange(red)
+		b = self.checkColorRange(green)
+		c = self.checkColorRange(blue)
+		if ( a & b & c):
+			center.lightUpAllLED(red, green, blue)
+
 	def effectLED(self, code):
     	# Effekte auf einer LED aktivieren
 		center.effectLED(code)
@@ -130,7 +144,8 @@ class LightServer(Protocol):
 			return True
 		return False
 
-	def checkAuthentification(self, auth):
+	def checkAuthentification(self, auth, pw):
+		# TODO
 		# Authentifizierung überprüfen
 		# Eingabewert ist das Passwort aus der Übertragung
 		# Dieses wird gehasht und mit dem in der Konfiguration gespeicherten

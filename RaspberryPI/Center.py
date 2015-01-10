@@ -130,6 +130,12 @@ class Core():
     if(modus == 1):
         led.rangePixel(rangeStart, rangeEnd, red, green, blue)
 
+  def lightUpAllLED(self, red, green, blue):
+    # Einen Bereich von LEDs mit den o.g. RGB-Werten
+    # dauerhaft einschalten
+    if(modus == 1):
+        led.allPixel(red, green, blue)
+
   def effectLED(self, code):
     # Effekte auf einer LED aktivieren
     led.effectLED(code)
