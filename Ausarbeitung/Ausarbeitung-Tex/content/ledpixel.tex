@@ -6,7 +6,7 @@ Die Beleuchtung soll durch einzelne LED-Pixel stattfinden. Ein Pixel bedeutet ei
 Die LED muss den gesamten RGB-Farbraum darstellen können. \\
 Gewichtung: 5, KO-Kriterium
 \item Ansteuerung \\
-Da der Raspberry Pi an einigen seiner Pins Pulsweitenmodulation (PWM) bietet, sollten die LED-Pixel ohne extra Hardware ansteuerbar sein. Eine extra Stromversorgung ist aber bei größerer Anzahl an LEDs unabdingbar. \\
+Da der Raspberry Pi an einigen seiner Pins Pulsweitenmodulation\footnote{Pulsweitenmodulation: Signalübertragung durch Wechsel zwischen zwei Spannungen (High, Low), Breite des Impulses ist das Signal} (PWM) bietet, sollten die LED-Pixel ohne extra Hardware ansteuerbar sein. Eine extra Stromversorgung ist aber bei größerer Anzahl an LEDs unabdingbar. \\
 Gewichtung: 10
 \item Framework \\
 Hier wird bewertet ob der jeweilige Hersteller ein fertiges Framework zu seinen Produkten anbietet. \\
@@ -83,7 +83,7 @@ Für einen ersten Test wurde das in XXX ausgewählte Produkt als einzelne Pixel 
 \begin{itemize}
 
 \item \textbf{Aufbau der Schaltung}\\
-An die einzelnen LED-Pixel wurden Stecker angelötet, damit sie auf das Experimentierboard aufgesteckt werden können. Dann wird die Schaltung nach folgendem Schaltbild verbunden. Wichtig ist, dass beim Raspberry Pi nur Pins verwendet werden können, welche PWM\footnote{Pulsweitenmodulation: Signalübertragung durch Wechsel zwischen zwei Spannungen (High, Low), Breite des Impulses ist das Signal} bieten. \\
+An die einzelnen LED-Pixel wurden Stecker angelötet, damit sie auf das Experimentierboard aufgesteckt werden können. Dann wird die Schaltung nach folgendem Schaltbild verbunden. Wichtig ist, dass beim Raspberry Pi nur Pins verwendet werden können, welche PWM bieten. \\
 \begin{minipage}{\linewidth}
             \centering
             \includegraphics[width=8cm]{./data/TestSchaltungLED.png}

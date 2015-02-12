@@ -7,7 +7,7 @@
 \contentsline {subsection}{\numberline {2.1.1}Bewertungskriterien}{6}
 \contentsline {subsection}{\numberline {2.1.2}Evaluierung}{6}
 \contentsline {paragraph}{Fazit:}{7}
-\contentsline {subsection}{\numberline {2.1.3}Teststellung}{7}
+\contentsline {subsection}{\numberline {2.1.3}Teststellung}{8}
 \contentsline {paragraph}{Technische Daten Neopixel:}{8}
 \contentsline {paragraph}{Framework:}{8}
 \contentsline {paragraph}{Ablauf des Tests:}{8}

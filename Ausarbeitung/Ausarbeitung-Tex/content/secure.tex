@@ -45,7 +45,9 @@ openssl x509 -req -days 1865 -in server.csr -signkey server.key -out server.crt
 \subsection{Beispielcode STARTTLS Server}
 An dieser Stelle ist der Beispielcode von Twisted am besten verständlich\\
 (Quelle: https://twistedmatrix.com/documents/12.3.0/core/howto/ssl.html)\\
-\begin{lstlisting}[caption =Testcode Echoserver mit Twisted Framework, language=python, frame=single, breaklines=true,columns=fullflexible, commentstyle=\color{gray}\upshape, captionpos=b]
+Es ist gut zu erkennen, dass die Übertragung nur ausgewertet wird, wenn das Stichwort 'STARTTLS' am Anfang der Übertragung enthalten ist. Daraufhin wird mit 'READY' geantwortet um dem Client zu signalisieren, dass jetzt der TLS Handshake begonnen werden kann. Im nächsten Schritt läd der Server sein Zertifikat und seinen Key. \\
+In der Initmethode der Klasse ServerTLSContext können die Verschlüsselungsdetails festgelegt werden. Im folgenden Beispiel wird zum Beispiel die TLS Version definiert.  \\
+\begin{lstlisting}[caption =Testcode Echoserver mit Twisted Framework, language=python, frame=single, breaklines=true,columns=fullflexible, commentstyle=\color{gray}\upshape, captionpos=b, numbers = left]
 from OpenSSL import SSL
 from twisted.internet import reactor, ssl
 from twisted.internet.protocol import ServerFactory
@@ -76,8 +78,7 @@ if __name__ == '__main__':
     reactor.listenTCP(8000, factory)
     reactor.run()
 \end{lstlisting}
-Es ist gut zu erkennen, dass die Übertragung nur ausgewertet wird, wenn das Stichwort 'STARTTLS' am Anfang der Übertragung enthalten ist. Daraufhin wird mit 'READY' geantwortet um dem Client zu signalisieren, dass jetzt der TLS Handshake begonnen werden kann. Im nächsten Schritt läd der Server sein Zertifikat und seinen Key. \\
-In der Initmethode der Klasse ServerTLSContext können die Verschlüsselungsdetails festgelegt werden. Im obigen Beispiel wird hier zum Beospiel die TLS Version definiert.  \\
+
 
 \subsection{Wireshark Trace}
 Im folgenden ist ein Trace eines TLS Handshakes zwischen einem Client und dem implementierten Server auf dem Raspberry Pi zu sehen. \\
