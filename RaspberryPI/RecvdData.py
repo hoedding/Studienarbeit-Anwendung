@@ -60,10 +60,10 @@ class RecvdData():
                     self.changeModus(int(modus))
                 elif control == 'X06':
                     ## Systemstatus als JSON an den Client
-                    return sendStatus()
+                    return self.sendStatus()
                 elif control == 'X07':
                     ## Status der einzelnen LEDs senden
-                    return sendLEDStatus()
+                    return self.sendLEDStatus()
                 elif control == 'X08':
                     ## Konfiguration ändern
                     self.changeConfiguration(config)
@@ -152,9 +152,11 @@ class RecvdData():
 
     def sendStatus(self):
         # Status des Systems senden
-        systemstatus = center.getSystemStatus()
-        return systemstatus
-        #self.transport.write(systemstatus.read())
+        reader = ConfigReader()
+        message = 'STATUS:{"ledcount":"' + reader.getNumberOfLED() + '","motionport1":"' + reader.getMotionPin1() + '","motionport2":"' + reader.getMotionPin2() + '","ftp_url":"' + reader.getFTP() + '","camavaible":"'
+        message = message + reader.camAvaible() + '","cam_url":"' + reader.camURL() + '","cam_url_short":"' + reader.camShortURL() + '","timeperiod":"' + reader.getTimePeriod() + '"}'
+        print message
+        return str(message)
 
     def sendLEDStatus(self):
         # Farbwerte aller einzelnen LEDs senden

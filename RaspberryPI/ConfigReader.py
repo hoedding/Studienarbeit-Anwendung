@@ -12,7 +12,7 @@ class ConfigReader():
 	def getNumberOfLED(self):
 		data = open('config.json')
 		jdata = json.load(data)
-		return jdata["number"]
+		return jdata["ledcount"]
 
 	def getHashPass(self):
 		data = open('config.json')
@@ -22,37 +22,37 @@ class ConfigReader():
 	def getMotionPin1(self):
 		data = open('config.json')
 		jdata = json.load(data)
-		return jdata["motion1"]
+		return jdata["motionport1"]
 
 	def getMotionPin2(self):
 		data = open('config.json')
 		jdata = json.load(data)
-		return jdata["motion2"]
+		return jdata["motionport2"]
 
 	def camAvaible(self):
 		data = open('config.json')
 		jdata = json.load(data)
-		return jdata["avaible"]
+		return jdata["camavaible"]
 
   	def camURL(self):
 		data = open('config.json')
 		jdata = json.load(data)
-		return jdata["url"]
+		return jdata["cam_url"]
 
 	def camShortURL(self):
 		data = open('config.json')
 		jdata = json.load(data)
-		return jdata["shorturl"]
+		return jdata["cam_url_short"]
 
 	def getFTP(self):
 		data = open('config.json')
 		jdata = json.load(data)
-		return jdata["ftp"]
+		return jdata["ftp_url"]
 
 	def getTimePeriod(self):
 		data = open('config.json')
 		jdata = json.load(data)
-		return jdata["motionTime"]
+		return jdata["timeperiod"]
 
 	def getToken(self):
 		data = open('config.json')

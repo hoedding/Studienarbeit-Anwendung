@@ -6,7 +6,7 @@
 ################################################
 # Center of Application
 
-from Server import *
+from ServerHTTPS import *
 from Sensor import *
 from LED_Control import *
 from Cam import *
@@ -72,6 +72,7 @@ class Core():
       #    auf dem Smartphone angezeigt
       global modus
       modus = mod
+      print modus
 
   def motionDetected(self):
     # Wird bei Auslösen des Bewegungssensors aufgerufen
@@ -142,7 +143,7 @@ class Core():
 
   def changeConfiguration(self, key, value):
       writer = ConfigWriter()
-      writer.change(key, value)
+      writer.changeConfig(key, value)
 
 if __name__ == "__main__":
     threads = []
