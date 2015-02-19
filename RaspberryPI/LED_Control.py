@@ -75,32 +75,46 @@ class NeoPixels(threading.Thread):
 			strip.show()
 		print 'blinder'
 
-	def fadeAllIn(self):
+	def fadeAllIn(self, direction):
 		# Eine LED nach der anderen Anschalten (Farbe: Weis)
-		# TODO: Richtung festlegen
-		for i in range(strip.numPixels()):
-			strip.setPixelColor(i, Color(255,255,255))
-			strip.show()
-			time.sleep( 0.5 )
-		print 'fadeAllIn'
+		num = strip.numPixels()
+		if direction == 0:
+			for i in range(num):
+				# von 0 bis num
+				strip.setPixelColor(i, Color(255,255,255))
+				strip.show()
+				time.sleep( 0.5 )
+		elif direction == 1:
+			for i in range(num, 0):
+				# von num bis 0
+				strip.setPixelColor(i, Color(255,255,255))
+				strip.show()
+				time.sleep( 0.5 )
 
-	def fadeAllOut(Self):
+	def fadeAllOut(Self, direction):
 		# Eine LED nach der anderen Ausschalten (Farbe: Weis)
-		# TODO: Richtung festlegen
-		for i in range(strip.numPixels()):
-			strip.setPixelColor(i, Color(0,0,0))
-			strip.show()
-			time.sleep( 0.5 )
-		print 'fadeALlOut'
+		num = strip.numPixels()
+			if direction == 0:
+				for i in range(num):
+					# von 0 bis num
+					strip.setPixelColor(i, Color(0,0,0))
+					strip.show()
+					time.sleep( 0.5 )
+			elif direction == 1:
+				for i in range(num, 0):
+					# von num bis 0
+					strip.setPixelColor(i, Color(0,0,0))
+					strip.show()
+					time.sleep( 0.5 )
 
-	def motionLight(self):
+	def motionLight(self, direction):
 		# Alle LEDs werden eingeschaltet und nach
 		# bestimmten Zeitraum 'period' wieder ausgeschaltet
 		reader = ConfigReader()
 		period = reader.getTimePeriod()
-		self.fadeAllIn()
+		self.fadeAllIn(direction)
 		time.sleep(period)
-		self.fadeAllOut()
+		self.fadeAllOut(direction)
 
 	def colourRed(self):
 		for i in range(strip.numPixels()):
@@ -141,9 +155,9 @@ class NeoPixels(threading.Thread):
 		# 7 Strobo
 		# 8 Bunte Übergänge
 		if code == '1':
-			self.fadeAllIn()
+			self.fadeAllIn(0)
 		elif code == '2':
-			self.fadeAllOut()
+			self.fadeAllOut(0)
 		elif code == '3':
 			self.colourRed()
 		elif code == '4':
