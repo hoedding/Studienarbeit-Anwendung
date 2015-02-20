@@ -74,10 +74,10 @@ class Core():
       modus = mod
       print modus
 
-  def motionDetected(self):
+  def motionDetected(self, direction):
     # Wird bei Auslösen des Bewegungssensors aufgerufen
     if(modus == 0):
-        led.motionLight()
+        led.motionLight(direction)
     elif(modus == 2):
         self.alarm()
 
@@ -143,7 +143,10 @@ class Core():
 
   def changeConfiguration(self, key, value):
       writer = ConfigWriter()
-      writer.changeConfig(key, value)
+      if key = 'TOKEN':
+          writer.addNewToken(value)
+      else:
+          writer.changeConfig(key, value)
 
 if __name__ == "__main__":
     threads = []
