@@ -58,3 +58,8 @@ class ConfigReader():
 		data = open('config.json')
 		jdata = json.load(data)
 		return jdata["token"]
+
+	def getTokenList(self):
+		data = open('tokenlist.json')
+		jdata = json.load(data)
+		return jdata['token']

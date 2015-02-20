@@ -7,9 +7,11 @@
 
 import hashlib
 from ConfigReader import *
+import threading
 
-class RecvdData():
-    def init(self, c):
+class RecvdData(threading.Thread):
+    def __init__(self, c):
+        threading.Thread.__init__(self)
         global center
         center = c
 
@@ -67,6 +69,10 @@ class RecvdData():
                 elif control == 'X08':
                     ## Konfiguration ändern
                     self.changeConfiguration(config)
+                elif control == 'X09':
+                    ## Login
+                    return "TRUE"
+
             else:
                 print center.writeLog('Übertragung fehlerhaft')
 

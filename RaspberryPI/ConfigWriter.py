@@ -25,3 +25,12 @@ class ConfigWriter():
         jsonFile = open("config.json", "w+")
         jsonFile.write(json.dumps(jdata))
         jsonFile.close()
+
+    def addNewToken(self, token):
+        jsonFile = open("tokenlist.json", "r")
+        jdata = json.load(jsonFile)
+        jsonFile.close()
+        jdata['token'].append({"t":token})
+        jsonFile = open("tokenlist.json", "w+")
+        jsonFile.write(json.dumps(jdata))
+        jsonFile.close()

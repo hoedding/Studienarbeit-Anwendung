@@ -16,6 +16,7 @@ import logging
 import time
 import datetime
 import threading
+from RecvdData import *
 
 
 class Core():
@@ -27,8 +28,11 @@ class Core():
     # Server, Sensor, LED werden in eigenen Threads initialisiert
     # Modus = Aktueller Modus in dem sich das System befindet
     # System wird in Modus 0 initialisiert (Bewegungsmelder an)
+    global datamanager
+    datamanager =  RecvdData(self)
+    threads.append(datamanager)
     global server
-    server = StartLightServer(self)
+    server = StartLightServer(datamanager)
     threads.append(server)
     global sensor
     sensor = MotionDetection(self)
@@ -41,6 +45,12 @@ class Core():
     self.startAll()
 
   def startAll(self):
+    try:
+        datamanager.start()
+    except IOError:
+        print 'Error:', arg
+    else:
+        print 'Datenmanager initialisiert'
     try:
         server.start()
     except IOError:
@@ -87,7 +97,7 @@ class Core():
       # TODO Bild der Kamera holen und auf FTP-Server zwischenspeichern
       self.writeLog('Bewegung ausgelöst!')
       ap = ApplePush()
-      ap.push("notification")
+      ap.push("Bewegung erkannt.")
 
   def clearPixel(self):
     # Alle Pixel ausschalten
@@ -143,7 +153,7 @@ class Core():
 
   def changeConfiguration(self, key, value):
       writer = ConfigWriter()
-      if key = 'TOKEN':
+      if key == 'TOKEN':
           writer.addNewToken(value)
       else:
           writer.changeConfig(key, value)

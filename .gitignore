@@ -31,3 +31,5 @@ DerivedData
 *.csr
 *.log
 *.pyc
+*.p12
+*.pem

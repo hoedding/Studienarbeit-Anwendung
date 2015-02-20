@@ -94,18 +94,18 @@ class NeoPixels(threading.Thread):
 	def fadeAllOut(Self, direction):
 		# Eine LED nach der anderen Ausschalten (Farbe: Weis)
 		num = strip.numPixels()
-			if direction == 0:
-				for i in range(num):
-					# von 0 bis num
-					strip.setPixelColor(i, Color(0,0,0))
-					strip.show()
-					time.sleep( 0.5 )
-			elif direction == 1:
-				for i in range(num, 0):
-					# von num bis 0
-					strip.setPixelColor(i, Color(0,0,0))
-					strip.show()
-					time.sleep( 0.5 )
+		if direction == 0:
+			for i in range(num):
+				# von 0 bis num
+				strip.setPixelColor(i, Color(0,0,0))
+				strip.show()
+				time.sleep( 0.5 )
+		elif direction == 1:
+			for i in range(num, 0):
+				# von num bis 0
+				strip.setPixelColor(i, Color(0,0,0))
+				strip.show()
+				time.sleep( 0.5 )
 
 	def motionLight(self, direction):
 		# Alle LEDs werden eingeschaltet und nach

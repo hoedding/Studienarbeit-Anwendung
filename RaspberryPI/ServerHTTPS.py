@@ -18,19 +18,15 @@ from twisted.internet import reactor, ssl
 
 class LightServer(Resource):
   def render_POST(self, request):
-    file = datamanager.dataReceived(cgi.escape(request.args["data"][0]))
-    if (file != None):
-        self.transport.write(file.read())
+    message = datamanager.dataReceived(cgi.escape(request.args["data"][0]))
+    if (message != None):
+        return message
 
 class StartLightServer(threading.Thread):
-  def __init__(self, c):
+  def __init__(self, d):
      threading.Thread.__init__(self)
-     global center
-     center = c
-     # TODO: Thread für Datamanager
      global datamanager
-     datamanager = RecvdData()
-     datamanager.init(center)
+     datamanager = d
 
   def run(self):
      root = Resource()

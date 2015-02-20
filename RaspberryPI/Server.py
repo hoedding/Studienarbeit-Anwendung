@@ -10,7 +10,6 @@ from twisted.internet import reactor
 import hashlib
 from ConfigReader import *
 import threading
-from RecvdData import *
 
 class LightServer(Protocol):
 	def connectionMade(self):
@@ -37,14 +36,10 @@ class LightServer(Protocol):
 			self.transport.write(file.read())
 
 class StartLightServer(threading.Thread):
-	def __init__(self, c):
+	def __init__(self, d):
 		threading.Thread.__init__(self)
-		global center
-		center = c
-		# TODO: Thread für Datamanager
 		global datamanager
-		datamanager = RecvdData()
-		datamanager.init(center)
+		datamanager = d
 
  	def run(self):
 		global factory
