@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="6254" systemVersion="14B25" minimumToolsVersion="Automatic" macOSVersion="Automatic" iOSVersion="Automatic">
+    <entity name="Config" representedClassName="" syncable="YES">
+        <attribute name="cam_url" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="cam_url_short" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="camavaible" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="ftp_url" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="host" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="ledcount" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="modus" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="motionport1" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="motionport2" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="port" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="pw" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="timeperiod" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="user" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
+    <entity name="UserSettings" syncable="YES">
+        <attribute name="authWithoutPW" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="Config" positionX="-63" positionY="-18" width="128" height="30"/>
+        <element name="UserSettings" positionX="-63" positionY="-27" width="128" height="60"/>
+    </elements>
+</model>
