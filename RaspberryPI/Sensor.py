@@ -46,7 +46,7 @@ class MotionDetection(threading.Thread):
 			while True :
 				# Aktuellen Status der Sensoren einlesen
 				Current_State_1 = GPIO.input(MOTION_PIN1)
-				Current_State_2 = GPIO.input(MOTION_PIN1)
+				Current_State_2 = GPIO.input(MOTION_PIN2)
 
 				if (Current_State_1 == 1 and Previous_State_1 == 0 and Current_State_2 == 0):
 					# Sensor 1 hat ausgelöst

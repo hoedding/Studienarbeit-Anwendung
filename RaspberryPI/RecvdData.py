@@ -71,8 +71,7 @@ class RecvdData(threading.Thread):
                     self.changeConfiguration(config)
                 elif control == 'X09':
                     ## Login
-                    return "TRUE"
-
+                    return "LOGIN:TRUE"
             else:
                 print center.writeLog('Übertragung fehlerhaft')
 
@@ -166,9 +165,8 @@ class RecvdData(threading.Thread):
 
     def sendLEDStatus(self):
         # Farbwerte aller einzelnen LEDs senden
-        ledstatus = center.getLEDStatus()
+        ledstatus = center.getLEDStatusAsJson()
         return ledstatus
-        #self.transport.write(ledstatus.read())
 
     def changeConfiguration(self, config):
         b = config.split('--')
