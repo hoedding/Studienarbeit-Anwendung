@@ -97,31 +97,26 @@ class Core():
       # TODO Bild der Kamera holen und auf FTP-Server zwischenspeichern
       self.writeLog('Bewegung ausgelöst!')
       ap = ApplePush()
-      ap.push("Bewegung erkannt.")
+      #ap.push("Bewegung erkannt.")
 
   def clearPixel(self):
     # Alle Pixel ausschalten
     led.clear()
 
-  def getSystemStatus(self):
-    # status.json einlesen und zurück geben
-    # Wird von Server aus aufgerufen um Status an
-    # Client zu senden
-    try:
-        file = open("status.json","r")
-        return file
-    except:
-        self.writeLog("Status File -status.json- nicht gefunden")
-
-  def getLEDStatus(self):
-    leds = []
-    leds = led.getLedAsArray()
-    if len(leds) > 0:
-        data = {}
-        for i in range(len(leds)):
-            data[str(i)] = str(leds[i])
-        jsondata = json.dumps(data)
-        return jsondata
+  def getLEDStatusAsJson(self):
+    led_values = led.getLedAsArray()
+    print led_values
+    print len(led_values)
+    data = 'LED:{"led": ['
+    count = 0
+    if len(led_values) > 0:
+        for i in range(0, len(led_values)-1):
+            data = data + '{"l":"' + str(led_values[i]) + '"},'
+            count = count + 1
+        data = data + '{"l":"' + str(led_values[len(led_values)-1]) + '"}]}'
+        count = count + 1
+        print count
+        return data
 
   def writeLog(self, content):
     # Message ins Logfile schreiben
