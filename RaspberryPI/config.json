@@ -1,13 +1,1 @@
-{
-  "ledcount": "2",
-  "username": "testuser",
-  "passhash": "58acb7acccce58ffa8b953b12b5a7702bd42dae441c1ad85057fa70b",
-  "motionport1": "7",
-  "motionport2": "8",
-  "camavaible": "1",
-  "cam_url": "test.de",
-  "cam_url_short": "test2.de",
-  "ftp_url": "test3.de",
-  "timeperiod": "10",
-  "token": "XX"
-}
+{"username": "testuser", "motionport2": "8", "motionport1": "7", "cam_url_short": "test2.de", "cam_url": "test.de", "passhash": "58acb7acccce58ffa8b953b12b5a7702bd42dae441c1ad85057fa70b", "token": "XX", "ftp_url": "test3.de", "ledcount": "2", "timeperiod": "10", "camavaible": "1", "ftp_directory":"", ftp_user":"", "ftp_pw":""}
