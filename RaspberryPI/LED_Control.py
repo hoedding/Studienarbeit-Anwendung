@@ -42,21 +42,19 @@ class NeoPixels(threading.Thread):
 		self.clear()
 
 	def onePixel(self, number, red, green, blue):
-		print ('Eine LED: #%d R:%d G:%d B:%d' % (number, red, green, blue))
 		# Einen Pixel mit den o.g. RGB-Werten anschalten
 		strip.setPixelColor(number, Color(red, green, blue))
 		strip.show()
 
 	def rangePixel(self, start, end, red, green, blue):
-		print ('Mehrere LED: #%d - #%d R:%d G:%d B:%d'% (start, end, red, green, blue))
 		for i in range(start, end):
 			strip.setPixelColor(i, Color(red, green, blue))
-			strip.show()
+		strip.show()
 
 	def allPixel(self, red, green, blue):
 		for i in range(strip.numPixels()):
 			strip.setPixelColor(i, Color(red, green, blue))
-			strip.show()
+		strip.show()
 
 	def getCurrentColor(self, number):
 		# Gibt den 24 Bit Farbwert zurück
@@ -64,16 +62,17 @@ class NeoPixels(threading.Thread):
 		return value
 
 	def getLedAsArray(self):
+		pixels = strip.getPixels()
 		colours = []
-		colours = strip.getPixels()
+		for i in range(0,strip.numPixels()):
+			colours.append(pixels[i])
 		return colours
 
 	def doBlinder(self):
 		# Alle LEDs auf höchter Helligkeit anschalten (Farbe: Weis)
 		for i in range(strip.numPixels()):
 			strip.setPixelColor(i, Color(255,255,255))
-			strip.show()
-		print 'blinder'
+		strip.show()
 
 	def fadeAllIn(self, direction):
 		# Eine LED nach der anderen Anschalten (Farbe: Weis)
@@ -83,13 +82,13 @@ class NeoPixels(threading.Thread):
 				# von 0 bis num
 				strip.setPixelColor(i, Color(255,255,255))
 				strip.show()
-				time.sleep( 0.5 )
+				time.sleep( 0.025 )
 		elif direction == 1:
-			for i in range(num, 0):
+			for i in range(num):
 				# von num bis 0
-				strip.setPixelColor(i, Color(255,255,255))
+				strip.setPixelColor(num-i, Color(255,255,255))
 				strip.show()
-				time.sleep( 0.5 )
+				time.sleep( 0.025 )
 
 	def fadeAllOut(Self, direction):
 		# Eine LED nach der anderen Ausschalten (Farbe: Weis)
@@ -99,13 +98,13 @@ class NeoPixels(threading.Thread):
 				# von 0 bis num
 				strip.setPixelColor(i, Color(0,0,0))
 				strip.show()
-				time.sleep( 0.5 )
+				time.sleep( 0.025 )
 		elif direction == 1:
-			for i in range(num, 0):
+			for i in range(num):
 				# von num bis 0
-				strip.setPixelColor(i, Color(0,0,0))
+				strip.setPixelColor(num-i, Color(0,0,0))
 				strip.show()
-				time.sleep( 0.5 )
+				time.sleep( 0.025 )
 
 	def motionLight(self, direction):
 		# Alle LEDs werden eingeschaltet und nach
@@ -113,7 +112,7 @@ class NeoPixels(threading.Thread):
 		reader = ConfigReader()
 		period = reader.getTimePeriod()
 		self.fadeAllIn(direction)
-		time.sleep(period)
+		time.sleep(float(period))
 		self.fadeAllOut(direction)
 
 	def colourRed(self):
@@ -140,33 +139,15 @@ class NeoPixels(threading.Thread):
 		# TODO
 		print 'strobe'
 
-	def colourFader(self):
+	def rainbow(self):
 		# TODO
 		print 'colourfader'
 
 	def effectLED(self, code):
 		# Einprogrammierte Effekte starten
-		# 1 Alle an
-		# 2 Alle aus
-		# 3 Alle rot
-		# 4 Alle grün
-		# 5 Alle blau
-		# 6 Alle gedimmt weis
-		# 7 Strobo
-		# 8 Bunte Übergänge
+		# 1 Strobo
+		# 2 Bunte Farben
 		if code == '1':
-			self.fadeAllIn(0)
-		elif code == '2':
-			self.fadeAllOut(0)
-		elif code == '3':
-			self.colourRed()
-		elif code == '4':
-			self.colourGreen()
-		elif code == '5':
-			self.colourBlue()
-		elif code == '6':
-			self.dimmedWhite()
-		elif code == '7':
 			self.strobe()
-		elif code == '8':
-			self.colourFader()
+		elif code == '2':
+			self.rainbow()
