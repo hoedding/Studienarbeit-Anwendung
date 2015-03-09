@@ -17,15 +17,6 @@ class ConfigWriter():
         jsonFile.write(json.dumps(jdata))
         jsonFile.close()
 
-    def changeStatus(self, key, value):
-        jsonFile = open("config.json", "r")
-        jdata = json.load(jsonFile)
-        jsonFile.close()
-        jdata[key] = value
-        jsonFile = open("config.json", "w+")
-        jsonFile.write(json.dumps(jdata))
-        jsonFile.close()
-
     def addNewToken(self, token):
         jsonFile = open("tokenlist.json", "r")
         jdata = json.load(jsonFile)

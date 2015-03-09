@@ -63,3 +63,18 @@ class ConfigReader():
 		data = open('tokenlist.json')
 		jdata = json.load(data)
 		return jdata['token']
+
+	def getFTPDirectory(self):
+		data = open('config.json')
+		jdata = json.load(data)
+		return jdata['ftp_directory']
+
+	def getFTPUser(self):
+		data = open('config.json')
+		jdata = json.load(data)
+		return jdata['ftp_user']
+
+	def getFTPPW(self):
+		data = open('config.json')
+		jdata = json.load(data)
+		return jdata['ftp_pw']
