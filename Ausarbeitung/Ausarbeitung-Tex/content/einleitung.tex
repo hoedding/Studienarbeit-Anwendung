@@ -17,3 +17,151 @@ Es gibt drei verschiedene Modi in denen sich das System befinden kann:
 \item Implementierung der iOS App
 \item Vollständige praktische Umsetzung an einem Beispielobjekt
 \end{itemize}
+
+\section{Projektmanagement}
+\subsection{Meilensteintrendanalyse}
+Die Meilensteintrendanalyse ist eine Art des Projektmanagements. Hauptaufgabe ist die Überwachung des Projektfortschritts und die frühe Erkennung von Terminverzögerungen. Hierfür werden bei Projektbeginn Meilensteine festgelegt, die Inhalt, Dauer und Endzeitpunkt enthalten. Im Laufe eines Bearbeitungszeitraums können mögliche Verzögerungen erkannt und entsprechend darauf reagiert werden. Um große Verzögerungen zu vermeiden, sollten realistische Sicherheitspuffer eingeplant werden. \\
+Bei Beendigung eines Meilensteins kann ein Fazit aus dessen Ablauf gezogen werden. Zum Beispiel kann bei aufgetretener Verzögerung Ursachenforschung betrieben werden, um in weiteren Schritten solche Verzögerungen zu vermeiden. 
+
+\paragraph{Bemerkungen}
+\begin{itemize}
+\item Die schriftliche Ausarbeitung ist nicht Teil der Meilensteine. Sie erfolgt parallel zu den durchgeführten Aufgaben.
+\end{itemize}
+
+\subsection{Meilensteine und Erfolgsprüfung}
+\begin{enumerate}
+
+\item Planung der Architektur (15. September - 30. September 2014)
+\begin{itemize}
+\item Entwurf Anwendungsstruktur
+\begin{itemize}
+\item Der Entwurf der Anwendungssturktur für Serverimplementierung und Mobile-Implementierung konnte erfolgreich abgeschlossen werden.
+\end{itemize}
+\item Ermittlung notwendiger Hardware für die einzelnen Anwendungsfälle
+\begin{itemize}
+\item Dies benötigte nur geringen Aufwand, da nur wenige Bauteile benötigt werden. Die Evaluierung, Beschaffung und Tests fällt in den 3. Meilenstein.
+\end{itemize}
+\item Ausarbeitung Übertragungsprotokoll
+\begin{itemize}
+\item Das Protokoll wurde erfolgreich ausgearbeitet. Die Details sind in 2.5.1 dargestellt.
+\end{itemize}
+\item Einarbeitung in Python
+\begin{itemize}
+\item Es wurden die Grundlagen der Sprache Python im Bezug auf OOP, Funktionen und Datentypen erarbeitet. Die Kenntnisse haben sich im Laufe des Projekts weiter verbessert. 
+\end{itemize}
+\end{itemize}
+
+\item Funktionsfähiger Prototyp Webserver (1. Oktober - 19. Oktober 2014)
+\begin{itemize}
+\item Auswahl eines Frameworks für die Implementierung des Webservers
+\begin{itemize}
+\item Es wurde das Twisted Framework ausgewählt und Testimplementierung der verschiedenen Server-Typen (Socket, SSL, STARTTLS, HTTP, HTTPS) durchgeführt. 
+\end{itemize}
+\item Implementierung der für den Webserver nötigen Klassen
+\begin{itemize}
+\item Implementierung der Socketübertragung. Im Laufe des Projekts zeigte sich, dass dies nicht die optimale Lösung ist. in einem späteren Meilenstein wurde ein HTTPS-Webserver mit Twisted implementiert. 
+\end{itemize}
+\item Testen der Funktionen
+\begin{itemize}
+\item Testen mithilfe von Clients, die in Python implementiert wurden. 
+\end{itemize}
+\end{itemize}
+
+\item Auswahl Hardwarekomponenten (LEDs, Sensoren, Kamera) (20. Oktober - 31. Oktober 2014)
+\begin{itemize}
+\item Evaluierung
+\begin{itemize}
+\item Die Evaluierung von LEDs und Sensoren konnte erfolgreich abgeschlossen werden. Für die Wahl der Netzwerkkamera konnte keine Lösung gefunden werden, da noch nicht klar war, in welcher Form die Bilder abgerufen werden können. Dieser Aufgabenteil ist in Meilenstein 7 verschoben worden.
+\end{itemize} 
+\item Beschaffung
+\begin{itemize}
+\item Die Beschaffung von LEDs und Sensoren verlief mit erfolgreich mit geringem Aufwand. 
+\end{itemize}
+\item Testen und Testimplementierung
+\begin{itemize}
+\item Die Testimplementierungen erfolgreich durchgeführt werden. Der Quellcode und die zugehörigen Schaltbilder befinden sich in den Punkten 2.1 und 2.2.
+\end{itemize}
+\end{itemize}
+
+\item Implementierung Serveranwendung (1. November - 30. November 2014)
+\begin{itemize}
+\item Implementierung Sensorerkennung
+\begin{itemize}
+\item Die Implementierung der Sensorerkennung war erfolgreich.
+\end{itemize}
+\item Implementierung Ansteuerung LED
+\begin{itemize}
+\item Die Implementierung der Ansteuerung der LEDs war erfolgreich.
+\end{itemize}
+\item Implementierung der Konfigurationsmöglichkeiten ( hat nicht geklappt -> Dezember, Januar)
+\begin{itemize}
+\item Die vollständige Implementierung der Konfigurationsdateien, -lesern und -schreibern, sowie der Übertragung wurde nicht abgeschlossen. Grund dafür war fehlende Kenntniss über den Empfang auf dem Client und über JSON.
+\end{itemize}
+\item Implementierung des Übertragungsprotokolls
+\begin{itemize}
+\item Die Auswertung der empfangenen Daten wurde erfolgreich implementiert. 
+\end{itemize}
+\item Komplette Implementierung 
+\begin{itemize}
+\item Die Implementierung der gesamten Serveranwendung wurde soweit fertiggestellt, dass ein Betrieb möglich war. Einige kleine Änderungen oder nachträgliche Erweiterungen wurden im Laufe des Projekts hinzugefügt. Dies waren meistens Dinge, die vorher nicht bedacht wurden, oder an die mobile App angepasst werden mussten.
+\end{itemize}
+\end{itemize}
+
+\item Funktionsfähiger Prototyp iOS-Anwendung (1. Januar - 31. Januar 2015)
+\begin{itemize}
+\item Einarbeitung Swift und XCode
+\begin{itemize}
+\item In dieser Zeitphase wurde der Umgang mit XCode und der Sprache Swift erlernt. 
+\end{itemize}
+\item Erstellung Prototyp der Anwendung in XCode
+\begin{itemize}
+\item Es wurde die Anwendungsstrktur in XCode erstellt. 
+\end{itemize}
+\item Auswahl von nötigen Frameworks
+\begin{itemize}
+\item Es wurden Frameworks für Menüführung, Sicherheit und FTP-Verbindung ausgewählt und hinzugefügt. 
+\end{itemize}
+\item Übertragungen mit dem Webserver
+\begin{itemize}
+\item In dieser Phase wurde festgestellt, dass die Übertragung über Sockets nicht optimal ist. Eine Übertragung mittels HTTP Protokoll bietet eine deutlich einfachere und sicherere Implementierung. Aufgrund dieser Feststellung wurde die Implementierung des Webservers in diesem Meilenstein erneut verändert. 
+\end{itemize}
+\item Refactoring Webserver
+\begin{itemize}
+\item Der Webserver wurde auf HTTPS umgestellt. 
+\end{itemize}
+\end{itemize}
+
+\item Implementierung iOS-Anwendung (1. Februar - 31. März 2015)
+\begin{itemize}
+\item Server-Client Kommunikation
+\begin{itemize}
+\item Die Übertragung wurde entsprechend dem Anwendungsprotokoll implementiert. 
+\end{itemize}
+\item User-Interface
+\begin{itemize}
+\item Das User-Interface wurde erstellt und mit Funktionen versehen. 
+\end{itemize}
+\item Implementierung konsistene Speicherung
+\begin{itemize}
+\item Der Zugriff auf CoreData wude implementiert.
+\end{itemize}
+\end{itemize}
+
+\item Abschluss der Arbeit (1. April - 11. Mai 2015)
+\begin{itemize}
+\item Implementierung Netzwerkkamera
+\begin{itemize}
+\item
+\end{itemize}
+\item Fertigstellung Ausarbeitung
+\begin{itemize}
+\item 
+\end{itemize}
+\item  Abgabe
+\begin{itemize}
+\item 
+\end{itemize}
+\end{itemize}
+
+\end{enumerate}
+

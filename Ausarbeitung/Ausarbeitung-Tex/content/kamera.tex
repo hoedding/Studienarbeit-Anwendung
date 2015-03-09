@@ -5,7 +5,7 @@ Die Kameras für den Raspberry Pi können direkt an das Gerät angeschlossen wer
 Als Beispiel wäre ein von der Raspberry Pi Foundation empfohlene Kamera zu nennen: //TODO Beispielkamera
 \paragraph{Netzwerkkamera} \\
 Eine Netzwerkkamera oder auch IP-Kamera genannt befindet sich im Netzwerk und kann über eine Website oder App eingesehen und gesteuert werden. Der Vorteil ist, dass sie sich irgendwo befinden kann, solange sie im selben Netzwerk ist. Somit kann zum Beispiel eine wetterfeste Kamera im Außenbereich angebracht werden und der Server kann sich im geschützten Innenbereich befinden. \\
-Der Nachteil besteht bei IP-Kameras darin, dass es keine einheitliche API zum Abgreifen des Videomaterials gibt. Eine mögliche Lösung wäre das Laden der HTML Seite über einen HTTP-Request und darauffolgend das Ausfiltern des Bildmaterials. Über diese Variante kann aber kein Video sondern nur temporäre Bilder geladen werden. Dies würde aber für eine Notification auf dem Smartphone ausreichen. \\\\
+Der Nachteil besteht bei IP-Kameras darin, dass es keine einheitliche API zum Abgreifen des Videomaterials gibt. Die meisten IP-Kameras bieten die Möglichkeit, die Aufgenommenen Bilder auf einem FTP-Server abzulegen. Weiter wäre eine mögliche Lösung das Laden der HTML Seite über einen HTTP-Request und darauffolgend das Ausfiltern des Bildmaterials. Über diese Variante kann aber kein Video sondern nur temporäre Bilder geladen werden. Dies würde aber für eine Notification auf dem Smartphone ausreichen. \\\\
 Für dieses Projekt wird eine IP-Kamera aufgrund von oben genannten Vorteilen verwendet.
 \subsection{Ansteuerung}
 \paragraph{Testcode HTTP-Request}

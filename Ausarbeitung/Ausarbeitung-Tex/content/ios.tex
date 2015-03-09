@@ -1,0 +1,52 @@
+\subsection{Swift}
+\subsection{Übertragung}
+\paragraph{Sockets}
+Der erste Ansatz in diesem Projekt, war die Übertragung der Daten über Sockets. Diese können genutzt werden um Daten (wie TCP, UDP) bidirektional über Netzwerke zu senden. Ein Socket wird an eine Adresse und einen Port gebunden. Ein Client kann sich zu einem serverseitigen Socket verbinden. \\
+Die Implementierung einer Socket-Verbindung funktioniert in Swift problemlos, allerdings ist sie mit einem großen Aufwand verbunden. Das Problem ist dabei, dass innerhalb von Swift dieser Datenstream nicht einfach verschlüsselt werden kann (QUELLEN !!!!). 
+\begin{lstlisting}[caption =Implementierung einer Socketverbindung in Swift, language=C, frame=single, breaklines=true,columns=fullflexible, commentstyle=\color{gray}\upshape, captionpos=b, numbers = left]
+
+private var inputstream : NSInputStream!
+    private var outputstream : NSOutputStream!
+    private var host : String = ""
+    private var port : UInt32 = 0
+
+func connect() {        
+	// Initialisierung des Input- und Outputstreams
+}
+
+internal func stream(aStream: NSStream, handleEvent eventCode: NSStreamEvent) {
+	// Behandeln der einzelnen Stream-Events
+
+        switch (eventCode){
+        case NSStreamEvent.ErrorOccurred:
+		// Fehler beim Empfang oder Senden
+        case NSStreamEvent.EndEncountered:
+		// Ende der Übertragung
+        case NSStreamEvent.HasBytesAvailable:
+		// Es sind Daten auf dem Stream verfügbar
+        case NSStreamEvent.OpenCompleted:
+		// Stream erfolgreich geöffnet
+        case NSStreamEvent.HasSpaceAvailable:
+		// Space am Ende der Übertragung
+        default:
+        }
+    }
+
+\end{lstlisting}
+Die vollständige Implementierung ist auf Github einsehbar (https://github.com/hoedding/Studienarbeit-Anwendung/blob/master/iOS-App/Studienarbeit/ConnectServerTCP.swift) oder unter http://timohoeting.de/how-to-socketbase-ios-app-mit-swift/
+
+\paragraph{HTTP}
+Aufgrund der aufwändigen Implementierung und Schwierigkeiten mit der Verschlüsselung wurde als zweiter Ansatz die Übertragung der Daten im HTTP-Protokoll gewählt. Hier wartet ein Webserver auf eingehende Anfragen von Clienten. Diese können beliebige Daten enthalten und werden oft zur Abfrage von Logins oder Suchergebnissen genutzt. \\
+In Swift können Anfragen an Webserver sehr leicht durchgeführt werden, wobei auch die Verschlüsselung (HTTPS) ohne Probleme funktioniert. 
+
+\begin{lstlisting}[caption =Implementierung der Übertragung mittels HTTP in Swift, language=C, frame=single, breaklines=true,columns=fullflexible, commentstyle=\color{gray}\upshape, captionpos=b, numbers = left]
+    func sendMessageViaHttpPostWithCompletion(message : NSString, completionClosure : (s : NSString) -> ()) {
+	// Diese Methode überträgt die Message über das HTTP-Protokoll
+	// und erhält eine Funktion als Übergabgeparameter, die sie nach 
+	// Beendigung der Übertragung aufrufen kann. 
+    }
+\end{lstlisting}
+Die vollständige Implementierung ist auf Github einsehbar (https://github.com/hoedding/Studienarbeit-Anwendung/blob/master/iOS-App/Studienarbeit/ConnectServerHTTP.swift)
+\subsection{Konzept}
+\subsection{Aufbau}
+\subsection{...}

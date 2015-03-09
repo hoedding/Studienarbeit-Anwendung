@@ -1,11 +1,10 @@
 \addvspace {10\p@ }
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {2.1}{\ignorespaces Ergebnisse der LED-Evaluierung}}{7}
-\contentsline {figure}{\numberline {2.2}{\ignorespaces Schaltung f\IeC {\"u}r LED-Test}}{8}
-\contentsline {figure}{\numberline {2.3}{\ignorespaces Ergebnisse der Motion-Sensor-Evaluierung}}{10}
-\contentsline {figure}{\numberline {2.4}{\ignorespaces Schaltung f\IeC {\"u}r LED-Test}}{15}
-\contentsline {figure}{\numberline {2.5}{\ignorespaces Anwendungskonzept}}{22}
-\contentsline {figure}{\numberline {2.6}{\ignorespaces Prozess und Threads}}{24}
+\contentsline {figure}{\numberline {2.1}{\ignorespaces Ergebnisse der LED-Evaluierung}}{10}
+\contentsline {figure}{\numberline {2.2}{\ignorespaces Schaltung f\IeC {\"u}r LED-Test}}{11}
+\contentsline {figure}{\numberline {2.3}{\ignorespaces Ergebnisse der Motion-Sensor-Evaluierung}}{13}
+\contentsline {figure}{\numberline {2.4}{\ignorespaces Wireshark Trace TLS Handshake}}{18}
+\contentsline {figure}{\numberline {2.5}{\ignorespaces Prozess und Threads}}{31}
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \addvspace {10\p@ }

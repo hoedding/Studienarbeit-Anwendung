@@ -2,13 +2,13 @@
 
 \subsection{SSL vs. TLS}
 SSL (Secure Sockets Layer) und TLS (Transport Layer Security) sind Protokolle, die Verschlüsselung und Authentifizierung zwischen zwei Kommunikationspartnern bieten. Die beiden Begriffe SSL und TLS werden umgangssprachlich oft als zwei verschiedene Techniken dargestellt, obwohl TLS nur eine Weiterentwicklung von SSL ist. SSL v3 ist die Basis von TLS 1.0. \\
-Aufgrund des Alters und einiger Sicherheitslücken wird SSL als unsicher angesehen und soll nicht mehr verwendet werden. Die aktuellste gefundene Lücke ist POODLE\footnote{Erklärung}, welche das Auslesen von Informationen aus einer verschlüsselten Übertragung erlaubt. Die Weiterentwicklungen TLS 1.1 und 1.2 sind deutlich sicherer und beheben einige Sicherheitslücken. So schützt die richtige Implementierung von TLS 1.2 auch vor den BEAST\footnote{Erklärung} Angriffsmethoden.\\
-Eine Variante von TLS ist das sogenannte STARTTLS, bei dem zuerst ein unsicheres 'hello' an den Server gesendet wird. Falls im Anschluss eine Verbindung erfolgreich Zustande kommt, wird zur sicheren Übertragung gewechselt. \\
+Aufgrund des Alters und einiger Sicherheitslücken wird SSL als unsicher angesehen und soll nicht mehr verwendet werden. Die aktuellste gefundene Lücke ist POODLE\footnote{SIcherheitslücke in SSL v3}, welche das Auslesen von Informationen aus einer verschlüsselten Übertragung erlaubt. Die Weiterentwicklungen TLS 1.1 und 1.2 sind deutlich sicherer und beheben einige Sicherheitslücken. So schützt die richtige Implementierung von TLS 1.2 auch vor den BEAST\footnote{Sicherheitslücke in TLS v1.0} Angriffsmethoden.\\
+TODO: NACH HINTEN SCHIEBEN Eine Variante von TLS ist das sogenannte STARTTLS, bei dem zuerst ein unsicheres 'hello' an den Server gesendet wird. Falls im Anschluss eine Verbindung erfolgreich Zustande kommt, wird zur sicheren Übertragung gewechselt. \\
 Wenn ein Server implementiert wird, so muss er alle Techniken unterstützen, beim Client kann der Entwickler selbst entscheiden. Ein Entwickler sollte immer die höchst mögliche Verschlüsselungstechnik einsetzen. \\
 
 \subsection{Vor- und Nachteile TLS}
 Da TLS auf der Transportschicht aufsetzt kann jedes höhere Protokoll darüber übertragen werden, somit ist die Verschlüsselung unabhängig von der genutzten Anwendung. \\
-	Der größte Nachteil besteht darin, dass der Verbindungsaufbau serverseitig sehr rechenintensiv ist. Die Verschlüsselung selbst nimmt, abhängig vom Algorithmus, nur noch wenige Rechenleistung in Anspruch. \\
+	Der größte Nachteil besteht darin, dass der Verbindungsaufbau serverseitig sehr rechenintensiv ist. Die Verschlüsselung selbst nimmt, abhängig vom Algorithmus, nur noch wenig Rechenleistung in Anspruch. \\
 
 \subsection{TLS Handshake}
 1. Client Hello\\
@@ -25,7 +25,9 @@ Aus dem PSK wird ein Master-Secret generiert, mit welchem die folgenden Übertra
 Übertragung der Daten. \\
 Ein Wireshark Trace zu diesem Handshake befindet sich in 2.3.6.\\
 \subsection{Zertifikat und Key}
-Auf dem Raspberry Pi ist OpenSSL in der neuesten Version installiert. Es wird ein selbst-signiertes Zertifikat im 2048 Bit Key erzeugt.\\
+
+\paragraph{Server-Zertifikat}
+Für die Verschlüsselung der Übertragung zwischen Server und Client ist ein Server-Zertifikat notwendig. Dieses wird mit OpenSSL in der neuesten Version generiert.
 1. Private Key erzeugen
 \begin{lstlisting}[caption =private Key, language=python, frame=single, breaklines=true,columns=fullflexible, commentstyle=\color{gray}\upshape, captionpos=b, numbers = left]
 openssl genrsa -des3 -out server.key 2048
@@ -36,49 +38,15 @@ openssl genrsa -des3 -out server.key 2048
 openssl req -new -key server.key -out server.csr
 \end{lstlisting}
 
+
 3. Self Signed Certificate\\
 Bei einem öffentlichen Server sollte das Zertifikat bei einer CA (Certificate Authority) signiert werden. \\
 \begin{lstlisting}[caption =Self Signed Certificate, language=python, frame=single, breaklines=true,columns=fullflexible, commentstyle=\color{gray}\upshape, captionpos=b]
 openssl x509 -req -days 1865 -in server.csr -signkey server.key -out server.crt
 \end{lstlisting}
 
-\subsection{Beispielcode STARTTLS Server}
-An dieser Stelle ist der Beispielcode von Twisted am besten verständlich\\
-(Quelle: https://twistedmatrix.com/documents/12.3.0/core/howto/ssl.html)\\
-Es ist gut zu erkennen, dass die Übertragung nur ausgewertet wird, wenn das Stichwort 'STARTTLS' am Anfang der Übertragung enthalten ist. Daraufhin wird mit 'READY' geantwortet um dem Client zu signalisieren, dass jetzt der TLS Handshake begonnen werden kann. Im nächsten Schritt läd der Server sein Zertifikat und seinen Key. \\
-In der Initmethode der Klasse ServerTLSContext können die Verschlüsselungsdetails festgelegt werden. Im folgenden Beispiel wird zum Beispiel die TLS Version definiert.  \\
-\begin{lstlisting}[caption =Testcode Echoserver mit Twisted Framework, language=python, frame=single, breaklines=true,columns=fullflexible, commentstyle=\color{gray}\upshape, captionpos=b, numbers = left]
-from OpenSSL import SSL
-from twisted.internet import reactor, ssl
-from twisted.internet.protocol import ServerFactory
-from twisted.protocols.basic import LineReceiver
-
-class TLSServer(LineReceiver):
-    def lineReceived(self, line):
-        print "received: " + line
-
-        if line == "STARTTLS":
-            print "-- Switching to TLS"
-            self.sendLine('READY')
-            ctx = ServerTLSContext(
-                privateKeyFileName='keys/server.key',
-                certificateFileName='keys/server.crt',
-                )
-            self.transport.startTLS(ctx, self.factory)
-
-
-class ServerTLSContext(ssl.DefaultOpenSSLContextFactory):
-    def __init__(self, *args, **kw):
-        kw['sslmethod'] = SSL.TLSv1_METHOD
-        ssl.DefaultOpenSSLContextFactory.__init__(self, *args, **kw)
-
-if __name__ == '__main__':
-    factory = ServerFactory()
-    factory.protocol = TLSServer
-    reactor.listenTCP(8000, factory)
-    reactor.run()
-\end{lstlisting}
-
+\paragraph{Apple Zertifikat}
+Um die Apple Push Notifications einzusetzen ist ein Apple-Developer Zertifikat notwendig, welches nur über das Apple-Developer Portal erzeugt werden kann.
 
 \subsection{Wireshark Trace}
 Im folgenden ist ein Trace eines TLS Handshakes zwischen einem Client und dem implementierten Server auf dem Raspberry Pi zu sehen. \\
@@ -86,5 +54,5 @@ Die einzelnen Schritte des Handshakes sind sehr gut erkennbar.\\
 \begin{minipage}{\linewidth}
             \centering
             \includegraphics[width=\textwidth]{./data/wireshark.png}
-            \captionof{figure}{Schaltung für LED-Test}
+            \captionof{figure}{Wireshark Trace TLS Handshake}
         \end{minipage}

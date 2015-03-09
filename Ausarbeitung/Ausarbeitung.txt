@@ -2,7 +2,7 @@
 # Studienarbeit Timo Höting                   #
 ###############################################
 # Thema: Entwicklung eines Komplettsystems    #
-# zur Überwachung und Beleuchtung von Innen-  # 
+# zur Überwachung und Beleuchtung von Innen-  #
 # und Außenbereichen mit Raspberry Pi und     #
 # iOS App                                     #
 ###############################################
@@ -21,7 +21,7 @@ Inhaltsverzeichnis
 2.2 Bewegungssensor
 2.2.1 Bewertungskriterien
 2.2.2 Evaluierung
-2.2.3 Fazit: 
+2.2.3 Fazit:
 2.2.4 Teststellung
 2.3 Python-Server & Protokoll
 2.3.1 Protokoll
@@ -43,7 +43,7 @@ Inhaltsverzeichnis
 2.6 iOS App
 2.6.1 Konzept
 2.6.2 ...
-2.6.3 ... 
+2.6.3 ...
 
 3. Praktische Umsetzung
 
@@ -101,11 +101,11 @@ Inhaltsverzeichnis
 Schriftliche Ausarbeitung
 
 1. Einleitung
-Es soll ein Komplettsystem entwickelt werden, dass sowohl die Überwachung als auch die Steuerung der Beleuchtung von Innen- und Außenbereichen ermöglicht. Das System soll nach Entwicklung universell einsetzbar und leicht konfigurierbar sein. 
+Es soll ein Komplettsystem entwickelt werden, dass sowohl die Überwachung als auch die Steuerung der Beleuchtung von Innen- und Außenbereichen ermöglicht. Das System soll nach Entwicklung universell einsetzbar und leicht konfigurierbar sein.
 
 1.1 Projektbeschreibung
 Für die Beleuchtung sollen adressierbare LED-Pixel eingesetzt werden, welche möglichst leicht in ihrer Anzahl variiert werden können. Es müssen passende Bauteile und Produkte evaluiert und getestet werden. Diese müssen vom Raspberry Pi ansteuerbar sein.
-Die Überwachung findet über eine Kamera statt. Ob diese direkt am Raspberry Pi angeschlossen wird oder sich nur im selben Netzwerk befindet wird im Laufe dieses Projekts erarbeitet. Für die Erkennung von Aktivitäten werden Bewegungsmelder eingesetzt. 
+Die Überwachung findet über eine Kamera statt. Ob diese direkt am Raspberry Pi angeschlossen wird oder sich nur im selben Netzwerk befindet wird im Laufe dieses Projekts erarbeitet. Für die Erkennung von Aktivitäten werden Bewegungsmelder eingesetzt.
 Gesteuert wird das System über einen Raspberry Pi. Von diesem aus werden die LEDs angesteuert, die Sensorsignale ausgewertet und die Befehle der App empfangen.
 Um dem User eine einfach Ansteuerung zu ermöglichen wird eine iOS App implementiert. Die hierfür genutzten Sprachen sind Swift und Objective-C. Die Serverfunktionalitäten werden in Python implementiert.
 
@@ -125,7 +125,7 @@ Es gibt drei verschiedene Modi in denen sich das System befinden kann:
 2.1.1 Bewertungskriterien
 	Die Beleuchtung soll durch einzelne LED-Pixel stattfinden. Ein Pixel bedeutet ein Chip auf dem sowohl die LED und der nötige Treiber sitzt. Für die Evaluierung werden folgende Kriterien gewählt:
 		a)	RGB-Farbraum
-			Die LED muss den gesamten RGB-Farbraum darstellen können. 
+			Die LED muss den gesamten RGB-Farbraum darstellen können.
 			Gewichtung: 5, KO-Kriterium
 		b)	Ansteuerung
 			Da der Raspberry Pi an einigen seiner Pins Pulsweitenmodulation (PWM) bietet, sollten die LED-Pixel ohne extra Hardware ansteuerbar sein. Eine extra Stromversorgung ist aber bei größerer Anzahl an LEDs unabdingbar.
@@ -134,7 +134,7 @@ Es gibt drei verschiedene Modi in denen sich das System befinden kann:
 			Hier wird bewertet ob der jeweilige Hersteller ein fertiges Framework zu seinen Produkten anbietet.
 			Gewichtung: 10
 		d)	Kosten
-			Es werden nur die reinen Produktkosten, also ohne Versand und Zoll, bewertet. 
+			Es werden nur die reinen Produktkosten, also ohne Versand und Zoll, bewertet.
 			Gewichtung: 5
 		e)	Extras
 			An dieser Stelle können mögliche Extras eines Herstellers einfließen.
@@ -150,7 +150,7 @@ Es gibt drei verschiedene Modi in denen sich das System befinden kann:
 			Ansteuerung: Findet über PWM-Pin des Raspberry Pi statt.
 			Framework: Framework von Adafruit, welches eine sehr leichte Ansteuerung ermöglichen soll.
 			Kosten: 4 LEDs = ~7$, 25 LEDs zusammen = ~39$, durch Lieferung aus USA sehr hohe Versandkosten (~50$)
-			Extras: Händler bietet verschiedene Formen und fertige Ketten an. 
+			Extras: Händler bietet verschiedene Formen und fertige Ketten an.
 		b)	LED-Emotion GMBH, LED Streifen
 			http://www.led-emotion.de/de/LED-Streifen-Set.html
 			LED-Streifen, keine Einzelpixel, nur mit Controller, keine API
@@ -172,42 +172,42 @@ Es gibt drei verschiedene Modi in denen sich das System befinden kann:
 			Scheinen die gleichen wie von Adafruit zu sein, allerdings werden
 			hauptsächlich Controller im Shop angeboten
 			RGB: Chip ist der WS2801, http://www.adafruit.com/datasheets/WS2801.pdf -> Hat volle Abdeckung des RGB-Farbraums
-			Ansteuerung: Nach Anfrage an den Anbieter sollen die LEDs baugleich zu denen von Adafruit sein. 
+			Ansteuerung: Nach Anfrage an den Anbieter sollen die LEDs baugleich zu denen von Adafruit sein.
 			Framework: keins
 			Kosten: 50 LEDs = 59€
 			Extras: Lieferung aus Deutschland
-		
+
 		Fazit:
-			In der Evaluierung schneiden die Produkte von Adafruit und TinkerForge am besten ab. Für eine erste Teststellung werden die einzelnen LED-Pixel von Adafruit aus den USA bestellt (Neopixel). An diesen soll vor allem die Ansteuerung getestet werden. Falls diese sich bewähren wird für den endgültigen Aufbau auf die LED-Ketten von Tinkerforge zurück gegriffen. 
-	
+			In der Evaluierung schneiden die Produkte von Adafruit und TinkerForge am besten ab. Für eine erste Teststellung werden die einzelnen LED-Pixel von Adafruit aus den USA bestellt (Neopixel). An diesen soll vor allem die Ansteuerung getestet werden. Falls diese sich bewähren wird für den endgültigen Aufbau auf die LED-Ketten von Tinkerforge zurück gegriffen.
+
 
 2.1.3 Teststellung
-	Für einen ersten Test wurde das in 2.1.2 ausgewählte Produkt als einzelne Pixel bestellt. Der Hersteller Adafruit bietet hier 4er-Packungen an. Diese können leicht in eigene Schaltungen eingelötet oder auf Experimentier-Boards gesteckt werden. Bei geringer Anzahl LEDs reicht die 5V-Stromversorgung des Raspberry Pi aus. 
-	Technische Daten Neopixel: 
+	Für einen ersten Test wurde das in 2.1.2 ausgewählte Produkt als einzelne Pixel bestellt. Der Hersteller Adafruit bietet hier 4er-Packungen an. Diese können leicht in eigene Schaltungen eingelötet oder auf Experimentier-Boards gesteckt werden. Bei geringer Anzahl LEDs reicht die 5V-Stromversorgung des Raspberry Pi aus.
+	Technische Daten Neopixel:
 		Maße: 10.2mm x 12.7mm x 2.5mm
 		Protokollgeschwindigkeit: 800 KHz
-		Spannung: 5-9VDC  (bei 3,5V gedimmte Helligkeit) 
-		Strom: 18,5mA / LED, 55mA / Pixel 
-	Framework: 
+		Spannung: 5-9VDC  (bei 3,5V gedimmte Helligkeit)
+		Strom: 18,5mA / LED, 55mA / Pixel
+	Framework:
 		- RPI_WS281X (https://github.com/jgarff/rpi_ws281x)
 		- Sprache: Python
 		- Entwickelt für Raspberry Pi
 		- Vorraussetzung: Python 2.7
-	Ablauf des Tests: 
+	Ablauf des Tests:
 		a) 	Aufbau der Schaltung
-			An die einzelnen LED-Pixel wurden Stecker angelötet, damit sie auf das Experimentierboard aufgesteckt werden können. Dann wird die Schaltung nach folgendem Schaltbild verbunden. Wichtig ist, dass beim Raspberry Pi nur Pins verwendet werden können, welche PWM bieten. 
+			An die einzelnen LED-Pixel wurden Stecker angelötet, damit sie auf das Experimentierboard aufgesteckt werden können. Dann wird die Schaltung nach folgendem Schaltbild verbunden. Wichtig ist, dass beim Raspberry Pi nur Pins verwendet werden können, welche PWM bieten.
 		b) 	Installation des Frameworks
 			wget https://github.com/tdicola/rpi_ws281x/raw/master/python/dist/rpi_ws281x-1.0.0-py2.7-linux-armv6l.egg
 			sudo easy_install rpi_ws281x-1.0.0-py2.7-linux-armv6l.egg
 		c)	Testcode
 			from neopixel import *
-	
+
 			LED_COUNT   = 4       # Number of LED pixels.
 			LED_PIN     = 18      # GPIO pin connected to the pixels (must support PWM!).
 			LED_FREQ_HZ = 800000  # LED signal frequency in hertz (usually 800khz)
 			LED_DMA     = 5       # DMA channel to use for generating signal (try 5)
 			LED_INVERT  = False   # True to invert the signal (when using NPN)
-	
+
 			strip = Adafruit_NeoPixel(LED_COUNT, LED_PIN, LED_FREQ_HZ, LED_DMA, LED_INVERT)
 			strip.begin()
 			strip.setPixelColor(0, Color(255, 255, 255))
@@ -215,22 +215,22 @@ Es gibt drei verschiedene Modi in denen sich das System befinden kann:
 			strip.setPixelColor(2, Color(255, 255, 255))
 			strip.setPixelColor(3, Color(255, 255, 255))
 			strip.show()
-		
+
 		d) Auswertung
-			Die einzelnen Pixel sind sehr leicht anzusteuern, unterstützen auch das automatische Abschalten nach einer bestimmten Zeit und haben eine sehr hohe Leuchtkraft. Die Evaluierung hat zu einer guten Produktwahl geführt. In der Endgültigen Projektstellung werden keine einzelnen LEDs eingesetzt, sondern eine fertige Kette des Herstellers. 
+			Die einzelnen Pixel sind sehr leicht anzusteuern, unterstützen auch das automatische Abschalten nach einer bestimmten Zeit und haben eine sehr hohe Leuchtkraft. Die Evaluierung hat zu einer guten Produktwahl geführt. In der Endgültigen Projektstellung werden keine einzelnen LEDs eingesetzt, sondern eine fertige Kette des Herstellers.
 
 2.2 Bewegungssensor
 	In einem der Modi soll die Beleuchtung durch den Bewegunsmelder ausgelöst werden. Hierfür sind zuverlässige und weitreichende Beweungssensoren notwendig.
-	
+
 2.2.1 Bewertungskriterien
 		a) Ansteuerung
-			Die Anbindung an den Raspberry Pi soll möglichst leicht realisierbar sein. Wünschenswert ist, dass der Sensor einfach ein High-Signal bei Bewegungserkennung ausgibt. 
+			Die Anbindung an den Raspberry Pi soll möglichst leicht realisierbar sein. Wünschenswert ist, dass der Sensor einfach ein High-Signal bei Bewegungserkennung ausgibt.
 			Gewichtung: 5, KO-Kriterium
 		b) Reichweite
 			Die Reichweite oder Sensivität des Sensors soll ausreichend und regelbar sein.
 			Gewichtung: 3
 		c) Kosten
-			Es werden nur die reinen Produktkosten, also ohne Versand und Zoll, bewertet. 
+			Es werden nur die reinen Produktkosten, also ohne Versand und Zoll, bewertet.
 			Gewichtung: 1
 		d) Extras
 			An dieser Stelle können mögliche Extras eines Herstellers einfließen.
@@ -254,13 +254,13 @@ Es gibt drei verschiedene Modi in denen sich das System befinden kann:
 			Reichweite: 7m, 100 Grad
 			Kosten: 5 Stück = 7,66€
 			Extras: keine
-		
-2.2.3 Fazit: 
-			Die meisten Infarot-Bewegungssensoren sind von der Bauweise nahezu identisch. Die Unterschiede liegen meist nur in der Empfindlichkeit. Da die Reichweite in diesem Fall nicht von großer Bedeutsamkeit ist, kann eigentlich jedes der Produkte bestellt werden. Auf Ebay und Amazon ist die Anzahl angebotener Sensoren nahezu unbegrenzt, es wurde für die Teststellung also die oben evaluierte Variante von Amazon bestellt. 
-		
+
+2.2.3 Fazit:
+			Die meisten Infarot-Bewegungssensoren sind von der Bauweise nahezu identisch. Die Unterschiede liegen meist nur in der Empfindlichkeit. Da die Reichweite in diesem Fall nicht von großer Bedeutsamkeit ist, kann eigentlich jedes der Produkte bestellt werden. Auf Ebay und Amazon ist die Anzahl angebotener Sensoren nahezu unbegrenzt, es wurde für die Teststellung also die oben evaluierte Variante von Amazon bestellt.
+
 2.2.4 Teststellung
-		Der in Punkt X.X.X gewählte Bewegungssensor wurde beim Hersteller bestellt. In der Teststellung reicht die Stromversorgung des Raspberry Pi. 
-		Technische Daten Sensor: 
+		Der in Punkt X.X.X gewählte Bewegungssensor wurde beim Hersteller bestellt. In der Teststellung reicht die Stromversorgung des Raspberry Pi.
+		Technische Daten Sensor:
 			Die Empfindlichkeit und Haltezeit kann eingestellt werden
 			Reichweite: ca. 7m
 			Winkel: 100 Grad
@@ -268,27 +268,27 @@ Es gibt drei verschiedene Modi in denen sich das System befinden kann:
 			Strom: < 50uA
 			Ausgansspannung: High 3V / Low 0V
 			Größe: ca. 32mm x 24mm
-		Ablauf des Tests: 
+		Ablauf des Tests:
 		a) Aufbau der Schaltung
-			Der Sensor wird in der Teststellung direkt vom Raspberry Pi mit Strom versorgt. Für die Datenleitung kann jeder beliebige Pin gewählt werden. 
+			Der Sensor wird in der Teststellung direkt vom Raspberry Pi mit Strom versorgt. Für die Datenleitung kann jeder beliebige Pin gewählt werden.
 		b) Testcode
-		Um eine Änderung am Datenpin festzustellen werden zwei Variable angelegt: current_status und previous_status. Das Programm wird in einer Dauerschleife geschickt, in der bei jedem Durchlauf die beiden Status überprüft. Wenn der neue Status (current_status) High ist und das vorherige Signal (previous_state) Low, dann wird eine Bewegung erkannt. Der Code wird mittels Kommentare erklärt.	
+		Um eine Änderung am Datenpin festzustellen werden zwei Variable angelegt: current_status und previous_status. Das Programm wird in einer Dauerschleife geschickt, in der bei jedem Durchlauf die beiden Status überprüft. Wenn der neue Status (current_status) High ist und das vorherige Signal (previous_state) Low, dann wird eine Bewegung erkannt. Der Code wird mittels Kommentare erklärt.
 
 			import RPi.GPIO as GPIO
 			import time
-			
+
 			GPIO.setmode(GPIO.BCM)
-				
+
 			# Pin definieren
 			MOTION_PIN1 = 7
-				
+
 			# Diese als Input definieren
 			GPIO.setup(MOTION_PIN1,GPIO.IN)
-						
+
 			# Status definieren um verschiedene Änderungen zu erkennen
 			Current_State  = 0
 			Previous_State = 0
-								
+
 			try:
 				# Loop zur Erkennung einer Bewegung
 				# Sensor erkennt Bewegung -> Signal = High
@@ -302,16 +302,16 @@ Es gibt drei verschiedene Modi in denen sich das System befinden kann:
 						print "Ready"
 						Previous_State=0
 					time.sleep(0.01)
-				
+
 			except KeyboardInterrupt:
 				print "Quit"
 				GPIO.cleanup()
 
-		Bei der Endversion des Systems sollen mehrere Beweungssensoren integriert werden. Bei Auslösen des ersten Sensors sollen die LEDs angeschaltet werden und nach auslösen eines weiteren Sensors wieder ausgeschaltet werden. 
+		Bei der Endversion des Systems sollen mehrere Beweungssensoren integriert werden. Bei Auslösen des ersten Sensors sollen die LEDs angeschaltet werden und nach auslösen eines weiteren Sensors wieder ausgeschaltet werden.
 
 		c) Auswertung
-		Das High-Signal des Sensors lässt sich mit dem Raspberry Pi sehr leicht auswerten. Auch die Auswertung von mehreren Sensoren stellt kein Problem da. Das Ergebnis der Evaluierung konnte in dieser Tststellung bestätigt werden. 
-		
+		Das High-Signal des Sensors lässt sich mit dem Raspberry Pi sehr leicht auswerten. Auch die Auswertung von mehreren Sensoren stellt kein Problem da. Das Ergebnis der Evaluierung konnte in dieser Tststellung bestätigt werden.
+
 2.3 Python-Server & Protokoll
 2.3.1 Protkoll
 Um die LEDs später von einer App aus ansprechen zu können, soll ein auf Strings basierendes Protokoll implementiert werden. Dieses wird in TCP-Paketen übertragen. Hierfür muss als erstes festgelegt werden, welche Informationen übertragen werden sollen:
@@ -324,14 +324,14 @@ Um die LEDs später von einer App aus ansprechen zu können, soll ein auf String
 				X02: LED-Bereich anschalten
 				X03: Effekt für eine LED
 				X04: Effekt für LED-Bereich
-				X05: Effektcode 
-			Abhängig von diesem Feld werden die nachfolgenden Werte behandelt. 
+				X05: Effektcode
+			Abhängig von diesem Feld werden die nachfolgenden Werte behandelt.
 		c)	LED-Nummer
 			Falls nur eine LED angesprochen werden soll (Control = X00), so wird hier die Nummer angegeben. Ob sie im gültigen Range liegt wird intern überprüft.
 		d) 	Bereich Start
 			Wenn mehrere LEDs gesteuert werden sollen (Control = X01), so wird hier der Beginn des Bereichs angegeben.
 		e)	Bereich Ende
-			Und hier das Ende des Bereichs. 
+			Und hier das Ende des Bereichs.
 		f)	Rot
 			Farbwert Rot 0-255
 		g)	Grün
@@ -344,7 +344,7 @@ Um die LEDs später von einer App aus ansprechen zu können, soll ein auf String
 			Hinterlegte, fest programmierte Effekte, zum Beispiel alle LEDs anschalten in weis mit höchster Leuchstärke.
 		k)	Hash
 			Überprüfung ob die Übertragung erfolgreich war, mittels eines Hashwertes. Es wird der SHA-224-Algorithmus eingesetzt.
-			
+
 		Übertragungsbeispiel:
 		Protokoll: 	auth:control:ledNo:rangeStart:rangeEnd:red:green:blue:effect:effectcode:hash
 					pass:X01:0:0:49:255:255:255:0:0:xx
@@ -353,73 +353,73 @@ Um die LEDs später von einer App aus ansprechen zu können, soll ein auf String
 
 2.3.2 Framework
 	Twisted: https://twistedmatrix.com
-	Twisted ist eine in Python geschriebene  event-getriebene Netzwerkengine. Die meisten gängigen Protokolle wie TCP, IMAP, SSHv3 und viele mehr werden unterstützt. Somit bietet Twisted die ideale Möglichkeit einen eigenen simplen Server zu implementieren. 
-	Event-Getrieben (event-based): Die Serveranwendung befindet sich in einer Schleife und wartet auf ein Event. Dieses Event ist in diesem Fall der Connect eines Clients zum Server. Für jeden Connect wird eine neue Instanz angelegt, in welcher empfangene Daten bearbeitet werden können. 
-	
+	Twisted ist eine in Python geschriebene  event-getriebene Netzwerkengine. Die meisten gängigen Protokolle wie TCP, IMAP, SSHv3 und viele mehr werden unterstützt. Somit bietet Twisted die ideale Möglichkeit einen eigenen simplen Server zu implementieren.
+	Event-Getrieben (event-based): Die Serveranwendung befindet sich in einer Schleife und wartet auf ein Event. Dieses Event ist in diesem Fall der Connect eines Clients zum Server. Für jeden Connect wird eine neue Instanz angelegt, in welcher empfangene Daten bearbeitet werden können.
+
 2.3.3 Testcode
 
 	#!/usr/bin/env python
 	# Copyright (c) Twisted Matrix Laboratories.
 	# See LICENSE for details.
-	
+
 	from twisted.internet.protocol import Protocol, Factory
 	from twisted.internet import reactor
-	
+
 	### Protocol Implementation
-	
+
 	# This is just about the simplest possible protocol
 	class Echo(Protocol):
 		def dataReceived(self, data):
 			self.transport.write(data)
-	
-	
+
+
 		def main():
 			f = Factory()
 			f.protocol = Echo
 			reactor.listenTCP(8000, f)
 			reactor.run()
-	
+
 	if __name__ == '__main__':
 	main()
-	
+
 	// Erklärung
-	
+
 2.3.4 Implementierung
 	Im Folgenden wird die Implementierung des Servers näher erläutert.
-	
+
 	//CODE des Servers
-	
+
 2.3.5 Klassen und ihre Funktionen
-	
+
 2.3.6 Hashfunktion
-Es wird zu zweierlei Zwecken eine Hashfunktion eingesetzt. Zum einen um die Korrektheit der Übertragung zu überprüfen und zum Anderen um ein Passwort zur Authentifizierung verwenden zu können. Dieses wird als Wort übertragen, auf dem Server aber nur als Hash-Wert abgespeichert. Falls es also jemand schafft die Konfirgurationsdatei abzugreifen, so ist der Passworthash nichts wert. 
+Es wird zu zweierlei Zwecken eine Hashfunktion eingesetzt. Zum einen um die Korrektheit der Übertragung zu überprüfen und zum Anderen um ein Passwort zur Authentifizierung verwenden zu können. Dieses wird als Wort übertragen, auf dem Server aber nur als Hash-Wert abgespeichert. Falls es also jemand schafft die Konfirgurationsdatei abzugreifen, so ist der Passworthash nichts wert.
 
 2.4 Verschlüsselung
 
 2.4.1 SSL vs. TLS
-SSL (Secure Sockets Layer) und TLS (Transport Layer Security) sind Protokolle, die Verschlüsselung und Authentifizierung zwischen zwei Kommunikationspartnern bieten. Die beiden Begriffe SSL und TLS werden umgangssprachlich oft als zwei verschiedene Techniken dargestellt, obwohl TLS nur eine Weiterentwicklung von SSL ist. SSL v3 ist die Basis von TLS 1.0. 
-Aufgrund des Alters und einiger Sicherheitslücken wird SSL als unsicher angesehen und soll nicht mehr verwendet werden. Die aktuellste gefundene Lücke ist POODLE, welche das Auslesen von Informationen aus einer verschlüsselten Übertragung erlaubt. Die Weiterentwicklungen TLS 1.1 und 1.2 sind deutlich sicherer und beheben einige sicherheitslücken. 
-Eine Variante von TLS ist das sogenannte STARTTLS, bei dem zuerst ein unsicheres 'hello' an den Server gesendet wird. Falls im Anschluss eine Verbindung erfolgreich Zustande kommt, wird zur sicheren Übertragung gewechselt. 
-Wenn ein Server implementiert wird, so muss er alle Techniken unterstützen, beim Client kann der Entwickler selbst entscheiden. Ein Entwickler sollte immer die höchsten Verschlüsselungstechniken einsetzen. 
+SSL (Secure Sockets Layer) und TLS (Transport Layer Security) sind Protokolle, die Verschlüsselung und Authentifizierung zwischen zwei Kommunikationspartnern bieten. Die beiden Begriffe SSL und TLS werden umgangssprachlich oft als zwei verschiedene Techniken dargestellt, obwohl TLS nur eine Weiterentwicklung von SSL ist. SSL v3 ist die Basis von TLS 1.0.
+Aufgrund des Alters und einiger Sicherheitslücken wird SSL als unsicher angesehen und soll nicht mehr verwendet werden. Die aktuellste gefundene Lücke ist POODLE, welche das Auslesen von Informationen aus einer verschlüsselten Übertragung erlaubt. Die Weiterentwicklungen TLS 1.1 und 1.2 sind deutlich sicherer und beheben einige sicherheitslücken.
+Eine Variante von TLS ist das sogenannte STARTTLS, bei dem zuerst ein unsicheres 'hello' an den Server gesendet wird. Falls im Anschluss eine Verbindung erfolgreich Zustande kommt, wird zur sicheren Übertragung gewechselt.
+Wenn ein Server implementiert wird, so muss er alle Techniken unterstützen, beim Client kann der Entwickler selbst entscheiden. Ein Entwickler sollte immer die höchsten Verschlüsselungstechniken einsetzen.
 
 2.4.2 Vor- und Nachteile TLS
 	Jedes höhrer Protokoll kann über TLS übertragen werden, somit ist die Verschlüsselung unabhängig von der genutzten Anwendung.
-	Der größte Nachteil besteht darin, dass der Verbindungsaufbau serverseitig sehr rechenintensiv ist. Die Verschlüsselung selbst nimmt, abhängig vom Algorithmus, nur noch wenige Rechenleistung in Anspruch. 
+	Der größte Nachteil besteht darin, dass der Verbindungsaufbau serverseitig sehr rechenintensiv ist. Die Verschlüsselung selbst nimmt, abhängig vom Algorithmus, nur noch wenige Rechenleistung in Anspruch.
 
 2.4.3 TLS Handshake
 	1. Client Hello
 		Übertragung von Verschlüsselungsinformationen vom Client an den Server, wie TLS Version oder Verschlüsselungsmöglichkeiten
-	2. Server Hello 
-		Server sendet seine Informationen und legt Verschlüsselung fest. 
+	2. Server Hello
+		Server sendet seine Informationen und legt Verschlüsselung fest.
 	3. Server Key Exchange
-		Server sendet seine Identität in Form seines Zertifikats. 
+		Server sendet seine Identität in Form seines Zertifikats.
 	4. Client Key Exchange
 		Client legt seinen Pre-Shared-Key fest und überträgt ihn verschlüsselt mit dem public Key des Servers.
 	5. Change Cipher Spec
-		Aus dem PSK wird ein Master-Secret generiert, mit welchem die folgenden Übertragung abgesichert wird. 
+		Aus dem PSK wird ein Master-Secret generiert, mit welchem die folgenden Übertragung abgesichert wird.
 	6. Application Data
-		Übertragung der Daten. 
-		
+		Übertragung der Daten.
+
 2.4.4 Zertifikat und Key
 	Auf dem Raspberry Pi ist OpenSSL in der neuesten Version installiert. Es wird ein selbst-signiertes Zertifikat im 2048 Bit Key erzeugt.
 	1. Private Key erzeugen
@@ -427,22 +427,22 @@ Wenn ein Server implementiert wird, so muss er alle Techniken unterstützen, bei
 	2. Certificate Signing Request
 		openssl req -new -key server.key -out server.csr
 	3. Self Signed Certificate
-		Bei einem öffentlichen Server sollte das Zertifikat bei einer CA (Certificate Authority) signiert werden. 
+		Bei einem öffentlichen Server sollte das Zertifikat bei einer CA (Certificate Authority) signiert werden.
 		openssl x509 -req -days 1865 -in server.csr -signkey server.key -out server.crt
 
 		2.4.5 Beispielcode STARTTLS Server
 	An dieser Stelle ist der Beispielcode von Twisted am besten verständlich
 	(Quelle: https://twistedmatrix.com/documents/12.3.0/core/howto/ssl.html)
-	
+
 		from OpenSSL import SSL
 		from twisted.internet import reactor, ssl
 		from twisted.internet.protocol import ServerFactory
 		from twisted.protocols.basic import LineReceiver
-		
+
 		class TLSServer(LineReceiver):
 		    def lineReceived(self, line):
 		        print "received: " + line
-		
+
 		        if line == "STARTTLS":
 		            print "-- Switching to TLS"
 		            self.sendLine('READY')
@@ -451,29 +451,29 @@ Wenn ein Server implementiert wird, so muss er alle Techniken unterstützen, bei
 		                certificateFileName='keys/server.crt',
 		                )
 		            self.transport.startTLS(ctx, self.factory)
-		
-		
+
+
 		class ServerTLSContext(ssl.DefaultOpenSSLContextFactory):
 		    def __init__(self, *args, **kw):
 		        kw['sslmethod'] = SSL.TLSv1_METHOD
 		        ssl.DefaultOpenSSLContextFactory.__init__(self, *args, **kw)
-		
+
 		if __name__ == '__main__':
 		    factory = ServerFactory()
 		    factory.protocol = TLSServer
 		    reactor.listenTCP(8000, factory)
 		    reactor.run()
-			
+
 		Es ist gut zu erkennen, dass die Übertragung nur ausgewertet wird, wenn das Stichwort "STARTTLS" am Anfang der Übertragung enthalten ist. Daraufhin wird mit "READY" geantwortet um dem Client zu signalisieren, dass jetzt der TLS Handshake begonnen werden kann. Im nächsten Schritt läd der Server sein Zertifikat und seinen Key.
-		In der Initmethode der Klasse ServerTLSContext können die Verschlüsselungsdetails festgelegt werden. Im obigen Beispiel wird hier zum Beospiel die TLS Version definiert.  
+		In der Initmethode der Klasse ServerTLSContext können die Verschlüsselungsdetails festgelegt werden. Im obigen Beispiel wird hier zum Beospiel die TLS Version definiert.
 
 2.4.6 Wireshark Trace
 	Mit Wireshark wurde die Übertragung zwischen Client und Server analysiert:
-	
+
 	//Wireshark Trace
 
 2.5 Kamera
-	
+
 
 2.5.1 PI-Kamera vs. Netzwerkkamera
 
@@ -485,7 +485,7 @@ Wenn ein Server implementiert wird, so muss er alle Techniken unterstützen, bei
 
 2.6.2 ...
 
-2.6.3 ... 
+2.6.3 ...
 
 3. Praktische Umsetzung
 
@@ -496,7 +496,7 @@ Wenn ein Server implementiert wird, so muss er alle Techniken unterstützen, bei
 admin:X01:1:0:0:255:0:0:0:0:d
 admin:X00:1:0:0:255:255:255:0:0:d
 admin:X02:0:0:2:0:0:255:0:0:d
-admin:X00:1:0:0:255:255:255:0:0:d
+admin:X07:0:0:0:0:0:0:0:0:motion2--9:d
 
 
 admin:X05:1:0:0:255:255:255:0:2:d

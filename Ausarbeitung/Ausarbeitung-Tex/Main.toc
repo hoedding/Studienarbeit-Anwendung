@@ -2,58 +2,74 @@
 \contentsline {section}{\numberline {1.1}Vorwort}{5}
 \contentsline {section}{\numberline {1.2}Projektbeschreibung}{5}
 \contentsline {section}{\numberline {1.3}Teilprojekte}{5}
-\contentsline {chapter}{\numberline {2}Hauptteil}{6}
-\contentsline {section}{\numberline {2.1}LED-Pixel}{6}
-\contentsline {subsection}{\numberline {2.1.1}Bewertungskriterien}{6}
-\contentsline {subsection}{\numberline {2.1.2}Evaluierung}{6}
-\contentsline {paragraph}{Fazit:}{7}
-\contentsline {subsection}{\numberline {2.1.3}Teststellung}{8}
-\contentsline {paragraph}{Technische Daten Neopixel:}{8}
-\contentsline {paragraph}{Framework:}{8}
-\contentsline {paragraph}{Ablauf des Tests:}{8}
-\contentsline {paragraph}{Fazit}{9}
-\contentsline {section}{\numberline {2.2}Bewegungssensor}{9}
-\contentsline {subsection}{\numberline {2.2.1}Bewertungskriterien}{9}
-\contentsline {subsection}{\numberline {2.2.2}Evaluierung}{10}
-\contentsline {paragraph}{Fazit}{10}
-\contentsline {subsection}{\numberline {2.2.3}Teststellung}{11}
-\contentsline {paragraph}{Technische Daten Sensor:}{11}
-\contentsline {paragraph}{Ablauf des Tests:}{11}
-\contentsline {paragraph}{Auswertung}{12}
-\contentsline {section}{\numberline {2.3}Verschl\IeC {\"u}sselung}{12}
-\contentsline {subsection}{\numberline {2.3.1}SSL vs. TLS}{12}
-\contentsline {subsection}{\numberline {2.3.2}Vor- und Nachteile TLS}{13}
-\contentsline {subsection}{\numberline {2.3.3}TLS Handshake}{13}
-\contentsline {subsection}{\numberline {2.3.4}Zertifikat und Key}{13}
-\contentsline {subsection}{\numberline {2.3.5}Beispielcode STARTTLS Server}{14}
-\contentsline {subsection}{\numberline {2.3.6}Wireshark Trace}{15}
-\contentsline {section}{\numberline {2.4}Python-Server und Protokoll}{15}
-\contentsline {subsection}{\numberline {2.4.1}Protokoll}{15}
-\contentsline {subsection}{\numberline {2.4.2}Framework}{16}
-\contentsline {subsection}{\numberline {2.4.3}Testcode}{16}
-\contentsline {subsection}{\numberline {2.4.4}Implementierung}{17}
-\contentsline {subsection}{\numberline {2.4.5}Hashfunktion}{21}
-\contentsline {section}{\numberline {2.5}Kamera}{21}
-\contentsline {subsection}{\numberline {2.5.1}PI-Kamera vs. Netzwerkkamera}{21}
-\contentsline {paragraph}{Raspberry Pi Cam}{21}
-\contentsline {paragraph}{Netzwerkkamera}{22}
-\contentsline {subsection}{\numberline {2.5.2}Ansteuerung}{22}
-\contentsline {paragraph}{Testcode HTTP-Request}{22}
-\contentsline {paragraph}{Implementierung}{22}
-\contentsline {section}{\numberline {2.6}Anwendungsstruktur}{22}
-\contentsline {subsection}{\numberline {2.6.1}Klassen und ihre Funktionen}{22}
-\contentsline {subsection}{\numberline {2.6.2}Threads}{24}
-\contentsline {paragraph}{Problem:}{24}
-\contentsline {paragraph}{L\IeC {\"o}sung:}{24}
-\contentsline {paragraph}{Beispielcode:}{24}
-\contentsline {section}{\numberline {2.7}Konfiguration und Installation}{26}
-\contentsline {subsection}{\numberline {2.7.1}Konfiguration}{26}
-\contentsline {subsection}{\numberline {2.7.2}Installation}{26}
-\contentsline {section}{\numberline {2.8}iOS App}{26}
-\contentsline {subsection}{\numberline {2.8.1}Konzept}{26}
-\contentsline {subsection}{\numberline {2.8.2}...}{26}
-\contentsline {subsection}{\numberline {2.8.3}...}{26}
-\contentsline {chapter}{\numberline {3}Praktische Umsetzung}{27}
-\contentsline {chapter}{\numberline {4}Kostenaufstellung}{28}
-\contentsline {chapter}{\numberline {5}Fazit}{29}
-\contentsline {chapter}{Abbildungsverzeichnis}{29}
+\contentsline {section}{\numberline {1.4}Projektmanagement}{6}
+\contentsline {subsection}{\numberline {1.4.1}Meilensteintrendanalyse}{6}
+\contentsline {paragraph}{\nonumberline Bemerkungen}{6}
+\contentsline {subsection}{\numberline {1.4.2}Meilensteine und Erfolgspr\IeC {\"u}fung}{6}
+\contentsline {chapter}{\numberline {2}Hauptteil}{9}
+\contentsline {section}{\numberline {2.1}LED-Pixel}{9}
+\contentsline {subsection}{\numberline {2.1.1}Bewertungskriterien}{9}
+\contentsline {subsection}{\numberline {2.1.2}Evaluierung}{9}
+\contentsline {paragraph}{\nonumberline Fazit:}{10}
+\contentsline {subsection}{\numberline {2.1.3}Teststellung}{11}
+\contentsline {paragraph}{\nonumberline Technische Daten Neopixel:}{11}
+\contentsline {paragraph}{\nonumberline Framework:}{11}
+\contentsline {paragraph}{\nonumberline Ablauf des Tests:}{11}
+\contentsline {paragraph}{\nonumberline Fazit}{12}
+\contentsline {section}{\numberline {2.2}Bewegungssensor}{12}
+\contentsline {subsection}{\numberline {2.2.1}Bewertungskriterien}{12}
+\contentsline {subsection}{\numberline {2.2.2}Evaluierung}{13}
+\contentsline {paragraph}{\nonumberline Fazit}{13}
+\contentsline {subsection}{\numberline {2.2.3}Teststellung}{14}
+\contentsline {paragraph}{\nonumberline Technische Daten Sensor:}{14}
+\contentsline {paragraph}{\nonumberline Ablauf des Tests:}{14}
+\contentsline {paragraph}{\nonumberline Auswertung}{15}
+\contentsline {section}{\numberline {2.3}Kamera}{15}
+\contentsline {subsection}{\numberline {2.3.1}PI-Kamera vs. Netzwerkkamera}{15}
+\contentsline {paragraph}{\nonumberline Raspberry Pi Cam}{15}
+\contentsline {paragraph}{\nonumberline Netzwerkkamera}{15}
+\contentsline {subsection}{\numberline {2.3.2}Ansteuerung}{16}
+\contentsline {paragraph}{\nonumberline Testcode HTTP-Request}{16}
+\contentsline {paragraph}{\nonumberline Implementierung}{16}
+\contentsline {section}{\numberline {2.4}Verschl\IeC {\"u}sselung}{16}
+\contentsline {subsection}{\numberline {2.4.1}SSL vs. TLS}{16}
+\contentsline {subsection}{\numberline {2.4.2}Vor- und Nachteile TLS}{16}
+\contentsline {subsection}{\numberline {2.4.3}TLS Handshake}{17}
+\contentsline {subsection}{\numberline {2.4.4}Zertifikat und Key}{17}
+\contentsline {paragraph}{\nonumberline Server-Zertifikat}{17}
+\contentsline {paragraph}{\nonumberline Apple Zertifikat}{17}
+\contentsline {subsection}{\numberline {2.4.5}Wireshark Trace}{18}
+\contentsline {section}{\numberline {2.5}Python-Server und Protokoll}{18}
+\contentsline {subsection}{\numberline {2.5.1}Protokoll}{18}
+\contentsline {subsection}{\numberline {2.5.2}Server-Framework}{19}
+\contentsline {subsection}{\numberline {2.5.3}Beispielimplementierung Webserver}{20}
+\contentsline {subsection}{\numberline {2.5.4}Implementierung Webserver}{20}
+\contentsline {subsection}{\numberline {2.5.5}Hashfunktion}{25}
+\contentsline {section}{\numberline {2.6}Anwendungsstruktur Webserver}{26}
+\contentsline {subsection}{\numberline {2.6.1}Klassen und ihre Funktionen}{26}
+\contentsline {subsection}{\numberline {2.6.2}Auswertung empfangener Daten}{27}
+\contentsline {subsection}{\numberline {2.6.3}Konfiguration}{28}
+\contentsline {paragraph}{\nonumberline Konfigurations-Datei}{28}
+\contentsline {paragraph}{\nonumberline Status der LED}{29}
+\contentsline {paragraph}{\nonumberline Lesen und Schreiben der Konfiguration}{30}
+\contentsline {subsection}{\numberline {2.6.4}Apple Push Notification}{30}
+\contentsline {subsection}{\numberline {2.6.5}Unit-Test}{30}
+\contentsline {subsection}{\numberline {2.6.6}Threads}{31}
+\contentsline {paragraph}{\nonumberline Problem:}{31}
+\contentsline {paragraph}{\nonumberline L\IeC {\"o}sung:}{31}
+\contentsline {paragraph}{\nonumberline Beispielcode:}{31}
+\contentsline {section}{\numberline {2.7}Konfiguration und Installation}{33}
+\contentsline {subsection}{\numberline {2.7.1}Konfiguration}{33}
+\contentsline {subsection}{\numberline {2.7.2}Installation}{33}
+\contentsline {section}{\numberline {2.8}iOS App}{33}
+\contentsline {subsection}{\numberline {2.8.1}Swift}{33}
+\contentsline {subsection}{\numberline {2.8.2}\IeC {\"U}bertragung}{33}
+\contentsline {paragraph}{\nonumberline Sockets}{33}
+\contentsline {paragraph}{\nonumberline HTTP}{34}
+\contentsline {subsection}{\numberline {2.8.3}Konzept}{34}
+\contentsline {subsection}{\numberline {2.8.4}Aufbau}{34}
+\contentsline {subsection}{\numberline {2.8.5}...}{34}
+\contentsline {chapter}{\numberline {3}Praktische Umsetzung}{35}
+\contentsline {chapter}{\numberline {4}Kostenaufstellung}{36}
+\contentsline {chapter}{\numberline {5}Fazit}{37}
+\contentsline {chapter}{Abbildungsverzeichnis}{37}
