@@ -16,7 +16,7 @@ class RecvdData(threading.Thread):
         center = c
 
     def dataReceived(self, data):
-        # Protokoll: auth:pw:control:ledNo:rangeStart:rangeEnd:red:green:blue:modus:effectcode:config:hashv
+        # Protokoll: user:pw:control:ledNo:rangeStart:rangeEnd:red:green:blue:modus:effectcode:config:hashv
         # Beispiel: admin:w:X00:1:0:0:10:10:10:0:0:w-w:58acb7acccce58ffa8b953b12b5a7702bd42dae441c1ad85057fa70b
         # Ermoeglicht Zuweisung von Farben und Effekten
         # Ermöglicht Abruf von aktuellem Status des Systems und der LEDs
@@ -25,7 +25,7 @@ class RecvdData(threading.Thread):
         a = data.split(':')
         print a
         if len(a) > 1:
-            auth = 		a[0]
+            user = 		a[0]
             pw = 		a[1]
             control = 	a[2]
             ledNo = 	a[3]
@@ -38,10 +38,10 @@ class RecvdData(threading.Thread):
             effectcode = a[10]
             config = a[11]
             hashv = a[12]
-            data = auth + pw + control + ledNo + rangeStart + rangeEnd + red + green + blue + modus + effectcode + config
+            data = user + pw + control + ledNo + rangeStart + rangeEnd + red + green + blue + modus + effectcode + config
             data = data.rstrip('\n')
             data = data.rstrip('\r')
-            if (self.checkAuthentification(auth, pw) & self.checkTransmissionData(data, hashv)):
+            if (self.checkAuthentification(user, pw) & self.checkTransmissionData(data, hashv)):
                 if control == 'X00':
                     ## Alle LEDs ausschalten
                     center.clearPixel()
@@ -131,17 +131,18 @@ class RecvdData(threading.Thread):
             return True
         return False
 
-    def checkAuthentification(self, auth, pw):
-        # TODO
+    def checkAuthentification(self, user, pw):
         # Authentifizierung überprüfen
         # Eingabewert ist das Passwort aus der Übertragung
         # Dieses wird gehasht und mit dem in der Konfiguration gespeicherten
         # Hashwert verglichen
         reader = ConfigReader()
         hashv = reader.getHashPass()
-        pw = hashlib.sha224(auth).hexdigest()
-        if ( pw == hashv ):
-            return True
+        pwd = hashlib.sha224(pw).hexdigest()
+        user = reader.getUserName()
+        if ( pwd == hashv ):
+            if ( user == user ):
+                return True
         return False
 
     def checkTransmissionData(self, data, check):
@@ -158,8 +159,8 @@ class RecvdData(threading.Thread):
     def sendStatus(self):
         # Status des Systems senden
         reader = ConfigReader()
-        message = 'STATUS:{"ledcount":"' + reader.getNumberOfLED() + '","motionport1":"' + reader.getMotionPin1() + '","motionport2":"' + reader.getMotionPin2() + '","ftp_url":"' + reader.getFTP() + '","camavaible":"'
-        message = message + reader.camAvaible() + '","cam_url":"' + reader.camURL() + '","cam_url_short":"' + reader.camShortURL() + '","timeperiod":"' + reader.getTimePeriod() + '"}'
+        message = 'STATUS:{"ledcount":"' + reader.getNumberOfLED() + '","motionport1":"' + reader.getMotionPin1() + '","motionport2":"' + reader.getMotionPin2() + '","camavaible":"'
+        message = message + reader.camAvaible() + '","timeperiod":"' + reader.getTimePeriod() + '"}'
         print message
         return str(message)
 
