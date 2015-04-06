@@ -13,7 +13,7 @@ from ConfigReader import *
 import threading
 
 #LED_COUNT   = 2      # Number of LED pixels. Get it from elsewhere, idiot.
-LED_PIN     = 18      # GPIO pin connected to the pixels (must support PWM!).
+#LED_PIN     = 18      # GPIO pin connected to the pixels (must support PWM!).
 LED_FREQ_HZ = 800000  # LED signal frequency in hertz (usually 800khz)
 LED_DMA     = 5       # DMA channel to use for generating signal (try 5)
 LED_INVERT  = False   # True to invert the signal (when using NPN)
@@ -36,6 +36,7 @@ class NeoPixels(threading.Thread):
 		# LED_COUNT aus config holen
 		reader = ConfigReader()
 		LED_COUNT = int(reader.getNumberOfLED())
+		LED_PIN = int(reader.getLEDPort())
 		global strip
 		strip = Adafruit_NeoPixel(LED_COUNT, LED_PIN, LED_FREQ_HZ, LED_DMA, LED_INVERT)
 		strip.begin()
