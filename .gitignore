@@ -33,3 +33,4 @@ DerivedData
 *.pyc
 *.p12
 *.pem
+ffmpeg
