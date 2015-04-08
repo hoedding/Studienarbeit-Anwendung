@@ -30,10 +30,10 @@ class CoreDataManager : NSObject {
         manObject.setPrimitiveValue("", forKey: "ledcount")
         manObject.setPrimitiveValue("", forKey: "motionport1")
         manObject.setPrimitiveValue("", forKey: "motionport2")
-        manObject.setPrimitiveValue("", forKey: "ftp_url")
+       // manObject.setPrimitiveValue("", forKey: "ftp_url")
         manObject.setPrimitiveValue("", forKey: "camavaible")
-        manObject.setPrimitiveValue("", forKey: "cam_url")
-        manObject.setPrimitiveValue("", forKey: "cam_url_short")
+        //manObject.setPrimitiveValue("", forKey: "cam_url")
+        //manObject.setPrimitiveValue("", forKey: "cam_url_short")
         manObject.setPrimitiveValue("", forKey: "timeperiod")
         manObject.setPrimitiveValue("0", forKey: "modus")
         
@@ -48,7 +48,9 @@ class CoreDataManager : NSObject {
         var appDel : AppDelegate = (UIApplication.sharedApplication().delegate as AppDelegate)
         var context : NSManagedObjectContext = appDel.managedObjectContext!
         var manObject = NSEntityDescription.insertNewObjectForEntityForName("UserSettings", inManagedObjectContext: context) as NSManagedObject
-        manObject.setPrimitiveValue("10", forKey: "authWithoutPW")
+        manObject.setPrimitiveValue("0", forKey: "authWithoutPW")
+        manObject.setPrimitiveValue("", forKey: "ftp")
+        manObject.setPrimitiveValue("", forKey: "ftpdir")
         context.save(&err)
         if (err != nil) {
             println(err)
@@ -156,6 +158,13 @@ class CoreDataManager : NSObject {
     
     func getPasswordHash() -> String {
         return self.loadValue("Config", key: "pw")
+    }
+    
+    func checkLocalCredetials(user : NSString, pw : NSString) -> Bool {
+        if (self.loadValue("Config", key: "user") != user || self.loadValue("Config", key: "pw") != pw){
+            return false
+        }
+        return true
     }
 }
 

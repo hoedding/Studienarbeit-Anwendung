@@ -26,7 +26,7 @@ enum ProtocolType {
 class ConnectServerHTTP : NSObject, NSStreamDelegate, NSURLSessionDelegate, NSURLSessionTaskDelegate   {
     
     var connection_avaible : Bool = false
-    var connection_established = false
+    var connection_established : Bool = false
     var loggedin = false
     var server = ""
     
@@ -112,9 +112,13 @@ class ConnectServerHTTP : NSObject, NSStreamDelegate, NSURLSessionDelegate, NSUR
         globalDataManager.changeValueWithEntityName("Config", key: "modus", value: String(modus))
     }
     
-    func changeConfigOnServerWith(key : String, value: String) {
+    func changeConfigOnServerWith(key : String, value: NSString) {
         var message = createMessageStringWith(ProtocolType.CONFIG,"", "", "", "", "", "", "", "", key + "--" + value)
         globalConnection.sendMessageViaHttpPost(false, message: message)
+    }
+    
+    func sendDeviceToken(){
+        changeConfigOnServerWith("TOKEN", value: globalToken)
     }
     
     func checkIfInternetConnectionIsAvaible() -> Bool {
@@ -134,6 +138,7 @@ class ConnectServerHTTP : NSObject, NSStreamDelegate, NSURLSessionDelegate, NSUR
             }
         }
     }
+    
     
     // MARK: Message generation
     
@@ -160,6 +165,27 @@ class ConnectServerHTTP : NSObject, NSStreamDelegate, NSURLSessionDelegate, NSUR
         return message
     }
     
+    func createMessageStringWithCredentials(protocolType : ProtocolType, _ user : String, _ pw : String, _ ledNo : String, _ rangeStart : String, _ rangeEnd : String, _ red : String, _ green : String, _ blue : String, _ modus : String, _ effectcode : String, _ config : String) -> String {
+        var c = ""
+        switch protocolType {
+        case .CLEAR: c = "X00"; break
+        case .ONELED: c = "X01"; break
+        case .LEDRANGE: c = "X02"; break
+        case .ALLLED: c = "X03"; break
+        case .EFFECT: c = "X04"; break
+        case .MODUS: c = "X05"; break
+        case .SYSTEMSTATUS: c = "X06"; break
+        case .LEDSTATUS: c = "X07"; break
+        case .CONFIG: c = "X08"; break
+        case .AUTH: c = "X09"; break
+        }
+        var s = ":"
+        var data =  user + s + pw + s + c + s +  ledNo + s + rangeStart + s + rangeEnd + s + red + s + green + s + blue + s + modus + s + effectcode + s + config + s
+        var checksum = globalDataManager.hashStringWithSHA224(data)
+        var message = data + checksum
+        return message
+    }
+    
     func disconnect() {
        globalConnection.connection_established = false
     }
@@ -176,10 +202,7 @@ class ConnectServerHTTP : NSObject, NSStreamDelegate, NSURLSessionDelegate, NSUR
             globalDataManager.changeValueWithEntityName("Config", key: "ledcount", value: jsonResult["ledcount"] as String)
             globalDataManager.changeValueWithEntityName("Config", key: "motionport1", value: jsonResult["motionport1"] as String)
             globalDataManager.changeValueWithEntityName("Config", key: "motionport2", value: jsonResult["motionport2"] as String)
-            globalDataManager.changeValueWithEntityName("Config", key: "ftp_url", value: jsonResult["ftp_url"] as String)
             globalDataManager.changeValueWithEntityName("Config", key: "camavaible", value: jsonResult["camavaible"] as String)
-            globalDataManager.changeValueWithEntityName("Config", key: "cam_url", value: jsonResult["cam_url"] as String)
-            globalDataManager.changeValueWithEntityName("Config", key: "cam_url_short", value: jsonResult["cam_url_short"] as String)
             globalDataManager.changeValueWithEntityName("Config", key: "timeperiod", value: jsonResult["timeperiod"] as String)
         }
     }

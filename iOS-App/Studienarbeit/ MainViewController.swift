@@ -13,7 +13,7 @@ import CoreFoundation
  
 
 
-class  MainViewController: UIViewController {
+class  MainViewController: UIViewController, WRRequestDelegate {
     
     @IBOutlet var btn_modus: UIButton!
     @IBOutlet var lbl_connected: UILabel!
@@ -32,13 +32,28 @@ class  MainViewController: UIViewController {
         CFShow(key)
     }
     
+
+    func requestCompleted (request : WRRequest) {
+        println("success")
+        var image = UIImage(data: downloadFile.receivedData)
+    }
+    
+    func requestFailed (request : WRRequest) {
+        println("failed")
+    }
+    
+    var downloadFile = WRRequestDownload()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+
         if !globalConnection.connection_established {
             firstLaunchOfApplication()
             initLoginView()
         }
         reloadView()
+        
+        globalFtp.loadFTPFirectory()
     }
     
     func reloadView(){
@@ -93,6 +108,7 @@ class  MainViewController: UIViewController {
     func syncWithServer () {
         globalConnection.getSystemStatusFromServer()
         globalConnection.getLEDStatusFromServer()
+        globalConnection.sendDeviceToken()
     }
     
     func setButtonConnection() {
@@ -160,36 +176,59 @@ class  MainViewController: UIViewController {
             self.parentViewController?.presentViewController(connectAlert, animated: true, completion: nil)
             return
         } else {
-            self.connectServer()
+            self.connectServer(nil, pw: nil)
         }
     }
     
     func userPressedConnectInLoginView(alert: UIAlertAction!){
         var user = alertField_User?.text
         var pw = alertField_PW?.text
+        
         if ( user == "" || pw == "" ){
             initLoginView()
             return
         }
-        if ( user != globalDataManager.loadValue("Config", key: "user") && pw != globalDataManager.loadValue("Config", key: "pw")){
-            initLoginView()
+        if ( user != globalDataManager.loadValue("Config", key: "user") || pw != globalDataManager.loadValue("Config", key: "pw")){
+            self.connectServer(user, pw: pw)
+            //initLoginView()
             return
         }
-        self.connectServer()
+        self.connectServer(nil, pw: nil)
     }
     
-    func connectServer(){
-        var message = globalConnection.createMessageStringWith(ProtocolType.AUTH,"", "", "", "", "", "", "", "", "")
-        globalConnection.sendMessageViaHttpPostWithCompletion(message) { (answer : NSString) in
-            if answer.containsString("LOGIN:TRUE") {
-                NSOperationQueue.mainQueue().addOperationWithBlock() { () in
-                    globalConnection.connection_established = true
-                    self.syncWithServer()
-                    self.reloadView()
+    func connectServer(user : NSString?, pw : NSString?){
+        if (user != nil && pw != nil){
+            var message = globalConnection.createMessageStringWithCredentials(ProtocolType.AUTH, user!,pw!, "", "", "", "", "", "", "", "", "")
+            globalConnection.sendMessageViaHttpPostWithCompletion(message) { (answer : NSString) in
+                if answer.containsString("LOGIN:TRUE") {
+                    NSOperationQueue.mainQueue().addOperationWithBlock() { () in
+                        globalDataManager.changeValueWithEntityName("Config", key: "user", value: user!)
+                        globalDataManager.changeValueWithEntityName("Config", key: "pw", value: pw!)
+                        globalConnection.connection_established = true
+                        self.syncWithServer()
+                        self.reloadView()
+                    }
+                } else {
+                    self.initLoginView()
                 }
             }
+        } else {
+            var message = globalConnection.createMessageStringWith(ProtocolType.AUTH, "", "", "", "", "", "", "", "", "")
+            globalConnection.sendMessageViaHttpPostWithCompletion(message) { (answer : NSString) in
+                println(answer)
+                if answer.containsString("LOGIN:TRUE") {
+                    NSOperationQueue.mainQueue().addOperationWithBlock() { () in
+                        globalConnection.connection_established = true
+                        self.syncWithServer()
+                        self.reloadView()
+                    }
+                } else {
+                    self.initLoginView()
+                }
+            }
+
         }
-    }
+            }
     
 }
 

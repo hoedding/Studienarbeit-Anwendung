@@ -10,6 +10,8 @@ import UIKit
 
 var globalConnection : ConnectServerHTTP = ConnectServerHTTP()
 var globalDataManager : CoreDataManager = CoreDataManager()
+var globalFtp = ConnectFTP()
+var globalToken = NSString()
 
 class SlideViewController: ENSideMenuNavigationController, ENSideMenuDelegate {
 

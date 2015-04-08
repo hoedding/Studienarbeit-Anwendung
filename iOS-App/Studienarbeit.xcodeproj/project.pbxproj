@@ -11,12 +11,15 @@
 		251621941A6029A9003E2815 /* CamViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 251621931A6029A9003E2815 /* CamViewController.swift */; };
 		251621961A6029C9003E2815 /* ColourViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 251621951A6029C9003E2815 /* ColourViewController.swift */; };
 		2517FF7C1AA8EBA700042C96 /* IJReachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2517FF7B1AA8EBA700042C96 /* IJReachability.swift */; };
+		2529A07C1ABF27EA0006D23C /* WhiteRaccoon.m in Sources */ = {isa = PBXBuildFile; fileRef = 2529A07B1ABF27EA0006D23C /* WhiteRaccoon.m */; };
 		2529D3A41A669B9E007C8AC8 /* ConfigDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2529D3A31A669B9E007C8AC8 /* ConfigDetailViewController.swift */; };
 		255274F01A8CE15400795F2D /* AlertWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 255274EF1A8CE15400795F2D /* AlertWindow.swift */; };
 		256D0DB61A8CDBAB0061CA86 /* ConnectFTP.swift in Sources */ = {isa = PBXBuildFile; fileRef = 256D0DB51A8CDBAB0061CA86 /* ConnectFTP.swift */; };
 		2574A1A71AA8E6CD0080CF5D /* CryptoSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2574A1A41AA8E6C30080CF5D /* CryptoSwift.framework */; };
 		2574A1A81AA8E6CD0080CF5D /* CryptoSwift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 2574A1A41AA8E6C30080CF5D /* CryptoSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		257E80E81A6174A300D81F8A /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 257E80E71A6174A300D81F8A /* CoreDataManager.swift */; };
+		258190161AA9B8C00091C7C4 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 258190151AA9B8C00091C7C4 /* CFNetwork.framework */; };
+		258190191AA9BEBC0091C7C4 /* Images in Resources */ = {isa = PBXBuildFile; fileRef = 258190181AA9BEBC0091C7C4 /* Images */; };
 		258AF5E41A58606300EA99FE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 258AF5E31A58606300EA99FE /* AppDelegate.swift */; };
 		258AF5E71A58606300EA99FE /* Studienarbeit.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 258AF5E51A58606300EA99FE /* Studienarbeit.xcdatamodeld */; };
 		258AF5E91A58606300EA99FE /* SlideViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 258AF5E81A58606300EA99FE /* SlideViewController.swift */; };
@@ -30,10 +33,11 @@
 		258AF60E1A5866A300EA99FE /*  MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 258AF60D1A5866A300EA99FE /*  MainViewController.swift */; };
 		258AF6101A58741A00EA99FE /* image.png in Resources */ = {isa = PBXBuildFile; fileRef = 258AF60F1A58741A00EA99FE /* image.png */; };
 		258AF6121A587E2F00EA99FE /* ConnectServerTCP.swift in Sources */ = {isa = PBXBuildFile; fileRef = 258AF6111A587E2F00EA99FE /* ConnectServerTCP.swift */; };
+		259472CA1AC1F8E200EF4551 /* VIPhotoView.m in Sources */ = {isa = PBXBuildFile; fileRef = 259472C91AC1F8E200EF4551 /* VIPhotoView.m */; };
 		259E64A71A603ADF0060AC19 /* ConfigViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 259E64A61A603ADF0060AC19 /* ConfigViewController.swift */; };
-		25A146CD1A67C23100BFD27A /* SwiftyJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25A146CC1A67C23100BFD27A /* SwiftyJSON.swift */; };
 		25A71A9A1A9765A8005680B3 /* ConnectServerHTTP.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25A71A991A9765A8005680B3 /* ConnectServerHTTP.swift */; };
 		25A71A9E1A976A0E005680B3 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 25A71A9D1A976A0E005680B3 /* SystemConfiguration.framework */; };
+		25CD16471AAF8DA5007A926E /* ImageObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25CD16461AAF8DA5007A926E /* ImageObject.swift */; };
 		25F3F3DB1A7698F200E4C9C3 /* CamCustomCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 25F3F3DA1A7698F200E4C9C3 /* CamCustomCell.xib */; };
 		25F3F3DF1A769B3500E4C9C3 /* CamCustomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25F3F3DE1A769B3500E4C9C3 /* CamCustomCell.swift */; };
 		25FFE0E71AA0742A0032EFC1 /* CamDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25FFE0E61AA0742A0032EFC1 /* CamDetailViewController.swift */; };
@@ -89,11 +93,16 @@
 		251621931A6029A9003E2815 /* CamViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CamViewController.swift; sourceTree = "<group>"; };
 		251621951A6029C9003E2815 /* ColourViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColourViewController.swift; sourceTree = "<group>"; };
 		2517FF7B1AA8EBA700042C96 /* IJReachability.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IJReachability.swift; sourceTree = "<group>"; };
+		2529A07A1ABF27EA0006D23C /* WhiteRaccoon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WhiteRaccoon.h; sourceTree = "<group>"; };
+		2529A07B1ABF27EA0006D23C /* WhiteRaccoon.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WhiteRaccoon.m; sourceTree = "<group>"; };
 		2529D3A31A669B9E007C8AC8 /* ConfigDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfigDetailViewController.swift; sourceTree = "<group>"; };
 		255274EF1A8CE15400795F2D /* AlertWindow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlertWindow.swift; sourceTree = "<group>"; };
+		255EFEB41AA9B17300354F4F /* Studienarbeit-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Studienarbeit-Bridging-Header.h"; sourceTree = "<group>"; };
 		256D0DB51A8CDBAB0061CA86 /* ConnectFTP.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConnectFTP.swift; sourceTree = "<group>"; };
 		2574A19E1AA8E6C30080CF5D /* CryptoSwift.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = CryptoSwift.xcodeproj; path = CryptoSwift/CryptoSwift.xcodeproj; sourceTree = SOURCE_ROOT; };
 		257E80E71A6174A300D81F8A /* CoreDataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
+		258190151AA9B8C00091C7C4 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
+		258190181AA9BEBC0091C7C4 /* Images */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Images; sourceTree = "<group>"; };
 		258AF5DE1A58606300EA99FE /* Studienarbeit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Studienarbeit.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		258AF5E21A58606300EA99FE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		258AF5E31A58606300EA99FE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -111,10 +120,12 @@
 		258AF60D1A5866A300EA99FE /*  MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = " MainViewController.swift"; sourceTree = "<group>"; };
 		258AF60F1A58741A00EA99FE /* image.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = image.png; sourceTree = "<group>"; };
 		258AF6111A587E2F00EA99FE /* ConnectServerTCP.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConnectServerTCP.swift; sourceTree = "<group>"; };
+		259472C81AC1F8E200EF4551 /* VIPhotoView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VIPhotoView.h; sourceTree = "<group>"; };
+		259472C91AC1F8E200EF4551 /* VIPhotoView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VIPhotoView.m; sourceTree = "<group>"; };
 		259E64A61A603ADF0060AC19 /* ConfigViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfigViewController.swift; sourceTree = "<group>"; };
-		25A146CC1A67C23100BFD27A /* SwiftyJSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftyJSON.swift; sourceTree = "<group>"; };
 		25A71A991A9765A8005680B3 /* ConnectServerHTTP.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConnectServerHTTP.swift; sourceTree = "<group>"; };
 		25A71A9D1A976A0E005680B3 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		25CD16461AAF8DA5007A926E /* ImageObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageObject.swift; sourceTree = "<group>"; };
 		25F3F3DA1A7698F200E4C9C3 /* CamCustomCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CamCustomCell.xib; sourceTree = "<group>"; };
 		25F3F3DE1A769B3500E4C9C3 /* CamCustomCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CamCustomCell.swift; sourceTree = "<group>"; };
 		25FFE0E61AA0742A0032EFC1 /* CamDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CamDetailViewController.swift; sourceTree = "<group>"; };
@@ -125,6 +136,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				258190161AA9B8C00091C7C4 /* CFNetwork.framework in Frameworks */,
 				25A71A9E1A976A0E005680B3 /* SystemConfiguration.framework in Frameworks */,
 				2574A1A71AA8E6CD0080CF5D /* CryptoSwift.framework in Frameworks */,
 			);
@@ -140,6 +152,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2529A0781ABF27D70006D23C /* WhiteRacoon */ = {
+			isa = PBXGroup;
+			children = (
+				2529A07A1ABF27EA0006D23C /* WhiteRaccoon.h */,
+				2529A07B1ABF27EA0006D23C /* WhiteRaccoon.m */,
+			);
+			name = WhiteRacoon;
+			sourceTree = "<group>";
+		};
+		255EFEB11AA9B14E00354F4F /* IJReachability */ = {
+			isa = PBXGroup;
+			children = (
+				2517FF7B1AA8EBA700042C96 /* IJReachability.swift */,
+			);
+			name = IJReachability;
+			sourceTree = "<group>";
+		};
 		2574A19F1AA8E6C30080CF5D /* Products */ = {
 			isa = PBXGroup;
 			children = (
@@ -163,6 +192,7 @@
 		258AF5D51A58606300EA99FE = {
 			isa = PBXGroup;
 			children = (
+				258190151AA9B8C00091C7C4 /* CFNetwork.framework */,
 				25A71A9D1A976A0E005680B3 /* SystemConfiguration.framework */,
 				258AF5E01A58606300EA99FE /* Studienarbeit */,
 				258AF5F91A58606300EA99FE /* StudienarbeitTests */,
@@ -182,8 +212,10 @@
 		258AF5E01A58606300EA99FE /* Studienarbeit */ = {
 			isa = PBXGroup;
 			children = (
+				258190181AA9BEBC0091C7C4 /* Images */,
 				258AF6061A58658A00EA99FE /* Library */,
 				258AF5E31A58606300EA99FE /* AppDelegate.swift */,
+				255EFEB41AA9B17300354F4F /* Studienarbeit-Bridging-Header.h */,
 				25E2CA5C1A59903500DE723A /* View */,
 				257E80E61A61746F00D81F8A /* Model */,
 				258AF60F1A58741A00EA99FE /* image.png */,
@@ -223,20 +255,30 @@
 		258AF6061A58658A00EA99FE /* Library */ = {
 			isa = PBXGroup;
 			children = (
-				2517FF7B1AA8EBA700042C96 /* IJReachability.swift */,
+				259472C61AC1F8D500EF4551 /* VIPhotoView */,
+				2529A0781ABF27D70006D23C /* WhiteRacoon */,
+				255EFEB11AA9B14E00354F4F /* IJReachability */,
 				2574A19E1AA8E6C30080CF5D /* CryptoSwift.xcodeproj */,
-				25A146CB1A67C21E00BFD27A /* SwiftyJSON */,
 				25E2CA5B1A598FE500DE723A /* SideMenu */,
 			);
 			name = Library;
 			sourceTree = "<group>";
 		};
-		25A146CB1A67C21E00BFD27A /* SwiftyJSON */ = {
+		259472C61AC1F8D500EF4551 /* VIPhotoView */ = {
 			isa = PBXGroup;
 			children = (
-				25A146CC1A67C23100BFD27A /* SwiftyJSON.swift */,
+				259472C81AC1F8E200EF4551 /* VIPhotoView.h */,
+				259472C91AC1F8E200EF4551 /* VIPhotoView.m */,
 			);
-			name = SwiftyJSON;
+			name = VIPhotoView;
+			sourceTree = "<group>";
+		};
+		25CD16491AAF8DA9007A926E /* Objects */ = {
+			isa = PBXGroup;
+			children = (
+				25CD16461AAF8DA5007A926E /* ImageObject.swift */,
+			);
+			name = Objects;
 			sourceTree = "<group>";
 		};
 		25E2CA5B1A598FE500DE723A /* SideMenu */ = {
@@ -264,6 +306,7 @@
 				25F3F3DA1A7698F200E4C9C3 /* CamCustomCell.xib */,
 				25F3F3DE1A769B3500E4C9C3 /* CamCustomCell.swift */,
 				25FFE0E61AA0742A0032EFC1 /* CamDetailViewController.swift */,
+				25CD16491AAF8DA9007A926E /* Objects */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -377,6 +420,7 @@
 				258AF5F11A58606300EA99FE /* LaunchScreen.xib in Resources */,
 				258AF5EE1A58606300EA99FE /* Images.xcassets in Resources */,
 				25F3F3DB1A7698F200E4C9C3 /* CamCustomCell.xib in Resources */,
+				258190191AA9BEBC0091C7C4 /* Images in Resources */,
 				258AF6101A58741A00EA99FE /* image.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -407,9 +451,11 @@
 				258AF60A1A5865B400EA99FE /* ENSideMenuNavigationController.swift in Sources */,
 				2529D3A41A669B9E007C8AC8 /* ConfigDetailViewController.swift in Sources */,
 				251621901A602936003E2815 /* InfoViewController.swift in Sources */,
+				259472CA1AC1F8E200EF4551 /* VIPhotoView.m in Sources */,
 				257E80E81A6174A300D81F8A /* CoreDataManager.swift in Sources */,
 				258AF60E1A5866A300EA99FE /*  MainViewController.swift in Sources */,
-				25A146CD1A67C23100BFD27A /* SwiftyJSON.swift in Sources */,
+				25CD16471AAF8DA5007A926E /* ImageObject.swift in Sources */,
+				2529A07C1ABF27EA0006D23C /* WhiteRaccoon.m in Sources */,
 				258AF60C1A58661B00EA99FE /* SlideViewTableController.swift in Sources */,
 				258AF5E71A58606300EA99FE /* Studienarbeit.xcdatamodeld in Sources */,
 				256D0DB61A8CDBAB0061CA86 /* ConnectFTP.swift in Sources */,
@@ -551,9 +597,11 @@
 					"$(inherited)",
 					"/Users/Timo/Downloads/OpenSSL-master/lib-ios",
 				);
+				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "Studienarbeit/Studienarbeit-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				VALID_ARCHS = "arm64 armv7 armv7s";
 			};
 			name = Debug;
 		};
@@ -569,8 +617,10 @@
 					"$(inherited)",
 					"/Users/Timo/Downloads/OpenSSL-master/lib-ios",
 				);
+				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "Studienarbeit/Studienarbeit-Bridging-Header.h";
+				VALID_ARCHS = "arm64 armv7 armv7s";
 			};
 			name = Release;
 		};

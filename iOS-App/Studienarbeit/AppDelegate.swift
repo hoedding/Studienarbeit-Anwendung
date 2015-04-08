@@ -63,8 +63,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate, NSStreamDelegate {
     // MARK: - Apple Push Notification
     
     func application(application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: NSData) {
-        // TODO Device Token an den Server senden
-        println(deviceToken)
+        let tokenChars = UnsafePointer<CChar>(deviceToken.bytes)
+        var tokenString = ""
+        
+        for var i = 0; i < deviceToken.length; i++ {
+            tokenString += String(format: "%02.2hhx", arguments: [tokenChars[i]])
+        }
+        println("tokenString: \(tokenString)")
+        
+        globalToken = tokenString
     }
     
     func application(application: UIApplication, didFailToRegisterForRemoteNotificationsWithError error: NSError) {
