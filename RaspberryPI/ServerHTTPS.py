@@ -19,7 +19,9 @@ from twisted.internet import reactor, ssl
 class LightServer(Resource):
   def render_POST(self, request):
     message = datamanager.dataReceived(cgi.escape(request.args["data"][0]))
-    if (message != ""):
+    if (message != None):
+        print "response:"
+        print message
         return message
 
 class StartLightServer(threading.Thread):

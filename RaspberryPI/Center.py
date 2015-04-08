@@ -6,10 +6,10 @@
 ################################################
 # Center of Application
 
+import sys
 from ServerHTTPS import *
 from Sensor import *
 from LED_Control import *
-from Cam import *
 from ApplePush import *
 from ConfigWriter import *
 import logging
@@ -17,7 +17,7 @@ import time
 import datetime
 import threading
 from RecvdData import *
-
+from ImageCreation import *
 
 class Core():
   def init(self):
@@ -43,6 +43,7 @@ class Core():
     global modus
     modus = 0
     self.startAll()
+    self.startCamRecording()
 
   def startAll(self):
     try:
@@ -70,6 +71,33 @@ class Core():
     else:
         print 'LEDs initialisiert'
 
+  def startCamRecording(self):
+    global imagecrea
+    imagecrea = ImageCreation()
+    try:
+        imagecrea.start()
+        imagecrea.setUser(_user)
+    except IOError:
+        print 'Error:', arg
+    try:
+        imagecrea.createDirectory()
+    except:
+        print 'Error:', arg
+    else:
+        print 'Verzeichnis erzeugt oder vorhanden.'
+    try:
+        imagecrea.startRecording()
+    except:
+        print 'Error:', arg
+    else:
+        print 'Aufzeichnug der IP-Kamera gestartet.'
+    try:
+        imagecrea.removeOldFiles()
+    except:
+        print 'Error:', arg
+    else:
+        print 'Alte Bilder werden automatisch gelöscht.'
+
   def getModus(self):
       return modus
 
@@ -94,10 +122,10 @@ class Core():
   def alarm(self):
       # Wird ausgelöst, wenn System im Modus 'Alarmanlage' ist
       # Meldung an Smartphone
-      # TODO Bild der Kamera holen und auf FTP-Server zwischenspeichern
+      imagecrea.safeCurrentImages()
       self.writeLog('Bewegung ausgelöst!')
       ap = ApplePush()
-      #ap.push("Bewegung erkannt.")
+      ap.push("")
 
   def clearPixel(self):
     # Alle Pixel ausschalten
@@ -150,10 +178,21 @@ class Core():
       writer = ConfigWriter()
       if key == 'TOKEN':
           writer.addNewToken(value)
+      elif key == 'pw':
+          writer.changePassword(value)
       else:
           writer.changeConfig(key, value)
 
 if __name__ == "__main__":
+    if len(sys.argv) < 2:
+        print 'Bitte Benutzer angeben:'
+        print 'sudo python Center.py "user"'
+        sys.exit(0)
+    global _user
+    _user = sys.argv[1]
     threads = []
     core = Core()
     core.init()
+# TODO
+# Ordentliches Schließen aller Threads
+# FTP Unmount
