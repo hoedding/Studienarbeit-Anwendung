@@ -1,7 +1,7 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
 ################################################
-# Author: Timo Höting                          #
+# Author: Timo Höting						  #
 # Mail: mail[at]timohoeting.de  			   #
 ################################################
 
@@ -12,10 +12,10 @@ from neopixel import *
 from ConfigReader import *
 import threading
 
-#LED_COUNT   = 2      # Number of LED pixels. Get it from elsewhere, idiot.
-#LED_PIN     = 18      # GPIO pin connected to the pixels (must support PWM!).
+#LED_COUNT   = 2	  # Number of LED pixels. Get it from elsewhere, idiot.
+#LED_PIN	 = 18	  # GPIO pin connected to the pixels (must support PWM!).
 LED_FREQ_HZ = 800000  # LED signal frequency in hertz (usually 800khz)
-LED_DMA     = 5       # DMA channel to use for generating signal (try 5)
+LED_DMA	 = 5	   # DMA channel to use for generating signal (try 5)
 LED_INVERT  = False   # True to invert the signal (when using NPN)
 
 
@@ -23,13 +23,20 @@ class NeoPixels(threading.Thread):
 	def __init__(self):
 		threading.Thread.__init__(self)
 
+	def cleanup(self):
+		self.clear()
+
+	def join(self):
+		self.cleanup()
+		threading.Thread.join(self)
+
 	def run(self):
 		self.initStripe()
 
 	def clear(self):
 		for i in range(strip.numPixels()):
 			strip.setPixelColor(i, Color(0,0,0))
-			strip.show()
+		strip.show()
 
 	def initStripe(self):
 		# Neopixel Objekt erzeugen

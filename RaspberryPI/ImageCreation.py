@@ -17,6 +17,16 @@ class ImageCreation(threading.Thread):
 	def __init__(self):
 		threading.Thread.__init__(self)
 
+	def cleanup(self):
+		# FTP unmounten
+		ftppath = "/home/"+ currentuser + "/ftp"
+		args = "umount " + ftppath
+		subprocess.Popen([args], shell=True)
+
+	def join(self):
+		self.cleanup()
+		threading.Thread.join(self)
+
 	def setUser(self, _user):
 		global currentuser
 		currentuser = _user
