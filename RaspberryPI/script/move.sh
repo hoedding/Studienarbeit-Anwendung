@@ -11,4 +11,4 @@
 safe=$1/safe/
 image=$1/img/
 
-find $image -type f -newermt '-10 seconds' -exec mv {} $safe \;
+find $image -type f -mtime -10 -exec mv {} $safe \;
