@@ -204,6 +204,8 @@ class ConnectServerHTTP : NSObject, NSStreamDelegate, NSURLSessionDelegate, NSUR
             globalDataManager.changeValueWithEntityName("Config", key: "motionport2", value: jsonResult["motionport2"] as String)
             globalDataManager.changeValueWithEntityName("Config", key: "camavaible", value: jsonResult["camavaible"] as String)
             globalDataManager.changeValueWithEntityName("Config", key: "timeperiod", value: jsonResult["timeperiod"] as String)
+            globalDataManager.changeValueWithEntityName("UserSettings", key: "ftpdir", value: jsonResult["ftpdir"] as String)
+            globalDataManager.changeValueWithEntityName("UserSettings", key: "ftp", value: jsonResult["ftphost"] as String)
         }
     }
     

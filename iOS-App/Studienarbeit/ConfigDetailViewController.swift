@@ -20,6 +20,9 @@ class  ConfigDetailViewController: UIViewController, UITextFieldDelegate  {
     @IBOutlet var sw_safePW: UISwitch!
     @IBOutlet var sw_changeCam: UISwitch!
     
+    @IBOutlet var tf_ftpuser: UITextField!
+    @IBOutlet var tf_ftppassword: UITextField!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         bt_safe.enabled = false
@@ -48,6 +51,8 @@ class  ConfigDetailViewController: UIViewController, UITextFieldDelegate  {
                 switch_Cam_previous = true
                 tf_ftpdir.enabled = true
                 tf_ftp.enabled = true
+                tf_ftpuser.enabled = true
+                tf_ftppassword.enabled = true
             }
         }
         if (!switch_current && switch_Cam_previous){
@@ -57,6 +62,8 @@ class  ConfigDetailViewController: UIViewController, UITextFieldDelegate  {
                 switch_Cam_previous = false
                 tf_ftpdir.enabled = false
                 tf_ftp.enabled = false
+                tf_ftpuser.enabled = false
+                tf_ftppassword.enabled = false
             }
         }
     }
@@ -71,8 +78,8 @@ class  ConfigDetailViewController: UIViewController, UITextFieldDelegate  {
      var switch_PW_previous = false
      var switch_Cam_previous = false
      var temp_safePW = ""
-    
-
+     var temp_ftpuser = ""
+     var temp_ftppassword = ""
     
     private func textFieldDelegates() {
         tf_ledcount.delegate = self
@@ -81,6 +88,8 @@ class  ConfigDetailViewController: UIViewController, UITextFieldDelegate  {
         tf_ftpdir.delegate = self
         tf_ftp.delegate = self
         timeperiod.delegate = self
+        tf_ftpuser.delegate = self
+        tf_ftppassword.delegate = self
     }
     
     func textFieldShouldReturn(textField: UITextField!) -> Bool {
@@ -105,6 +114,8 @@ class  ConfigDetailViewController: UIViewController, UITextFieldDelegate  {
             tf_ftpdir.enabled = false
             tf_ftp.enabled = false
             timeperiod.enabled = false
+            tf_ftpuser.enabled = false
+            tf_ftppassword.enabled = false
             
             temp_safePW = globalDataManager.loadValue("UserSettings", key: "authWithoutPW")
             if (temp_safePW == "1") {
@@ -125,6 +136,9 @@ class  ConfigDetailViewController: UIViewController, UITextFieldDelegate  {
         temp_ftp = globalDataManager.loadValue("UserSettings", key: "ftp")
         temp_timeperiod = globalDataManager.loadValue("Config", key: "timeperiod")
         temp_safePW = globalDataManager.loadValue("UserSettings", key: "authWithoutPW")
+        temp_ftpuser = globalDataManager.loadValue("UserSettings", key: "ftpuser")
+        temp_ftppassword = globalDataManager.loadValue("UserSettings", key: "ftppassword")
+
 
         tf_ledcount.text = temp_tf_ledcount
         tf_motionport1.text = temp_tf_motionport1
@@ -132,6 +146,8 @@ class  ConfigDetailViewController: UIViewController, UITextFieldDelegate  {
         tf_ftpdir.text = temp_ftp_dir
         tf_ftp.text = temp_ftp
         timeperiod.text = temp_timeperiod
+        tf_ftpuser.text = temp_ftpuser
+        tf_ftppassword.text = temp_ftppassword
         
         if (temp_safePW == "1") {
             sw_safePW.setOn(true, animated: true)
@@ -173,16 +189,24 @@ class  ConfigDetailViewController: UIViewController, UITextFieldDelegate  {
             globalDataManager.changeValueWithEntityName("Config", key: "motionport2", value: tf_motionport2.text)
         }
         if (temp_ftp_dir != tf_ftpdir.text) {
-          //  globalConnection.changeConfigOnServerWith("cam_url_short", value: ftp_dir.text)
+            globalConnection.changeConfigOnServerWith("ftp_directory", value: tf_ftpdir.text)
             globalDataManager.changeValueWithEntityName("UserSettings", key: "ftpdir", value: tf_ftpdir.text)
         }
         if (temp_ftp != tf_ftp.text) {
-//            globalConnection.changeConfigOnServerWith("ftp_url", value: ftp.text)
+            globalConnection.changeConfigOnServerWith("ftp_host", value: tf_ftp.text)
             globalDataManager.changeValueWithEntityName("UserSettings", key: "ftp", value: tf_ftp.text)
         }
         if (temp_timeperiod != timeperiod.text) {
             globalConnection.changeConfigOnServerWith("timeperiod", value: timeperiod.text)
             globalDataManager.changeValueWithEntityName("Config", key: "timeperiod", value: timeperiod.text)
+        }
+        if (temp_ftpuser != tf_ftpuser.text) {
+            globalConnection.changeConfigOnServerWith("ftp_user", value: tf_ftpuser.text)
+            globalDataManager.changeValueWithEntityName("UserSettings", key: "ftpuser", value: tf_ftpuser.text)
+        }
+        if (temp_ftppassword != tf_ftppassword.text) {
+            globalConnection.changeConfigOnServerWith("ftp_pw", value: tf_ftppassword.text)
+            globalDataManager.changeValueWithEntityName("UserSettings", key: "ftppassword", value: tf_ftppassword.text)
         }
         self.loadData()
         bt_safe.enabled = false

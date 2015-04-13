@@ -160,7 +160,7 @@ class RecvdData(threading.Thread):
         # Status des Systems senden
         reader = ConfigReader()
         message = 'STATUS:{"ledcount":"' + reader.getNumberOfLED() + '","motionport1":"' + reader.getMotionPin1() + '","motionport2":"' + reader.getMotionPin2() + '","camavaible":"'
-        message = message + reader.camAvaible() + '","timeperiod":"' + reader.getTimePeriod() + '"}'
+        message = message + reader.camAvaible() + '","timeperiod":"' + reader.getTimePeriod() + '","ftpdir":"' + reader.getFTPDirectory() + '","ftphost":"' + reader.getFTP() + '"}'
         print message
         return str(message)
 
