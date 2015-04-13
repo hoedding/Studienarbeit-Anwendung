@@ -21,6 +21,8 @@ class ApplePush():
 
     # Das Apple-Device bekommt eine Message gepusht
     def push(self, message):
+        if apnallowed == False:
+            return
         # Developer Zertifikat für iOS Push Benachrichtigung
         apns = APNs(use_sandbox=True, cert_file='certs/Studienarbeit-APN.crt.pem', key_file='certs/Studienarbeit-APN.key.pem')
         payload = Payload(alert="Bewegung erkannt!", sound="default", badge=1)

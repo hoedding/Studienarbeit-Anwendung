@@ -48,6 +48,7 @@ class Core():
 	modus = 0
 	self.startAll()
 	self.startCamRecording()
+	self.checkCertificates()
 
   def startAll(self):
 	try:
@@ -103,6 +104,20 @@ class Core():
 		print 'Error:', arg
 	else:
 		print 'Alte Bilder werden automatisch gelöscht.'
+
+  def checkCertificates(self):
+	global apnallowed
+	apnallowed = True
+	if os.path.exists("certs/Studienarbeit-APN.key.pem") == False:
+		apnallowed = False
+	if os.path.exists("certs/Studienarbeit-APN.crt.pem") == False:
+		apnallowed = False
+	if os.path.exists("certs/server.key") == False:
+		apnallowed = False
+	if os.path.exists("certs/server.crt") == False:
+		apnallowed = False
+	if apnallowed == True:
+		print "Alle APN-Zertifikate vorhanden."
 
   def getModus(self):
 	  return modus
@@ -204,6 +219,7 @@ if __name__ == "__main__":
 			time.sleep(0.01)
 	except KeyboardInterrupt:
 		sensor.stop()
+		# Threads beenden
 		datamanager.join()
 		server.join()
 		led.join()
