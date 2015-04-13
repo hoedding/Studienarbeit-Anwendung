@@ -51,6 +51,8 @@ class CoreDataManager : NSObject {
         manObject.setPrimitiveValue("0", forKey: "authWithoutPW")
         manObject.setPrimitiveValue("", forKey: "ftp")
         manObject.setPrimitiveValue("", forKey: "ftpdir")
+        manObject.setPrimitiveValue("", forKey: "ftpuser")
+        manObject.setPrimitiveValue("", forKey: "ftppassword")
         context.save(&err)
         if (err != nil) {
             println(err)

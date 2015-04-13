@@ -40,7 +40,6 @@
 		25CD16471AAF8DA5007A926E /* ImageObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25CD16461AAF8DA5007A926E /* ImageObject.swift */; };
 		25F3F3DB1A7698F200E4C9C3 /* CamCustomCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 25F3F3DA1A7698F200E4C9C3 /* CamCustomCell.xib */; };
 		25F3F3DF1A769B3500E4C9C3 /* CamCustomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25F3F3DE1A769B3500E4C9C3 /* CamCustomCell.swift */; };
-		25FFE0E71AA0742A0032EFC1 /* CamDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25FFE0E61AA0742A0032EFC1 /* CamDetailViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -128,7 +127,6 @@
 		25CD16461AAF8DA5007A926E /* ImageObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageObject.swift; sourceTree = "<group>"; };
 		25F3F3DA1A7698F200E4C9C3 /* CamCustomCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CamCustomCell.xib; sourceTree = "<group>"; };
 		25F3F3DE1A769B3500E4C9C3 /* CamCustomCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CamCustomCell.swift; sourceTree = "<group>"; };
-		25FFE0E61AA0742A0032EFC1 /* CamDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CamDetailViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -305,7 +303,6 @@
 				2529D3A31A669B9E007C8AC8 /* ConfigDetailViewController.swift */,
 				25F3F3DA1A7698F200E4C9C3 /* CamCustomCell.xib */,
 				25F3F3DE1A769B3500E4C9C3 /* CamCustomCell.swift */,
-				25FFE0E61AA0742A0032EFC1 /* CamDetailViewController.swift */,
 				25CD16491AAF8DA9007A926E /* Objects */,
 			);
 			name = View;
@@ -439,7 +436,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				25FFE0E71AA0742A0032EFC1 /* CamDetailViewController.swift in Sources */,
 				255274F01A8CE15400795F2D /* AlertWindow.swift in Sources */,
 				251621961A6029C9003E2815 /* ColourViewController.swift in Sources */,
 				258AF6091A5865B400EA99FE /* ENSideMenu.swift in Sources */,

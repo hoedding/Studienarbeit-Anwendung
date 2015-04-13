@@ -16,9 +16,11 @@
         <attribute name="authWithoutPW" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="ftp" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="ftpdir" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="ftppassword" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="ftpuser" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
     <elements>
         <element name="Config" positionX="-63" positionY="-18" width="128" height="195"/>
-        <element name="UserSettings" positionX="-63" positionY="-27" width="128" height="90"/>
+        <element name="UserSettings" positionX="-63" positionY="-27" width="128" height="120"/>
     </elements>
 </model>

@@ -44,28 +44,35 @@ class  CamViewController: UIViewController, WRRequestDelegate  {
     }
     
     func requestFailed (request : WRRequest) {
-        println("failed")
+        AlertWindow().alert(self, title: "Fehler", message: "Es ist ein Fehler bei der FTP-Verbindung aufgetreten.")
     }
 
     var counter = 0
     func loadImageList(){
         
+        imageList.removeAll(keepCapacity: false)
+        
         linkList = globalFtp.getFileNameList()
         dateList = globalFtp.getDateList()
         
         if (linkList.count == 0 || dateList.count == 0 ){
-            AlertWindow().alert(self, title: "FTP-Verbindung nicht verfügbar.", message: "Bitte überprüfen Sie ihre FTP-Konfiguration!")
+            AlertWindow().alert(self, title: "Keine Daten verfügbar", message: "Es konnten keine Bilder abgerufen werden.")
             return
         }
         
+        var hostname = globalDataManager.loadValue("UserSettings", key: "ftp")
+        var dir = globalDataManager.loadValue("UserSettings", key: "ftpdir")
+        var user = globalDataManager.loadValue("UserSettings", key: "ftpuser")
+        var password = globalDataManager.loadValue("UserSettings", key: "ftppassword")
+        println(dir + "/safe/")
         counter = 0
         for i in 0...linkList.count-1 {
                 var downloadFile = WRRequestDownload()
                 downloadFile.delegate = self
-                downloadFile.hostname = "192.168.2.200"
-                downloadFile.username = "admin"
-                downloadFile.password = "Mareike2"
-                downloadFile.path = "/Home/Cam/" + linkList[i]
+                downloadFile.hostname = hostname
+                downloadFile.username = user
+                downloadFile.password = password
+                downloadFile.path = dir + "/safe/" + linkList[i]
                 downloadFile.start()
                 counter++
         }
