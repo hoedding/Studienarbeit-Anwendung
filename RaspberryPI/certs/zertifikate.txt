@@ -1,0 +1,11 @@
+# -*- coding: utf-8 -*-
+################################################
+# Author: Timo Höting       				   #
+# Mail: mail[at]timohoeting.de  	           #
+################################################
+
+
+Vorraussetzung:
+1. Root Zertifikat für Apple: Apple.pem
+2. Apple Push Notification Zertifikat: Studienarbeit-APN.pem
+3. Server Zertifikat für HTTPS: server.key, server.crt
