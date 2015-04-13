@@ -53,9 +53,9 @@ class ImageCreation(threading.Thread):
         if dirAvaible:
             reader = ConfigReader()
             script = 'sh ./script/recordIpCam.sh '
-            user = reader.getCamUser()
-            pw = reader.getCamPassword()
-            ip = reader.getCamHost()
+            user = reader.getValue("cam_user")
+            pw = reader.getValue("cam_pw")
+            ip = reader.getValue("cam_host")
             arguments = script + " " + path + " " + ip + " " + user + " " + pw
             subprocess.Popen([arguments], shell=True)
 
@@ -77,10 +77,10 @@ class ImageCreation(threading.Thread):
 
     def mountFTP(self):
         reader = ConfigReader()
-        host = reader.getFTP()
-        user = reader.getFTPUser()
-        password = reader.getFTPPW()
-        path = reader.getFTPDirectory()
+        host = reader.getValue("ftp_host")
+        user = reader.getValue("ftp_user")
+        password = reader.getValue("ftp_pw")
+        path = reader.getValue("ftp_directory")
         script = 'sh ./script/mountFTP.sh '
         arguments = script + " " + path + " " + host + " " + user + " " + password + " " + currentuser
         subprocess.Popen([arguments], shell=True)

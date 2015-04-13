@@ -31,8 +31,8 @@ class MotionDetection(threading.Thread):
         reader = ConfigReader()
 
         # Festlegen der beiden Detection-Pins
-        MOTION_PIN1 = int(reader.getMotionPin1())
-        MOTION_PIN2 = int(reader.getMotionPin2())
+        MOTION_PIN1 = int(reader.getValue("motionport1"))
+        MOTION_PIN2 = int(reader.getValue("motionport2"))
 
         # Diese als Input definieren
         GPIO.setup(MOTION_PIN1,GPIO.IN)

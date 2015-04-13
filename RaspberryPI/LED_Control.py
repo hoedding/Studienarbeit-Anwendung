@@ -42,8 +42,8 @@ class NeoPixels(threading.Thread):
         # Neopixel Objekt erzeugen
         # LED_COUNT aus config holen
         reader = ConfigReader()
-        LED_COUNT = int(reader.getNumberOfLED())
-        LED_PIN = int(reader.getLEDPort())
+        LED_COUNT = int(reader.getValue("ledcount"))
+        LED_PIN = int(reader.getValue("ledport"))
         global strip
         strip = Adafruit_NeoPixel(LED_COUNT, LED_PIN, LED_FREQ_HZ, LED_DMA, LED_INVERT)
         strip.begin()
@@ -118,7 +118,7 @@ class NeoPixels(threading.Thread):
         # Alle LEDs werden eingeschaltet und nach
         # bestimmten Zeitraum 'period' wieder ausgeschaltet
         reader = ConfigReader()
-        period = reader.getTimePeriod()
+        period = reader.getValue("timeperiod")
         self.fadeAllIn(direction)
         time.sleep(float(period))
         self.fadeAllOut(direction)

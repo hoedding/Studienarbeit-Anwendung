@@ -12,7 +12,6 @@ import cgi
 from twisted.internet.protocol import Factory, Protocol
 from twisted.internet import reactor
 import hashlib
-from ConfigReader import *
 import threading
 from twisted.internet import reactor, ssl
 

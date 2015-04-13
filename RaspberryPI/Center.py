@@ -57,26 +57,26 @@ class Core():
     print '#####################################################'
     try:
         datamanager.start()
-    except IOError:
-        print 'Error:', arg
+    except:
+        self.writeLog(str(arg))
     else:
         print '# Datenauswertung gestartet                         #'
     try:
         server.start()
-    except IOError:
-        print 'Error:', arg
+    except:
+        self.writeLog(str(arg))
     else:
         print '# Webserver gestartet.                              #'
     try:
         sensor.start()
-    except IOError:
-        print 'Error:', arg
+    except:
+        self.writeLog(str(arg))
     else:
         print '# Bewegungsüberwachung gestartet.                   #'
     try:
         led.start()
-    except IOError:
-        print 'Error:', arg
+    except:
+        self.writeLog(str(arg))
     else:
         print '# LEDs initialisiert.                               #'
 
@@ -89,23 +89,23 @@ class Core():
         imagecrea.start()
         imagecrea.setUser(_user)
     except IOError:
-        print 'Error:', arg
+        self.writeLog(str(arg))
     try:
         imagecrea.createDirectory()
     except IOError:
-        print 'Error:', arg
+        self.writeLog(str(arg))
     else:
         print '# Verzeichnis erzeugt oder vorhanden (FTP).         #'
     try:
         imagecrea.startRecording()
     except IOError:
-        print 'Error:', arg
+        self.writeLog(str(arg))
     else:
         print '# Aufzeichnug der IP-Kamera gestartet.              #'
     try:
         imagecrea.removeOldFiles()
     except IOError:
-        print 'Error:', arg
+        self.writeLog(str(arg))
     else:
         print '# Alte Bilder werden automatisch gelöscht.          #'
 

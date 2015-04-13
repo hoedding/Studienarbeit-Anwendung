@@ -119,7 +119,7 @@ class RecvdData(threading.Thread):
         # gueltigen Bereich liegt
         # Es wird der Eintrag 'number' aus dem Config-File geladen
         reader = ConfigReader()
-        number = int(reader.getNumberOfLED())
+        number = int(reader.getValue("ledcount"))
         if ( ledNo >= 0 & ledNo < number):
             return True
         else:
@@ -137,9 +137,9 @@ class RecvdData(threading.Thread):
         # Dieses wird gehasht und mit dem in der Konfiguration gespeicherten
         # Hashwert verglichen
         reader = ConfigReader()
-        hashv = reader.getHashPass()
+        hashv = reader.getValue("pw")
         pwd = hashlib.sha224(pw).hexdigest()
-        user = reader.getUserName()
+        user = reader.getValue("username")
         if ( pwd == hashv ):
             if ( user == user ):
                 return True
@@ -159,8 +159,8 @@ class RecvdData(threading.Thread):
     def sendStatus(self):
         # Status des Systems senden
         reader = ConfigReader()
-        message = 'STATUS:{"ledcount":"' + reader.getNumberOfLED() + '","motionport1":"' + reader.getMotionPin1() + '","motionport2":"' + reader.getMotionPin2() + '","camavaible":"'
-        message = message + reader.camAvaible() + '","timeperiod":"' + reader.getTimePeriod() + '","ftpdir":"' + reader.getFTPDirectory() + '","ftphost":"' + reader.getFTP() + '"}'
+        message = 'STATUS:{"ledcount":"' + reader.getValue("ledcount") + '","motionport1":"' + reader.getValue("motionport1") + '","motionport2":"' + reader.getValue("motionport2") + '","camavaible":"'
+        message = message + reader.getValue("camavaible") + '","timeperiod":"' + reader.getValue("timeperiod") + '","ftpdir":"' + reader.getValue("ftp_directory") + '","ftphost":"' + reader.getValue("ftp_host") + '"}'
         print message
         return str(message)
 

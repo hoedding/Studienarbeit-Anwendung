@@ -12,7 +12,7 @@ from ConfigReader import *
 class ApplePush():
     def __init__(self):
         reader = ConfigReader()
-        tokenlist = reader.getTokenList()
+        tokenlist = reader.getValue("token")
         global token
         token = []
         # Alle Tokens werden aus der Liste geladen

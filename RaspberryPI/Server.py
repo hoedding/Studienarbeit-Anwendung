@@ -8,7 +8,6 @@
 from twisted.internet.protocol import Factory, Protocol
 from twisted.internet import reactor
 import hashlib
-from ConfigReader import *
 import threading
 
 class LightServer(Protocol):
@@ -25,7 +24,6 @@ class LightServer(Protocol):
     def connectionLost(self, reason):
         # Wenn die Verbindung getrennt wird, wird die Liste geleert
         # und die Verbindung im System beendet
-        # TODO Bei connection remove verwenden ?
         if self in connections:
             connections.remove(self)
             self.factory.clients.remove(self)
