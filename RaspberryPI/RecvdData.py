@@ -1,8 +1,8 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
 ################################################
-# Author: Timo Höting       				   #
-# Mail: mail[at]timohoeting.de  			   #
+# Author: Timo Höting                          #
+# Mail: mail[at]timohoeting.de                 #
 ################################################
 
 import hashlib
@@ -25,16 +25,16 @@ class RecvdData(threading.Thread):
         a = data.split(':')
         print a
         if len(a) > 1:
-            user = 		a[0]
-            pw = 		a[1]
-            control = 	a[2]
-            ledNo = 	a[3]
+            user =         a[0]
+            pw =         a[1]
+            control =     a[2]
+            ledNo =     a[3]
             rangeStart = a[4]
-            rangeEnd = 	a[5]
-            red = 		a[6]
-            green = 	a[7]
-            blue = 		a[8]
-            modus = 	a[9]
+            rangeEnd =     a[5]
+            red =         a[6]
+            green =     a[7]
+            blue =         a[8]
+            modus =     a[9]
             effectcode = a[10]
             config = a[11]
             hashv = a[12]

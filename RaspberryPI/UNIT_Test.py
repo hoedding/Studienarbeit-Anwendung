@@ -78,11 +78,23 @@ class TestSequenceFunctions(unittest.TestCase):
 
     # Überprüfung ob alle Klassen ohne Fehler initialisiert
     # werden können
+    def test_ApplePush(self):
+        import ApplePush
+
     def test_Center(self):
         import Center
 
-    def test_Sensor(self):
-        import Sensor
+    def test_ConfigReader(self):
+        import ConfigReader
+
+    def test_ConfigWriter(self):
+        import ConfigWriter
+
+    def test_LEDControl(self):
+        import LED_Control
+
+    def test_RecvData(self):
+        import RecvdData
 
     def test_Sensor(self):
         import Sensor
@@ -90,19 +102,15 @@ class TestSequenceFunctions(unittest.TestCase):
     def test_Server(self):
         import Server
 
-    def test_LEDControl(self):
-        import LED_Control
+    def test_ServerHTTPS(self):
+        import ServerHTTPS
 
-    def test_ApplePush(self):
-        import ApplePush
+    def test_ServerSSL(self):
+        import ServerSSL
 
     # JSON Files auf korrekte Grammatik prüfen
     def test_Config(self):
             data = open('config.json')
-            jdata = json.load(data)
-
-    def test_Status(self):
-            data = open('status.json')
             jdata = json.load(data)
 
 if __name__ == '__main__':
