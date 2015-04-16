@@ -17,10 +17,10 @@ class CoreDataManager : NSObject {
     
     func insertNilConfig() {
         var err : NSError? = nil
-        var appDel : AppDelegate = (UIApplication.sharedApplication().delegate as AppDelegate)
+        var appDel : AppDelegate = (UIApplication.sharedApplication().delegate as! AppDelegate)
         var context : NSManagedObjectContext = appDel.managedObjectContext!
         
-        var manObject = NSEntityDescription.insertNewObjectForEntityForName("Config", inManagedObjectContext: context) as NSManagedObject
+        var manObject = NSEntityDescription.insertNewObjectForEntityForName("Config", inManagedObjectContext: context) as! NSManagedObject
 
         // Default Password ist admin/password
         manObject.setPrimitiveValue("admin", forKey: "user")
@@ -30,10 +30,10 @@ class CoreDataManager : NSObject {
         manObject.setPrimitiveValue("", forKey: "ledcount")
         manObject.setPrimitiveValue("", forKey: "motionport1")
         manObject.setPrimitiveValue("", forKey: "motionport2")
-       // manObject.setPrimitiveValue("", forKey: "ftp_url")
         manObject.setPrimitiveValue("", forKey: "camavaible")
-        //manObject.setPrimitiveValue("", forKey: "cam_url")
-        //manObject.setPrimitiveValue("", forKey: "cam_url_short")
+        manObject.setPrimitiveValue("", forKey: "camurl")
+        manObject.setPrimitiveValue("", forKey: "camuser")
+        manObject.setPrimitiveValue("", forKey: "campassword")
         manObject.setPrimitiveValue("", forKey: "timeperiod")
         manObject.setPrimitiveValue("0", forKey: "modus")
         
@@ -45,9 +45,9 @@ class CoreDataManager : NSObject {
     
     func insertNilUserSettings() {
         var err : NSError? = nil
-        var appDel : AppDelegate = (UIApplication.sharedApplication().delegate as AppDelegate)
+        var appDel : AppDelegate = (UIApplication.sharedApplication().delegate as! AppDelegate)
         var context : NSManagedObjectContext = appDel.managedObjectContext!
-        var manObject = NSEntityDescription.insertNewObjectForEntityForName("UserSettings", inManagedObjectContext: context) as NSManagedObject
+        var manObject = NSEntityDescription.insertNewObjectForEntityForName("UserSettings", inManagedObjectContext: context) as! NSManagedObject
         manObject.setPrimitiveValue("0", forKey: "authWithoutPW")
         manObject.setPrimitiveValue("", forKey: "ftp")
         manObject.setPrimitiveValue("", forKey: "ftpdir")
@@ -61,7 +61,7 @@ class CoreDataManager : NSObject {
     
     func loadValue(entityName : String, key : String) -> String {
         var err : NSError? = nil
-        var appDel : AppDelegate = (UIApplication.sharedApplication().delegate as AppDelegate)
+        var appDel : AppDelegate = (UIApplication.sharedApplication().delegate as! AppDelegate)
         var context : NSManagedObjectContext = appDel.managedObjectContext!
         var request = NSFetchRequest(entityName: entityName)
         request.returnsObjectsAsFaults = false
@@ -74,7 +74,7 @@ class CoreDataManager : NSObject {
                 if ( res.valueForKey(key) == nil ){
                     return ""
                 }
-                value = res.valueForKey(key)! as String
+                value = res.valueForKey(key)! as! String
             }
         }
         return value
@@ -82,7 +82,7 @@ class CoreDataManager : NSObject {
     
     func changeValueWithEntityName(entityName : String, key : String, value : AnyObject) {
         var err : NSError? = nil
-        var appDel : AppDelegate = (UIApplication.sharedApplication().delegate as AppDelegate)
+        var appDel : AppDelegate = (UIApplication.sharedApplication().delegate as! AppDelegate)
         var context : NSManagedObjectContext = appDel.managedObjectContext!
         var request = NSFetchRequest(entityName: entityName)
         request.returnsObjectsAsFaults = false
@@ -117,21 +117,21 @@ class CoreDataManager : NSObject {
     }
     
     func deleteConfig( entityName : String ) {
-        var appDel : AppDelegate = (UIApplication.sharedApplication().delegate as AppDelegate)
+        var appDel : AppDelegate = (UIApplication.sharedApplication().delegate as! AppDelegate)
         var context : NSManagedObjectContext = appDel.managedObjectContext!
         var request = NSFetchRequest(entityName: entityName)
         request.returnsObjectsAsFaults = false
         var result : Array = context.executeFetchRequest(request, error: nil)! as Array
         if (result.count > 0){
             for res in result {
-                context.deleteObject(res as NSManagedObject)
+                context.deleteObject(res as! NSManagedObject)
             }
         }
         context.save(nil)
     }
     
     func countElementsInEntity( entityName : String ) -> Int {
-        var appDel : AppDelegate = (UIApplication.sharedApplication().delegate as AppDelegate)
+        var appDel : AppDelegate = (UIApplication.sharedApplication().delegate as! AppDelegate)
         var context : NSManagedObjectContext = appDel.managedObjectContext!
         var request = NSFetchRequest(entityName: entityName)
         request.returnsObjectsAsFaults = false

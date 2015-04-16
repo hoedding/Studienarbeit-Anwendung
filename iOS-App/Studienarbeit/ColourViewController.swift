@@ -70,10 +70,6 @@ class  ColourViewController: UIViewController  {
             lbl_error.textAlignment = NSTextAlignment.Center
             colorstripeblock.addSubview(lbl_error)
         }
-        var btn_reload = UIButton(frame: CGRect(x: colorstripeblock.frame.width - 50, y: 10, width: 50, height: 30))
-        btn_reload.addTarget(self, action: "createStripBlock", forControlEvents: UIControlEvents.AllTouchEvents)
-        btn_reload.titleLabel?.text = "Reload"
-        colorstripeblock.addSubview(btn_reload)
         
         colorstripeblock.backgroundColor = UIColor.lightGrayColor()
     }
@@ -111,7 +107,8 @@ class  ColourViewController: UIViewController  {
         let ColorStripeBlockImage = drawRectangle(size: menuItemSize, colour: UIColor.darkGrayColor(), Scale: nil)
         imageViewColorStripeBlock.image = ColorStripeBlockImage
         
-        let imageViewEffectBlock = UIImageView(frame: CGRect(origin: CGPoint(x: 0, y: ( screenHeight / 2 ) - (((screenHeight / 2 ) - 65) / 2)), size: menuItemSize))
+        var y = ( screenHeight / 2 ) - (((screenHeight / 2 ) - 65) / 2)
+        let imageViewEffectBlock = UIImageView(frame: CGRect(origin: CGPoint(x: 0, y: y), size: menuItemSize))
         imageViewEffectBlock.userInteractionEnabled = true
         let EffectBlockSingleTap = UITapGestureRecognizer(target: self, action: "setEffectBlockVisible:")
         EffectBlockSingleTap.numberOfTapsRequired = 1
@@ -217,18 +214,25 @@ class  ColourViewController: UIViewController  {
         1: Strobo
         2: Bunte Farben
         */
-        let effects = [1,2]
+        let effects = ["Stroboskop", "Regenbogen"]
         for i in 0...effects.count-1{
             let imageSize = CGSize(width: 170, height: 52)
             let imageView = UIImageView(frame: CGRect(origin: CGPoint(x: 10 + (i*180), y: 50), size: imageSize))
+            
             imageView.userInteractionEnabled = true
             let singleTap = UITapGestureRecognizer(target: self, action: "gestureeffect:")
             singleTap.numberOfTapsRequired = 1
             imageView.addGestureRecognizer(singleTap)
             _view.addSubview(imageView)
             let image = drawRectangle(size: imageSize, colour: UIColor.grayColor(), Scale: nil)
-            imageView.tag = effects[i]
+            imageView.tag = i
             imageView.image = image
+            
+            var title = effects[i]
+            var lbl_title = UILabel(frame: CGRect(origin: CGPoint(x: 10 + (i*180), y: 50), size: imageSize))
+            lbl_title.text = title
+            lbl_title.textAlignment = NSTextAlignment.Center
+            _view.addSubview(lbl_title)
         }
         
         return _view
@@ -279,7 +283,21 @@ class  ColourViewController: UIViewController  {
             }
         }
         
+        var btn_reload = UIButton(frame: CGRect(x: _view.frame.width - 60, y: 10, width: 100, height: 20))
+        btn_reload.addTarget(self, action: "reloadStripeBlock", forControlEvents: UIControlEvents.AllTouchEvents)
+        btn_reload.titleLabel?.text = "Reload"
+        btn_reload.titleLabel?.textAlignment = NSTextAlignment.Center
+        btn_reload.titleLabel?.textColor = UIColor.blackColor()
+        btn_reload.backgroundColor = UIColor.darkGrayColor()
+        colorstripeblock.addSubview(btn_reload)
+        _view.bringSubviewToFront(btn_reload)
+        
         return _view
+    }
+    
+    func reloadStripeBlock(){
+        globalConnection.getLEDStatusFromServer()
+        createLEDStripe(colorstripeblock)
     }
     
     // MARK: Drawing UIImages
@@ -342,9 +360,8 @@ class  ColourViewController: UIViewController  {
     }
     
     func gestureeffect(gestureRecognizer : UIGestureRecognizer){
-        var m = gestureRecognizer.view?.tag
-        NSLog("gesture detected: %i", m!)
-        globalConnection.lightEffect(m!)
+        var tag = gestureRecognizer.view?.tag
+        globalConnection.lightEffect(tag!)
     }
     
     func setColorBlockVisible(gestureRecognizer : UIGestureRecognizer){
@@ -360,6 +377,7 @@ class  ColourViewController: UIViewController  {
     }
     
     func setColorStripeBlockVisible(gestureRecognizer : UIGestureRecognizer){
+        reloadStripeBlock()
         colorblock.removeFromSuperview()
         colorblockIsVisible = false
         effectblock.removeFromSuperview()
@@ -374,8 +392,8 @@ class  ColourViewController: UIViewController  {
     func setEffectBlockVisible(gestureRecognizer : UIGestureRecognizer){
         colorstripeblock.removeFromSuperview()
         colorstripeblockIsVisible = false
-        effectblock.removeFromSuperview()
-        effectblockIsVisible = false
+        colorblock.removeFromSuperview()
+        colorblockIsVisible = false
         
         if (!colorblockIsVisible){
             self.view.addSubview(effectblock)

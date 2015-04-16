@@ -39,107 +39,137 @@ Good mood
 ###Why
 [Why?](https://github.com/krzyzanowskim/CryptoSwift/issues/5) [Because I can](https://github.com/krzyzanowskim/CryptoSwift/issues/5#issuecomment-53379391).
 
-##Installation
+###Contribution
 
-For Swift 1.2 check **swift12** branch.
+For latest version, please check **develop** branch. This is latest development version that will be merged into **master** branch at some point.
+
+##Installation
 
 To install CryptoSwift, add it as a submodule to your project (on the top level project directory):
 
 	git submodule add https://github.com/krzyzanowskim/CryptoSwift.git
 
-Then, drag the CryptoSwift.xcodeproj file into your Xcode project, and add CryptoSwift.framework as a dependency for your target.
+Then, drag the CryptoSwift.xcodeproj file into your Xcode project, and add CryptoSwift.framework as a dependency to your target.
 
 #####iOS and OSX
 By default project is setup for iOS. You need to switch to OSX SDK manually [see #8](https://github.com/krzyzanowskim/CryptoSwift/issues/8)
 
-####CococaPods
+####CocoaPods
 
-You can use [CocoaPods](http://cocoapods.org/?q=cryptoSwift). You need version 0.36 or newer to use Swift framework.
+You can use [CocoaPods](http://cocoapods.org/?q=cryptoSwift).
 
-    pod 'CryptoSwift'
+```ruby
+pod 'CryptoSwift'
+```
 
+or for newest version from specified branch of code:
+
+```ruby
+pod 'CryptoSwift', :git => "https://github.com/krzyzanowskim/CryptoSwift", :branch => "master"
+```
+ 
 ##Usage
 
-    import CryptoSwift
+```swift
+import CryptoSwift
+```
 
-Generally you should use `CryptoSwift.Hash`,`CryptoSwift.Cipher` enums or convenience extensions
+Generally you should use `CryptoSwift.Hash`, `CryptoSwift.Cipher` enums or convenience extensions
 
 Hash enum usage
-    
-    /* Hash enum usage */
-    var data:NSData = NSData(bytes: [49, 50, 51] as [Byte], length: 3)
-    if let data = CryptoSwift.Hash.md5(data).calculate() {
-        println(data.hexString)
-    }
+```swift
+/* Hash enum usage */
+var data:NSData = NSData(bytes: [49, 50, 51] as [Byte], length: 3)
+if let data = CryptoSwift.Hash.md5(data).calculate() {
+    println(data.hexString)
+}
+```
     
 Hashing a data
+
+```swift
+let hash = data.md5()
+let hash = data.sha1()
+let hash = data.sha224()
+let hash = data.sha256()
+let hash = data.sha384()
+let hash = data.sha512()
 	
-	let hash = data.md5()
-	let hash = data.sha1()
-    let hash = data.sha224()
-	let hash = data.sha256()
-	let hash = data.sha384()
-	let hash = data.sha512()
-	
-	let crc = data.crc32()
-	
-	println(hash.hexString)
+let crc = data.crc32()
+
+println(hash.hexString)
+```
 	
 Hashing a String and printing result
 
-    if let hash = "123".md5() {
-        println(hash)
-    }
+```swift
+if let hash = "123".md5() {
+    println(hash)
+}
+```    
     
-Some content-encryption algorithms assume the input length is a multiple of k octets, where k is greater than one.  For such algorithms, the input shall be padded
+Some content-encryption algorithms assume the input length is a multiple of k octets, where k is greater than one. For such algorithms, the input shall be padded.
 
-	let paddedData = PKCS7(data: dataToEncrypt).addPadding(AES.blockSizeBytes())
-    
+```swift
+let paddedData = PKCS7().add(bytes, AES.blockSize)
+```
+
 Working with Ciphers
 
 ChaCha20
 
-	let chacha20Encrypted = Cipher.ChaCha20(key: keyData, iv: ivData).encrypt(dataToEncrypt)
-	let decryptedChaCha20 = Cipher.ChaCha20(key: keyData, iv: ivData).decrypt(encryptedData)
+```swift
+let encrypted = Cipher.ChaCha20(key: key, iv: iv).encrypt(message)
+let decrypted = Cipher.ChaCha20(key: key, iv: iv).decrypt(encrypted)
+```
 
 AES
 
 Notice regarding padding: *Manual padding of data is optional and CryptoSwift by default always will add PKCS7 padding before encryption, and remove after decryption when __Cipher__ enum is used. If you need manually disable/enable padding, you can do this by setting parameter for encrypt()/decrypt() on class __AES__.*
 
-	// 1. Add padding (Optional)
-	let plaintextData = PKCS7(data: plaintextData).addPadding(AES.blockSizeBytes())
+```swift
+
+// 1. set key and random IV
+let key = [0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00] as [UInt8]
+let iv = Cipher.randomIV(AES.blockSize)
+
+// 2. encrypt
+let encrypted = AES(key: key, iv: iv, blockMode: .CBC)?.encrypt(message, padding: PKCS7())
 	
-	// 2. Encrypt with key and random IV
-	let keyData = NSData.withBytes([0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00])
-	let ivData:NSData = Cipher.randomIV(keyData)
+// 3. decrypt with the same key and IV
+let decrypted = AES(key: key, iv: iv, blockMode: .CBC)?.decrypt(encryptedData, padding: PKCS7())
 	
-	let encryptedData = Cipher.AES(key: keyData, iv: ivData, blockMode: .CBC).encrypt(plaintextData)
-		
-	// 3. decrypt with key and IV
-	let decryptedData = Cipher.AES(key: keyData, iv: ivData, blockMode: .CBC).decrypt(encryptedData)
-	
-	// 4. remove padding ONLY IF applied earlier (Optional)
-	let plaintextData = PKCS7(data: decryptedData).removePadding()	
+```
 	
 AES without data padding
 
-	let aes = AES(key: keyData, iv: ivData, blockMode: .CBC) // CBC is default
-	let encryptedData = aes?.encrypt(plaintextData, addPadding: false)
-	let decryptedData = aes?.decrypt(encryptedData, removePadding: false)
+```swift
+let encrypted = Cipher.AES(key: key, iv: iv, blockMode: .CBC).encrypt(plaintext)
+```
 
 Using extensions
 	
-	// convenience setup tuple
-	let setup = (key: keyData, iv: ivData)
-
-	let encrypted = dataToEncrypt.encrypt(Cipher.ChaCha20(setup))
-	let decrypted = encrypted.decrypt(Cipher.ChaCha20(setup))
+```swift
+let encrypted = dataToEncrypt.encrypt(Cipher.ChaCha20(key: key, iv: iv))
+let decrypted = encrypted.decrypt(Cipher.ChaCha20(key: key, iv: iv))
+```
 	
 Message authenticators
 
-	// Calculate Message Authentication Code (MAC) for message
-	let mac = Authenticator.Poly1305(key: key).authenticate(message)
-    
+```swift
+// Calculate Message Authentication Code (MAC) for message
+let mac = Authenticator.Poly1305(key: key).authenticate(message)
+```
+
+#####Conversion between NSData and [UInt8]
+
+For you convenience CryptoSwift provide two function to easily convert array of bytes to NSData and other way around:
+
+```swift
+let data  = NSData.withBytes([0x01,0x02,0x03])
+let bytes:[UInt8] = data.arrayOfBytes()
+```
+
 ##Contact
 Marcin Krzyżanowski [@krzyzanowskim](http://twitter.com/krzyzanowskim)
 
@@ -150,7 +180,7 @@ This software is provided 'as-is', without any express or implied warranty.
 
 In no event will the authors be held liable for any damages arising from the use of this software. 
 
-Permission is granted to anyone to use this software for any purpose,including commercial applications, and to alter it and redistribute it freely, subject to the following restrictions:
+Permission is granted to anyone to use this software for any purpose, including commercial applications, and to alter it and redistribute it freely, subject to the following restrictions:
 
 - The origin of this software must not be misrepresented; you must not claim that you wrote the original software. If you use this software in a product, an acknowledgment in the product documentation is required.
 - Altered source versions must be plainly marked as such, and must not be misrepresented as being the original software.

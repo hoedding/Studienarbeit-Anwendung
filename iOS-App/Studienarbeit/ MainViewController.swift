@@ -34,12 +34,11 @@ class  MainViewController: UIViewController, WRRequestDelegate {
     
 
     func requestCompleted (request : WRRequest) {
-        println("success")
         var image = UIImage(data: downloadFile.receivedData)
     }
     
     func requestFailed (request : WRRequest) {
-        println("failed")
+
     }
     
     var downloadFile = WRRequestDownload()
@@ -53,12 +52,12 @@ class  MainViewController: UIViewController, WRRequestDelegate {
         }
         reloadView()
         
-        globalFtp.loadFTPFirectory()
     }
     
     func reloadView(){
         setModus()
         setButtonConnection()
+        globalFtp.loadFTPFirectory()
         return
     }
     
@@ -198,9 +197,11 @@ class  MainViewController: UIViewController, WRRequestDelegate {
     
     func connectServer(user : NSString?, pw : NSString?){
         if (user != nil && pw != nil){
-            var message = globalConnection.createMessageStringWithCredentials(ProtocolType.AUTH, user!,pw!, "", "", "", "", "", "", "", "", "")
+            var message = globalConnection.createMessageString(ProtocolType.AUTH, user! as String,pw! as String, "", "", "", "", "", "", "", "", "")
+                        println(message)
             globalConnection.sendMessageViaHttpPostWithCompletion(message) { (answer : NSString) in
                 if answer.containsString("LOGIN:TRUE") {
+                    println(answer)
                     NSOperationQueue.mainQueue().addOperationWithBlock() { () in
                         globalDataManager.changeValueWithEntityName("Config", key: "user", value: user!)
                         globalDataManager.changeValueWithEntityName("Config", key: "pw", value: pw!)
@@ -213,7 +214,8 @@ class  MainViewController: UIViewController, WRRequestDelegate {
                 }
             }
         } else {
-            var message = globalConnection.createMessageStringWith(ProtocolType.AUTH, "", "", "", "", "", "", "", "", "")
+            var message = globalConnection.createMessageString(ProtocolType.AUTH, "", "", "", "", "", "", "", "", "")
+            println(message)
             globalConnection.sendMessageViaHttpPostWithCompletion(message) { (answer : NSString) in
                 println(answer)
                 if answer.containsString("LOGIN:TRUE") {

@@ -79,19 +79,19 @@ class SlideViewTableController : UITableViewController {
         //var pages : [String] = ["Kamera", "Farben", "Konfiguration", "Info", "Start"]
         switch (indexPath.row) {
         case 0:
-            destViewController = mainStoryboard.instantiateViewControllerWithIdentifier("main") as UIViewController
+            destViewController = mainStoryboard.instantiateViewControllerWithIdentifier("main") as! UIViewController
             break
         case 1:
-            destViewController = mainStoryboard.instantiateViewControllerWithIdentifier("colour") as UIViewController
+            destViewController = mainStoryboard.instantiateViewControllerWithIdentifier("colour") as! UIViewController
             break
         case 2:
-            destViewController = mainStoryboard.instantiateViewControllerWithIdentifier("config") as UIViewController
+            destViewController = mainStoryboard.instantiateViewControllerWithIdentifier("config") as! UIViewController
             break
         case 3:
-            destViewController = mainStoryboard.instantiateViewControllerWithIdentifier("cam") as UIViewController
+            destViewController = mainStoryboard.instantiateViewControllerWithIdentifier("cam")as! UIViewController
             break
         default:
-            destViewController = mainStoryboard.instantiateViewControllerWithIdentifier("info") as UIViewController
+            destViewController = mainStoryboard.instantiateViewControllerWithIdentifier("info") as! UIViewController
             break
         }
         sideMenuController()?.setContentViewController(destViewController)

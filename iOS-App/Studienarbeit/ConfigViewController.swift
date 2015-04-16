@@ -31,7 +31,7 @@ class  ConfigViewController: UIViewController, UITextFieldDelegate  {
         loadData()
     }
     
-    func textFieldShouldReturn(textField: UITextField!) -> Bool {
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
         textField.resignFirstResponder()
         return true
     }
@@ -101,7 +101,7 @@ class  ConfigViewController: UIViewController, UITextFieldDelegate  {
         
 
         
-        if ( globalConnection.connection_established &  globalDataManager.checkLocalCredetials(user!, pw: pw!) ){
+        if ( globalConnection.connection_established && globalDataManager.checkLocalCredetials(user!, pw: pw!) ){
             
             globalConnection.changeConfigOnServerWith("user", value: tf_user.text)
             globalConnection.changeConfigOnServerWith("pw", value: tf_pw.text)

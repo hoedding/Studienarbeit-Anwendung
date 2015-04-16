@@ -33,7 +33,7 @@ class  CamViewController: UIViewController, WRRequestDelegate  {
     
     func requestCompleted (request : WRRequest) {
 
-        var downloadFile = request as WRRequestDownload
+        var downloadFile = request as! WRRequestDownload
         var image = UIImage(data: downloadFile.receivedData)
         let dateFormatter = NSDateFormatter()
         dateFormatter.dateFormat = "dd-MM-yyyy HH:mm"
@@ -72,7 +72,7 @@ class  CamViewController: UIViewController, WRRequestDelegate  {
                 downloadFile.hostname = hostname
                 downloadFile.username = user
                 downloadFile.password = password
-                downloadFile.path = dir + "/safe/" + linkList[i]
+                downloadFile.path = dir + "/safe/" + (linkList[i] as String)
                 downloadFile.start()
                 counter++
         }
@@ -128,6 +128,7 @@ class  CamViewController: UIViewController, WRRequestDelegate  {
         
         var btn = UIButton(frame: CGRect(x: 10, y: 10, width: 100, height: 30))
         btn.backgroundColor = UIColor.grayColor()
+        btn.titleLabel?.text = "Schließen"
         btn.addTarget(self, action: "closePhotoView", forControlEvents: UIControlEvents.AllTouchEvents)
         photoview.addSubview(btn)
         

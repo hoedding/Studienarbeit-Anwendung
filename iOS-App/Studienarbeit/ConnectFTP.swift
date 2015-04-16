@@ -50,21 +50,19 @@ class ConnectFTP : NSObject, WRRequestDelegate{
     }
     
     func requestCompleted (request : WRRequest) {
-        println("list complete")
-        var listDirectory = request as WRRequestListDirectory
+        var listDirectory = request as! WRRequestListDirectory
         for file in listDirectory.filesInfo {
             println(file.objectForKey(kCFFTPResourceName))
-            
-            var objectName = file.objectForKey(kCFFTPResourceName) as NSString
-            var objectDate = file.objectForKey(kCFFTPResourceModDate) as CFDateRef
-            println(objectDate)
+            var objectName = file.objectForKey(kCFFTPResourceName) as! NSString
+            var objectDate = file.objectForKey(kCFFTPResourceModDate)as! CFDateRef
+
             linkList.append(objectName)
             dateList.append(objectDate)
         }
     }
     
     func requestFailed (request : WRRequest) {
-        println("failed")
+
     }
     
     func loadFTPFirectory(){
@@ -73,8 +71,9 @@ class ConnectFTP : NSObject, WRRequestDelegate{
         var dir = globalDataManager.loadValue("UserSettings", key: "ftpdir")
         var user = globalDataManager.loadValue("UserSettings", key: "ftpuser")
         var password = globalDataManager.loadValue("UserSettings", key: "ftppassword")
-        println(dir + "/safe/")
         
+        println(dir + "/safe/")
+        println(hostname + dir + user + password)
         var listDirectory = WRRequestListDirectory()
         listDirectory.delegate = self
         listDirectory.hostname = hostname
