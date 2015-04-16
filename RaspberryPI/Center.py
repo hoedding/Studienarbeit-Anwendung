@@ -45,7 +45,7 @@ class Core():
     led.daemon = True
     threads.append(led)
     global modus
-    modus = 0
+    modus = 2
     self.startAll()
     self.startCamRecording()
     self.checkCertificates()
@@ -150,8 +150,9 @@ class Core():
       # Meldung an Smartphone
       imagecrea.safeCurrentImages()
       self.writeLog('Bewegung ausgelöst!')
-      ap = ApplePush()
-      #ap.push("")
+      if apnallowed == True:
+         ap = ApplePush()
+         ap.push("")
 
   def clearPixel(self):
     # Alle Pixel ausschalten
