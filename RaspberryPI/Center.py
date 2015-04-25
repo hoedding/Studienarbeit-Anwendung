@@ -90,24 +90,14 @@ class Core():
         imagecrea.setUser(_user)
     except IOError:
         self.writeLog(str(arg))
+    else:
+        print '# Aufzeichnug der IP-Kamera gestartet.              #'
     try:
         imagecrea.createDirectory()
     except IOError:
         self.writeLog(str(arg))
     else:
         print '# Verzeichnis erzeugt oder vorhanden (FTP).         #'
-    try:
-        imagecrea.startRecording()
-    except IOError:
-        self.writeLog(str(arg))
-    else:
-        print '# Aufzeichnug der IP-Kamera gestartet.              #'
-    try:
-        imagecrea.removeOldFiles()
-    except IOError:
-        self.writeLog(str(arg))
-    else:
-        print '# Alte Bilder werden automatisch gelöscht.          #'
 
   def checkCertificates(self):
     global apnallowed
@@ -148,7 +138,7 @@ class Core():
   def alarm(self):
       # Wird ausgelöst, wenn System im Modus 'Alarmanlage' ist
       # Meldung an Smartphone
-      imagecrea.safeCurrentImages()
+      imagecrea.safeImage()
       self.writeLog('Bewegung ausgelöst!')
       if apnallowed == True:
          ap = ApplePush()
@@ -160,8 +150,6 @@ class Core():
 
   def getLEDStatusAsJson(self):
     led_values = led.getLedAsArray()
-    print led_values
-    print len(led_values)
     data = 'LED:{"led": ['
     count = 0
     if len(led_values) > 0:
@@ -170,7 +158,6 @@ class Core():
             count = count + 1
         data = data + '{"l":"' + str(led_values[len(led_values)-1]) + '"}]}'
         count = count + 1
-        print count
         return data
 
   def writeLog(self, content):

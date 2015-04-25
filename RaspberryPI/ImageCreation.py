@@ -12,6 +12,9 @@ from ConfigReader import *
 import time
 import os
 import getpass
+from PIL import Image
+import requests
+from StringIO import StringIO
 
 class ImageCreation(threading.Thread):
     def __init__(self):
@@ -84,3 +87,17 @@ class ImageCreation(threading.Thread):
         script = 'sh ./script/mountFTP.sh '
         arguments = script + " " + path + " " + host + " " + user + " " + password + " " + currentuser
         subprocess.Popen([arguments], shell=True)
+
+    def safeImage(self):
+        reader = ConfigReader()
+        user = reader.getValue("cam_user")
+        pw = reader.getValue("cam_pw")
+        ip = reader.getValue("cam_host")
+        camdir = reader.getValue("cam_dir")
+        url = "http://" + user + ":" + pw + "@" + ip + camdir
+        r = requests.get(url)
+        i = Image.open(StringIO(r.content))
+        path = '/home/'+currentuser+'/ftp/safe/'
+        dirAvaible = os.path.exists(path)
+        if dirAvaible:
+            i.save(path + str(time.time()) + ".jpg")
