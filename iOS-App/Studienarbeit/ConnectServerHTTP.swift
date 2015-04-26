@@ -200,11 +200,12 @@ class ConnectServerHTTP : NSObject, NSStreamDelegate, NSURLSessionDelegate, NSUR
             globalDataManager.changeValueWithEntityName("Config", key: "timeperiod", value: jsonResult["timeperiod"] as! String)
             globalDataManager.changeValueWithEntityName("Config", key: "camuser", value: jsonResult["camuser"] as! String)
             globalDataManager.changeValueWithEntityName("Config", key: "camurl", value: jsonResult["camhost"] as! String)
+            globalDataManager.changeValueWithEntityName("Config", key: "camdir", value: jsonResult["camdir"] as! String)
 
-            globalDataManager.changeValueWithEntityName("UserSettings", key: "ftpdir", value: jsonResult["ftpdir"] as! String)
-            globalDataManager.changeValueWithEntityName("UserSettings", key: "ftp", value: jsonResult["ftphost"]as! String)
-            globalDataManager.changeValueWithEntityName("UserSettings", key: "ftpuser", value: jsonResult["ftpuser"]as! String)
-            globalDataManager.changeValueWithEntityName("UserSettings", key: "ftppassword", value: jsonResult["ftppw"]as! String)
+            globalDataManager.changeValueWithEntityName("Config", key: "ftpdir", value: jsonResult["ftpdir"] as! String)
+            globalDataManager.changeValueWithEntityName("Config", key: "ftp", value: jsonResult["ftphost"]as! String)
+            globalDataManager.changeValueWithEntityName("Config", key: "ftpuser", value: jsonResult["ftpuser"]as! String)
+            globalDataManager.changeValueWithEntityName("Config", key: "ftppassword", value: jsonResult["ftppw"]as! String)
 
         }
     }

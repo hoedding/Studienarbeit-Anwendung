@@ -84,10 +84,6 @@ class  MainViewController: UIViewController, WRRequestDelegate {
         if ( globalDataManager.countElementsInEntity("Config") == 0 ) {
             globalDataManager.insertNilConfig()
         }
-        if ( globalDataManager.countElementsInEntity("UserSettings") == 0 ) {
-            globalDataManager.insertNilUserSettings()
-        }
-        
     }
     
     func validConfigurationAvaible() -> Bool {
@@ -98,7 +94,7 @@ class  MainViewController: UIViewController, WRRequestDelegate {
     }
 
     func connectWithoutAuthentication() -> Bool {
-        if ( globalDataManager.loadValue("UserSettings", key: "authWithoutPW") == "1") {
+        if ( globalDataManager.loadValue("Config", key: "authWithoutPW") == "1") {
             return true
         }
         return false

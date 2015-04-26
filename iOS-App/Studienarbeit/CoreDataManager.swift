@@ -30,12 +30,18 @@ class CoreDataManager : NSObject {
         manObject.setPrimitiveValue("", forKey: "ledcount")
         manObject.setPrimitiveValue("", forKey: "motionport1")
         manObject.setPrimitiveValue("", forKey: "motionport2")
-        manObject.setPrimitiveValue("", forKey: "camavaible")
+        manObject.setPrimitiveValue("0", forKey: "camavaible")
         manObject.setPrimitiveValue("", forKey: "camurl")
         manObject.setPrimitiveValue("", forKey: "camuser")
         manObject.setPrimitiveValue("", forKey: "campassword")
+        manObject.setPrimitiveValue("", forKey: "camdir")
         manObject.setPrimitiveValue("", forKey: "timeperiod")
         manObject.setPrimitiveValue("0", forKey: "modus")
+        manObject.setPrimitiveValue("0", forKey: "authWithoutPW")
+        manObject.setPrimitiveValue("", forKey: "ftp")
+        manObject.setPrimitiveValue("", forKey: "ftpdir")
+        manObject.setPrimitiveValue("", forKey: "ftpuser")
+        manObject.setPrimitiveValue("", forKey: "ftppassword")
         
         context.save(&err)
         if (err != nil) {
@@ -43,21 +49,21 @@ class CoreDataManager : NSObject {
         }
     }
     
-    func insertNilUserSettings() {
-        var err : NSError? = nil
-        var appDel : AppDelegate = (UIApplication.sharedApplication().delegate as! AppDelegate)
-        var context : NSManagedObjectContext = appDel.managedObjectContext!
-        var manObject = NSEntityDescription.insertNewObjectForEntityForName("UserSettings", inManagedObjectContext: context) as! NSManagedObject
-        manObject.setPrimitiveValue("0", forKey: "authWithoutPW")
-        manObject.setPrimitiveValue("", forKey: "ftp")
-        manObject.setPrimitiveValue("", forKey: "ftpdir")
-        manObject.setPrimitiveValue("", forKey: "ftpuser")
-        manObject.setPrimitiveValue("", forKey: "ftppassword")
-        context.save(&err)
-        if (err != nil) {
-            println(err)
-        }
-    }
+//    func insertNilUserSettings() {
+//        var err : NSError? = nil
+//        var appDel : AppDelegate = (UIApplication.sharedApplication().delegate as! AppDelegate)
+//        var context : NSManagedObjectContext = appDel.managedObjectContext!
+//        var manObject = NSEntityDescription.insertNewObjectForEntityForName("UserSettings", inManagedObjectContext: context) as! NSManagedObject
+//        manObject.setPrimitiveValue("0", forKey: "authWithoutPW")
+//        manObject.setPrimitiveValue("", forKey: "ftp")
+//        manObject.setPrimitiveValue("", forKey: "ftpdir")
+//        manObject.setPrimitiveValue("", forKey: "ftpuser")
+//        manObject.setPrimitiveValue("", forKey: "ftppassword")
+//        context.save(&err)
+//        if (err != nil) {
+//            println(err)
+//        }
+//    }
     
     func loadValue(entityName : String, key : String) -> String {
         var err : NSError? = nil
@@ -87,7 +93,7 @@ class CoreDataManager : NSObject {
         var request = NSFetchRequest(entityName: entityName)
         request.returnsObjectsAsFaults = false
         
-        var result : Array = context.executeFetchRequest(request, error: nil)! as Array
+        var result : Array = context.executeFetchRequest(request, error: &err)! as Array
         
         if (result.count == 1){
             for res in result {

@@ -129,12 +129,6 @@
                                     </barButtonItem>
                                 </items>
                             </toolbar>
-                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="c39-Di-UGb">
-                                <rect key="frame" x="299" y="430" width="51" height="31"/>
-                                <connections>
-                                    <action selector="btn_safe_PW:" destination="7HE-Aa-ue4" eventType="valueChanged" id="LS8-Tr-LLB"/>
-                                </connections>
-                            </switch>
                             <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="EcM-ti-Kjp">
                                 <rect key="frame" x="299" y="185" width="51" height="31"/>
                                 <connections>
@@ -142,7 +136,7 @@
                                 </connections>
                             </switch>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="aWy-bj-dxR">
-                                <rect key="frame" x="251" y="217" width="97" height="30"/>
+                                <rect key="frame" x="212" y="217" width="136" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
@@ -152,64 +146,75 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Cam-User" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Kgv-bX-QOE">
-                                <rect key="frame" x="16" y="249" width="159" height="30"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Cam-Passwort" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="B6H-YS-lnV">
-                                <rect key="frame" x="196" y="249" width="152" height="30"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
-                            </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="FTP-Verzeichnis" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Afz-5r-fe6">
-                                <rect key="frame" x="16" y="319" width="124" height="21"/>
+                                <rect key="frame" x="16" y="355" width="124" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Zeitdauer" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8ow-JV-RrT">
-                                <rect key="frame" x="16" y="396" width="73" height="21"/>
+                                <rect key="frame" x="16" y="432" width="73" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Lu5-69-Wdv">
-                                <rect key="frame" x="251" y="392" width="97" height="30"/>
+                                <rect key="frame" x="251" y="428" width="97" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Passwort speichern" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fht-7E-K3K">
-                                <rect key="frame" x="16" y="435" width="152" height="21"/>
+                                <rect key="frame" x="16" y="471" width="152" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="c39-Di-UGb">
+                                <rect key="frame" x="299" y="466" width="51" height="31"/>
+                                <connections>
+                                    <action selector="btn_safe_PW:" destination="7HE-Aa-ue4" eventType="valueChanged" id="LS8-Tr-LLB"/>
+                                </connections>
+                            </switch>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="FTP-Server" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="r6V-O1-BoO">
-                                <rect key="frame" x="16" y="285" width="87" height="21"/>
+                                <rect key="frame" x="16" y="321" width="87" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="o1P-jk-TMD">
-                                <rect key="frame" x="251" y="282" width="97" height="30"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="d95-yC-RZb">
                                 <rect key="frame" x="251" y="318" width="97" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="d95-yC-RZb">
+                                <rect key="frame" x="251" y="354" width="97" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="FTP-User" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Jvd-wR-Wei">
-                                <rect key="frame" x="16" y="356" width="159" height="30"/>
+                                <rect key="frame" x="16" y="392" width="159" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="FTP-Passwort" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="on1-6Z-Vqu">
-                                <rect key="frame" x="196" y="356" width="152" height="30"/>
+                                <rect key="frame" x="196" y="392" width="152" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Cam-User" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Kgv-bX-QOE">
+                                <rect key="frame" x="16" y="285" width="159" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Cam-Passwort" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="B6H-YS-lnV">
+                                <rect key="frame" x="196" y="285" width="152" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="a7X-Sg-EIG">
+                                <rect key="frame" x="212" y="250" width="136" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
                             </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -218,6 +223,7 @@
                         <outlet property="bt_safe" destination="vIU-KM-PRq" id="SND-F6-6Hm"/>
                         <outlet property="sw_changeCam" destination="EcM-ti-Kjp" id="42e-IW-kpa"/>
                         <outlet property="sw_safePW" destination="c39-Di-UGb" id="XNs-eh-BjY"/>
+                        <outlet property="tf_camdir" destination="a7X-Sg-EIG" id="SnG-z5-Q8Z"/>
                         <outlet property="tf_campassword" destination="B6H-YS-lnV" id="25e-u0-foc"/>
                         <outlet property="tf_camurl" destination="aWy-bj-dxR" id="PTG-29-U2h"/>
                         <outlet property="tf_camuser" destination="Kgv-bX-QOE" id="GvI-Ae-TPu"/>
@@ -234,6 +240,25 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aXU-di-PAx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="632.5" y="-900.5"/>
+        </scene>
+        <!--Live-->
+        <scene sceneID="Bdg-ju-yWk">
+            <objects>
+                <viewController storyboardIdentifier="live" title="Live" id="TgI-mv-E8L" customClass="LiveViewController" customModule="Studienarbeit" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="cWR-cO-PlQ"/>
+                        <viewControllerLayoutGuide type="bottom" id="9gg-9D-ckr"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="7cj-FV-i9j">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="be9-uP-fB1" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1121.5" y="-853.5"/>
         </scene>
         <!--Einstellungen-->
         <scene sceneID="pIP-v3-qxI">
@@ -386,10 +411,10 @@
             </objects>
             <point key="canvasLocation" x="1107.5" y="-139.5"/>
         </scene>
-        <!--Bilder-->
+        <!--Archiv-->
         <scene sceneID="Rx1-O6-hi6">
             <objects>
-                <viewController storyboardIdentifier="cam" title="Bilder" id="aDR-9N-vlr" customClass="CamViewController" customModule="Studienarbeit" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="cam" title="Archiv" id="aDR-9N-vlr" customClass="CamViewController" customModule="Studienarbeit" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="iNY-h8-lyj"/>
                         <viewControllerLayoutGuide type="bottom" id="XaL-TF-Q49"/>

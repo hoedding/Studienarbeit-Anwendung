@@ -17,6 +17,7 @@
 		256D0DB61A8CDBAB0061CA86 /* ConnectFTP.swift in Sources */ = {isa = PBXBuildFile; fileRef = 256D0DB51A8CDBAB0061CA86 /* ConnectFTP.swift */; };
 		257DA6E41AE002CA00458F00 /* CryptoSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 257DA6DC1ADFFE0900458F00 /* CryptoSwift.framework */; };
 		257DA6E51AE002CA00458F00 /* CryptoSwift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 257DA6DC1ADFFE0900458F00 /* CryptoSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		257DA6EB1AE97DA100458F00 /* LiveViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 257DA6EA1AE97DA100458F00 /* LiveViewController.swift */; };
 		257E80E81A6174A300D81F8A /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 257E80E71A6174A300D81F8A /* CoreDataManager.swift */; };
 		258190161AA9B8C00091C7C4 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 258190151AA9B8C00091C7C4 /* CFNetwork.framework */; };
 		258190191AA9BEBC0091C7C4 /* Images in Resources */ = {isa = PBXBuildFile; fileRef = 258190181AA9BEBC0091C7C4 /* Images */; };
@@ -99,6 +100,8 @@
 		255EFEB41AA9B17300354F4F /* Studienarbeit-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Studienarbeit-Bridging-Header.h"; sourceTree = "<group>"; };
 		256D0DB51A8CDBAB0061CA86 /* ConnectFTP.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConnectFTP.swift; sourceTree = "<group>"; };
 		257DA6D61ADFFE0900458F00 /* CryptoSwift.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = CryptoSwift.xcodeproj; path = CryptoSwift/CryptoSwift.xcodeproj; sourceTree = SOURCE_ROOT; };
+		257DA6E91AE9614B00458F00 /* MyPlayground.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = MyPlayground.playground; sourceTree = "<group>"; };
+		257DA6EA1AE97DA100458F00 /* LiveViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LiveViewController.swift; sourceTree = "<group>"; };
 		257E80E71A6174A300D81F8A /* CoreDataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
 		258190151AA9B8C00091C7C4 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
 		258190181AA9BEBC0091C7C4 /* Images */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Images; sourceTree = "<group>"; };
@@ -229,6 +232,7 @@
 				258AF5EF1A58606300EA99FE /* LaunchScreen.xib */,
 				258AF5E51A58606300EA99FE /* Studienarbeit.xcdatamodeld */,
 				258AF5E11A58606300EA99FE /* Supporting Files */,
+				257DA6E91AE9614B00458F00 /* MyPlayground.playground */,
 			);
 			path = Studienarbeit;
 			sourceTree = "<group>";
@@ -306,6 +310,7 @@
 				258AF5EA1A58606300EA99FE /* Main.storyboard */,
 				2516218F1A602936003E2815 /* InfoViewController.swift */,
 				251621931A6029A9003E2815 /* CamViewController.swift */,
+				257DA6EA1AE97DA100458F00 /* LiveViewController.swift */,
 				251621951A6029C9003E2815 /* ColourViewController.swift */,
 				259E64A61A603ADF0060AC19 /* ConfigViewController.swift */,
 				2529D3A31A669B9E007C8AC8 /* ConfigDetailViewController.swift */,
@@ -451,6 +456,7 @@
 				259E64A71A603ADF0060AC19 /* ConfigViewController.swift in Sources */,
 				2517FF7C1AA8EBA700042C96 /* IJReachability.swift in Sources */,
 				258AF5E91A58606300EA99FE /* SlideViewController.swift in Sources */,
+				257DA6EB1AE97DA100458F00 /* LiveViewController.swift in Sources */,
 				258AF5E41A58606300EA99FE /* AppDelegate.swift in Sources */,
 				258AF60A1A5865B400EA99FE /* ENSideMenuNavigationController.swift in Sources */,
 				2529D3A41A669B9E007C8AC8 /* ConfigDetailViewController.swift in Sources */,

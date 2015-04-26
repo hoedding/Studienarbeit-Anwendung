@@ -25,6 +25,7 @@ class  ConfigDetailViewController: UIViewController, UITextFieldDelegate  {
     @IBOutlet var tf_camurl: UITextField!
     @IBOutlet var tf_camuser: UITextField!
     @IBOutlet var tf_campassword: UITextField!
+    @IBOutlet var tf_camdir: UITextField!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,11 +37,11 @@ class  ConfigDetailViewController: UIViewController, UITextFieldDelegate  {
     @IBAction func btn_safe_PW(sender: AnyObject) {
         var switch_current = sw_safePW.on
         if (switch_current && !switch_PW_previous){
-            globalDataManager.changeValueWithEntityName("UserSettings", key: "authWithoutPW", value: "1")
+            globalDataManager.changeValueWithEntityName("Config", key: "authWithoutPW", value: "1")
             switch_PW_previous = true
         }
         if (!switch_current && switch_PW_previous){
-            globalDataManager.changeValueWithEntityName("UserSettings", key: "authWithoutPW", value: "0")
+            globalDataManager.changeValueWithEntityName("Config", key: "authWithoutPW", value: "0")
             switch_PW_previous = false
         }
     }
@@ -59,6 +60,7 @@ class  ConfigDetailViewController: UIViewController, UITextFieldDelegate  {
                 tf_camurl.enabled = true
                 tf_camuser.enabled = true
                 tf_campassword.enabled = true
+                tf_camdir.enabled = true
             }
         }
         if (!switch_current && switch_Cam_previous){
@@ -73,6 +75,7 @@ class  ConfigDetailViewController: UIViewController, UITextFieldDelegate  {
                 tf_camurl.enabled = false
                 tf_camuser.enabled = false
                 tf_campassword.enabled = false
+                tf_camdir.enabled = false
             }
         }
     }
@@ -92,6 +95,7 @@ class  ConfigDetailViewController: UIViewController, UITextFieldDelegate  {
      var temp_camurl = ""
      var temp_camuser = ""
      var temp_campassword = ""
+     var temp_camdir = ""
     
     private func textFieldDelegates() {
         tf_ledcount.delegate = self
@@ -105,6 +109,7 @@ class  ConfigDetailViewController: UIViewController, UITextFieldDelegate  {
         tf_camurl.delegate = self
         tf_camuser.delegate = self
         tf_campassword.delegate = self
+        tf_camdir.delegate = self
     }
     
     func textFieldShouldReturn(textField: UITextField) -> Bool {
@@ -134,8 +139,9 @@ class  ConfigDetailViewController: UIViewController, UITextFieldDelegate  {
             tf_camurl.enabled = false
             tf_camuser.enabled = false
             tf_campassword.enabled = false
+            tf_camdir.enabled = false
             
-            temp_safePW = globalDataManager.loadValue("UserSettings", key: "authWithoutPW")
+            temp_safePW = globalDataManager.loadValue("Config", key: "authWithoutPW")
             if (temp_safePW == "1") {
                 sw_safePW.setOn(true, animated: true)
                 switch_PW_previous = true
@@ -150,15 +156,16 @@ class  ConfigDetailViewController: UIViewController, UITextFieldDelegate  {
         temp_tf_motionport1 = globalDataManager.loadValue("Config", key: "motionport1")
         temp_tf_motionport2 = globalDataManager.loadValue("Config", key: "motionport2")
         temp_camavaible = globalDataManager.loadValue("Config", key: "camavaible")
-        temp_ftp_dir = globalDataManager.loadValue("UserSettings", key: "ftpdir")
-        temp_ftp = globalDataManager.loadValue("UserSettings", key: "ftp")
+        temp_ftp_dir = globalDataManager.loadValue("Config", key: "ftpdir")
+        temp_ftp = globalDataManager.loadValue("Config", key: "ftp")
         temp_timeperiod = globalDataManager.loadValue("Config", key: "timeperiod")
-        temp_safePW = globalDataManager.loadValue("UserSettings", key: "authWithoutPW")
-        temp_ftpuser = globalDataManager.loadValue("UserSettings", key: "ftpuser")
-        temp_ftppassword = globalDataManager.loadValue("UserSettings", key: "ftppassword")
+        temp_safePW = globalDataManager.loadValue("Config", key: "authWithoutPW")
+        temp_ftpuser = globalDataManager.loadValue("Config", key: "ftpuser")
+        temp_ftppassword = globalDataManager.loadValue("Config", key: "ftppassword")
         temp_camurl = globalDataManager.loadValue("Config", key: "camurl")
         temp_camuser = globalDataManager.loadValue("Config", key: "camuser")
         temp_campassword = globalDataManager.loadValue("Config", key: "campassword")
+        temp_camdir = globalDataManager.loadValue("Config", key: "camdir")
 
         tf_ledcount.text = temp_tf_ledcount
         tf_motionport1.text = temp_tf_motionport1
@@ -171,6 +178,7 @@ class  ConfigDetailViewController: UIViewController, UITextFieldDelegate  {
         tf_camurl.text = temp_camurl
         tf_camuser.text = temp_camuser
         tf_campassword.text = temp_campassword
+        tf_camdir.text = temp_camdir
         
         if (temp_safePW == "1") {
             sw_safePW.setOn(true, animated: true)
@@ -188,6 +196,7 @@ class  ConfigDetailViewController: UIViewController, UITextFieldDelegate  {
             tf_camurl.enabled = false
             tf_camuser.enabled = false
             tf_campassword.enabled = false
+            tf_camdir.enabled = false
             sw_changeCam.setOn(false, animated: true)
         } else {
             tf_ftp.enabled = true
@@ -197,6 +206,7 @@ class  ConfigDetailViewController: UIViewController, UITextFieldDelegate  {
             tf_camurl.enabled = true
             tf_camuser.enabled = true
             tf_campassword.enabled = true
+            tf_camdir.enabled = true
             sw_changeCam.setOn(true, animated: true)
         }
     }
@@ -223,11 +233,11 @@ class  ConfigDetailViewController: UIViewController, UITextFieldDelegate  {
         }
         if (temp_ftp_dir != tf_ftpdir.text) {
             globalConnection.changeConfigOnServerWith("ftp_directory", value: tf_ftpdir.text)
-            globalDataManager.changeValueWithEntityName("UserSettings", key: "ftpdir", value: tf_ftpdir.text)
+            globalDataManager.changeValueWithEntityName("Config", key: "ftpdir", value: tf_ftpdir.text)
         }
         if (temp_ftp != tf_ftp.text) {
             globalConnection.changeConfigOnServerWith("ftp_host", value: tf_ftp.text)
-            globalDataManager.changeValueWithEntityName("UserSettings", key: "ftp", value: tf_ftp.text)
+            globalDataManager.changeValueWithEntityName("Config", key: "ftp", value: tf_ftp.text)
         }
         if (temp_timeperiod != timeperiod.text) {
             globalConnection.changeConfigOnServerWith("timeperiod", value: timeperiod.text)
@@ -235,11 +245,11 @@ class  ConfigDetailViewController: UIViewController, UITextFieldDelegate  {
         }
         if (temp_ftpuser != tf_ftpuser.text) {
             globalConnection.changeConfigOnServerWith("ftp_user", value: tf_ftpuser.text)
-            globalDataManager.changeValueWithEntityName("UserSettings", key: "ftpuser", value: tf_ftpuser.text)
+            globalDataManager.changeValueWithEntityName("Config", key: "ftpuser", value: tf_ftpuser.text)
         }
         if (temp_ftppassword != tf_ftppassword.text) {
             globalConnection.changeConfigOnServerWith("ftp_pw", value: tf_ftppassword.text)
-            globalDataManager.changeValueWithEntityName("UserSettings", key: "ftppassword", value: tf_ftppassword.text)
+            globalDataManager.changeValueWithEntityName("Config", key: "ftppassword", value: tf_ftppassword.text)
         }
         if (temp_camurl != tf_camurl.text) {
             globalConnection.changeConfigOnServerWith("cam_host", value: tf_camurl.text)
@@ -251,7 +261,11 @@ class  ConfigDetailViewController: UIViewController, UITextFieldDelegate  {
         }
         if (temp_campassword != tf_campassword.text) {
             globalConnection.changeConfigOnServerWith("cam_pw", value: tf_campassword.text)
-            globalDataManager.changeValueWithEntityName("Config", key: "campassword", value: tf_ftppassword.text)
+            globalDataManager.changeValueWithEntityName("Config", key: "campassword", value: tf_campassword.text)
+        }
+        if (temp_camdir != tf_camdir.text) {
+            globalConnection.changeConfigOnServerWith("cam_dir", value: tf_camdir.text)
+            globalDataManager.changeValueWithEntityName("Config", key: "camdir", value: tf_camdir.text)
         }
         self.loadData()
         bt_safe.enabled = false

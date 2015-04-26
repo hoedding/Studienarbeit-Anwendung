@@ -60,10 +60,10 @@ class  CamViewController: UIViewController, WRRequestDelegate  {
             return
         }
         
-        var hostname = globalDataManager.loadValue("UserSettings", key: "ftp")
-        var dir = globalDataManager.loadValue("UserSettings", key: "ftpdir")
-        var user = globalDataManager.loadValue("UserSettings", key: "ftpuser")
-        var password = globalDataManager.loadValue("UserSettings", key: "ftppassword")
+        var hostname = globalDataManager.loadValue("Config", key: "ftp")
+        var dir = globalDataManager.loadValue("Config", key: "ftpdir")
+        var user = globalDataManager.loadValue("Config", key: "ftpuser")
+        var password = globalDataManager.loadValue("Config", key: "ftppassword")
         println(dir + "/safe/")
         counter = 0
         for i in 0...linkList.count-1 {

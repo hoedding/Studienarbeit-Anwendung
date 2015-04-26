@@ -10,7 +10,7 @@ import UIKit
 
 class SlideViewTableController : UITableViewController {
     var selectedMenuItem : Int = 0
-    var pages : [String] = ["Start", "Farben", "Konfiguration", "Bilder", "Info"]
+    var pages : [String] = ["Start", "Farben", "Konfiguration", "Archiv", "Live", "Info"]
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -40,7 +40,7 @@ class SlideViewTableController : UITableViewController {
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // Return the number of rows in the section.
-        return 5
+        return pages.count
     }
 
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
@@ -89,6 +89,9 @@ class SlideViewTableController : UITableViewController {
             break
         case 3:
             destViewController = mainStoryboard.instantiateViewControllerWithIdentifier("cam")as! UIViewController
+            break
+        case 4:
+            destViewController = mainStoryboard.instantiateViewControllerWithIdentifier("live")as! UIViewController
             break
         default:
             destViewController = mainStoryboard.instantiateViewControllerWithIdentifier("info") as! UIViewController
