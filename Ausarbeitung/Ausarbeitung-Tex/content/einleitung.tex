@@ -1,21 +1,23 @@
-\section{Vorwort}
-\section{Projektbeschreibung}
-Im Zuge dieser Studienarbeit soll ein Komplettsystem entwickelt werden, dass sowohl die Überwachung als auch die Steuerung der Beleuchtung von Innen- und Außenbereichen ermöglicht. Das System soll nach Entwicklung universell einsetzbar und leicht konfigurierbar sein.\\
-Die Beleuchtung soll mit adressierbaren LED-Pixeln umgesetzt werden, da diese sehr leicht steuer- und erweiterbar sind. Für die Erkennung von Bewegungen sollen klassische Bewegungsmelder eingesetzt werden. Mittels einer Kamera sollen Bilder aufgerufen und gespeichert werden können. Die gesamte Steuerung soll mittels einer iPhone-App über einen Raspberry Pi erfolgen. Die Implementierung dieser App soll in Swift erfolgen und die der Server-Anwendung in Python.  \\
-Es müssen passende Bauteile und Produkte evaluiert und getestet werden. Diese müssen vom Raspberry Pi ansteuerbar sein. Ob die Überwachungskamera direkt am Raspberry Pi angeschlossen wird oder sich nur im selben Netzwerk befindet, wird im Laufe dieses Projekts erarbeitet. 
+
+\section{Einleitung}
+Diese Studienarbeit wird im Zuge des Studiums Bachelor of Engineering - Informationstechnik an der DHBW Karlsruhe erstellt. \\\\
+Im dieser Studienarbeit soll ein Komplettsystem entwickelt werden, dass sowohl die Über- wachung als auch die Steuerung der Beleuchtung von Innen- und Außenbereichen ermög- licht. Das System soll nach der Entwicklung universell einsetzbar und leicht konfigurierbar sein.\\\\
+Die Beleuchtung soll mit adressierbaren LED-Pixeln umgesetzt werden, da diese sehr leicht steuer- und erweiterbar sind. Für die Erkennung von Bewegungen sollen klassische Bewegungsmelder eingesetzt werden. Mittels einer Kamera sollen Bilder aufgerufen und gespeichert werden können. Die gesamte Steuerung soll mittels einer iOS-App über einen Raspberry Pi möglich sein. Die Implementierung dieser App soll in Swift erfolgen und die der Server-Anwendung in Python.  \\\\
+Es müssen passende Bauteile und Produkte evaluiert und getestet werden. Diese müssen vom Raspberry Pi ansteuerbar sein. Des weiteren muss die Architektur der Serveranwendung und iOS-App ausgearbeitet werden. Zur Fertigstellung müssen beide Anwendungen implementiert werden und die funktionsfähige Anwendung an einem Beispielobjekt in Betrieb genommen werden.\\\\
 Es gibt drei verschiedene Modi in denen sich das System befinden kann:
 \begin{itemize}
-\item Beleuchtung wird durch Bewegungsmelder ausgelöst (Reaktion darauf kann vom User definiert werden)
-\item Beleuchtung wird manuell vom Benutzer über App gesteuert (Color Chooser, Bereichsauswahl, Leuchteffekte)
-\item Bewegungsmelder als Alarmanlage, beim Auslösen wird der Benutzer benachrichtigt und Bild der Kamera als Notifcation auf dem Smartphone angezeigt
+\item Beleuchtung wird durch Bewegungsmelder ausgelöst
+\item Beleuchtung wird manuell vom Benutzer über App gesteuert 
+\item Bewegungsmelder als Alarmanlage, beim Auslösen wird der Benutzer benachrichtigt und ein Bild der Kamera als Notifcation auf dem Smartphone angezeigt
 \end{itemize}
 
 \section{Teilprojekte}
 \begin{itemize}
 \item LED-Pixel und Bewegungssensoren evaluieren / ansteuern
-\item Implementierung der Ansteuerung / des Protokolls (mit den drei verschiedenen Modi)
+\item Implementierung der Ansteuerung aller Bauteile
+\item Implementierung der Netzwerkkommunikation
 \item Implementierung der iOS App
-\item Vollständige praktische Umsetzung an einem Beispielobjekt
+\item praktische Umsetzung an einem Beispielobjekt
 \end{itemize}
 
 \section{Projektmanagement}
@@ -23,7 +25,7 @@ Es gibt drei verschiedene Modi in denen sich das System befinden kann:
 Die Meilensteintrendanalyse ist eine Art des Projektmanagements. Hauptaufgabe ist die Überwachung des Projektfortschritts und die frühe Erkennung von Terminverzögerungen. Hierfür werden bei Projektbeginn Meilensteine festgelegt, die Inhalt, Dauer und Endzeitpunkt enthalten. Im Laufe eines Bearbeitungszeitraums können mögliche Verzögerungen erkannt und entsprechend darauf reagiert werden. Um große Verzögerungen zu vermeiden, sollten realistische Sicherheitspuffer eingeplant werden. \\
 Bei Beendigung eines Meilensteins kann ein Fazit aus dessen Ablauf gezogen werden. Zum Beispiel kann bei aufgetretener Verzögerung Ursachenforschung betrieben werden, um in weiteren Schritten solche Verzögerungen zu vermeiden. 
 
-\paragraph{Bemerkungen}
+\paragraph{Bemerkung}
 \begin{itemize}
 \item Die schriftliche Ausarbeitung ist nicht Teil der Meilensteine. Sie erfolgt parallel zu den durchgeführten Aufgaben.
 \end{itemize}
@@ -123,11 +125,12 @@ Bei Beendigung eines Meilensteins kann ein Fazit aus dessen Ablauf gezogen werde
 \end{itemize}
 \item Übertragungen mit dem Webserver
 \begin{itemize}
-\item In dieser Phase wurde festgestellt, dass die Übertragung über Sockets nicht optimal ist. Eine Übertragung mittels HTTP Protokoll bietet eine deutlich einfachere und sicherere Implementierung. Aufgrund dieser Feststellung wurde die Implementierung des Webservers in diesem Meilenstein erneut verändert. 
+\item In dieser Phase wurde festgestellt, dass die Übertragung über Sockets nicht optimal ist. Eine Übertragung mittels HTTP Protokoll bietet eine deutlich einfachere und sicherere Implementierung. Aufgrund dieser Feststellung wurde die Implementierung des Webservers in diesem Meilenstein verändert. 
 \end{itemize}
 \item Refactoring Webserver
 \begin{itemize}
 \item Der Webserver wurde auf HTTPS umgestellt. 
+\item Viele kleine Veränderungen im Server.
 \end{itemize}
 \end{itemize}
 
@@ -151,16 +154,14 @@ Bei Beendigung eines Meilensteins kann ein Fazit aus dessen Ablauf gezogen werde
 \begin{itemize}
 \item Implementierung Netzwerkkamera
 \begin{itemize}
-\item
+\item Die Anbindung der Netzwerkkamera war einer der aufwändigsten Punkte in diesem Projekt. Nach verschiedenen Ansätzen wurde eine gute Lösung erarbeitet.
+\end{itemize}
+\item Beispielobjekt
+\begin{itemize}
+	\item Das gesamte Projekt wurde in einem Treppenhaus installiert.
 \end{itemize}
 \item Fertigstellung Ausarbeitung
-\begin{itemize}
-\item 
-\end{itemize}
 \item  Abgabe
-\begin{itemize}
-\item 
-\end{itemize}
 \end{itemize}
 
 \end{enumerate}

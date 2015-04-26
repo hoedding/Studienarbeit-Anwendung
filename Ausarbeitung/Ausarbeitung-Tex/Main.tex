@@ -2,38 +2,28 @@
 
 \begin{document}
 \begin{titlepage}
-\begin{figure}
-\makebox[\textwidth]{\includegraphics[page={1},width=\paperwidth]{./data/deckblatt.pdf}} \\
-\end{figure}
+\includepdf[pages={1}]{./data/deckblatt.pdf}
+\includepdf[pages={2}]{./data/deckblatt.pdf}
+
 \end{titlepage}
-\clearpage
-\begin{figure}
-\makebox[\textwidth]{\includegraphics[page={2},width=\paperwidth]{./data/deckblatt.pdf}} \\
-\end{figure}
+
 \thispagestyle{empty} %Head löschen
 \tableofcontents
 \thispagestyle{empty}  
-\chapter{Einleitung} \input{./content/einleitung.tex}
+\pagebreak
 
-\chapter{Hauptteil}
+%Vorwort
+\input{./content/einleitung.tex}
 \section{LED-Pixel} \input{./content/ledpixel.tex}
 \section{Bewegungssensor} \input{./content/bewegungssensor.tex}
 \section{Kamera}\input{./content/kamera.tex}
 \section{Verschlüsselung}\input{./content/secure.tex}
 \section{Python-Server und Protokoll} \input{./content/serverprotokoll.tex}
-\section{Anwendungsstruktur Webserver}\input{./content/anwendungskonzept.tex}
-\section{Konfiguration und Installation}
-\subsection{Konfiguration}
-\subsection{Installation}
-
+\section{Anwendungsstruktur Serverapplikation}\input{./content/anwendungskonzept.tex}
+\section{Konfiguration und Installation}\input{./content/konfiguration.tex}
 \section{iOS App}\input{./content/ios.tex}
-
-
-\chapter{Praktische Umsetzung}
-
-\chapter{Kostenaufstellung}
-
-\chapter{Fazit}
+\section{Praktische Umsetzung}\input{./content/umsetzung.tex}
+\section{Fazit}\input{./content/fazit.tex}
 
 \input{./content/verzeichnis.tex}
 

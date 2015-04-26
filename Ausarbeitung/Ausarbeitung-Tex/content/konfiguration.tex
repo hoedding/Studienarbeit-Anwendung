@@ -1,0 +1,28 @@
+\subsection{Installation}
+Eine gesonderte Installation ist nicht notwendig, es ist nur erforderlich die Anwendung aus Git zu klonen. 
+\begin{lstlisting}[caption =Git Clone der Studienarbeit, language=python, frame=single, breaklines=true,columns=fullflexible, commentstyle=\color{gray}\upshape, captionpos=b]
+git clone https://github.com/hoedding/Studienarbeit-Anwendung.git
+\end{lstlisting}
+
+\subsection{Konfiguration}
+Die Konfiguration der Anwendung erfordert nur das Ausfüllen der Konfigurationsdatei. Dies ist leicht mit einem Frage-Antwort-Dialog umzusetzen. Dieser wird ebenfalls in Python implementiert. Für das Schreiben der Konfiguration kann die schon vorhandene ConfigWriter-Klasse verwendet werden. 
+\begin{lstlisting}[caption =Implementierung setup.py, language=python, frame=single, breaklines=true,columns=fullflexible, commentstyle=\color{gray}\upshape, captionpos=b, numbers = left]
+def raspberryConfig(self):
+    writer = ConfigWriter()
+    print '##########    Konfiguration Raspberry Pi  ###########'
+    print '#######  Benutzer: admin                     ########'
+    print '#######  Passwort: password                  ########'
+    ledport = raw_input("Port der LED? ")
+    ledcount = raw_input("Anzahl der angeschlossenen LEDs? ")
+    motionport1 = raw_input("Port Bewegungssensor 1? ")
+    motionport2 = raw_input("Port Bewegungssensor 2? ")
+    timer  = raw_input("Zeitdauer bei Bewegungsmelder? ")
+    writer.changeConfig("username", "armin")
+    writer.changeConfig("pw", "d63dc919e201d7bc4c825630d2cf25fdc93d4b2f0d46706d29038d01")
+    writer.changeConfig("ledport", ledport)
+    writer.changeConfig("ledcount", ledcount)
+    writer.changeConfig("motionport1", motionport1)
+    writer.changeConfig("motionport2", motionport2)
+    writer.changeConfig("timeperiod", timer)
+\end{lstlisting}
+Im Anschluss müssen noch die erforderlichen Zertifikate (Server-Zertifikat und APN-Zertifikat) erzeugt werden und in den Ordner 'certs' gespeichert werden. 

@@ -18,29 +18,31 @@ Gewichtung: 3
 \subsection{Evaluierung}
 \begin{itemize}
 \item \textbf{PIR (MOTION) Sensor, Adafruit}\\
-Link: http://www.adafruit.com/product/189\\
+Link: \url{http://www.adafruit.com/product/189}\\
 Ansteuerung: Gibt High-Signal an einem Pin aus.\\
 Reichweite: 7m, 120 Grad\\
 Kosten: 9,95\$ + Versand aus USA\\
 Extras: Kabel inklusive\\
 \item \textbf{PIR Infrared Motion Sensor (HC-SR501)}\\
-Link: https://www.modmypi.com/pir-motion-sensor\\
+Link: \url{https://www.modmypi.com/pir-motion-sensor}\\
 Ansteuerung: Gibt High-Signal an einem Pin aus.\\
 Reichweite: 5-7m, 100 Grad\\
 Kosten: 2,99\$ + Versand aus UK\\
 Extras: keine\\
 \item \textbf{Infrarot PIR Bewegung Sensor Detektor Modul}\\
-Link: http://www.amazon.de/Pyroelectrische-Infrarot-Bewegung-Sensor-Detektor/dp/B008AESDSY/ref=pd\_cp\_ce\_0\\
+Link: \url{http://www.amazon.de/Pyroelectrische-Infrarot-Bewegung-Sensor-Detektor/dp/B008AESDSY/ref=pd\_cp\_ce\_0}\\
 Ansteuerung: Gibt High-Signal an einem Pin aus.\\
 Reichweite: 7m, 100 Grad\\
 Kosten: 5 Stück = 7,66€\\
 Extras: keine\\
 \end{itemize}
-\begin{minipage}{\linewidth}
+\begin{figure}[h]
+\begin{minipage}{\textwidth}
             \centering
             \includegraphics[width=\textwidth]{./data/evaluierung-ms.png}
-            \captionof{figure}{Ergebnisse der Motion-Sensor-Evaluierung}
+            \caption{Ergebnisse der Motion-Sensor-Evaluierung}
         \end{minipage}
+\end{figure}
 \paragraph{Fazit}
 Die meisten Infarot-Bewegungssensoren sind von der Bauweise nahezu identisch. Die Unterschiede liegen meist nur in der Empfindlichkeit. Da die Reichweite in diesem Fall nicht von großer Bedeutsamkeit ist, kann eigentlich jedes der Produkte bestellt werden. Auf Ebay und Amazon ist die Anzahl angebotener Sensoren nahezu unbegrenzt, es wurde für die Teststellung also die oben evaluierte Variante von Amazon bestellt. 
 \subsection{Teststellung}
@@ -66,19 +68,15 @@ Um eine Änderung am Datenpin festzustellen werden zwei Variable angelegt: curre
 \begin{lstlisting}[caption = Testcode zur Bewegungserkennung mit Sensor, language=python, frame=single, breaklines=true,columns=fullflexible, commentstyle=\color{gray}\upshape, captionpos=b, numbers = left]
 import RPi.GPIO as GPIO
 import time
-
 GPIO.setmode(GPIO.BCM)
-	
 # Pin definieren
 MOTION_PIN1 = 7
-	
 # Diese als Input definieren
 GPIO.setup(MOTION_PIN1,GPIO.IN)
-
 # Status definieren um verschiedene Änderungen zu erkennen
 Current_State  = 0
 Previous_State = 0
-					
+
 try:
 	# Loop zur Erkennung einer Bewegung
 	# Sensor erkennt Bewegung -> Signal = High
@@ -97,7 +95,9 @@ except KeyboardInterrupt:
 	print "Quit"
 	GPIO.cleanup()
 \end{lstlisting}
-Bei der Endversion des Systems sollen mehrere Beweungssensoren integriert werden. Bei Auslösen des ersten Sensors sollen die LEDs angeschaltet werden und nach auslösen eines weiteren Sensors wieder ausgeschaltet werden. 
-\paragraph{Auswertung}\\
-Das High-Signal des Sensors lässt sich mit dem Raspberry Pi sehr leicht auswerten. Auch die Auswertung von mehreren Sensoren stellt kein Problem da. Das Ergebnis der Evaluierung konnte in dieser Tststellung bestätigt werden. 
+Bei der Endversion des Systems sollen mehrere Beweungssensoren integriert werden. Bei Auslösen des ersten Sensors sollen die LEDs angeschaltet werden und nach auslösen eines weiteren Sensors wieder ausgeschaltet werden.  
 \end{itemize}
+
+\paragraph{Auswertung}
+Das High-Signal des Sensors lässt sich mit dem Raspberry Pi sehr leicht auswerten. Auch die Auswertung von mehreren Sensoren stellt kein Problem da. Das Ergebnis der Evaluierung konnte in dieser Teststellung bestätigt werden. Wichtig für die weitere Implementierung ist, dass die While-Schleife auch abgebrochen werden kann. 
+

@@ -1,10 +1,13 @@
-\addvspace {10\p@ }
-\addvspace {10\p@ }
-\contentsline {figure}{\numberline {2.1}{\ignorespaces Ergebnisse der LED-Evaluierung}}{10}
-\contentsline {figure}{\numberline {2.2}{\ignorespaces Schaltung f\IeC {\"u}r LED-Test}}{11}
-\contentsline {figure}{\numberline {2.3}{\ignorespaces Ergebnisse der Motion-Sensor-Evaluierung}}{13}
-\contentsline {figure}{\numberline {2.4}{\ignorespaces Wireshark Trace TLS Handshake}}{18}
-\contentsline {figure}{\numberline {2.5}{\ignorespaces Prozess und Threads}}{31}
-\addvspace {10\p@ }
-\addvspace {10\p@ }
-\addvspace {10\p@ }
+\select@language {ngerman}
+\contentsline {figure}{\numberline {1}{\ignorespaces Ergebnisse der LED-Evaluierung}}{9}
+\contentsline {figure}{\numberline {2}{\ignorespaces Schaltung f\IeC {\"u}r LED-Test}}{10}
+\contentsline {figure}{\numberline {3}{\ignorespaces Ergebnisse der Motion-Sensor-Evaluierung}}{13}
+\contentsline {figure}{\numberline {4}{\ignorespaces RTSP Request-Strings}}{17}
+\contentsline {figure}{\numberline {5}{\ignorespaces Ablauf der Aufzeichnung mit FFmpeg}}{18}
+\contentsline {figure}{\numberline {6}{\ignorespaces Abrufen des Bildes \IeC {\"u}ber HTTP-Request}}{21}
+\contentsline {figure}{\numberline {7}{\ignorespaces Wireshark Trace TLS Handshake}}{24}
+\contentsline {figure}{\numberline {8}{\ignorespaces Anwendungsstruktur Server-Anwendung}}{29}
+\contentsline {figure}{\numberline {9}{\ignorespaces Prozess und Threads}}{37}
+\contentsline {figure}{\numberline {10}{\ignorespaces Entit\IeC {\"a}t Config}}{43}
+\contentsline {figure}{\numberline {11}{\ignorespaces Konzept der Server-Client-Kommunikation}}{44}
+\contentsline {figure}{\numberline {12}{\ignorespaces Schaltplan der Steckplatine}}{46}
