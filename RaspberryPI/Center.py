@@ -45,7 +45,7 @@ class Core():
     led.daemon = True
     threads.append(led)
     global modus
-    modus = 2
+    modus = 1
     self.startAll()
     self.startCamRecording()
     self.checkCertificates()

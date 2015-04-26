@@ -27,7 +27,6 @@ class ConfigWriter():
         jsonFile = open("config.json", "w+")
         jsonFile.write(json.dumps(jdata))
         jsonFile.close()
-        print 'passwort geändert: ' + value
 
     def addNewToken(self, token):
         jsonFile = open("tokenlist.json", "r")

@@ -144,8 +144,12 @@ class NeoPixels(threading.Thread):
             strip.show()
 
     def strobe(self):
-        # TODO
         print 'strobe'
+        for i in range(0,1000):
+            self.doBlinder()
+            time.sleep(0.1)
+            self.clear()
+            i = i + 1
 
     def rainbow(self):
         # TODO
@@ -155,7 +159,7 @@ class NeoPixels(threading.Thread):
         # Einprogrammierte Effekte starten
         # 1 Strobo
         # 2 Bunte Farben
-        if code == '1':
+        if code == '0':
             self.strobe()
-        elif code == '2':
+        elif code == '1':
             self.rainbow()
