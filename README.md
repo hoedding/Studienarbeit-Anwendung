@@ -23,3 +23,9 @@ Sprachen:
 
 Kontakt:
 <mail@timohoeting.de>
+
+Installation
+git clone https://github.com/hoedding/Studienarbeit-Anwendung.git
+sudo python Center.py yourUser
+
+Standarduser: admin / password
