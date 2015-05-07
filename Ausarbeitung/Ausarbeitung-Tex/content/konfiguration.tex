@@ -5,8 +5,8 @@ git clone https://github.com/hoedding/Studienarbeit-Anwendung.git
 \end{lstlisting}
 
 \subsection{Konfiguration}
-Die Konfiguration der Anwendung erfordert nur das Ausfüllen der Konfigurationsdatei. Dies ist leicht mit einem Frage-Antwort-Dialog umzusetzen. Dieser wird ebenfalls in Python implementiert. Für das Schreiben der Konfiguration kann die schon vorhandene ConfigWriter-Klasse verwendet werden. 
-\begin{lstlisting}[caption =Implementierung setup.py, language=python, frame=single, breaklines=true,columns=fullflexible, commentstyle=\color{gray}\upshape, captionpos=b, numbers = left]
+Die Konfiguration der Anwendung erfordert nur das Ausfüllen der Konfigurationsdatei. Dies ist leicht mit einem Frage-Antwort-Dialog umzusetzen\footnote{Der vollständige Code befindet sich unter \url{https://github.com/hoedding/Studienarbeit-Anwendung/blob/master/RaspberryPI/setup.py}}. Dieser wird ebenfalls in Python implementiert. Für das Schreiben der Konfiguration kann die schon vorhandene ConfigWriter-Klasse verwendet werden. 
+\begin{lstlisting}[caption =Implementierung setup.py (Ausschnitt), language=python, frame=single, breaklines=true,columns=fullflexible, commentstyle=\color{gray}\upshape, captionpos=b, numbers = left]
 def raspberryConfig(self):
     writer = ConfigWriter()
     print '##########    Konfiguration Raspberry Pi  ###########'

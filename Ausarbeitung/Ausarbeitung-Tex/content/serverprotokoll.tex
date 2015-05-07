@@ -1,7 +1,7 @@
 
 
 
-\subsection{Protokoll}
+\subsection{Protokoll} \label{kapitel-protokoll}
 Um die LEDs später von einer App aus ansprechen zu können, soll ein auf Strings basierendes Protokoll implementiert werden. Hierfür muss als erstes festgelegt werden, welche Informationen übertragen werden sollen: 
 \begin{itemize}
 \item Authentifizierung\\
@@ -49,8 +49,7 @@ user:password:X01:::49:255:255:255:::Hashvalue
 Dies würde die LEDs 0 bis 49 einschalten (Farbe weis 255,255,255). Anstelle des 'Hashvalue' würde der Hashwert der gesamten Übertragung gesendet.
 
 \subsection{Server-Framework}
-Twisted: https://twistedmatrix.com \\
-Es wird das Twisted Matrix Framework eingesetzt. Twisted ist eine in Python geschriebene event-getriebene Netzwerkengine. Die meisten gängigen Protokolle wie TCP, IMAP, SSHv3 und viele mehr werden unterstützt. Somit bietet Twisted die ideale Möglichkeit einen eigenen Webserver zu implementieren. \\\\
+Es wird das Twisted Matrix Framework\cite{twisted} eingesetzt. Twisted ist eine in Python geschriebene event-getriebene Netzwerkengine. Die meisten gängigen Protokolle wie TCP, IMAP, SSHv3 und viele mehr werden unterstützt. Somit bietet Twisted die ideale Möglichkeit einen eigenen Webserver zu implementieren. \\\\
 \textbf{Event-Getrieben (event-based):} Die Serveranwendung befindet sich in einer Schleife und wartet auf ein Event. Dieses Event ist in diesem Fall der Connect eines Clients zum Server. Für jeden Connect wird eine neue Instanz angelegt, in welcher empfangene Daten bearbeitet werden können. Die Daten werden als String ausgewertet.
 
 \subsection{Beispielimplementierung Webserver}
@@ -80,9 +79,6 @@ factory = Site(root)
 )
 reactor.listenSSL(8000, factory, contextFactory = sslContext)
 \end{lstlisting}
-
-
-
 
 \subsection{Implementierung Webserver}
 Der Server wird in einem neuen Thread gestartet, damit er beim Empfang von Daten keine anderen Abläufe aufhält. Zusätzich wird ihm eine Instanz der Klasse 'RecvdData' übergeben. Diese verarbeitet die empfangene Nachricht. 

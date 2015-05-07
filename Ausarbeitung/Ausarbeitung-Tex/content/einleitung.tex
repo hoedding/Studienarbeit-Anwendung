@@ -1,24 +1,36 @@
-
 \section{Einleitung}
 Diese Studienarbeit wird im Zuge des Studiums Bachelor of Engineering - Informationstechnik an der DHBW Karlsruhe erstellt. \\\\
-Im dieser Studienarbeit soll ein Komplettsystem entwickelt werden, dass sowohl die Über- wachung als auch die Steuerung der Beleuchtung von Innen- und Außenbereichen ermög- licht. Das System soll nach der Entwicklung universell einsetzbar und leicht konfigurierbar sein.\\\\
-Die Beleuchtung soll mit adressierbaren LED-Pixeln umgesetzt werden, da diese sehr leicht steuer- und erweiterbar sind. Für die Erkennung von Bewegungen sollen klassische Bewegungsmelder eingesetzt werden. Mittels einer Kamera sollen Bilder aufgerufen und gespeichert werden können. Die gesamte Steuerung soll mittels einer iOS-App über einen Raspberry Pi möglich sein. Die Implementierung dieser App soll in Swift erfolgen und die der Server-Anwendung in Python.  \\\\
-Es müssen passende Bauteile und Produkte evaluiert und getestet werden. Diese müssen vom Raspberry Pi ansteuerbar sein. Des weiteren muss die Architektur der Serveranwendung und iOS-App ausgearbeitet werden. Zur Fertigstellung müssen beide Anwendungen implementiert werden und die funktionsfähige Anwendung an einem Beispielobjekt in Betrieb genommen werden.\\\\
+In dieser Arbeit wird ein Komplettsystem entwickelt, welches sowohl die Überwachung, als auch die Steuerung der Beleuchtung von Innen- und Außenbereichen ermöglicht. Die universelle Einsetzbarkeit und leichte Konfigurierbarkeit sind die Hauptaspekte bei der Entwicklung.\\\\
+Die Beleuchtung wird mit adressierbaren LED-Pixeln umgesetzt, da diese sehr leicht steuer- und erweiterbar sind. Für die Erkennung von Bewegungen werden klassische Bewegungsmelder eingesetzt. Das Aufrufen und Speichern der Überwachungsbildern wird mit einer Kamera und einem FTP-Server realisiert. Die gesamte Steuerung funktioniert mittels einer iOS\footnote{Das System iOS ist das Betriebssystem aller Mobiltelefone der Firma Apple.}-Application. Die Informationen werden über ein Netzwerk an den Raspberry Pi übertragen. Die Implementierung dieser App\footnote{App wird im Laufe der Arbeit als Akürzung für mobile Anwendungen (Application) benutzt.} erfolgt in Swift und die der Server-Anwendung in Python.\\\\
+Es müssen passende Bauteile und Produkte evaluiert und getestet werden. Diese müssen vom Raspberry Pi\footnote{Der Raspberry Pi ein Einplatinencomputer (ARM) der Raspberry Pi Foundation.} ansteuerbar sein. Des Weiteren ist ein Teil der Arbeit die Ausarbeitung der Architektur der Serveranwendung und der iOS-App. Zur Fertigstellung müssen beide Anwendungen implementiert werden und die funktionsfähige Anwendung an einem Beispielobjekt in Betrieb genommen werden.\\\\
 Es gibt drei verschiedene Modi in denen sich das System befinden kann:
 \begin{itemize}
 \item Beleuchtung wird durch Bewegungsmelder ausgelöst
 \item Beleuchtung wird manuell vom Benutzer über App gesteuert 
-\item Bewegungsmelder als Alarmanlage, beim Auslösen wird der Benutzer benachrichtigt und ein Bild der Kamera als Notifcation auf dem Smartphone angezeigt
+\item Bewegungsmelder als Alarmanlage, beim Auslösen wird der Benutzer benachrichtigt und ein Bild der Kamera als Notification auf dem Smartphone angezeigt
+\end{itemize}
+Der Autor dieser Arbeit hatte zu Beginn ihrer Erstellung keine Erfahrung im Bezug auf Programmierung mit Python / Swift und der Kommunikation über Netzwerke mit diesen Sprachen. Somit müssen die Grundlagen und alle erforderlichen Fähigkeiten in diesen Sprachen angeeignet werden. \\\\
+
+\section{Hinweise}
+\paragraph{Literatur}
+Um die Programmiersprachen an sich zu erlernen, wurde die folgende Literatur genutzt. Die neu erlernten, in diesem Projekt benutzten Sprachfeatures werden nicht alle mit einzelnen Quellen versehen. 
+\begin{itemize}
+	\item \textbf{Swift} Zur Einarbeitung in Apples' Programmiersprache Swift wurde das Buch 'Swift im Detail' von Thomas Sillmann aus dem Verlag Hanser genutzt.\\
+	ISBN: 978-3-446-44294-8\\
+	Auflage: 2015
+	
+	\item \textbf{Python} Zur Einarbeitung in Python wurde das Buch 'Introducing Python' von Bill Lubanovic aus dem Verlag O'Reilly genutzt. \\
+	ISBN: 978-1-449-35936-2\\
+	Auflage: 2015
+	
+	\item \textbf{Raspberry Pi} Um den Umgang mit Programmierung auf dem Raspberry Pi zu erlernen, wurde das Buch 'Raspberry Pi programmieren mit Python' von Michael Weigend aus dem Verlag mitp genutzt. \\
+	ISBN: 978-3-8266-9474-5\\
+	Auflage: 2014
 \end{itemize}
 
-\section{Teilprojekte}
-\begin{itemize}
-\item LED-Pixel und Bewegungssensoren evaluieren / ansteuern
-\item Implementierung der Ansteuerung aller Bauteile
-\item Implementierung der Netzwerkkommunikation
-\item Implementierung der iOS App
-\item praktische Umsetzung an einem Beispielobjekt
-\end{itemize}
+\paragraph{Grafiken} Sofern nicht anders gekennzeichnet, wurden alle Grafiken von Timo Höting erstellt.
+
+\paragraph{Quellcode} Der implementierte Code und die ausformulierte Studienarbeit sind sowohl auf der beigelegten CD, als auch auf Github unter \url{https://github.com/hoedding/Studienarbeit-Anwendung} verfügbar.
 
 \section{Projektmanagement}
 \subsection{Meilensteintrendanalyse}

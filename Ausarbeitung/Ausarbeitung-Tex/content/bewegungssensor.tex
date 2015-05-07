@@ -15,22 +15,19 @@ An dieser Stelle können mögliche Extras eines Herstellers einfließen.\\
 Gewichtung: 3
 \end{itemize}
 
-\subsection{Evaluierung}
+\subsection{Evaluierung}\label{sub:evaluierung-motion}
 \begin{itemize}
-\item \textbf{PIR (MOTION) Sensor, Adafruit}\\
-Link: \url{http://www.adafruit.com/product/189}\\
+\item \textbf{PIR (MOTION) Sensor, Adafruit}\cite{adafruitmotion}\\
 Ansteuerung: Gibt High-Signal an einem Pin aus.\\
 Reichweite: 7m, 120 Grad\\
 Kosten: 9,95\$ + Versand aus USA\\
 Extras: Kabel inklusive\\
-\item \textbf{PIR Infrared Motion Sensor (HC-SR501)}\\
-Link: \url{https://www.modmypi.com/pir-motion-sensor}\\
+\item \textbf{PIR Infrared Motion Sensor (HC-SR501)}\cite{hcsr501}\\
 Ansteuerung: Gibt High-Signal an einem Pin aus.\\
 Reichweite: 5-7m, 100 Grad\\
 Kosten: 2,99\$ + Versand aus UK\\
 Extras: keine\\
-\item \textbf{Infrarot PIR Bewegung Sensor Detektor Modul}\\
-Link: \url{http://www.amazon.de/Pyroelectrische-Infrarot-Bewegung-Sensor-Detektor/dp/B008AESDSY/ref=pd\_cp\_ce\_0}\\
+\item \textbf{Infrarot PIR Bewegung Sensor Detektor Modul}\cite{piramazon}\\
 Ansteuerung: Gibt High-Signal an einem Pin aus.\\
 Reichweite: 7m, 100 Grad\\
 Kosten: 5 Stück = 7,66€\\
@@ -44,9 +41,9 @@ Extras: keine\\
         \end{minipage}
 \end{figure}
 \paragraph{Fazit}
-Die meisten Infarot-Bewegungssensoren sind von der Bauweise nahezu identisch. Die Unterschiede liegen meist nur in der Empfindlichkeit. Da die Reichweite in diesem Fall nicht von großer Bedeutsamkeit ist, kann eigentlich jedes der Produkte bestellt werden. Auf Ebay und Amazon ist die Anzahl angebotener Sensoren nahezu unbegrenzt, es wurde für die Teststellung also die oben evaluierte Variante von Amazon bestellt. 
+Die meisten Infarot-Bewegungssensoren sind von der Bauweise nahezu identisch. Die Unterschiede liegen meist nur in der Empfindlichkeit. Da die Reichweite in diesem Fall nicht von großer Bedeutsamkeit ist, kann eigentlich jedes der Produkte bestellt werden. Auf Ebay und Amazon ist die Anzahl angebotener Sensoren nahezu unbegrenzt, es wurde für die Teststellung die oben evaluierte Variante von Amazon bestellt. 
 \subsection{Teststellung}
-Der in Punkt X.X.X gewählte Bewegungssensor wurde beim Hersteller bestellt. In der Teststellung reicht die Stromversorgung des Raspberry Pi. 
+Der in Kapitel \ref{sub:evaluierung-motion} gewählte Bewegungssensor wurde beim Hersteller bestellt. In der Teststellung reicht die Stromversorgung des Raspberry Pi. 
 \paragraph{Technische Daten Sensor:}
 \begin{itemize}
 \item Die Empfindlichkeit und Haltezeit kann eingestellt werden
@@ -63,7 +60,7 @@ Der in Punkt X.X.X gewählte Bewegungssensor wurde beim Hersteller bestellt. In 
 \item \textbf{Aufbau der Schaltung} \\
 Der Sensor wird in der Teststellung direkt vom Raspberry Pi mit Strom versorgt. Für die Datenleitung kann jeder beliebige Pin gewählt werden. 
 \item \textbf{Testcode} \\
-Um eine Änderung am Datenpin festzustellen werden zwei Variable angelegt: current\_status und previous\_status. Das Programm wird in einer Dauerschleife geschickt, in der bei jedem Durchlauf die beiden Status überprüft. Wenn der neue Status (current\_status) High ist und das vorherige Signal (previous\_state) Low, dann wird eine Bewegung erkannt. Der Code wird mittels Kommentare erklärt.	
+Um eine Änderung am Datenpin festzustellen werden zwei Variable angelegt: current\_status und previous\_status. Das Programm wird in einer Dauerschleife geschickt, in der bei jedem Durchlauf die beiden Status überprüft. Wenn der neue Status (current\_status) High ist und das vorherige Signal (previous\_state) Low, wird eine Bewegung erkannt. Der Code wird mittels Kommentare erklärt.	
 
 \begin{lstlisting}[caption = Testcode zur Bewegungserkennung mit Sensor, language=python, frame=single, breaklines=true,columns=fullflexible, commentstyle=\color{gray}\upshape, captionpos=b, numbers = left]
 import RPi.GPIO as GPIO
@@ -95,6 +92,7 @@ except KeyboardInterrupt:
 	print "Quit"
 	GPIO.cleanup()
 \end{lstlisting}
+
 Bei der Endversion des Systems sollen mehrere Beweungssensoren integriert werden. Bei Auslösen des ersten Sensors sollen die LEDs angeschaltet werden und nach auslösen eines weiteren Sensors wieder ausgeschaltet werden.  
 \end{itemize}
 

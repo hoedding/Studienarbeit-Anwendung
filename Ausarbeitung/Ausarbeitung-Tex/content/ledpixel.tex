@@ -1,6 +1,6 @@
 
 \subsection{Bewertungskriterien}
-Die Beleuchtung soll durch einzelne LED-Pixel stattfinden. Ein Pixel bedeutet ein Chip auf dem sowohl die LED und der nötige Treiber sitzt. Für die Evaluierung werden folgende Kriterien gewählt:
+Die Beleuchtung soll durch einzelne LED-Pixel stattfinden. Unter einem LED-Pixel versteht man eine kleine Platine, die sowohl die LED, als auch den nätigen Treiber beinhaltet. Für die Evaluierung werden folgende Kriterien gewählt:
 \begin{itemize}
 \item RGB-Farbraum \\
 Die LED muss den gesamten RGB-Farbraum darstellen können. \\
@@ -19,40 +19,39 @@ An dieser Stelle können mögliche Extras eines Herstellers einfließen. \\
 Gewichtung: 5
 \end{itemize}
 
-\subsection{Evaluierung}
+\subsection{Evaluierung}\label{sub:evalurierung}
 \paragraph{Auflistung der möglichen Bauteile}
 \begin{itemize}
-\item \textbf{Adafruit, Neopixel} \\
-https://www.adafruit.com/neopixel \\
+\item \textbf{Adafruit, Neopixel}\cite{neopixel} \\
 LED-Pixel in unzähligen Ausführungen. \\
 Sitz der Firma in Tampa, Florida, USA \\
-RGB: Chip ist der WS2801, http://www.adafruit.com/datasheets/WS2801.pdf -> Hat volle Abdeckung des RGB-Farbraums \\
+RGB: Chip ist der WS2801\cite{ws2801}, hat volle Abdeckung des RGB-Farbraums \\
 Ansteuerung: Findet über PWM-Pin des Raspberry Pi statt. \\
-Framework: Framework von Adafruit, welches eine sehr leichte Ansteuerung ermöglichen soll. \\
+Framework: Framework von Adafruit, welches eine sehr leichte Ansteuerung ermög- lichen soll. \\
 Kosten: 4 LEDs  7\$, 25 LEDs zusammen  39\$, durch Lieferung aus USA sehr hohe Versandkosten (50\$) \\
 Extras: Händler bietet verschiedene Formen und fertige Ketten an. \\
-\item \textbf{LED-Emotion GMBH, LED Streifen} \\
-http://www.led-emotion.de/de/LED-Streifen-Set.html \\
+
+\item \textbf{LED-Emotion GMBH, LED Streifen}\cite{ledemotiongmbh} \\
 LED-Streifen, keine Einzelpixel, nur mit Controller, keine API \\
 RGB: Voller RGB-Farbraum \\
 Ansteuerung: Nur mit Controller  \\
 Framework: Keine öffentliche Api, möglicherweise mit Raspberry Pi ansteuerbar  \\
 Kosten: 30 LEDs mit Netzteil 79€   \\
 Extras: keine
-\item \textbf{DMX4ALL GmbH, MagiarLED Solutions} \\
-http://www.dmx4all.de/magiar.html \\
+
+\item \textbf{DMX4ALL GmbH, MagiarLED Solutions}\cite{dmx4all} \\
 Spezialisiert auf DMX-Ansteuerung, keine öffentliche API \\
 RGB: Volle Abdeckung RGB-Farbraum \\
 Ansteuerung: Wird über DMX-Controller angesteuert, dieser setzt die Signale um. \\
 Framework: DMX-Ansteurung über DMX-Controller \\
 Kosten: Streifen mit 72 LEDs = 99€ \\
 Extras: viele verschiedene Varianten
-\item \textbf{TinkerForge, RGB LED-Pixel} \\
-https://www.tinkerforge.com/de/shop/accessories/leds.html \\
+
+\item \textbf{TinkerForge, RGB LED-Pixel}\cite{tinkerforge} \\
 Scheinen die gleichen wie von Adafruit zu sein, allerdings werden hauptsächlich Controller im Shop angeboten \\
 RGB: Chip WS2801, volle Abdeckung RGB-Farbraum \\
 Ansteuerung: Nach Anfrage an den Anbieter sollen die LEDs baugleich zu denen von Adafruit sein.  \\
-Framework: keins, aber Ansteuerung über das Framework von Adafruit \\
+Framework: keins, Ansteuerung über das Framework von Adafruit \\
 Kosten: 50 LEDs = 59€ \\
 Extras: Lieferung aus Deutschland
 \end{itemize}
@@ -68,7 +67,7 @@ Extras: Lieferung aus Deutschland
 In der Evaluierung schneiden die Produkte von Adafruit und TinkerForge am besten ab. Für eine erste Teststellung werden die einzelnen LED-Pixel von Adafruit aus den USA bestellt (Neopixel). An diesen soll vor allem die Ansteuerung getestet werden. Falls sie sich bewähren, wird für den endgültigen Aufbau auf die LED-Ketten von Tinkerforge zurück gegriffen. 
 
 \subsection{Teststellung}
-Für einen ersten Test wurde das in 4.2 ausgewählte Produkt als einzelne Pixel bestellt. Der Hersteller Adafruit bietet hier 4er-Packungen an. Diese können leicht in eigene Schaltungen eingelötet oder auf Experimentier-Boards gesteckt werden. Bei geringer Anzahl LEDs reicht die 5V-Stromversorgung des Raspberry Pi aus. 
+Für einen ersten Test wurde das in Kapitel \ref{sub:evalurierung} ausgewählte Produkt als einzelne Pixel bestellt. Der Hersteller Adafruit bietet hier 4er-Packungen an. Diese können leicht in eigene Schaltungen eingelötet oder auf Experimentier-Boards gesteckt werden. Bei geringer Anzahl LEDs reicht die 5V-Stromversorgung des Raspberry Pi aus. 
 \paragraph{Technische Daten Neopixel:} 
 	\begin{itemize}
 	\item Maße: 10.2mm x 12.7mm x 2.5mm
@@ -76,14 +75,14 @@ Für einen ersten Test wurde das in 4.2 ausgewählte Produkt als einzelne Pixel 
 	\item Spannung: 5-9VDC  (bei 3,5V gedimmte Helligkeit) 
 	\item Strom: 18,5mA / LED, 55mA / Pixel
 	\end{itemize}
-\paragraph{Framework:}
+\paragraph{Framework}
 	\begin{itemize}
-	\item RPI\_WS281X (https://github.com/jgarff/rpi\_ws281x)
+	\item RPI\_WS281X\cite{git-rpi-ws281}
 	\item Sprache: Python
 	\item Entwickelt für Raspberry Pi
 	\item Vorraussetzung: Python 2.7
 	\end{itemize}
-\paragraph{Ablauf des Tests:}
+\paragraph{Ablauf des Tests}
 \begin{itemize}
 
 \item \textbf{Aufbau der Schaltung}\\
@@ -95,6 +94,10 @@ An die einzelnen LED-Pixel wurden Stecker angelötet, damit sie auf das Experime
             \caption{Schaltung für LED-Test}
         \end{minipage}
 \end{figure}
+
+\clearpage
+\pagebreak
+
 \item \textbf{Installation des Frameworks} 
 \begin{lstlisting}[caption = Installation Framework ws281x, language=Python, frame=single, breaklines=true,columns=fullflexible, commentstyle=\color{gray}\upshape, captionpos=b, numbers = left]
 wget https://github.com/tdicola/rpi_ws281x/raw/master/python/dist/rpi_ws281x-1.0.0-py2.7-linux-armv6l.egg 
@@ -123,4 +126,4 @@ strip.show()
 \end{itemize}
 \paragraph{Fazit}
 Die einzelnen Pixel sind sehr leicht anzusteuern, unterstützen auch das automatische Abschalten nach einer bestimmten Zeit und haben eine sehr hohe Leuchtkraft. Die Evaluierung hat zu einer guten Produktwahl geführt. \\ 
-Nach einer weiteren Nachfrage an Tinkerforge wurde versichert, dass deren LED-Ketten Baugleich zu denen von Adafruit sind. Aufgrund der hohen Versandkosten werden für die endgültige Teststellung die Produkte von Tinkerforge gewählt. XX Quelle Email !!!!
+Nach einer weiteren Nachfrage an Tinkerforge wurde versichert, dass deren LED-Ketten Baugleich zu denen von Adafruit sind. Aufgrund der hohen Versandkosten werden für die endgültige Teststellung die Produkte von Tinkerforge gewählt.

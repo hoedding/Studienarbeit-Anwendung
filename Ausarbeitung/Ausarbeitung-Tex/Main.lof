@@ -1,13 +1,28 @@
 \select@language {ngerman}
-\contentsline {figure}{\numberline {1}{\ignorespaces Ergebnisse der LED-Evaluierung}}{9}
-\contentsline {figure}{\numberline {2}{\ignorespaces Schaltung f\IeC {\"u}r LED-Test}}{10}
-\contentsline {figure}{\numberline {3}{\ignorespaces Ergebnisse der Motion-Sensor-Evaluierung}}{13}
-\contentsline {figure}{\numberline {4}{\ignorespaces RTSP Request-Strings}}{17}
-\contentsline {figure}{\numberline {5}{\ignorespaces Ablauf der Aufzeichnung mit FFmpeg}}{18}
-\contentsline {figure}{\numberline {6}{\ignorespaces Abrufen des Bildes \IeC {\"u}ber HTTP-Request}}{21}
-\contentsline {figure}{\numberline {7}{\ignorespaces Wireshark Trace TLS Handshake}}{24}
-\contentsline {figure}{\numberline {8}{\ignorespaces Anwendungsstruktur Server-Anwendung}}{29}
-\contentsline {figure}{\numberline {9}{\ignorespaces Prozess und Threads}}{37}
-\contentsline {figure}{\numberline {10}{\ignorespaces Entit\IeC {\"a}t Config}}{43}
-\contentsline {figure}{\numberline {11}{\ignorespaces Konzept der Server-Client-Kommunikation}}{44}
-\contentsline {figure}{\numberline {12}{\ignorespaces Schaltplan der Steckplatine}}{46}
+\contentsline {figure}{\numberline {1}{\ignorespaces Ergebnisse der LED-Evaluierung}}{10}
+\contentsline {figure}{\numberline {2}{\ignorespaces Schaltung f\IeC {\"u}r LED-Test}}{11}
+\contentsline {figure}{\numberline {3}{\ignorespaces Ergebnisse der Motion-Sensor-Evaluierung}}{14}
+\contentsline {figure}{\numberline {4}{\ignorespaces RTSP Request Ablauf}}{18}
+\contentsline {figure}{\numberline {5}{\ignorespaces Ablauf der Aufzeichnung mit FFmpeg}}{19}
+\contentsline {figure}{\numberline {6}{\ignorespaces Abrufen des Bildes \IeC {\"u}ber HTTP-Request}}{22}
+\contentsline {figure}{\numberline {7}{\ignorespaces Wireshark Trace TLS Handshake}}{25}
+\contentsline {figure}{\numberline {8}{\ignorespaces Anwendungsstruktur Server-Anwendung}}{26}
+\contentsline {figure}{\numberline {9}{\ignorespaces Prozess und Threads}}{34}
+\contentsline {figure}{\numberline {10}{\ignorespaces Entit\IeC {\"a}t Config in CoreData}}{45}
+\contentsline {figure}{\numberline {12}{\ignorespaces Startseite iOS-App}}{46}
+\contentsline {figure}{\numberline {13}{\ignorespaces Login iOS-App}}{46}
+\contentsline {figure}{\numberline {11}{\ignorespaces Konzept der Server-Client-Kommunikation}}{47}
+\contentsline {figure}{\numberline {14}{\ignorespaces Farbsteuerung iOS-App}}{48}
+\contentsline {figure}{\numberline {15}{\ignorespaces Konfiguration in iOS-App}}{48}
+\contentsline {figure}{\numberline {16}{\ignorespaces Archiv iOS-App}}{49}
+\contentsline {figure}{\numberline {17}{\ignorespaces Live-View iOS-App}}{49}
+\contentsline {figure}{\numberline {18}{\ignorespaces Schaltplan Steckplatine}}{50}
+\contentsline {figure}{\numberline {19}{\ignorespaces Ge\IeC {\"a}tzte Steckplatine ohne Best\IeC {\"u}ckung}}{50}
+\contentsline {figure}{\numberline {20}{\ignorespaces Schaltplan Steckplatine}}{57}
+\contentsline {figure}{\numberline {21}{\ignorespaces Platinenlayout Steckplatine}}{57}
+\contentsline {figure}{\numberline {22}{\ignorespaces Skizze des Aufbaus}}{58}
+\contentsline {figure}{\numberline {23}{\ignorespaces Kamera im Testaufbau}}{58}
+\contentsline {figure}{\numberline {24}{\ignorespaces Aufbau Raspberry Pi und Steckplatine}}{59}
+\contentsline {figure}{\numberline {25}{\ignorespaces Live-View im Testaufbau}}{59}
+\contentsline {figure}{\numberline {26}{\ignorespaces Bewegungssensor im Testaufbau}}{60}
+\contentsline {figure}{\numberline {27}{\ignorespaces LED-Streifen im Testaufbau}}{60}

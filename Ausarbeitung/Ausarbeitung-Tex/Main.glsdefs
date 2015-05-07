@@ -1,0 +1,90 @@
+\ifglsentryexists{potato}{}%
+{%
+\gls@defglossaryentry{potato}%
+{%
+name={potato},%
+sort={potato},%
+type={main},%
+first={potato},%
+firstplural={potatoes},%
+text={potato},%
+plural={potatoes},%
+description={starchy tuber},%
+descriptionplural={starchy tuber},%
+symbol={\relax },%
+symbolplural={\relax },%
+user1={},%
+user2={},%
+user3={},%
+user4={},%
+user5={},%
+user6={},%
+long={},%
+longplural={},%
+short={},%
+shortplural={},%
+counter={page},%
+parent={},%
+%
+}%
+}%
+\ifglsentryexists{cabbage}{}%
+{%
+\gls@defglossaryentry{cabbage}%
+{%
+name={cabbage},%
+sort={cabbage},%
+type={main},%
+first={cabbage},%
+firstplural={cabbages},%
+text={cabbage},%
+plural={cabbages},%
+description={vegetable with thick green or purple leaves},%
+descriptionplural={vegetable with thick green or purple leaves},%
+symbol={\relax },%
+symbolplural={\relax },%
+user1={},%
+user2={},%
+user3={},%
+user4={},%
+user5={},%
+user6={},%
+long={},%
+longplural={},%
+short={},%
+shortplural={},%
+counter={page},%
+parent={},%
+%
+}%
+}%
+\ifglsentryexists{carrot}{}%
+{%
+\gls@defglossaryentry{carrot}%
+{%
+name={carrot},%
+sort={carrot},%
+type={main},%
+first={carrot},%
+firstplural={carrots},%
+text={carrot},%
+plural={carrots},%
+description={orange root},%
+descriptionplural={orange root},%
+symbol={\relax },%
+symbolplural={\relax },%
+user1={},%
+user2={},%
+user3={},%
+user4={},%
+user5={},%
+user6={},%
+long={},%
+longplural={},%
+short={},%
+shortplural={},%
+counter={page},%
+parent={},%
+%
+}%
+}%

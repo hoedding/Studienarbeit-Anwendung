@@ -1,90 +1,102 @@
 \select@language {ngerman}
-\contentsline {section}{\numberline {1}Einleitung}{3}
-\contentsline {section}{\numberline {2}Teilprojekte}{4}
-\contentsline {section}{\numberline {3}Projektmanagement}{5}
-\contentsline {subsection}{\numberline {3.1}Meilensteintrendanalyse}{5}
-\contentsline {paragraph}{Bemerkung}{5}
-\contentsline {subsection}{\numberline {3.2}Meilensteine und Erfolgspr\IeC {\"u}fung}{5}
-\contentsline {section}{\numberline {4}LED-Pixel}{8}
-\contentsline {subsection}{\numberline {4.1}Bewertungskriterien}{8}
-\contentsline {subsection}{\numberline {4.2}Evaluierung}{8}
-\contentsline {paragraph}{Auflistung der m\IeC {\"o}glichen Bauteile}{8}
-\contentsline {paragraph}{Fazit:}{9}
-\contentsline {subsection}{\numberline {4.3}Teststellung}{9}
-\contentsline {paragraph}{Technische Daten Neopixel:}{10}
-\contentsline {paragraph}{Framework:}{10}
-\contentsline {paragraph}{Ablauf des Tests:}{10}
-\contentsline {paragraph}{Fazit}{11}
-\contentsline {section}{\numberline {5}Bewegungssensor}{12}
-\contentsline {subsection}{\numberline {5.1}Bewertungskriterien}{12}
-\contentsline {subsection}{\numberline {5.2}Evaluierung}{12}
-\contentsline {paragraph}{Fazit}{13}
-\contentsline {subsection}{\numberline {5.3}Teststellung}{13}
-\contentsline {paragraph}{Technische Daten Sensor:}{13}
-\contentsline {paragraph}{Ablauf des Tests:}{13}
-\contentsline {paragraph}{Auswertung}{14}
-\contentsline {section}{\numberline {6}Kamera}{15}
-\contentsline {subsection}{\numberline {6.1}PI-Kamera vs. Netzwerkkamera}{15}
-\contentsline {paragraph}{Raspberry Pi Cam}{15}
-\contentsline {paragraph}{Netzwerkkamera}{15}
-\contentsline {subsection}{\numberline {6.2}Herangehensweise Ansteuerung}{15}
-\contentsline {paragraph}{Auswertung des RTSP-Protokolls mit Python}{15}
-\contentsline {paragraph}{Speicherung des Video-Streams mit FFmpeg}{15}
+\contentsline {section}{\numberline {1}Glossar}{3}
+\contentsline {section}{\numberline {2}Einleitung}{4}
+\contentsline {section}{\numberline {3}Hinweise}{5}
+\contentsline {paragraph}{Literatur}{5}
+\contentsline {paragraph}{Grafiken}{5}
+\contentsline {paragraph}{Quellcode}{5}
+\contentsline {section}{\numberline {4}Projektmanagement}{6}
+\contentsline {subsection}{\numberline {4.1}Meilensteintrendanalyse}{6}
+\contentsline {paragraph}{Bemerkung}{6}
+\contentsline {subsection}{\numberline {4.2}Meilensteine und Erfolgspr\IeC {\"u}fung}{6}
+\contentsline {section}{\numberline {5}LED-Pixel}{9}
+\contentsline {subsection}{\numberline {5.1}Bewertungskriterien}{9}
+\contentsline {subsection}{\numberline {5.2}Evaluierung}{9}
+\contentsline {paragraph}{Auflistung der m\IeC {\"o}glichen Bauteile}{9}
+\contentsline {paragraph}{Fazit:}{10}
+\contentsline {subsection}{\numberline {5.3}Teststellung}{10}
+\contentsline {paragraph}{Technische Daten Neopixel:}{11}
+\contentsline {paragraph}{Framework}{11}
+\contentsline {paragraph}{Ablauf des Tests}{11}
+\contentsline {paragraph}{Fazit}{12}
+\contentsline {section}{\numberline {6}Bewegungssensor}{13}
+\contentsline {subsection}{\numberline {6.1}Bewertungskriterien}{13}
+\contentsline {subsection}{\numberline {6.2}Evaluierung}{13}
+\contentsline {paragraph}{Fazit}{14}
+\contentsline {subsection}{\numberline {6.3}Teststellung}{14}
+\contentsline {paragraph}{Technische Daten Sensor:}{14}
+\contentsline {paragraph}{Ablauf des Tests:}{14}
+\contentsline {paragraph}{Auswertung}{15}
+\contentsline {section}{\numberline {7}Kamera}{16}
+\contentsline {subsection}{\numberline {7.1}PI-Kamera vs. Netzwerkkamera}{16}
+\contentsline {paragraph}{Raspberry Pi Cam}{16}
+\contentsline {paragraph}{Netzwerkkamera}{16}
+\contentsline {subsection}{\numberline {7.2}Herangehensweise Ansteuerung}{16}
+\contentsline {paragraph}{Auswertung des RTSP-Protokolls mit Python}{16}
+\contentsline {paragraph}{Speicherung des Video-Streams mit FFmpeg}{16}
 \contentsline {paragraph}{Speicherung des Bild mittels Screenshot oder HTTP-Request}{16}
-\contentsline {subsection}{\numberline {6.3}Auswertung des RTSP/RTP-Protokolls mit Python}{16}
-\contentsline {paragraph}{RTSP Handshake}{16}
-\contentsline {subsection}{\numberline {6.4}RTSP mit Python}{16}
-\contentsline {subsection}{\numberline {6.5}Speicherung des Video-Streams mit FFmpeg}{17}
-\contentsline {paragraph}{Ablauf}{17}
-\contentsline {paragraph}{Vorteil}{18}
-\contentsline {paragraph}{Nachteil}{18}
-\contentsline {subsection}{\numberline {6.6}Speicherung des Bild mittels Screenshot}{18}
-\contentsline {subsection}{\numberline {6.7}Speicherung des Bild mittels HTTP-Request}{19}
-\contentsline {paragraph}{Fazit}{21}
-\contentsline {section}{\numberline {7}Verschl\IeC {\"u}sselung}{22}
-\contentsline {subsection}{\numberline {7.1}SSL vs. TLS}{22}
-\contentsline {subsection}{\numberline {7.2}Vor- und Nachteile TLS}{22}
-\contentsline {subsection}{\numberline {7.3}TLS Handshake}{22}
-\contentsline {subsection}{\numberline {7.4}StartTLS}{23}
-\contentsline {subsection}{\numberline {7.5}Server Zertifikat}{23}
-\contentsline {subsection}{\numberline {7.6}Apple Zertifikat}{23}
-\contentsline {subsection}{\numberline {7.7}Wireshark Trace}{24}
-\contentsline {section}{\numberline {8}Python-Server und Protokoll}{25}
-\contentsline {subsection}{\numberline {8.1}Protokoll}{25}
-\contentsline {subsection}{\numberline {8.2}Server-Framework}{26}
-\contentsline {subsection}{\numberline {8.3}Beispielimplementierung Webserver}{26}
-\contentsline {subsection}{\numberline {8.4}Implementierung Webserver}{27}
-\contentsline {subsection}{\numberline {8.5}Hashfunktion}{28}
-\contentsline {paragraph}{Hash-Funktion}{28}
-\contentsline {section}{\numberline {9}Anwendungsstruktur Serverapplikation}{29}
-\contentsline {subsection}{\numberline {9.1}Klassen und ihre Funktionen}{29}
-\contentsline {subsection}{\numberline {9.2}Auswertung empfangener Daten}{30}
-\contentsline {subsection}{\numberline {9.3}Konfiguration}{33}
-\contentsline {paragraph}{Konfigurations-Datei}{33}
-\contentsline {paragraph}{Status der LED}{34}
-\contentsline {paragraph}{Lesen und Schreiben der Konfiguration}{34}
-\contentsline {subsection}{\numberline {9.4}Apple Push Notification}{35}
-\contentsline {paragraph}{Eigenschaften}{35}
-\contentsline {subsection}{\numberline {9.5}Unit-Test}{37}
-\contentsline {subsection}{\numberline {9.6}Threads}{37}
-\contentsline {paragraph}{Problem}{37}
-\contentsline {paragraph}{L\IeC {\"o}sung}{37}
-\contentsline {paragraph}{Beispielcode}{38}
-\contentsline {paragraph}{Cleanup}{39}
-\contentsline {section}{\numberline {10}Konfiguration und Installation}{40}
-\contentsline {subsection}{\numberline {10.1}Installation}{40}
-\contentsline {subsection}{\numberline {10.2}Konfiguration}{40}
-\contentsline {section}{\numberline {11}iOS App}{41}
-\contentsline {subsection}{\numberline {11.1}Swift}{41}
-\contentsline {subsection}{\numberline {11.2}\IeC {\"U}bertragung}{41}
-\contentsline {paragraph}{Sockets}{41}
-\contentsline {paragraph}{HTTP}{42}
-\contentsline {subsection}{\numberline {11.3}CoreData}{43}
-\contentsline {subsection}{\numberline {11.4}Konzept}{44}
-\contentsline {subsection}{\numberline {11.5}Aufbau}{45}
-\contentsline {paragraph}{Framworks}{45}
-\contentsline {section}{\numberline {12}Praktische Umsetzung}{46}
-\contentsline {paragraph}{Fazit}{46}
-\contentsline {section}{\numberline {13}Fazit}{47}
-\contentsline {section}{\numberline {14}Abbildungsverzeichnis}{48}
-\contentsline {chapter}{Listings}{49}
+\contentsline {subsection}{\numberline {7.3}Auswertung des RTSP/RTP-Protokolls mit Python}{17}
+\contentsline {paragraph}{RTSP Handshake}{17}
+\contentsline {subsection}{\numberline {7.4}RTSP mit Python}{17}
+\contentsline {subsection}{\numberline {7.5}Speicherung des Video-Streams mit FFmpeg}{18}
+\contentsline {paragraph}{Ablauf}{18}
+\contentsline {paragraph}{Vorteil}{19}
+\contentsline {paragraph}{Nachteil}{19}
+\contentsline {subsection}{\numberline {7.6}Speicherung des Bild mittels Screenshot}{19}
+\contentsline {subsection}{\numberline {7.7}Speicherung des Bild mittels HTTP-Request}{20}
+\contentsline {paragraph}{Fazit}{22}
+\contentsline {section}{\numberline {8}Verschl\IeC {\"u}sselung}{23}
+\contentsline {subsection}{\numberline {8.1}SSL vs. TLS}{23}
+\contentsline {subsection}{\numberline {8.2}Vor- und Nachteile TLS}{23}
+\contentsline {subsection}{\numberline {8.3}TLS Handshake}{23}
+\contentsline {subsection}{\numberline {8.4}StartTLS}{23}
+\contentsline {subsection}{\numberline {8.5}Server Zertifikat}{24}
+\contentsline {subsection}{\numberline {8.6}Apple Zertifikat}{24}
+\contentsline {subsection}{\numberline {8.7}Wireshark Trace}{25}
+\contentsline {section}{\numberline {9}Anwendungsstruktur Serverapplikation}{26}
+\contentsline {subsection}{\numberline {9.1}Klassen und ihre Funktionen}{26}
+\contentsline {subsection}{\numberline {9.2}Auswertung empfangener Daten}{27}
+\contentsline {subsection}{\numberline {9.3}Konfiguration}{30}
+\contentsline {paragraph}{Konfigurations-Datei}{30}
+\contentsline {paragraph}{Status der LED}{31}
+\contentsline {paragraph}{Lesen und Schreiben der Konfiguration}{31}
+\contentsline {subsection}{\numberline {9.4}Apple Push Notification}{33}
+\contentsline {paragraph}{Eigenschaften}{33}
+\contentsline {subsection}{\numberline {9.5}Unit-Test}{34}
+\contentsline {subsection}{\numberline {9.6}Threads}{34}
+\contentsline {paragraph}{Problem}{34}
+\contentsline {paragraph}{L\IeC {\"o}sung}{35}
+\contentsline {paragraph}{Beispielcode}{35}
+\contentsline {paragraph}{Cleanup}{36}
+\contentsline {section}{\numberline {10}Python-Server und Protokoll}{38}
+\contentsline {subsection}{\numberline {10.1}Protokoll}{38}
+\contentsline {subsection}{\numberline {10.2}Server-Framework}{39}
+\contentsline {subsection}{\numberline {10.3}Beispielimplementierung Webserver}{39}
+\contentsline {subsection}{\numberline {10.4}Implementierung Webserver}{40}
+\contentsline {subsection}{\numberline {10.5}Hashfunktion}{41}
+\contentsline {paragraph}{Hash-Funktion}{41}
+\contentsline {section}{\numberline {11}Konfiguration und Installation}{42}
+\contentsline {subsection}{\numberline {11.1}Installation}{42}
+\contentsline {subsection}{\numberline {11.2}Konfiguration}{42}
+\contentsline {section}{\numberline {12}iOS App}{43}
+\contentsline {subsection}{\numberline {12.1}Swift}{43}
+\contentsline {subsection}{\numberline {12.2}\IeC {\"U}bertragung}{43}
+\contentsline {paragraph}{Sockets}{43}
+\contentsline {paragraph}{Socketverbindung in Swift}{43}
+\contentsline {paragraph}{HTTP}{44}
+\contentsline {subsection}{\numberline {12.3}CoreData}{45}
+\contentsline {subsection}{\numberline {12.4}Konzept Synchronisation}{46}
+\contentsline {subsection}{\numberline {12.5}Aufbau}{46}
+\contentsline {paragraph}{Startbildschirm}{46}
+\contentsline {paragraph}{Manuelle Steuerung}{47}
+\contentsline {paragraph}{Konfiguration}{48}
+\contentsline {paragraph}{Archiv}{49}
+\contentsline {paragraph}{Live}{49}
+\contentsline {paragraph}{Framworks}{49}
+\contentsline {section}{\numberline {13}Praktische Umsetzung}{50}
+\contentsline {paragraph}{Fazit}{50}
+\contentsline {section}{\numberline {14}Fazit}{51}
+\contentsline {section}{\numberline {15}Abbildungsverzeichnis}{52}
+\contentsline {section}{16 Listings}{53}
+\contentsline {section}{17 Literatur}{54}
+\contentsline {section}{\numberline {A}Anhang}{57}

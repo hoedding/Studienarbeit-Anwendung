@@ -29,8 +29,8 @@ Im Logfile werden unter anderem auftretende Fehler gespeichert.
 \end{itemize}
 
 \subsection{Auswertung empfangener Daten}
-Da die Daten anhand des ausgearbeiteten Protokolls übertragen werden, können sie als String sehr einfach an den ":" aufgesplittet werden. Im Anschluss werden sie einzelnen Variablen zugewissen (bessere Lesbarkeit des Codes). Bevor das 'Control'-Feld ausgewertet wird, muss der Hashwert der Übertragung und die Authentifizierung geprüft werden. \\\\
-\textbf{RecvdData.py Auswertung} 
+Da die Daten anhand des ausgearbeiteten Protokolls übertragen werden, können sie als String sehr einfach an den ':' aufgesplittet werden. Im Anschluss werden sie einzelnen Variablen zugewissen (bessere Lesbarkeit des Codes). Bevor das 'Control'-Feld ausgewertet wird, muss der Hashwert der Übertragung und die Authentifizierung geprüft werden. Der Code wird mittels Kommentaren erläutert. \\\\
+\textbf{RecvdData.py Auswertung\footnote{Die komplette Klasse ist einsehbar unter: \url{https://github.com/hoedding/Studienarbeit-Anwendung/blob/master/RaspberryPI/RecvdData.py}}} 
 \begin{lstlisting}[caption=Auswertung der empfangenen Daten (RcvdData.py), language=python, frame=single, breaklines=true,columns=fullflexible, commentstyle=\color{gray}\upshape, captionpos=b, numbers = left]
 def dataReceived(self, data):
  # Protokoll: user:pw:control:ledNo:rangeStart:rangeEnd:red:green:blue:modus:effectcode:config:hashv
@@ -92,9 +92,9 @@ def dataReceived(self, data):
    else:
      print center.writeLog('Übertragung fehlerhaft')
 \end{lstlisting}
-Die komplette Klasse ist einsehbar unter: \url{https://github.com/hoedding/Studienarbeit-Anwendung/blob/master/RaspberryPI/RecvdData.py} \\\\ 
 
-\textbf{RecvdData.py gesamt} 
+
+\textbf{RecvdData.py gesamt\footnote{Der vollständige Code ist unter \url{https://github.com/hoedding/Studienarbeit-Anwendung/blob/master/RaspberryPI/RecvdData.py} einsehbar.}} 
 \begin{lstlisting}[caption =Implementierung des Nachrichten-Verarbeitung in Python, language=python, frame=single, breaklines=true,columns=fullflexible, commentstyle=\color{gray}\upshape, captionpos=b, numbers = left]
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
@@ -162,12 +162,11 @@ def sendLEDStatus(self):
 def changeConfiguration(self, config):
 # Konfiguration der Anwendung ändern
 \end{lstlisting}
-Der vollständige Code ist unter \url{https://github.com/hoedding/Studienarbeit-Anwendung/blob/master/RaspberryPI/RecvdData.py} einsehbar.
 
 
 
 \subsection{Konfiguration}
-\paragraph{Konfigurations-Datei}
+\paragraph{Konfigurations-Datei}\footnote{Zu finden auf Github: https://github.com/hoedding/Studienarbeit-Anwendung/blob/master /RaspberryPI/config.json}
 Die Informationen die zum Betrieb notwendig sind, werden in JSON-Format gespeichert.
 \begin{lstlisting}[caption=Konfigurationsdatei config.json, language=xml, frame=single, breaklines=true,columns=fullflexible, commentstyle=\color{gray}\upshape, captionpos=b, numbers = left]
 {
@@ -217,7 +216,7 @@ def getLEDStatusAsJson(self):
   
 \end{lstlisting}
 
-\paragraph{Lesen und Schreiben der Konfiguration}  Um die Konfiguration lesend und schreiben bearbeiten zu können wird ein ConfigReader und ein ConfigWriter implementiert. Bei jeder neuen Verbindung der iOS-App zum Server wird das Token für die Notification übertragen. Diese wird, falls noch nicht vorhanden, in die Datei tokenlist.json eingetragen. Das neue Passwort muss vor dem Abspeichern noch in einen Hash-Wert umgewandelt werde. 
+\paragraph{Lesen und Schreiben der Konfiguration}\footnote{Zu finden auf Github: https://github.com/hoedding/Studienarbeit-Anwendung/blob/master /RaspberryPI/ConfigReader.py /ConfigWriter.py}  Um die Konfiguration lesend und schreiben bearbeiten zu können wird ein ConfigReader und ein ConfigWriter implementiert. Bei jeder neuen Verbindung der iOS-App zum Server wird das Token für die Notification übertragen. Diese wird, falls noch nicht vorhanden, in die Datei tokenlist.json eingetragen. Das neue Passwort muss vor dem Abspeichern noch in einen Hash-Wert umgewandelt werde. 
 \begin{lstlisting}[caption=ConfigReader / ConfigWriter, language=xml, frame=single, breaklines=true,columns=fullflexible, commentstyle=\color{gray}\upshape, captionpos=b, numbers = left]
 class ConfigReader():
 	def getValue(self, key):
@@ -278,9 +277,9 @@ Es können zum Beispiel folgende Informationen übergeben werden:
 	\item Der abzuspielende Sound
 \end{itemize}
 \textbf{Implementierung}\\
-Für die Implementierung wird die Library PyAPNs https://pypi.python.org/pypi/apns/ eingesetzt. Diese bietet alle Möglichkeiten, auf einfach Art und Weise, Notifications zu senden. \\
+Für die Implementierung wird die Library PyAPNs\cite{pypans} eingesetzt. Diese bietet alle Möglichkeiten, auf einfach Art und Weise, Notifications zu senden. \\
 Bei der Initialisierung werden die gespeicherten Tokens aus der Datei tokenlist.json geladen. Im Anschluss kann über die push()-Methode die Notification an alle Geräte gesendet werden. 
-\begin{lstlisting}[caption=ConfigReader / ConfigWriter, language=xml, frame=single, breaklines=true,columns=fullflexible, commentstyle=\color{gray}\upshape, captionpos=b, numbers = left]
+\begin{lstlisting}[caption=Apple Push Notification in Python, language=xml, frame=single, breaklines=true,columns=fullflexible, commentstyle=\color{gray}\upshape, captionpos=b, numbers = left]
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
 #######################
@@ -313,8 +312,7 @@ class ApplePush():
 
 
 \subsection{Unit-Test}
-In Python ist es möglich Unit-Tests zu schreiben. Mit diesen wird hauptsächlich die Initialisierung der einzelnen Klassen geprüft. So kann schnell herausgefunden werden, ob in diesen Implementierungsfehler vorliegen. Außerdem werden ConfigReader und ConfigWriter getestet. \\
-Eine Ausgabe sieht so aus:
+In Python ist es möglich Unit-Tests\cite{unittest} zu schreiben. Mit diesen wird hauptsächlich die Initialisierung der einzelnen Klassen geprüft. So kann schnell herausgefunden werden, ob in diesen Implementierungsfehler vorliegen. Außerdem werden ConfigReader und ConfigWriter getestet. \\
 
 \begin{lstlisting}[caption=Ausgabe der Klasse UNIT\_Test, language=python, frame=single, breaklines=true,columns=fullflexible, commentstyle=\color{gray}\upshape, captionpos=b, numbers = left]
 root@raspberrypi:/home/timo/Studienarbeit# python UNIT_Test.py 
@@ -344,13 +342,13 @@ Ran 11 tests in 1.873s
 \subsection{Threads}
 
 \begin{wrapfigure}{l}{0.4\textwidth}
-	\vspace{-20pt}
+	\vspace{-30pt}
 	\begin{center}
 		\includegraphics[width=0.3\textwidth]{./data/Threads.png}
 	\end{center}
 	\vspace{-20pt}
 	\caption{Prozess und Threads}
-	\vspace{-10pt}
+	\vspace{-60pt}
 \end{wrapfigure}
 
 \paragraph{Problem}  Die Server-Klasse und Sensor-Klasse befinden sich in einer Endlosschleife, da sie dauerhaft auf eine Eingabe warten. Beim Server sind dies Empfangene Daten und beim Sensor Bewegungssignale. Würden alle Klassen in einem Thread ablaufen, so würde nur eine Klasse gestartet werden und der Anwendungsablauf in dieser bleiben. 
