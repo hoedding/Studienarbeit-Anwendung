@@ -29,7 +29,7 @@ class setup():
         writer.changeConfig("ledcount", ledcount)
         writer.changeConfig("motionport1", motionport1)
         writer.changeConfig("motionport2", motionport2)
-        writer.changeConfig("timerperiod", timer)
+        writer.changeConfig("timeperiod", timer)
 
     def camConfig(self):
         writer = ConfigWriter()
