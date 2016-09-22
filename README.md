@@ -21,11 +21,13 @@ Sprachen:
 
 - App: Swift / Objective-C
 
-Kontakt:
-<mail@timohoeting.de>
+Kontakt
+--------------
+mail@timohoeting.de
 
 Installation
-git clone https://github.com/hoedding/Studienarbeit-Anwendung.git
-sudo python Center.py yourUser
+--------------
+>git clone https://github.com/timohoeting/Studienarbeit-Anwendung.git
+>sudo python Center.py yourUser
 
 Standarduser: admin / password
